@@ -16,6 +16,8 @@
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/rating/rating.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/range/range.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/badge/badge.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/tooltip/tooltip.js"></script>
 </head>
 <body>
@@ -33,7 +35,7 @@
     <p class="drawer-description">
       lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
     <p class="site-description">
-      <luna-badge variant="success">v0.0.5</luna-badge> 
+      <luna-badge variant="success">v0.0.6</luna-badge> 
       <a href="https://github.com/dmac780/lunaDOM" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -100,7 +102,7 @@
         <a class="site-logo" href="/lunaDOM-Docs/">lunaDOM Docs</a>
         <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
         <p class="site-description">
-          <luna-badge variant="success">v0.0.5</luna-badge>      
+          <luna-badge variant="success">v0.0.6</luna-badge>      
           <a href="https://github.com/dmac780/lunaDOM" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -170,35 +172,69 @@
       </header>
 
       <article>
-        <p>The <code>&lt;luna-rating&gt;</code> component displays interactive star ratings with support for fractional precision.</p>
+        <p>The <code>&lt;luna-rating&gt;</code> component displays interactive star ratings with support for fractional precision and whole-number snapping.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/rating/rating.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
-<code>/lunadom/components/range/range.js</code><br>
-<code>/lunadom/components/tooltip/tooltip.js</code>
+<code>/lunadom/components/rating/rating.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@attr label</code> - Label text<br>
-<code>@attr value</code> - Rating value (0-5)<br>
-<code>@attr precision</code> - Precision step (0.1, 0.5, 1)<br>
-<code>@attr size</code> - Size (sm, md, lg)<br>
-<code>@attr readonly</code> - Make rating readonly<br>
-<code>@attr disabled</code> - Disable the rating<br>
-<code>--star-active</code> - Active star color
+<code>@attr value="0"</code> - Current rating value<br>
+<code>@attr max="5"</code> - Total number of stars<br>
+<code>@attr precision="1"</code> - Step precision (e.g., 0.5 for half stars)<br>
+<code>@attr whole</code> - Snap to whole integers only (1, 2, 3...)<br>
+<code>@attr readonly</code> - Disables interaction, displays value only<br>
+<code>@attr disabled</code> - Disables interaction with reduced opacity<br>
+<code>@attr size</code> - Star size preset (sm, md, lg)<br>
+<code>@attr label</code> - Label displayed above stars<br>
+<code>--luna-star-active</code> - Fill color of active stars<br>
+<code>--luna-star-empty</code> - Fill color of empty stars<br>
+<code>--luna-star-size</code> - Override star size directly<br>
+<code>--luna-rating-label-color</code> - Label text color<br>
+<code>--luna-rating-label-size</code> - Label font size
 
-<h2>Fractional Ratings</h2>
-<luna-rating label="Half Stars (Precision: 0.5)" value="3.5" precision="0.5" size="md"></luna-rating>
-<luna-rating label="Fine Grid (Precision: 0.1)" value="4.2" precision="0.1" size="lg" style="--star-active: #ef4444;"></luna-rating>
+<h2>Basic Usage</h2>
+<luna-rating label="Rate this product" value="3" size="md"></luna-rating>
 
-<h2>Static & Disabled</h2>
-<luna-rating label="Readonly (Static Display)" value="4.5" precision="0.5" readonly></luna-rating>
+<h2>Fractional Precision</h2>
+<luna-rating label="Half Stars (0.5)" value="3.5" precision="0.5" size="md"></luna-rating>
+<luna-rating label="Fine Control (0.1)" value="4.2" precision="0.1" size="md"></luna-rating>
+
+<h2>Whole Number Snapping</h2>
+<luna-rating label="Whole Stars Only" value="4" whole size="lg"></luna-rating>
+
+<h2>Different Sizes</h2>
+<luna-rating label="Small" value="4" size="sm"></luna-rating>
+<luna-rating label="Medium" value="4" size="md"></luna-rating>
+<luna-rating label="Large" value="4" size="lg"></luna-rating>
+
+<h2>Custom Stars Count</h2>
+<luna-rating label="10-Star Scale" value="7" max="10" size="md"></luna-rating>
+
+<h2>Custom Colors</h2>
+<luna-rating 
+  label="Custom Red" 
+  value="3.5" 
+  precision="0.5" 
+  size="lg" 
+  style="--luna-star-active: #ef4444;"
+></luna-rating>
+
+<luna-rating 
+  label="Custom Green" 
+  value="4" 
+  size="lg" 
+  style="--luna-star-active: #22c55e;"
+></luna-rating>
+
+<h2>Readonly & Disabled</h2>
+<luna-rating label="Readonly Display" value="4.5" precision="0.5" readonly></luna-rating>
 <luna-rating label="Disabled State" value="2.5" disabled></luna-rating>
 
-<h2>Interactive Sync</h2>
-<div style="background: #1a1a1a; padding: 1.5rem; border-radius: 1rem; border: 1px solid #333;">
+<h2>Interactive Control with Range Slider</h2>
+<div style="background: #1a1a1a; padding: 2rem; border-radius: 1rem; border: 1px solid #333;">
   <luna-range 
     id="rating-controller" 
-    label="Adjust Rating" 
+    label="Adjust Rating with Slider" 
     min="0" 
     max="5" 
     step="0.1" 
@@ -206,7 +242,7 @@
     style="margin-bottom: 2rem;"
   ></luna-range>
   
-  <div style="display: flex; align-items: center; justify-content: center; background: #222; padding: 1.5rem; border-radius: 0.5rem;">
+  <div style="display: flex; align-items: center; justify-content: center; background: #0a0a0a; padding: 2rem; border-radius: 0.5rem; border: 1px solid #222;">
     <luna-rating id="controlled-rating" value="3.5" precision="0.1" size="lg"></luna-rating>
   </div>
 </div>
@@ -214,71 +250,93 @@
 <script>
   const range = document.getElementById('rating-controller');
   const rating = document.getElementById('controlled-rating');
-  range.addEventListener('input', (e) => {
+  
+  range.addEventListener('luna-input', (e) => {
     rating.value = e.target.value;
+  });
+  
+  rating.addEventListener('luna-change', (e) => {
+    range.value = e.detail.value;
   });
 </script>
 
 <h2>Example Code</h2>
 <luna-code language="html">
-&lt;!-- Fractional Ratings --&gt;
-&lt;luna-rating
-  label="Half Stars (Precision: 0.5)"
-  value="3.5"
-  precision="0.5"
+&lt;!-- Basic rating --&gt;
+&lt;luna-rating 
+  label="Rate this product" 
+  value="3" 
   size="md"
-&gt;
-&lt;/luna-rating&gt;
+&gt;&lt;/luna-rating&gt;
 
-&lt;luna-rating
-  label="Fine Grid (Precision: 0.1)"
-  value="4.2"
-  precision="0.1"
-  size="lg"
-  style="--star-active: #ef4444;"
-&gt;
-&lt;/luna-rating&gt;
-
-&lt;!-- Static & Disabled --&gt;
-&lt;luna-rating
-  label="Readonly (Static Display)"
-  value="4.5"
+&lt;!-- Half-star precision --&gt;
+&lt;luna-rating 
+  label="Half Stars" 
+  value="3.5" 
   precision="0.5"
+&gt;&lt;/luna-rating&gt;
+
+&lt;!-- Whole numbers only --&gt;
+&lt;luna-rating 
+  label="Whole Stars Only" 
+  value="4" 
+  whole
+&gt;&lt;/luna-rating&gt;
+
+&lt;!-- Custom star count --&gt;
+&lt;luna-rating 
+  label="10-Star Scale" 
+  value="7" 
+  max="10"
+&gt;&lt;/luna-rating&gt;
+
+&lt;!-- Custom colors --&gt;
+&lt;luna-rating 
+  value="4" 
+  style="--luna-star-active: #ef4444;"
+&gt;&lt;/luna-rating&gt;
+
+&lt;!-- Readonly --&gt;
+&lt;luna-rating 
+  value="4.5" 
   readonly
-&gt;
-&lt;/luna-rating&gt;
+&gt;&lt;/luna-rating&gt;
 
-&lt;luna-rating
-  label="Disabled State"
-  value="2.5"
-  disabled
-&gt;
-&lt;/luna-rating&gt;
+&lt;!-- Listen to changes --&gt;
+&lt;luna-rating id="my-rating" value="3"&gt;&lt;/luna-rating&gt;
 
-&lt;!-- Interactive Sync with Range --&gt;
-&lt;luna-range
-  id="rating-controller"
-  label="Adjust Rating"
-  min="0"
-  max="5"
-  step="0.1"
+&lt;script&gt;
+  const rating = document.getElementById('my-rating');
+  rating.addEventListener('luna-change', (e) =&gt; {
+    console.log('New rating:', e.detail.value);
+  });
+&lt;/script&gt;
+
+&lt;!-- Sync with range slider --&gt;
+&lt;luna-range 
+  id="rating-controller" 
+  min="0" 
+  max="5" 
+  step="0.1" 
   value="3.5"
-&gt;
-&lt;/luna-range&gt;
+&gt;&lt;/luna-range&gt;
 
-&lt;luna-rating
-  id="controlled-rating"
-  value="3.5"
+&lt;luna-rating 
+  id="controlled-rating" 
+  value="3.5" 
   precision="0.1"
-  size="lg"
-&gt;
-&lt;/luna-rating&gt;
+&gt;&lt;/luna-rating&gt;
 
 &lt;script&gt;
   const range = document.getElementById('rating-controller');
   const rating = document.getElementById('controlled-rating');
-  range.addEventListener('input', (e) =&gt; {
+  
+  range.addEventListener('luna-input', (e) =&gt; {
     rating.value = e.target.value;
+  });
+  
+  rating.addEventListener('luna-change', (e) =&gt; {
+    range.value = e.detail.value;
   });
 &lt;/script&gt;
 </luna-code>

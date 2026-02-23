@@ -32,7 +32,7 @@
     <p class="drawer-description">
       lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
     <p class="site-description">
-      <luna-badge variant="success">v0.0.5</luna-badge> 
+      <luna-badge variant="success">v0.0.6</luna-badge> 
       <a href="https://github.com/dmac780/lunaDOM" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -99,7 +99,7 @@
         <a class="site-logo" href="/lunaDOM-Docs/">lunaDOM Docs</a>
         <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
         <p class="site-description">
-          <luna-badge variant="success">v0.0.5</luna-badge>      
+          <luna-badge variant="success">v0.0.6</luna-badge>      
           <a href="https://github.com/dmac780/lunaDOM" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -169,95 +169,174 @@
       </header>
 
       <article>
-        <p>The <code>&lt;luna-range&gt;</code> component provides a slider input for selecting numeric values with tooltip and custom styling.</p>
+        <p>The <code>&lt;luna-range&gt;</code> component provides a slider input with live tooltip, progress glow, and extensive customization.</p>
 
 <h2>Paths</h2>
 <code>/lunadom/components/range/range.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/tooltip/tooltip.js</code>
 
 <h2>Overrides</h2>
-<code>@attr label</code> - Label text<br>
-<code>@attr min</code> - Minimum value<br>
-<code>@attr max</code> - Maximum value<br>
-<code>@attr value</code> - Current value<br>
-<code>@attr step</code> - Step increment<br>
-<code>@attr help-text</code> - Help text below slider<br>
+<code>@attr min="0"</code> - Minimum value<br>
+<code>@attr max="100"</code> - Maximum value<br>
+<code>@attr step="1"</code> - Increment step<br>
+<code>@attr value="0"</code> - Current value<br>
+<code>@attr disabled</code> - Disables the input<br>
+<code>@attr label</code> - Label displayed above slider<br>
+<code>@attr help-text</code> - Help text displayed below slider<br>
 <code>@attr tooltip-placement</code> - Tooltip position (top, bottom)<br>
-<code>@attr disabled</code> - Disable the range<br>
-<code>--luna-range-track-active-color</code> - Active track color<br>
-<code>--luna-range-track-color</code> - Track background color<br>
-<code>--luna-range-thumb-border</code> - Thumb border color<br>
-<code>--luna-range-track-height</code> - Track height
+<code>@attr no-tooltip</code> - Hides the value tooltip<br>
+<code>@attr no-glow</code> - Disables progress fill glow<br>
+<code>--luna-range-track</code> - Track background color<br>
+<code>--luna-range-track-border</code> - Track border color<br>
+<code>--luna-range-track-height</code> - Track height<br>
+<code>--luna-range-track-active</code> - Filled progress color<br>
+<code>--luna-range-glow-color</code> - Glow/shadow color<br>
+<code>--luna-range-thumb-bg</code> - Thumb background color<br>
+<code>--luna-range-thumb-size</code> - Thumb diameter<br>
+<code>--luna-range-thumb-ring</code> - Thumb focus ring color<br>
+<code>--luna-range-label-color</code> - Label text color<br>
+<code>--luna-range-helptext-color</code> - Help text color
 
-<h2>Standard Range</h2>
-<luna-range label="Volume" min="0" max="100" value="50" help-text="Adjust the system volume"></luna-range>
+<h2>Basic Usage</h2>
+<luna-range 
+  label="Volume" 
+  min="0" 
+  max="100" 
+  value="50" 
+  help-text="Adjust the system volume"
+></luna-range>
 
-<h2>Step & Tooltip Placement</h2>
+<h2>Fractional Steps</h2>
 <luna-range 
   label="Rating" 
   min="0" 
   max="10" 
   step="0.5" 
-  value="7.5" 
+  value="7.5"
+></luna-range>
+
+<h2>Tooltip Placement</h2>
+<luna-range 
+  label="Brightness (Tooltip Below)" 
+  value="65" 
   tooltip-placement="bottom"
 ></luna-range>
 
-<h2>Custom Styles</h2>
+<h2>No Tooltip</h2>
 <luna-range 
-  label="Probability" 
-  value="30"
+  label="Silent Slider" 
+  value="40" 
+  no-tooltip
+  help-text="Tooltip hidden for minimal UI"
+></luna-range>
+
+<h2>No Glow Effect</h2>
+<luna-range 
+  label="Minimal Style" 
+  value="60" 
+  no-glow
+></luna-range>
+
+<h2>Custom Colors</h2>
+<luna-range 
+  label="Danger Level" 
+  value="75"
   style="
-    --luna-range-track-active-color: #f59e0b;
-    --luna-range-track-color: #444;
-    --luna-range-thumb-border: #f59e0b;
-    --luna-range-track-height: 4px;
+    --luna-range-track-active: #ef4444;
+    --luna-range-glow-color: rgba(239, 68, 68, 0.5);
+    --luna-range-thumb-bg: #ef4444;
   "
 ></luna-range>
 
-<h2>Disabled Range</h2>
-<luna-range label="Locked Setting" value="40" disabled></luna-range>
+<luna-range 
+  label="Success Progress" 
+  value="85"
+  style="
+    --luna-range-track-active: #22c55e;
+    --luna-range-track-height: 6px;
+    --luna-range-thumb-size: 22px;
+  "
+></luna-range>
+
+<h2>Custom Range</h2>
+<luna-range 
+  label="Temperature (°C)" 
+  min="-20" 
+  max="50" 
+  value="22"
+  help-text="Set your preferred temperature"
+></luna-range>
+
+<h2>Disabled State</h2>
+<luna-range 
+  label="Locked Setting" 
+  value="40" 
+  disabled
+></luna-range>
 
 <h2>Example Code</h2>
 <luna-code language="html">
-&lt;!-- Standard Range --&gt;
+&lt;!-- Basic range --&gt;
 &lt;luna-range
   label="Volume"
   min="0"
   max="100"
   value="50"
   help-text="Adjust the system volume"
-&gt;
-&lt;/luna-range&gt;
+&gt;&lt;/luna-range&gt;
 
-&lt;!-- Step & Tooltip Placement --&gt;
+&lt;!-- Fractional steps --&gt;
 &lt;luna-range
   label="Rating"
   min="0"
   max="10"
   step="0.5"
   value="7.5"
+&gt;&lt;/luna-range&gt;
+
+&lt;!-- Tooltip below --&gt;
+&lt;luna-range
+  value="65"
   tooltip-placement="bottom"
-&gt;
-&lt;/luna-range&gt;
+&gt;&lt;/luna-range&gt;
 
-&lt;!-- Custom Styles --&gt;
+&lt;!-- No tooltip --&gt;
 &lt;luna-range
-  label="Probability"
-  value="30"
-  style="
-    --luna-range-track-active-color: #f59e0b;
-    --luna-range-track-height: 4px;
-  "
-&gt;
-&lt;/luna-range&gt;
-
-&lt;!-- Disabled State --&gt;
-&lt;luna-range
-  label="Locked Setting"
   value="40"
-  disabled
-&gt;
-&lt;/luna-range&gt;
+  no-tooltip
+&gt;&lt;/luna-range&gt;
+
+&lt;!-- No glow effect --&gt;
+&lt;luna-range
+  value="60"
+  no-glow
+&gt;&lt;/luna-range&gt;
+
+&lt;!-- Custom colors --&gt;
+&lt;luna-range
+  value="75"
+  style="
+    --luna-range-track-active: #ef4444;
+    --luna-range-glow-color: rgba(239, 68, 68, 0.5);
+  "
+&gt;&lt;/luna-range&gt;
+
+&lt;!-- Listen to changes --&gt;
+&lt;luna-range id="my-range" value="50"&gt;&lt;/luna-range&gt;
+
+&lt;script&gt;
+  const range = document.getElementById('my-range');
+  
+  // Fires while dragging
+  range.addEventListener('luna-input', (e) =&gt; {
+    console.log('Input:', e.detail.value);
+  });
+  
+  // Fires on commit
+  range.addEventListener('luna-change', (e) =&gt; {
+    console.log('Changed:', e.detail.value);
+  });
+&lt;/script&gt;
 </luna-code>
       </article>
     </main>
