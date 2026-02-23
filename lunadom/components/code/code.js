@@ -119,12 +119,7 @@ class LunaCode extends HTMLElement {
     while (i < len) {
       const ch = src[i];
 
-      if (ch === '\n') {
-        out += '\n';
-        i++;
-        continue;
-      }
-
+      // Single-line comment
       if (ch === '/' && peek(1) === '/') {
         const end = src.indexOf('\n', i);
         const raw = end === -1 ? slice(i) : slice(i, end);
@@ -133,22 +128,25 @@ class LunaCode extends HTMLElement {
         continue;
       }
 
+      // Block comment /* ... */
       if (ch === '/' && peek(1) === '*') {
         const end = src.indexOf('*/', i + 2);
         const raw = end === -1 ? slice(i) : slice(i, end + 2);
-        out += `<span class="cm">${this._escape(raw)}</span>`;
+        out += this._spanMultiline(raw, 'cm');
         i += raw.length;
         continue;
       }
 
+      // HTML comment <!-- ... -->
       if (ch === '<' && slice(i, i + 4) === '<!--') {
         const end = src.indexOf('-->', i);
         const raw = end === -1 ? slice(i) : slice(i, end + 3);
-        out += `<span class="cm">${this._escape(raw)}</span>`;
+        out += this._spanMultiline(raw, 'cm');
         i += raw.length;
         continue;
       }
 
+      // HTML tag — find the closing > searching forward through the full source
       if (ch === '<' && (peek(1) === '/' || /[a-zA-Z!]/.test(peek(1)))) {
         const end = src.indexOf('>', i);
         if (end !== -1) {
@@ -159,18 +157,23 @@ class LunaCode extends HTMLElement {
         }
       }
 
+      // Quoted string — multiline: stop only at the matching closing quote
       if (ch === '"' || ch === "'") {
         const quote = ch;
         let j = i + 1;
-        while (j < len && src[j] !== quote && src[j] !== '\n') {
-          if (src[j] === '\\') {
-            j++;
-          }
+        while (j < len && src[j] !== quote) {
+          if (src[j] === '\\') j++;
           j++;
         }
         const raw = slice(i, j + 1);
-        out += `<span class="str">${this._escape(raw)}</span>`;
+        out += this._spanMultiline(raw, 'str');
         i = j + 1;
+        continue;
+      }
+
+      if (ch === '\n') {
+        out += '\n';
+        i++;
         continue;
       }
 
@@ -181,33 +184,46 @@ class LunaCode extends HTMLElement {
     return out;
   }
 
+  // Wrap a potentially multiline raw string in a span, preserving newlines
+  // so that _buildLines can split on them correctly.
+  _spanMultiline(raw, cls) {
+    return raw
+      .split('\n')
+      .map(part => `<span class="${cls}">${this._escape(part)}</span>`)
+      .join('\n');
+  }
+
   _colorTag(tagSrc) {
     let out = '<span class="tg">';
     let i = 0;
-    
+
     while (i < tagSrc.length) {
       const ch = tagSrc[i];
-      
+
+      if (ch === '\n') {
+        // Close the tg span across the newline so _buildLines splits cleanly
+        out += '</span>\n<span class="tg">';
+        i++;
+        continue;
+      }
+
       if (ch === '"' || ch === "'") {
         const q = ch;
         let j = i + 1;
-        
         while (j < tagSrc.length && tagSrc[j] !== q) {
-          if (tagSrc[j] === '\\') {
-            j++;
-          }
+          if (tagSrc[j] === '\\') j++;
           j++;
         }
-        
         const strRaw = tagSrc.slice(i, j + 1);
-        out += `</span><span class="str">${this._escape(strRaw)}</span><span class="tg">`;
+        out += `</span>${this._spanMultiline(strRaw, 'str')}<span class="tg">`;
         i = j + 1;
-      } else {
-        out += this._escape(ch);
-        i++;
+        continue;
       }
+
+      out += this._escape(ch);
+      i++;
     }
-    
+
     out += '</span>';
     return out;
   }
