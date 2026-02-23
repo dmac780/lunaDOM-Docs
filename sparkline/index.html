@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sparkline — lunaDOM Docs</title>
+  <meta name="description" content="Inline charts for visualizing trends and data." />
+  <link rel="preload" href="/css/style.css" as="style" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preload" href="/lunadom/components/badge/badge.js" as="script" />
+  <link rel="preload" href="/lunadom/components/drawer/drawer.js" as="script" />
+  <link rel="preload" href="/lunadom/components/code/code.js" as="script" />
+  <script type="module" src="/lunadom/components/badge/badge.js"></script>
+  <script type="module" src="/lunadom/components/drawer/drawer.js"></script>
+  <script type="module" src="/lunadom/components/code/code.js"></script>
+  
+  <script type="module" src="/lunadom/components/sparkline/sparkline.js"></script>
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <div class="mobile-topbar">
+    <button class="hamburger" id="navToggle" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="site-logo-mobile" href="/">lunaDOM Docs</a>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <luna-drawer id="navDrawer" placement="start">
+    <span slot="title">lunaDOM Docs</span>
+    <p class="drawer-description">
+      lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
+    <p class="site-description">
+      <luna-badge variant="success">v0.0.2</luna-badge> 
+      <a href="https://github.com/dmac780/lunaDOM" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+      </svg>
+      </a>
+      </p>
+    <div class="drawer-divider"></div>
+    <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline" class="active">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+  </luna-drawer>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a class="site-logo" href="/">lunaDOM Docs</a>
+        <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
+        <p class="site-description">
+          <luna-badge variant="success">v0.0.2</luna-badge>      
+          <a href="https://github.com/dmac780/lunaDOM" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+          </a>
+        </p>
+        <div class="sidebar-divider"></div>
+      </div>
+      <div class="sidebar-nav-wrapper">
+        <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline" class="active">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <h1>Sparkline</h1>
+        <p class="lead">Inline charts for visualizing trends and data.</p>
+      </header>
+
+      <article>
+        <p>The <code>&lt;luna-sparkline&gt;</code> component displays inline charts for visualizing trends with multiple appearance modes and curve types.</p>
+
+<h2>Paths</h2>
+<code>/lunadom/components/sparkline/sparkline.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+
+<h2>Overrides</h2>
+<code>@attr data</code> - Space-separated numeric values<br>
+<code>@attr label</code> - Accessible label for screen readers<br>
+<code>@attr appearance</code> - Visual style (solid, gradient, line)<br>
+<code>@attr trend</code> - Color trend (positive, neutral, negative)<br>
+<code>@attr curve</code> - Curve type (linear, natural, step)<br>
+<code>@attr size</code> - Size (sm, md, lg)<br>
+<code>@attr color</code> - Custom line color<br>
+<code>@attr show-dots</code> - Show data point markers<br>
+<code>@attr show-area</code> - Show filled area<br>
+<code>@attr min</code> - Minimum scale value<br>
+<code>@attr max</code> - Maximum scale value
+
+<h2>Basic Usage</h2>
+<luna-sparkline data="5 10 8 15 12 18 20" label="Sales trend"></luna-sparkline>
+
+<h2>Appearances</h2>
+<div style="display: flex; flex-direction: column; gap: 1rem;">
+  <luna-sparkline data="5 10 8 15 12 18 20" appearance="solid" label="Solid fill"></luna-sparkline>
+  <luna-sparkline data="5 10 8 15 12 18 20" appearance="gradient" label="Gradient fill"></luna-sparkline>
+  <luna-sparkline data="5 10 8 15 12 18 20" appearance="line" label="Line only"></luna-sparkline>
+</div>
+
+<h2>Trend Colors</h2>
+<div style="display: flex; flex-direction: column; gap: 1rem;">
+  <luna-sparkline data="5 8 10 15 18 22 25" trend="positive" label="Positive trend"></luna-sparkline>
+  <luna-sparkline data="10 12 11 13 12 14 13" trend="neutral" label="Neutral trend"></luna-sparkline>
+  <luna-sparkline data="25 22 18 15 10 8 5" trend="negative" label="Negative trend"></luna-sparkline>
+</div>
+
+<h2>Curve Types</h2>
+<div style="display: flex; flex-direction: column; gap: 1rem;">
+  <luna-sparkline data="5 15 8 20 12 18 25" curve="linear" trend="positive" label="Linear"></luna-sparkline>
+  <luna-sparkline data="5 15 8 20 12 18 25" curve="natural" trend="positive" label="Natural"></luna-sparkline>
+  <luna-sparkline data="5 15 8 20 12 18 25" curve="step" trend="positive" label="Step"></luna-sparkline>
+</div>
+
+<h2>With Data Points</h2>
+<div style="display: flex; flex-direction: column; gap: 1rem;">
+  <luna-sparkline data="5 10 8 15 12 18 20" show-dots trend="positive" label="With dots"></luna-sparkline>
+  <luna-sparkline data="5 10 8 15 12 18 20" show-dots show-area trend="positive" label="Dots and area"></luna-sparkline>
+</div>
+
+<h2>Custom Colors & Sizes</h2>
+<div style="display: flex; flex-direction: column; gap: 1rem;">
+  <luna-sparkline data="5 10 8 15 12 18 20" size="sm" color="#3b82f6" label="Small blue"></luna-sparkline>
+  <luna-sparkline data="5 10 8 15 12 18 20" size="lg" color="#a855f7" label="Large purple"></luna-sparkline>
+</div>
+
+<h2>Inline Text Usage</h2>
+<p style="color: #ccc; line-height: 1.8; font-size: 0.9375rem;">
+  Our <strong style="color: #fff;">API response times</strong> 
+  <luna-sparkline data="120 115 118 110 108 105 102" trend="positive" size="sm" label="API response time trend"></luna-sparkline> 
+  have improved by <span style="color: #10b981; font-weight: 600;">15%</span> this week.
+</p>
+
+<h2>Example Code</h2>
+<luna-code language="html">
+&lt;!-- Basic Sparkline --&gt;
+&lt;luna-sparkline data="5 10 8 15 12 18 20" label="Sales trend" &gt;&lt;/luna-sparkline&gt;
+
+&lt;!-- Appearances --&gt;
+&lt;luna-sparkline data="5 10 8 15 12 18 20" appearance="solid"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline data="5 10 8 15 12 18 20" appearance="gradient"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline data="5 10 8 15 12 18 20" appearance="line"&gt;&lt;/luna-sparkline&gt;
+
+&lt;!-- Trend Colors --&gt;
+&lt;luna-sparkline data="5 8 10 15 18 22 25" trend="positive"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline data="10 12 11 13 12 14 13" trend="neutral"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline data="25 22 18 15 10 8 5" trend="negative"&gt;&lt;/luna-sparkline&gt;
+
+&lt;!-- Curve Types --&gt;
+&lt;luna-sparkline data="5 15 8 20 12 18 25" curve="linear"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline data="5 15 8 20 12 18 25" curve="natural"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline data="5 15 8 20 12 18 25" curve="step"&gt;&lt;/luna-sparkline&gt;
+
+&lt;!-- Sizes &amp; Custom Colors --&gt;
+&lt;luna-sparkline data="5 10 8 15 12 18 20" size="sm"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline data="5 10 8 15 12 18 20" color="#3b82f6"&gt;&lt;/luna-sparkline&gt;
+
+&lt;!-- With Data Points --&gt;
+&lt;luna-sparkline data="5 10 8 15 12 18 20" show-dots&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline data="5 10 8 15 12 18 20" show-dots show-area&gt;&lt;/luna-sparkline&gt;
+
+&lt;!-- Inline Text Usage --&gt;
+&lt;p&gt;
+  API response times 
+  &lt;luna-sparkline data="120 115 118 110 108 105 102" trend="positive" size="sm"&gt;&lt;/luna-sparkline&gt; 
+  have improved by 15%.
+&lt;/p&gt;
+</luna-code>
+      </article>
+    </main>
+
+  </div>
+  <script src="/js/main.js" defer></script>
+
+<script>
+(function(){
+  const es = new EventSource('http://localhost:3001/__lr');
+  es.onmessage = () => location.reload();
+  es.onerror   = () => es.close();
+})();
+</script>
+</body>
+</html>

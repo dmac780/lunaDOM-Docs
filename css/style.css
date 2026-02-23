@@ -1,0 +1,509 @@
+/* ── Reset & base ────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Prevent layout shift from undefined custom elements */
+luna-badge:not(:defined),
+luna-drawer:not(:defined),
+luna-button:not(:defined),
+luna-code:not(:defined),
+luna-divider:not(:defined) {
+  visibility: hidden;
+  display: inline-block;
+}
+
+/* Pre-define luna-badge dimensions to prevent shift */
+luna-badge:not(:defined) {
+  min-width: 45px;
+  height: 20px;
+}
+
+/* luna-drawer should be hidden by default */
+luna-drawer:not(:defined) {
+  display: none;
+}
+
+:root {
+  --sidebar-w: 260px;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+
+  --bg:         #0e0e10;
+  --bg-2:       #17171a;
+  --bg-3:       #222226;
+  --border:     #2e2e34;
+  --text:       #e2e2e6;
+  --text-muted: #7c7c8a;
+  --accent:     #6ee7b7;
+  --accent-dim: #1e3a2f;
+  --link:       #7dd3fc;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* ── Layout ──────────────────────────────────────── */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Sidebar ─────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--bg-2);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem 0 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+  z-index: 50;
+}
+
+/* Custom scrollbar styling */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: var(--bg-2);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Firefox scrollbar */
+.sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--bg-2);
+}
+
+.sidebar-header {
+  background: var(--bg-2);
+  position: sticky;
+  top: -1.5rem;
+  z-index: 10;
+  padding-bottom: 1rem;
+  margin-top: -1.5rem;
+  padding-top: 1.5rem;
+  contain: layout; /* Prevent layout shifts from propagating */
+}
+
+.site-logo {
+  display: block;
+  padding: 0 1.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: -.02em;
+}
+
+.site-description {
+  padding: 0 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  height: 32px; /* Fixed height instead of min-height */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-description luna-badge {
+  flex-shrink: 0;
+  width: 50px;
+  height: 22px;
+}
+
+/* Ensure badge space is reserved before component loads */
+.site-description luna-badge:not(:defined) {
+  width: 50px;
+  height: 22px;
+  display: inline-block;
+  background: var(--bg-3); /* Placeholder color */
+  border-radius: 3px;
+}
+
+/* GitHub icon styling */
+.site-description a {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+}
+
+.site-description a svg {
+  color: var(--accent);
+  transition: opacity 0.15s;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.site-description a:hover svg {
+  opacity: 0.8;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 1.5rem;
+}
+
+
+/* ── Nav ─────────────────────────────────────────── */
+.sidebar-nav { display: flex; flex-direction: column; }
+.sidebar-nav a {
+  display: block;
+  padding: .4rem 1.5rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: .875rem;
+  transition: color .15s, background .15s;
+  border-left: 2px solid transparent;
+}
+.sidebar-nav a:hover { color: var(--text); background: var(--bg-3); }
+.sidebar-nav a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-dim); }
+
+.nav-section { margin-top: 1.25rem; }
+.nav-section-title {
+  display: block;
+  padding: 0 1.5rem .4rem;
+  font-size: .7rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text-muted);
+}
+
+/* ── Content ─────────────────────────────────────── */
+.content {
+  flex: 1;
+  max-width: 860px;
+  padding: 3rem 4rem;
+  min-width: 0;
+  overflow-x: hidden;
+  margin-left: var(--sidebar-w);
+}
+
+.page-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.page-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.03em; }
+.lead { margin-top: .5rem; color: var(--text-muted); font-size: 1.05rem; }
+
+/* ── Article typography ──────────────────────────── */
+article h2 { font-size: 1.4rem; margin: 2.5rem 0 .75rem; }
+article h3 { font-size: 1.1rem; margin: 2rem 0 .5rem; color: var(--text-muted); }
+article p  { margin-bottom: 1rem; }
+article ul, article ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+article li { margin-bottom: .25rem; }
+article a  { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+article a:hover { color: var(--accent); }
+
+article pre {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+article code {
+  font-family: var(--font-mono);
+  font-size: .85em;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  padding: .15em .4em;
+  border-radius: 3px;
+}
+article pre code { background: none; border: none; padding: 0; font-size: inherit; }
+
+article blockquote {
+  border-left: 3px solid var(--accent);
+  padding: .75rem 1.25rem;
+  margin: 1.5rem 0;
+  background: var(--accent-dim);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-muted);
+}
+article table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .9rem; }
+article th, article td { text-align: left; padding: .6rem 1rem; border-bottom: 1px solid var(--border); }
+article th { font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); }
+article hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+/* ── Bare template (404 etc) ─────────────────────── */
+body.bare { display: flex; align-items: center; justify-content: center; text-align: center; }
+.bare-content { max-width: 500px; padding: 2rem; }
+
+/* ── Mobile top bar ──────────────────────────────── */
+.mobile-topbar {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  padding: .75rem 1.25rem;
+}
+
+.site-logo-mobile {
+  font-family: var(--font-mono);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: -.02em;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: background .15s;
+}
+
+.hamburger:hover span { background: var(--accent); }
+
+/* Dark mode styling for drawer */
+luna-drawer {
+  --luna-bg: var(--bg-2);
+  --luna-color: var(--text);
+  --luna-border: var(--border);
+  --luna-overlay-bg: rgba(0, 0, 0, 0.7);
+  --luna-drawer-size: 280px;
+}
+
+/* Drawer description and divider styling */
+.drawer-description {
+  padding: 0.5rem 1rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+  min-height: 44px; /* Reserve space for badge to prevent layout shift */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.drawer-description luna-badge {
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* Ensure badge space is reserved before component loads */
+.drawer-description luna-badge:not(:defined) {
+  width: 50px;
+  height: 22px;
+  display: inline-block;
+}
+
+/* GitHub icon styling */
+.drawer-description a {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.drawer-description a svg {
+  color: var(--accent);
+  transition: opacity 0.15s;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.drawer-description a:hover svg {
+  opacity: 0.8;
+}
+
+.drawer-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 1rem 1rem;
+}
+
+/* Style nav inside drawer */
+luna-drawer .sidebar-nav a {
+  border-left: none;
+  padding: .5rem 1rem;
+}
+
+/* Drawer scrollbar styling */
+luna-drawer::part(body) {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--bg-2);
+}
+
+luna-drawer::part(body)::-webkit-scrollbar {
+  width: 8px;
+}
+
+luna-drawer::part(body)::-webkit-scrollbar-track {
+  background: var(--bg-2);
+}
+
+luna-drawer::part(body)::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+luna-drawer::part(body)::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Drawer title styling */
+luna-drawer::part(title) {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+/* Close button styling for dark mode */
+luna-drawer::part(header) button {
+  color: var(--text-muted);
+}
+
+luna-drawer::part(header) button:hover {
+  background: var(--bg-3) !important;
+  color: var(--text);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-topbar { display: flex; }
+  .sidebar { display: none; }
+  
+  .content { 
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    margin-left: 0;
+  }
+  
+  .layout {
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Prevent content shrinking */
+  article {
+    min-width: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Better control for page header */
+  .page-header {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  
+  .page-header h1 {
+    font-size: 1.5rem;
+    word-wrap: break-word;
+  }
+  
+  /* Typography adjustments */
+  article h2 {
+    font-size: 1.25rem;
+  }
+  
+  article h3 {
+    font-size: 1rem;
+  }
+
+  p, article p, article {
+    font-size: 0.875rem;
+  }
+  article code {
+    font-size: 0.675rem;
+  }
+  
+  article pre {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+  }
+  
+  article code {
+    word-break: break-word;
+  }
+  
+  article pre code {
+    word-break: normal;
+  }
+  
+  article table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
+  /* Images and media */
+  article img,
+  article video {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Lists */
+  article ul, article ol {
+    padding-left: 1.25rem;
+  }
+  
+  /* Blockquotes */
+  article blockquote {
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+  }
+}

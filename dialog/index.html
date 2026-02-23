@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dialog — lunaDOM Docs</title>
+  <meta name="description" content="Modal dialog component with overlay and focus trapping." />
+  <link rel="preload" href="/css/style.css" as="style" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preload" href="/lunadom/components/badge/badge.js" as="script" />
+  <link rel="preload" href="/lunadom/components/drawer/drawer.js" as="script" />
+  <link rel="preload" href="/lunadom/components/code/code.js" as="script" />
+  <script type="module" src="/lunadom/components/badge/badge.js"></script>
+  <script type="module" src="/lunadom/components/drawer/drawer.js"></script>
+  <script type="module" src="/lunadom/components/code/code.js"></script>
+  
+  <script type="module" src="/lunadom/components/dialog/dialog.js"></script>
+  <script type="module" src="/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunadom/components/input/input.js"></script>
+  <script type="module" src="/lunadom/components/textarea/textarea.js"></script>
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <div class="mobile-topbar">
+    <button class="hamburger" id="navToggle" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="site-logo-mobile" href="/">lunaDOM Docs</a>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <luna-drawer id="navDrawer" placement="start">
+    <span slot="title">lunaDOM Docs</span>
+    <p class="drawer-description">
+      lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
+    <p class="site-description">
+      <luna-badge variant="success">v0.0.2</luna-badge> 
+      <a href="https://github.com/dmac780/lunaDOM" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+      </svg>
+      </a>
+      </p>
+    <div class="drawer-divider"></div>
+    <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog" class="active">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+  </luna-drawer>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a class="site-logo" href="/">lunaDOM Docs</a>
+        <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
+        <p class="site-description">
+          <luna-badge variant="success">v0.0.2</luna-badge>      
+          <a href="https://github.com/dmac780/lunaDOM" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+          </a>
+        </p>
+        <div class="sidebar-divider"></div>
+      </div>
+      <div class="sidebar-nav-wrapper">
+        <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog" class="active">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <h1>Dialog</h1>
+        <p class="lead">Modal dialog component with overlay and focus trapping.</p>
+      </header>
+
+      <article>
+        <style>    
+  luna-dialog:not(:defined) {
+    display: none !important;
+  }
+</style>
+<p>The <code>&lt;luna-dialog&gt;</code> component displays modal dialogs with overlay, focus trapping, and smooth animations.</p>
+
+<h2>Paths</h2>
+<code>/lunadom/components/dialog/dialog.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+
+<h2>Overrides</h2>
+<code>@slot title</code> - Title content for the dialog<br>
+<code>@slot default</code> - Main content for the dialog<br>
+<code>@slot footer</code> - Footer content for actions<br>
+<code>@method show()</code> - Show the dialog<br>
+<code>@method hide()</code> - Hide the dialog<br>
+<code>--luna-dialog-overlay</code> - Overlay background color<br>
+<code>--luna-bg</code> - Dialog background color<br>
+<code>--luna-color</code> - Dialog text color<br>
+<code>--luna-border</code> - Dialog border color
+
+<h2>Prevent Flash of Dialogs</h2>
+<luna-code language="html">
+  &lt;style&gt;    
+    luna-dialog:not(:defined) {
+      display: none !important;
+    }
+  &lt;/style&gt;
+</luna-code>
+
+<h2>Standard Dialog</h2>
+<luna-button variant="primary" onclick="dialogStandard.show()">Open Standard Dialog</luna-button>
+
+<luna-dialog id="dialogStandard">
+  <span slot="title">Standard Dialog</span>
+  This is the default Luna dialog. It supports accessibility, focus trapping, and smooth animations.
+  <div slot="footer">
+    <luna-button variant="secondary" onclick="dialogStandard.hide()">Close</luna-button>
+    <luna-button variant="primary" onclick="dialogStandard.hide()">Save Changes</luna-button>
+  </div>
+</luna-dialog>
+
+<h2>Dark Theme Dialog</h2>
+<luna-button variant="secondary" style="--luna-bg: #333; --luna-color: #fff;" onclick="dialogDark.show()">Open Dark Dialog</luna-button>
+
+<luna-dialog id="dialogDark" style="--luna-bg: #1a1a1a; --luna-color: #fff; --luna-border: #333; --luna-radius: 0.5rem; --luna-dialog-overlay: rgba(0,0,0,0.8);">
+  <span slot="title">System Alert</span>
+  <p>Your session is about to expire. Would you like to stay signed in?</p>
+  <div slot="footer">
+    <luna-button style="--luna-bg: transparent; --luna-color: #999;" onclick="dialogDark.hide()">Sign Out</luna-button>
+    <luna-button variant="primary" style="--luna-bg: #2563eb;" onclick="dialogDark.hide()">Stay Signed In</luna-button>
+  </div>
+</luna-dialog>
+
+<h2>Confirmation Dialog</h2>
+<luna-button variant="danger" onclick="dialogConfirm.show()">Delete Item</luna-button>
+
+<luna-dialog id="dialogConfirm" style="--luna-border: #ef4444;">
+  <span slot="title">Confirm Deletion</span>
+  <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+  <div slot="footer">
+    <luna-button variant="secondary" onclick="dialogConfirm.hide()">Cancel</luna-button>
+    <luna-button variant="danger" onclick="dialogConfirm.hide()">Delete</luna-button>
+  </div>
+</luna-dialog>
+
+<h2>Form Dialog</h2>
+<luna-button variant="primary" onclick="dialogForm.show()">Create New Item</luna-button>
+
+<luna-dialog id="dialogForm">
+  <span slot="title">Create New Item</span>
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <luna-input label="Item Name" placeholder="Enter name"></luna-input>
+    <luna-textarea label="Description" placeholder="Enter description" rows="3"></luna-textarea>
+  </div>
+  <div slot="footer">
+    <luna-button variant="secondary" onclick="dialogForm.hide()">Cancel</luna-button>
+    <luna-button variant="primary" onclick="dialogForm.hide()">Create</luna-button>
+  </div>
+</luna-dialog>
+
+<h2>Example Code</h2>
+  <luna-code language="html">
+&lt;!-- Basic Dialog --&gt;
+&lt;luna-dialog id="dialog"&gt;
+  &lt;span slot="title"&gt;Dialog Title&lt;/span&gt;
+  Dialog content goes here.
+  &lt;div slot="footer"&gt;
+    &lt;luna-button onclick="dialog.hide()"&gt;Close&lt;/luna-button&gt;
+    &lt;luna-button variant="primary"&gt;Save&lt;/luna-button&gt;
+  &lt;/div&gt;
+&lt;/luna-dialog&gt;
+
+&lt;luna-button onclick="dialog.show()"&gt;Open Dialog&lt;/luna-button&gt;
+
+&lt;!-- Dark Theme Dialog --&gt;
+&lt;luna-dialog id="darkDialog" style="--luna-bg: #1a1a1a;--luna-color: #fff; ... "&gt;
+  &lt;span slot="title"&gt;Dark Dialog&lt;/span&gt;
+  Content with dark theme.
+&lt;/luna-dialog&gt;
+  </luna-code>
+      </article>
+    </main>
+
+  </div>
+  <script src="/js/main.js" defer></script>
+
+<script>
+(function(){
+  const es = new EventSource('http://localhost:3001/__lr');
+  es.onmessage = () => location.reload();
+  es.onerror   = () => es.close();
+})();
+</script>
+</body>
+</html>

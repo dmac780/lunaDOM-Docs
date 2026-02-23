@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Split Panel — lunaDOM Docs</title>
+  <meta name="description" content="Resizable split panels with horizontal and vertical layouts." />
+  <link rel="preload" href="/css/style.css" as="style" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preload" href="/lunadom/components/badge/badge.js" as="script" />
+  <link rel="preload" href="/lunadom/components/drawer/drawer.js" as="script" />
+  <link rel="preload" href="/lunadom/components/code/code.js" as="script" />
+  <script type="module" src="/lunadom/components/badge/badge.js"></script>
+  <script type="module" src="/lunadom/components/drawer/drawer.js"></script>
+  <script type="module" src="/lunadom/components/code/code.js"></script>
+  
+  <script type="module" src="/lunadom/components/split-panel/split-panel.js"></script>
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <div class="mobile-topbar">
+    <button class="hamburger" id="navToggle" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="site-logo-mobile" href="/">lunaDOM Docs</a>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <luna-drawer id="navDrawer" placement="start">
+    <span slot="title">lunaDOM Docs</span>
+    <p class="drawer-description">
+      lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
+    <p class="site-description">
+      <luna-badge variant="success">v0.0.2</luna-badge> 
+      <a href="https://github.com/dmac780/lunaDOM" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+      </svg>
+      </a>
+      </p>
+    <div class="drawer-divider"></div>
+    <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel" class="active">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+  </luna-drawer>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a class="site-logo" href="/">lunaDOM Docs</a>
+        <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
+        <p class="site-description">
+          <luna-badge variant="success">v0.0.2</luna-badge>      
+          <a href="https://github.com/dmac780/lunaDOM" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+          </a>
+        </p>
+        <div class="sidebar-divider"></div>
+      </div>
+      <div class="sidebar-nav-wrapper">
+        <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel" class="active">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <h1>Split Panel</h1>
+        <p class="lead">Resizable split panels with horizontal and vertical layouts.</p>
+      </header>
+
+      <article>
+        <p>The <code>&lt;luna-split-panel&gt;</code> component creates resizable split panels with snapping, nesting, and custom divider styling.</p>
+
+<h2>Paths</h2>
+<code>/lunadom/components/split-panel/split-panel.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+
+<h2>Overrides</h2>
+<code>@slot start</code> - Content for start/left/top panel<br>
+<code>@slot end</code> - Content for end/right/bottom panel<br>
+<code>@attr position</code> - Initial split position (px or %)<br>
+<code>@attr vertical</code> - Use vertical split instead of horizontal<br>
+<code>@attr primary</code> - Which panel is fixed (start, end)<br>
+<code>@attr snap</code> - Snap positions (e.g., "repeat(5, 20%)")<br>
+<code>--divider-width</code> - Divider thickness<br>
+<code>--divider-color</code> - Divider background color<br>
+<code>--handle-color</code> - Drag handle color<br>
+<code>--handle-size</code> - Drag handle size
+
+<h2>Snapping (repeat(5, 20%))</h2>
+<div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem; overflow: hidden;">
+  <luna-split-panel position="50%" snap="repeat(5, 20%)">
+    <div slot="start" style="background: #111; display: grid; place-items: center; color: #888;">20% Snapping</div>
+    <div slot="end" style="background: #1a1a1a; display: grid; place-items: center; color: #888;">Drag me to snap every 20%</div>
+  </luna-split-panel>
+</div>
+
+<h2>Vertical + Primary (Start)</h2>
+<div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem;">
+  <luna-split-panel vertical position="80px" primary="start">
+    <div slot="start" style="background: #222; padding: 1rem; color: #eee;">Fixed Header (80px)</div>
+    <div slot="end" style="background: #111; padding: 1rem; color: #888; overflow: hidden;">
+      <div style="height: 1000px; background: linear-gradient(#111, #333);">Scrollable Content (overflow hidden)</div>
+    </div>
+  </luna-split-panel>
+</div>
+
+<h2>Nested Panels (Horizontal & Vertical)</h2>
+<div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem;">
+  <luna-split-panel position="150px">
+    <div slot="start" style="background: #111; display: grid; place-items: center; border-right: 1px solid #222;">Sidebar</div>
+    <div slot="end">
+      <luna-split-panel vertical position="50%">
+        <div slot="start" style="background: #222; display: grid; place-items: center; border-bottom: 1px solid #333;">Top Panel</div>
+        <div slot="bottom" style="background: #1a1a1a; display: grid; place-items: center;">Bottom Panel</div>
+      </luna-split-panel>
+    </div>
+  </luna-split-panel>
+</div>
+
+<h2>Premium Divider (Primary: End, Thicker, Dot Handle)</h2>
+<div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem; overflow: hidden;">
+  <luna-split-panel 
+    position="200px" 
+    primary="end"
+    style="--divider-width: 8px; --divider-color: #222; --handle-color: #3b82f6; --handle-size: 32px;"
+  >
+    <div slot="start" style="background: #111; display: grid; place-items: center; color: #666;">Main liquid panel</div>
+    <div slot="end" style="background: #1a1a1a; display: grid; place-items: center; color: #eee; border-left: 1px solid #333;">Pinned Right (200px)</div>
+  </luna-split-panel>
+</div>
+
+<h2>Example Code</h2>
+<luna-code language="html">
+&lt;!-- Horizontal with Snapping --&gt;
+&lt;luna-split-panel position="50%" snap="repeat(5, 20%)"&gt;
+  &lt;div slot="start"&gt;20% Snapping&lt;/div&gt;
+  &lt;div slot="end"&gt;Drag me to snap every 20%&lt;/div&gt;
+&lt;/luna-split-panel&gt;
+
+&lt;!-- Vertical with Primary Start --&gt;
+&lt;luna-split-panel vertical position="80px" primary="start"&gt;
+  &lt;div slot="start"&gt;Fixed Header (80px)&lt;/div&gt;
+  &lt;div slot="end"&gt;Scrollable Content&lt;/div&gt;
+&lt;/luna-split-panel&gt;
+
+&lt;!-- Nested Panels --&gt;
+&lt;luna-split-panel position="150px"&gt;
+  &lt;div slot="start"&gt;Sidebar&lt;/div&gt;
+  &lt;div slot="end"&gt;
+    &lt;luna-split-panel vertical position="50%"&gt;
+      &lt;div slot="start"&gt;Top Panel&lt;/div&gt;
+      &lt;div slot="bottom"&gt;Bottom Panel&lt;/div&gt;
+    &lt;/luna-split-panel&gt;
+  &lt;/div&gt;
+&lt;/luna-split-panel&gt;
+
+&lt;!-- Custom Divider Styling --&gt;
+&lt;luna-split-panel position="200px" primary="end" style="--divider-width: 8px; --divider-color: #222; --handle-color: #3b82f6; --handle-size: 32px;"&gt;
+  &lt;div slot="start"&gt;Main liquid panel&lt;/div&gt;
+  &lt;div slot="end"&gt;Pinned Right (200px)&lt;/div&gt;
+&lt;/luna-split-panel&gt;
+</luna-code>
+      </article>
+    </main>
+
+  </div>
+  <script src="/js/main.js" defer></script>
+
+<script>
+(function(){
+  const es = new EventSource('http://localhost:3001/__lr');
+  es.onmessage = () => location.reload();
+  es.onerror   = () => es.close();
+})();
+</script>
+</body>
+</html>

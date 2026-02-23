@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Tokens — lunaDOM Docs</title>
+  <meta name="description" content="Built-in grid system and design tokens" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="module" src="/lunadom/components/drawer/drawer.js"></script>
+  
+  <script type="module" src="/lunadom/components/code/code.js"></script>
+  <script type="module" src="/lunadom/components/card/card.js"></script>
+  <script type="module" src="/lunadom/components/badge/badge.js"></script>
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <div class="mobile-topbar">
+    <button class="hamburger" id="navToggle" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="site-logo-mobile" href="/">lunaDOM Docs</a>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <luna-drawer id="navDrawer" placement="start">
+    <span slot="title">lunaDOM Docs</span>
+    <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <a href="/design-tokens" class="active">Design Tokens</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+  </luna-drawer>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <a class="site-logo" href="/">lunaDOM Docs</a>
+      <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <a href="/design-tokens" class="active">Design Tokens</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <h1>Design Tokens</h1>
+        <p class="lead">Built-in grid system and design tokens</p>
+      </header>
+
+      <article>
+        <p>lunaDOM includes <code>tokens.css</code> — a lightweight grid system and spacing scale for rapid prototyping.</p>
+
+<h2>Installation</h2>
+<p>Include the tokens stylesheet in your HTML:</p>
+
+<luna-code language="html">
+&lt;link rel="stylesheet" href="node_modules/lunadom/tokens.css"&gt;
+</luna-code>
+
+<h2>Grid System</h2>
+<p>Use HTML attributes to build responsive layouts. No CSS classes needed.</p>
+
+<luna-code language="html">
+&lt;!-- Basic grid --&gt;
+&lt;div grid cols="3" gap="4"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+  &lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Auto-fit grid (responsive) --&gt;
+&lt;div grid min="20" gap="6"&gt;
+  &lt;div&gt;Auto Card&lt;/div&gt;
+  &lt;div&gt;Auto Card&lt;/div&gt;
+  &lt;div&gt;Auto Card&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Responsive breakpoints --&gt;
+&lt;div grid cols="1" cols-md="2" cols-lg="4" gap="4"&gt;
+  &lt;div&gt;Mobile: 1 col&lt;/div&gt;
+  &lt;div&gt;Tablet: 2 cols&lt;/div&gt;
+  &lt;div&gt;Desktop: 4 cols&lt;/div&gt;
+&lt;/div&gt;
+</luna-code>
+
+<h2>Live Example: Responsive Grid</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Resize your browser to see the layout adapt.</p>
+
+<div grid cols="1" cols-md="2" cols-lg="4" gap="4">
+  <luna-card>
+    <span slot="header">Mobile</span>
+    1 column on mobile
+  </luna-card>
+  <luna-card>
+    <span slot="header">Tablet</span>
+    2 columns on tablet (768px+)
+  </luna-card>
+  <luna-card>
+    <span slot="header">Desktop</span>
+    4 columns on desktop (1024px+)
+  </luna-card>
+  <luna-card>
+    <span slot="header">Automatic</span>
+    Breakpoints handled by tokens.css
+  </luna-card>
+</div>
+
+<h2>Auto-Fit Grid</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Cards automatically wrap based on minimum width (20rem = 320px).</p>
+
+<div grid min="20" gap="6">
+  <luna-card>
+    <span slot="header">Auto 1</span>
+    Min 20rem width
+  </luna-card>
+  <luna-card>
+    <span slot="header">Auto 2</span>
+    Wraps automatically
+  </luna-card>
+  <luna-card>
+    <span slot="header">Auto 3</span>
+    No breakpoints needed
+  </luna-card>
+</div>
+
+<h2>Fixed Column Grid</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Simple 3-column grid, always 3 columns.</p>
+
+<div grid cols="3" gap="4">
+  <luna-card>
+    <span slot="header">Column 1</span>
+    Fixed 3 columns
+  </luna-card>
+  <luna-card>
+    <span slot="header">Column 2</span>
+    Always same size
+  </luna-card>
+  <luna-card>
+    <span slot="header">Column 3</span>
+    No breakpoints
+  </luna-card>
+</div>
+
+<h2>Column Spanning</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Using inline styles to span multiple columns.</p>
+
+<div grid cols="3" gap="4">
+  <div style="grid-column: span 2; background: #1a1a1a; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #333;">
+    <h3 style="margin: 0 0 0.5rem 0;">Wide Content</h3>
+    <p style="color: #888; margin: 0;">This spans 2 columns using <code>grid-column: span 2</code></p>
+  </div>
+  <luna-card>
+    <span slot="header">Sidebar</span>
+    1 column
+  </luna-card>
+</div>
+
+<h2>Available Attributes</h2>
+
+<div grid cols="1" cols-md="2" gap="4" style="margin-top: 1rem;">
+  <div>
+    <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Grid Container</h3>
+    <div style="display: grid; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="primary">grid</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Enable grid layout</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="primary">cols="3"</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Fixed columns (1-6, 12)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="primary">cols-md="2"</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Tablet (768px+)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="primary">cols-lg="4"</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Desktop (1024px+)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="primary">min="20"</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Auto-fit min width (rem)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="primary">gap="4"</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Spacing (0-6 scale)</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Grid Items</h3>
+    <div style="display: grid; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="success">span="2"</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Span columns (1-12)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="success">span="full"</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Full width</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="success">row="2"</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">Span rows (1-3)</span>
+      </div>
+    </div>
+    
+    <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem 0;">Spacing Scale</h3>
+    <div style="display: grid; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="warning">--space-1</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">0.25rem</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="warning">--space-3</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">1rem</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <luna-badge variant="warning">--space-6</luna-badge>
+        <span style="color: #888; font-size: 0.875rem;">3rem</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Code Example</h2>
+
+<luna-code language="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;!-- Include tokens.css --&gt;
+  &lt;link rel="stylesheet" href="node_modules/lunadom/tokens.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Dashboard layout --&gt;
+  &lt;div grid cols="1" cols-lg="3" gap="6"&gt;
+    &lt;!-- Main area (2 cols on desktop) --&gt;
+    &lt;div span="2"&gt;
+      &lt;h2&gt;Main Content&lt;/h2&gt;
+      
+      &lt;!-- Nested auto grid --&gt;
+      &lt;div grid min="16" gap="4"&gt;
+        &lt;div&gt;Card 1&lt;/div&gt;
+        &lt;div&gt;Card 2&lt;/div&gt;
+        &lt;div&gt;Card 3&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Sidebar (1 col) --&gt;
+    &lt;div&gt;Sidebar&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</luna-code>
+      </article>
+    </main>
+
+  </div>
+  <script src="/js/main.js" defer></script>
+
+<script>
+(function(){
+  const es = new EventSource('http://localhost:3001/__lr');
+  es.onmessage = () => location.reload();
+  es.onerror   = () => es.close();
+})();
+</script>
+</body>
+</html>

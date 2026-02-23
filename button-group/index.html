@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Button Group — lunaDOM Docs</title>
+  <meta name="description" content="Group buttons together for toolbars and related actions." />
+  <link rel="preload" href="/css/style.css" as="style" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preload" href="/lunadom/components/badge/badge.js" as="script" />
+  <link rel="preload" href="/lunadom/components/drawer/drawer.js" as="script" />
+  <link rel="preload" href="/lunadom/components/code/code.js" as="script" />
+  <script type="module" src="/lunadom/components/badge/badge.js"></script>
+  <script type="module" src="/lunadom/components/drawer/drawer.js"></script>
+  <script type="module" src="/lunadom/components/code/code.js"></script>
+  
+  <script type="module" src="/lunadom/components/button-group/button-group.js"></script>
+  <script type="module" src="/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunadom/components/dropdown/dropdown.js"></script>
+  <script type="module" src="/lunadom/components/menu/menu.js"></script>
+  <script type="module" src="/lunadom/components/divider/divider.js"></script>
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <div class="mobile-topbar">
+    <button class="hamburger" id="navToggle" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="site-logo-mobile" href="/">lunaDOM Docs</a>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <luna-drawer id="navDrawer" placement="start">
+    <span slot="title">lunaDOM Docs</span>
+    <p class="drawer-description">
+      lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
+    <p class="site-description">
+      <luna-badge variant="success">v0.0.2</luna-badge> 
+      <a href="https://github.com/dmac780/lunaDOM" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+      </svg>
+      </a>
+      </p>
+    <div class="drawer-divider"></div>
+    <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group" class="active">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+  </luna-drawer>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a class="site-logo" href="/">lunaDOM Docs</a>
+        <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
+        <p class="site-description">
+          <luna-badge variant="success">v0.0.2</luna-badge>      
+          <a href="https://github.com/dmac780/lunaDOM" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+          </a>
+        </p>
+        <div class="sidebar-divider"></div>
+      </div>
+      <div class="sidebar-nav-wrapper">
+        <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group" class="active">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
+  </div>
+
+</nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <h1>Button Group</h1>
+        <p class="lead">Group buttons together for toolbars and related actions.</p>
+      </header>
+
+      <article>
+        <p>The <code>&lt;luna-button-group&gt;</code> component groups buttons together for toolbars and related actions.</p>
+
+<h2>Paths</h2>
+<code>/lunadom/components/button-group/button-group.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+<code>/lunadom/components/button/button.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+<code>/lunadom/components/dropdown/dropdown.js</code><br>
+<code>/lunadom/components/menu/menu.js</code>
+
+<h2>Overrides</h2>
+<code>@slot default</code> - Buttons to group<br>
+<code>@attr pill</code> - Whether the group has pill shape<br>
+<code>@attr spacing</code> - Space between buttons<br>
+<code>@attr vertical</code> - Whether the group is vertical<br>
+<code>@attr fullwidth</code> - Whether the group takes full width<br>
+<code>--luna-button-group-spacing</code> - Button group spacing
+
+<h2>Example</h2>
+<luna-button-group>
+  <luna-button variant="neutral">Undo</luna-button>
+  <luna-button variant="neutral">Redo</luna-button>
+</luna-button-group>
+
+<h2>Connected Groups</h2>
+<luna-button-group>
+  <luna-button variant="neutral">Undo</luna-button>
+  <luna-button variant="neutral">Redo</luna-button>
+</luna-button-group>
+
+<luna-button-group pill>
+  <luna-button variant="neutral">Option A</luna-button>
+  <luna-button variant="neutral">Option B</luna-button>
+  <luna-button variant="neutral">Option C</luna-button>
+</luna-button-group>
+
+<h2>With Dropdown</h2>
+<luna-button-group>
+  <luna-button variant="neutral">Edit</luna-button>
+  <luna-dropdown placement="bottom-end">
+    <luna-button slot="trigger" variant="neutral" caret></luna-button>
+    <luna-menu>
+      <luna-menu-item>Duplicate</luna-menu-item>
+      <luna-menu-item>Archive</luna-menu-item>
+      <luna-divider></luna-divider>
+      <luna-menu-item variant="danger">Delete</luna-menu-item>
+    </luna-menu>
+  </luna-dropdown>
+</luna-button-group>
+
+<h2>Spaced Toolbar</h2>
+<luna-button-group spacing="0.75rem">
+  <luna-button variant="primary">Save</luna-button>
+  <luna-button variant="secondary">Edit</luna-button>
+  <luna-button variant="danger">Delete</luna-button>
+</luna-button-group>
+
+<h2>Vertical & Fullwidth</h2>
+<luna-button-group vertical fullwidth>
+  <luna-button variant="neutral">Profile Settings</luna-button>
+  <luna-button variant="neutral">Security</luna-button>
+  <luna-button variant="neutral">Integrations</luna-button>
+</luna-button-group>
+
+<h2>Example Code</h2>
+  <luna-code language="html">
+&lt;!-- Connected Groups --&gt;
+&lt;luna-button-group&gt;
+  &lt;luna-button variant="neutral"&gt;Undo&lt;/luna-button&gt;
+  &lt;luna-button variant="neutral"&gt;Redo&lt;/luna-button&gt;
+&lt;/luna-button-group&gt;
+
+&lt;!-- Pill Style --&gt;
+&lt;luna-button-group pill&gt;
+  &lt;luna-button variant="neutral"&gt;Option A&lt;/luna-button&gt;
+  &lt;luna-button variant="neutral"&gt;Option B&lt;/luna-button&gt;
+  &lt;luna-button variant="neutral"&gt;Option C&lt;/luna-button&gt;
+&lt;/luna-button-group&gt;
+
+&lt;!-- With Dropdown --&gt;
+&lt;luna-button-group&gt;
+  &lt;luna-button variant="neutral"&gt;Edit&lt;/luna-button&gt;
+  &lt;luna-dropdown placement="bottom-end"&gt;
+    &lt;luna-button slot="trigger" variant="neutral" caret&gt;&lt;/luna-button&gt;
+    &lt;luna-menu&gt;
+      &lt;luna-menu-item&gt;Duplicate&lt;/luna-menu-item&gt;
+      &lt;luna-menu-item&gt;Archive&lt;/luna-menu-item&gt;
+      &lt;luna-divider&gt;&lt;/luna-divider&gt;
+      &lt;luna-menu-item variant="danger"&gt;Delete&lt;/luna-menu-item&gt;
+    &lt;/luna-menu&gt;
+  &lt;/luna-dropdown&gt;
+&lt;/luna-button-group&gt;
+
+&lt;!-- Spaced Toolbar --&gt;
+&lt;luna-button-group spacing="0.75rem"&gt;
+  &lt;luna-button variant="neutral"&gt;Save&lt;/luna-button&gt;
+  &lt;luna-button variant="neutral"&gt;Edit&lt;/luna-button&gt;
+  &lt;luna-button variant="danger"&gt;Delete&lt;/luna-button&gt;
+&lt;/luna-button-group&gt;
+
+&lt;!-- Vertical & Fullwidth --&gt;
+&lt;luna-button-group vertical fullwidth&gt;
+  &lt;luna-button variant="neutral"&gt;Profile Settings&lt;/luna-button&gt;
+  &lt;luna-button variant="neutral"&gt;Security&lt;/luna-button&gt;
+  &lt;luna-button variant="neutral"&gt;Integrations&lt;/luna-button&gt;
+&lt;/luna-button-group&gt;
+  </luna-code>
+      </article>
+    </main>
+
+  </div>
+  <script src="/js/main.js" defer></script>
+
+<script>
+(function(){
+  const es = new EventSource('http://localhost:3001/__lr');
+  es.onmessage = () => location.reload();
+  es.onerror   = () => es.close();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Player — lunaDOM Docs</title>
+  <meta name="description" content="Accessible custom audio player component." />
+  <link rel="stylesheet" href="/css/style.css" />
+  
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="sidebar">
+      <a class="site-logo" href="/">lunaDOM Docs</a>
+      <nav class="sidebar-nav">
+    <a href="/">Getting Started</a>
+  <div class="nav-section">
+    <span class="nav-section-title">Components</span>
+    <a href="/alert">Alert</a>
+    <a href="/audio" class="active">Audio</a>
+  </div>
+
+</nav>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <h1>Audio Player</h1>
+        <p class="lead">Accessible custom audio player component.</p>
+      </header>
+
+      <article>
+        <p>The <code>audio</code> component wraps the native <code>&lt;audio&gt;</code> element with custom controls.</p>
+
+<h2>Usage</h2>
+<pre><code>&lt;audio-player src="/sounds/example.mp3" label="Example track"&gt;&lt;/audio-player&gt;</code></pre>
+
+<blockquote>Ensure your audio files are served over HTTPS in production.</blockquote>
+      </article>
+    </main>
+
+  </div>
+  <script src="/js/main.js" defer></script>
+
+<script>
+(function(){
+  const es = new EventSource('http://localhost:3001/__lr');
+  es.onmessage = () => location.reload();
+  es.onerror   = () => es.close();
+})();
+</script>
+</body>
+</html>
