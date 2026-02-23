@@ -56,3 +56,4 @@ import './components/tag/tag.js';
 import './components/textarea/textarea.js';
 import './components/tree/tree.js';
 import './components/tree-item/tree-item.js';
+import './components/date-picker/date-picker.js';

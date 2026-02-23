@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tag — lunaDOM Docs</title>
-  <meta name="description" content="Label tags with removable and variant options." />
+  <title>Date Picker — lunaDOM Docs</title>
+  <meta name="description" content="Lightweight date picker with single and range selection modes." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
@@ -14,7 +14,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/tag/tag.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/date-picker/date-picker.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -57,7 +57,7 @@
     <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
     <a href="/lunaDOM-Docs/combobox">Combobox</a>
     <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
-    <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
+    <a href="/lunaDOM-Docs/date-picker" class="active">Date Picker</a>
     <a href="/lunaDOM-Docs/details">Details</a>
     <a href="/lunaDOM-Docs/dialog">Dialog</a>
     <a href="/lunaDOM-Docs/divider">Divider</a>
@@ -82,7 +82,7 @@
     <a href="/lunaDOM-Docs/split-panel">Split Panel</a>
     <a href="/lunaDOM-Docs/switch">Switch</a>
     <a href="/lunaDOM-Docs/tabs">Tabs</a>
-    <a href="/lunaDOM-Docs/tag" class="active">Tag</a>
+    <a href="/lunaDOM-Docs/tag">Tag</a>
     <a href="/lunaDOM-Docs/textarea">Textarea</a>
     <a href="/lunaDOM-Docs/toast">Toast</a>
     <a href="/lunaDOM-Docs/tooltip">Tooltip</a>
@@ -127,7 +127,7 @@
     <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
     <a href="/lunaDOM-Docs/combobox">Combobox</a>
     <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
-    <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
+    <a href="/lunaDOM-Docs/date-picker" class="active">Date Picker</a>
     <a href="/lunaDOM-Docs/details">Details</a>
     <a href="/lunaDOM-Docs/dialog">Dialog</a>
     <a href="/lunaDOM-Docs/divider">Divider</a>
@@ -152,7 +152,7 @@
     <a href="/lunaDOM-Docs/split-panel">Split Panel</a>
     <a href="/lunaDOM-Docs/switch">Switch</a>
     <a href="/lunaDOM-Docs/tabs">Tabs</a>
-    <a href="/lunaDOM-Docs/tag" class="active">Tag</a>
+    <a href="/lunaDOM-Docs/tag">Tag</a>
     <a href="/lunaDOM-Docs/textarea">Textarea</a>
     <a href="/lunaDOM-Docs/toast">Toast</a>
     <a href="/lunaDOM-Docs/tooltip">Tooltip</a>
@@ -165,90 +165,187 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Tag</h1>
-        <p class="lead">Label tags with removable and variant options.</p>
+        <h1>Date Picker</h1>
+        <p class="lead">Lightweight date picker with single and range selection modes.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-tag&gt;</code> component displays label tags with variants, sizes, and removable functionality.</p>
+        <p>The <code>&lt;luna-date-picker&gt;</code> component provides a dependency-free date picker with single and range selection modes, custom formatting, and min/max constraints.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/tag/tag.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+<code>/lunadom/components/date-picker/date-picker.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Tag content<br>
-<code>@slot prefix</code> - Icon before the tag text<br>
-<code>@attr variant</code> - Color variant (neutral, primary, success, warning, danger)<br>
-<code>@attr size</code> - Size (sm, md, lg)<br>
-<code>@attr pill</code> - Pill shape<br>
-<code>@attr removable</code> - Show remove button<br>
-<code>@attr disabled</code> - Disable the tag<br>
-<code>luna-remove</code> - Emitted when remove button is clicked
+<code>@attr value</code> - Selected date in YYYY-MM-DD format (single mode)<br>
+<code>@attr value-start</code> - Range start date (range mode)<br>
+<code>@attr value-end</code> - Range end date (range mode)<br>
+<code>@attr placeholder</code> - Placeholder text (default: "Pick a date")<br>
+<code>@attr label</code> - Label displayed above input<br>
+<code>@attr help-text</code> - Help text displayed below input<br>
+<code>@attr min</code> - Minimum selectable date (YYYY-MM-DD)<br>
+<code>@attr max</code> - Maximum selectable date (YYYY-MM-DD)<br>
+<code>@attr format</code> - Display format (supports: YYYY MM DD MMM, default: "MMM DD, YYYY")<br>
+<code>@attr range</code> - Enables date-range selection mode<br>
+<code>@attr disabled</code> - Disables the trigger input<br>
+<code>@attr readonly</code> - Makes input read-only (calendar still opens)<br>
+<code>@attr clearable</code> - Shows clear button when value is set<br>
+<code>@attr placement</code> - Panel placement (top, bottom)<br>
+<code>--luna-dp-bg</code> - Calendar panel background<br>
+<code>--luna-dp-border</code> - Panel + trigger border color<br>
+<code>--luna-dp-radius</code> - Panel border radius<br>
+<code>--luna-dp-input-bg</code> - Trigger input background<br>
+<code>--luna-dp-focus</code> - Focus ring/active border color<br>
+<code>--luna-dp-selected-bg</code> - Selected day background<br>
+<code>--luna-dp-range-bg</code> - In-range day background<br>
+<code>--luna-dp-today-color</code> - Today indicator color
 
-<h2>Basic States</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-  <luna-tag>Standard</luna-tag>
-  <luna-tag pill>Pill Shape</luna-tag>
-  <luna-tag removable>Removable</luna-tag>
-  <luna-tag disabled>Disabled</luna-tag>
-  <luna-tag>
-    <span slot="prefix">🔥</span>
-    With Icon
-  </luna-tag>
+<h2>Single Date Selection</h2>
+<luna-date-picker 
+  label="Select Date" 
+  placeholder="Choose a date"
+  help-text="Pick any date from the calendar"
+></luna-date-picker>
+
+<h2>With Default Value</h2>
+<luna-date-picker 
+  label="Appointment Date" 
+  value="2026-03-15"
+  clearable
+></luna-date-picker>
+
+<h2>Date Range Selection</h2>
+<luna-date-picker 
+  label="Select Date Range" 
+  range
+  placeholder="Pick start and end dates"
+  help-text="Click to select start date, then end date"
+></luna-date-picker>
+
+<h2>With Min/Max Constraints</h2>
+<luna-date-picker 
+  label="Booking Date" 
+  min="2026-02-25"
+  max="2026-03-31"
+  help-text="Available dates: Feb 25 - Mar 31, 2026"
+></luna-date-picker>
+
+<h2>Custom Date Format</h2>
+<luna-date-picker 
+  label="European Format" 
+  format="DD/MM/YYYY"
+  value="2026-03-15"
+></luna-date-picker>
+
+<luna-date-picker 
+  label="Full Month Name" 
+  format="MMM DD, YYYY"
+  value="2026-03-15"
+  style="margin-top: 1rem;"
+></luna-date-picker>
+
+<h2>Top Placement</h2>
+<div style="margin-top: 15rem;">
+  <luna-date-picker 
+    label="Date (Panel Above)" 
+    placement="top"
+  ></luna-date-picker>
 </div>
 
-<h2>Sizes</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-  <luna-tag size="sm">Small</luna-tag>
-  <luna-tag size="md">Medium</luna-tag>
-  <luna-tag size="lg">Large</luna-tag>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
-  <luna-tag size="sm" pill removable>SM Pill</luna-tag>
-  <luna-tag size="md" pill removable>MD Pill</luna-tag>
-  <luna-tag size="lg" pill removable>LG Pill</luna-tag>
-</div>
+<h2>Disabled & Readonly</h2>
+<luna-date-picker 
+  label="Disabled Picker" 
+  value="2026-03-15"
+  disabled
+></luna-date-picker>
 
-<h2>Color Variants</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-  <luna-tag variant="neutral">Neutral</luna-tag>
-  <luna-tag variant="primary">Primary</luna-tag>
-  <luna-tag variant="success">Success</luna-tag>
-  <luna-tag variant="warning">Warning</luna-tag>
-  <luna-tag variant="danger">Danger</luna-tag>
-  <luna-tag variant="primary" removable>Removable Blue</luna-tag>
-  <luna-tag variant="danger" pill>Critical Pill</luna-tag>
-</div>
+<luna-date-picker 
+  label="Readonly Picker" 
+  value="2026-03-15"
+  readonly
+  style="margin-top: 1rem;"
+></luna-date-picker>
+
+<h2>Custom Styling</h2>
+<luna-date-picker 
+  label="Custom Theme" 
+  value="2026-03-15"
+  clearable
+  style="
+    --luna-dp-selected-bg: #22c55e;
+    --luna-dp-focus: #22c55e;
+    --luna-dp-today-color: #22c55e;
+  "
+></luna-date-picker>
 
 <h2>Example Code</h2>
 <luna-code language="html">
-&lt;!-- Basic States --&gt;
-&lt;luna-tag&gt;Standard&lt;/luna-tag&gt;
-&lt;luna-tag pill&gt;Pill Shape&lt;/luna-tag&gt;
-&lt;luna-tag removable&gt;Removable&lt;/luna-tag&gt;
-&lt;luna-tag disabled&gt;Disabled&lt;/luna-tag&gt;
-&lt;luna-tag&gt;
-  &lt;span slot="prefix"&gt;🔥&lt;/span&gt;
-  With Icon
-&lt;/luna-tag&gt;
+&lt;!-- Single date selection --&gt;
+&lt;luna-date-picker 
+  label="Select Date"
+  placeholder="Choose a date"
+  clearable
+&gt;&lt;/luna-date-picker&gt;
 
-&lt;!-- Sizes --&gt;
-&lt;luna-tag size="sm"&gt;Small&lt;/luna-tag&gt;
-&lt;luna-tag size="md"&gt;Medium&lt;/luna-tag&gt;
-&lt;luna-tag size="lg"&gt;Large&lt;/luna-tag&gt;
+&lt;!-- With default value --&gt;
+&lt;luna-date-picker 
+  label="Appointment Date"
+  value="2026-03-15"
+&gt;&lt;/luna-date-picker&gt;
 
-&lt;luna-tag size="sm" pill removable&gt;SM Pill&lt;/luna-tag&gt;
-&lt;luna-tag size="md" pill removable&gt;MD Pill&lt;/luna-tag&gt;
-&lt;luna-tag size="lg" pill removable&gt;LG Pill&lt;/luna-tag&gt;
+&lt;!-- Date range --&gt;
+&lt;luna-date-picker 
+  label="Select Date Range"
+  range
+  placeholder="Pick start and end dates"
+&gt;&lt;/luna-date-picker&gt;
 
-&lt;!-- Color Variants --&gt;
-&lt;luna-tag variant="neutral"&gt;Neutral&lt;/luna-tag&gt;
-&lt;luna-tag variant="primary"&gt;Primary&lt;/luna-tag&gt;
-&lt;luna-tag variant="success"&gt;Success&lt;/luna-tag&gt;
-&lt;luna-tag variant="warning"&gt;Warning&lt;/luna-tag&gt;
-&lt;luna-tag variant="danger"&gt;Danger&lt;/luna-tag&gt;
-&lt;luna-tag variant="primary" removable&gt;Removable Blue&lt;/luna-tag&gt;
-&lt;luna-tag variant="danger" pill&gt;Critical Pill&lt;/luna-tag&gt;
+&lt;!-- With constraints --&gt;
+&lt;luna-date-picker 
+  label="Booking Date"
+  min="2026-02-25"
+  max="2026-03-31"
+&gt;&lt;/luna-date-picker&gt;
+
+&lt;!-- Custom format --&gt;
+&lt;luna-date-picker 
+  format="DD/MM/YYYY"
+  value="2026-03-15"
+&gt;&lt;/luna-date-picker&gt;
+
+&lt;!-- Top placement --&gt;
+&lt;luna-date-picker 
+  placement="top"
+&gt;&lt;/luna-date-picker&gt;
+
+&lt;!-- Listen to changes --&gt;
+&lt;luna-date-picker id="my-picker"&gt;&lt;/luna-date-picker&gt;
+
+&lt;script&gt;
+  const picker = document.getElementById('my-picker');
+  
+  // Single date mode
+  picker.addEventListener('luna-change', (e) =&gt; {
+    console.log('Selected date:', e.detail.value);
+  });
+  
+  // Range mode
+  picker.addEventListener('luna-change', (e) =&gt; {
+    console.log('Range:', e.detail.valueStart, '-', e.detail.valueEnd);
+  });
+  
+  // Clear event
+  picker.addEventListener('luna-clear', () =&gt; {
+    console.log('Date cleared');
+  });
+&lt;/script&gt;
+
+&lt;!-- Custom styling --&gt;
+&lt;luna-date-picker 
+  style="
+    --luna-dp-selected-bg: #22c55e;
+    --luna-dp-focus: #22c55e;
+  "
+&gt;&lt;/luna-date-picker&gt;
 </luna-code>
       </article>
     </main>
