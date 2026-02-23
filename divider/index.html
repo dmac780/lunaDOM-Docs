@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Divider — lunaDOM Docs</title>
   <meta name="description" content="Horizontal and vertical dividers for visual separation." />
-  <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
-  <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
-  <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
-  <link rel="preload" href="/lunaDOM-Docs/lunadom/components/drawer/drawer.js" as="script" />
-  <link rel="preload" href="/lunaDOM-Docs/lunadom/components/code/code.js" as="script" />
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/badge/badge.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
+  <link rel="preload" href="/css/style.css" as="style" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preload" href="/lunadom/components/badge/badge.js" as="script" />
+  <link rel="preload" href="/lunadom/components/drawer/drawer.js" as="script" />
+  <link rel="preload" href="/lunadom/components/code/code.js" as="script" />
+  <script type="module" src="/lunadom/components/badge/badge.js"></script>
+  <script type="module" src="/lunadom/components/drawer/drawer.js"></script>
+  <script type="module" src="/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/divider/divider.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunadom/components/divider/divider.js"></script>
+  <script type="module" src="/lunadom/components/button/button.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -23,7 +23,7 @@
     <button class="hamburger" id="navToggle" aria-label="Open navigation">
       <span></span><span></span><span></span>
     </button>
-    <a class="site-logo-mobile" href="/lunaDOM-Docs/">lunaDOM Docs</a>
+    <a class="site-logo-mobile" href="/">lunaDOM Docs</a>
   </div>
 
   <!-- Mobile nav drawer -->
@@ -32,7 +32,7 @@
     <p class="drawer-description">
       lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
     <p class="site-description">
-      <luna-badge variant="success">v0.0.6</luna-badge> 
+      <luna-badge variant="success">v0.0.7</luna-badge> 
       <a href="https://github.com/dmac780/lunaDOM" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -41,52 +41,52 @@
       </p>
     <div class="drawer-divider"></div>
     <nav class="sidebar-nav">
-    <a href="/lunaDOM-Docs/">Getting Started</a>
+    <a href="/">Getting Started</a>
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
-    <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/avatar">Avatar</a>
-    <a href="/lunaDOM-Docs/badge">Badge</a>
-    <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
-    <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
-    <a href="/lunaDOM-Docs/button">Button</a>
-    <a href="/lunaDOM-Docs/button-group">Button Group</a>
-    <a href="/lunaDOM-Docs/card">Card</a>
-    <a href="/lunaDOM-Docs/carousel">Carousel</a>
-    <a href="/lunaDOM-Docs/checkbox">Checkbox</a>
-    <a href="/lunaDOM-Docs/code-block">Code Block</a>
-    <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
-    <a href="/lunaDOM-Docs/combobox">Combobox</a>
-    <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
-    <a href="/lunaDOM-Docs/details">Details</a>
-    <a href="/lunaDOM-Docs/dialog">Dialog</a>
-    <a href="/lunaDOM-Docs/divider" class="active">Divider</a>
-    <a href="/lunaDOM-Docs/drawer">Drawer</a>
-    <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
-    <a href="/lunaDOM-Docs/file-input">File Input</a>
-    <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
-    <a href="/lunaDOM-Docs/include">Include</a>
-    <a href="/lunaDOM-Docs/input">Input</a>
-    <a href="/lunaDOM-Docs/link">Link</a>
-    <a href="/lunaDOM-Docs/menu">Menu</a>
-    <a href="/lunaDOM-Docs/progress">Progress</a>
-    <a href="/lunaDOM-Docs/qr-code">QR Code</a>
-    <a href="/lunaDOM-Docs/radio">Radio</a>
-    <a href="/lunaDOM-Docs/range">Range</a>
-    <a href="/lunaDOM-Docs/rating">Rating</a>
-    <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
-    <a href="/lunaDOM-Docs/select">Select</a>
-    <a href="/lunaDOM-Docs/skeleton">Skeleton</a>
-    <a href="/lunaDOM-Docs/sparkline">Sparkline</a>
-    <a href="/lunaDOM-Docs/spinner">Spinner</a>
-    <a href="/lunaDOM-Docs/split-panel">Split Panel</a>
-    <a href="/lunaDOM-Docs/switch">Switch</a>
-    <a href="/lunaDOM-Docs/tabs">Tabs</a>
-    <a href="/lunaDOM-Docs/tag">Tag</a>
-    <a href="/lunaDOM-Docs/textarea">Textarea</a>
-    <a href="/lunaDOM-Docs/toast">Toast</a>
-    <a href="/lunaDOM-Docs/tooltip">Tooltip</a>
-    <a href="/lunaDOM-Docs/tree">Tree</a>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider" class="active">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
   </div>
 
 </nav>
@@ -96,10 +96,10 @@
 
     <aside class="sidebar">
       <div class="sidebar-header">
-        <a class="site-logo" href="/lunaDOM-Docs/">lunaDOM Docs</a>
+        <a class="site-logo" href="/">lunaDOM Docs</a>
         <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
         <p class="site-description">
-          <luna-badge variant="success">v0.0.6</luna-badge>      
+          <luna-badge variant="success">v0.0.7</luna-badge>      
           <a href="https://github.com/dmac780/lunaDOM" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -110,52 +110,52 @@
       </div>
       <div class="sidebar-nav-wrapper">
         <nav class="sidebar-nav">
-    <a href="/lunaDOM-Docs/">Getting Started</a>
+    <a href="/">Getting Started</a>
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
-    <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/avatar">Avatar</a>
-    <a href="/lunaDOM-Docs/badge">Badge</a>
-    <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
-    <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
-    <a href="/lunaDOM-Docs/button">Button</a>
-    <a href="/lunaDOM-Docs/button-group">Button Group</a>
-    <a href="/lunaDOM-Docs/card">Card</a>
-    <a href="/lunaDOM-Docs/carousel">Carousel</a>
-    <a href="/lunaDOM-Docs/checkbox">Checkbox</a>
-    <a href="/lunaDOM-Docs/code-block">Code Block</a>
-    <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
-    <a href="/lunaDOM-Docs/combobox">Combobox</a>
-    <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
-    <a href="/lunaDOM-Docs/details">Details</a>
-    <a href="/lunaDOM-Docs/dialog">Dialog</a>
-    <a href="/lunaDOM-Docs/divider" class="active">Divider</a>
-    <a href="/lunaDOM-Docs/drawer">Drawer</a>
-    <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
-    <a href="/lunaDOM-Docs/file-input">File Input</a>
-    <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
-    <a href="/lunaDOM-Docs/include">Include</a>
-    <a href="/lunaDOM-Docs/input">Input</a>
-    <a href="/lunaDOM-Docs/link">Link</a>
-    <a href="/lunaDOM-Docs/menu">Menu</a>
-    <a href="/lunaDOM-Docs/progress">Progress</a>
-    <a href="/lunaDOM-Docs/qr-code">QR Code</a>
-    <a href="/lunaDOM-Docs/radio">Radio</a>
-    <a href="/lunaDOM-Docs/range">Range</a>
-    <a href="/lunaDOM-Docs/rating">Rating</a>
-    <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
-    <a href="/lunaDOM-Docs/select">Select</a>
-    <a href="/lunaDOM-Docs/skeleton">Skeleton</a>
-    <a href="/lunaDOM-Docs/sparkline">Sparkline</a>
-    <a href="/lunaDOM-Docs/spinner">Spinner</a>
-    <a href="/lunaDOM-Docs/split-panel">Split Panel</a>
-    <a href="/lunaDOM-Docs/switch">Switch</a>
-    <a href="/lunaDOM-Docs/tabs">Tabs</a>
-    <a href="/lunaDOM-Docs/tag">Tag</a>
-    <a href="/lunaDOM-Docs/textarea">Textarea</a>
-    <a href="/lunaDOM-Docs/toast">Toast</a>
-    <a href="/lunaDOM-Docs/tooltip">Tooltip</a>
-    <a href="/lunaDOM-Docs/tree">Tree</a>
+    <a href="/alert">Alert</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider" class="active">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
   </div>
 
 </nav>
@@ -169,61 +169,165 @@
       </header>
 
       <article>
-        <p>The <code>&lt;luna-divider&gt;</code> component provides horizontal and vertical dividers for visual separation.</p>
+        <p>The <code>&lt;luna-divider&gt;</code> component provides elegant horizontal and vertical dividers with labels, variants, and custom styling.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/divider/divider.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+<code>/lunadom/components/divider/divider.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Optional label text for the divider<br>
-<code>@attr vertical</code> - Whether the divider is vertical<br>
-<code>--luna-divider-color</code> - Divider line color<br>
-<code>--luna-divider-width</code> - Divider line width
+<code>@slot default</code> - Optional label text displayed at midpoint<br>
+<code>@attr vertical</code> - Renders a vertical divider<br>
+<code>@attr variant</code> - Visual weight (subtle, default, strong, gradient)<br>
+<code>@attr style-line</code> - Line style (solid, dashed, dotted)<br>
+<code>@attr label-position</code> - Label placement (start, center, end)<br>
+<code>@attr spacing</code> - Vertical margin (CSS length)<br>
+<code>--luna-divider-color</code> - Line color<br>
+<code>--luna-divider-thickness</code> - Line thickness<br>
+<code>--luna-divider-radius</code> - Border radius of line<br>
+<code>--luna-divider-gap</code> - Gap between label and line<br>
+<code>--luna-divider-spacing</code> - Block margin override<br>
+<code>--luna-divider-label-color</code> - Label text color<br>
+<code>--luna-divider-label-size</code> - Label font size<br>
+<code>--luna-divider-gradient</code> - Custom gradient for gradient variant
 
-<h2>Horizontal Dividers</h2>
-<p style="font-size: 0.875rem; color: #888;">Standard Divider</p>
+<h2>Basic Dividers</h2>
+<p>Content above</p>
 <luna-divider></luna-divider>
+<p>Content below</p>
 
-<p style="font-size: 0.875rem; color: #888;">With Label</p>
+<h2>Variants</h2>
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem;">Subtle (near-invisible)</p>
+<luna-divider variant="subtle"></luna-divider>
+
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem; margin-top: 1.5rem;">Default (standard separator)</p>
+<luna-divider variant="default"></luna-divider>
+
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem; margin-top: 1.5rem;">Strong (more visible)</p>
+<luna-divider variant="strong"></luna-divider>
+
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem; margin-top: 1.5rem;">Gradient (elegant fade)</p>
+<luna-divider variant="gradient"></luna-divider>
+
+<h2>Line Styles</h2>
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem;">Solid</p>
+<luna-divider style-line="solid"></luna-divider>
+
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem; margin-top: 1.5rem;">Dashed</p>
+<luna-divider style-line="dashed" variant="strong"></luna-divider>
+
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem; margin-top: 1.5rem;">Dotted</p>
+<luna-divider style-line="dotted" variant="strong"></luna-divider>
+
+<h2>With Labels</h2>
+<p>Section A content</p>
 <luna-divider>SECTION B</luna-divider>
-
-<p style="font-size: 0.875rem; color: #888;">Another Label</p>
+<p>Section B content</p>
 <luna-divider>OR</luna-divider>
+<p>Alternative content</p>
+
+<h2>Label Positions</h2>
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem;">Start</p>
+<luna-divider label-position="start">Start Label</luna-divider>
+
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem; margin-top: 1.5rem;">Center (default)</p>
+<luna-divider label-position="center">Center Label</luna-divider>
+
+<p style="font-size: 0.875rem; color: #888; margin-bottom: 0.5rem; margin-top: 1.5rem;">End</p>
+<luna-divider label-position="end">End Label</luna-divider>
+
+<h2>Spacing</h2>
+<p>Default spacing</p>
+<luna-divider></luna-divider>
+<p>Content</p>
+
+<p style="margin-top: 2rem;">With 2rem spacing</p>
+<luna-divider spacing="2rem"></luna-divider>
+<p>Content</p>
 
 <h2>Vertical Dividers</h2>
-<p style="font-size: 0.875rem; color: #888;">Inline with Content</p>
-<div style="display: flex; align-items: center; gap: 1rem;">
-  <span>Left Content</span>
+<div style="display: flex; align-items: center; gap: 1rem; height: 3rem;">
+  <span>Left</span>
   <luna-divider vertical></luna-divider>
-  <span>Right Content</span>
+  <span>Center</span>
+  <luna-divider vertical></luna-divider>
+  <span>Right</span>
 </div>
 
-<div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+<div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
   <luna-button size="sm">Action 1</luna-button>
-  <luna-divider vertical></luna-divider>
+  <luna-divider vertical variant="strong"></luna-divider>
   <luna-button size="sm">Action 2</luna-button>
-  <luna-divider vertical></luna-divider>
+  <luna-divider vertical variant="strong"></luna-divider>
   <luna-button size="sm">Action 3</luna-button>
 </div>
 
-<h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Horizontal Dividers --&gt;
-&lt;luna-divider&gt;&lt;/luna-divider&gt;
-&lt;luna-divider&gt;SECTION LABEL&lt;/luna-divider&gt;
+<h2>Custom Styling</h2>
+<luna-divider 
+  variant="strong"
+  style="
+    --luna-divider-color: #ef4444;
+    --luna-divider-thickness: 3px;
+  "
+>Custom Red</luna-divider>
 
-&lt;!-- Vertical Dividers --&gt;
+<luna-divider 
+  variant="gradient"
+  style="
+    --luna-divider-gradient: linear-gradient(to right, transparent, #60a5fa, transparent);
+    --luna-divider-thickness: 2px;
+  "
+>Custom Gradient</luna-divider>
+
+<h2>Example Code</h2>
+<luna-code language="html">
+&lt;!-- Basic divider --&gt;
+&lt;luna-divider&gt;&lt;/luna-divider&gt;
+
+&lt;!-- Variants --&gt;
+&lt;luna-divider variant="subtle"&gt;&lt;/luna-divider&gt;
+&lt;luna-divider variant="default"&gt;&lt;/luna-divider&gt;
+&lt;luna-divider variant="strong"&gt;&lt;/luna-divider&gt;
+&lt;luna-divider variant="gradient"&gt;&lt;/luna-divider&gt;
+
+&lt;!-- Line styles --&gt;
+&lt;luna-divider style-line="solid"&gt;&lt;/luna-divider&gt;
+&lt;luna-divider style-line="dashed"&gt;&lt;/luna-divider&gt;
+&lt;luna-divider style-line="dotted"&gt;&lt;/luna-divider&gt;
+
+&lt;!-- With labels --&gt;
+&lt;luna-divider&gt;SECTION LABEL&lt;/luna-divider&gt;
+&lt;luna-divider label-position="start"&gt;Left&lt;/luna-divider&gt;
+&lt;luna-divider label-position="end"&gt;Right&lt;/luna-divider&gt;
+
+&lt;!-- Spacing --&gt;
+&lt;luna-divider spacing="2rem"&gt;&lt;/luna-divider&gt;
+
+&lt;!-- Vertical divider --&gt;
 &lt;div style="display: flex; align-items: center; gap: 1rem;"&gt;
   &lt;span&gt;Left&lt;/span&gt;
   &lt;luna-divider vertical&gt;&lt;/luna-divider&gt;
   &lt;span&gt;Right&lt;/span&gt;
 &lt;/div&gt;
-  </luna-code>
+
+&lt;!-- Custom styling --&gt;
+&lt;luna-divider 
+  variant="strong"
+  style="
+    --luna-divider-color: #ef4444;
+    --luna-divider-thickness: 3px;
+  "
+&gt;Custom&lt;/luna-divider&gt;
+
+&lt;luna-divider 
+  variant="gradient"
+  style="--luna-divider-gradient: linear-gradient(to right, transparent, #60a5fa, transparent);"
+&gt;&lt;/luna-divider&gt;
+</luna-code>
       </article>
     </main>
 
   </div>
-  <script src="/lunaDOM-Docs/js/main.js" defer></script>
+  <script src="/js/main.js" defer></script>
 
 <script>
 (function(){
