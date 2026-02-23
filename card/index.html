@@ -32,7 +32,7 @@
     <p class="drawer-description">
       lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
     <p class="site-description">
-      <luna-badge variant="success">v0.0.4</luna-badge> 
+      <luna-badge variant="success">v0.0.5</luna-badge> 
       <a href="https://github.com/dmac780/lunaDOM" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -99,7 +99,7 @@
         <a class="site-logo" href="/lunaDOM-Docs/">lunaDOM Docs</a>
         <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
         <p class="site-description">
-          <luna-badge variant="success">v0.0.4</luna-badge>      
+          <luna-badge variant="success">v0.0.5</luna-badge>      
           <a href="https://github.com/dmac780/lunaDOM" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -169,67 +169,97 @@
       </header>
 
       <article>
-        <p>The <code>&lt;luna-card&gt;</code> component provides flexible containers for displaying content with optional headers, images, and footers.</p>
+        <p>The <code>&lt;luna-card&gt;</code> component provides flexible containers with optional hero images, headers, and footers.</p>
 
 <h2>Paths</h2>
 <code>/lunadom/components/card/card.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot image</code> - Image for the card<br>
-<code>@slot header</code> - Header content for the card<br>
-<code>@slot default</code> - Main content for the card<br>
-<code>@slot footer</code> - Footer content for the card<br>
-<code>@attr glass</code> - Whether the card has glass effect<br>
-<code>--luna-card-bg</code> - Card background color<br>
-<code>--luna-card-color</code> - Card text color<br>
-<code>--luna-card-border</code> - Card border color
+<code>@slot image</code> - Card hero image (auto-hidden if empty)<br>
+<code>@slot header</code> - Card title/heading content<br>
+<code>@slot default</code> - Main body content<br>
+<code>@slot footer</code> - Footer actions/meta (auto-hidden if empty)<br>
+<code>@attr size="350px"</code> - Max-width (default: 350px)<br>
+<code>@attr glass</code> - Enables glassmorphism variant<br>
+<code>--luna-card-bg</code> - Background color<br>
+<code>--luna-card-color</code> - Body text color<br>
+<code>--luna-card-border</code> - Border color<br>
+<code>--luna-card-radius</code> - Border radius<br>
+<code>--luna-card-padding</code> - Inner padding<br>
+<code>--luna-footer-justify</code> - Footer justify-content<br>
+<code>--luna-footer-align</code> - Footer align-items<br>
+<code>--luna-accent</code> - Accent color on hover
 
-<h2>Example</h2>
+<h2>Basic Card</h2>
 <luna-card>
-  <span slot="header">Card Title</span>
-  This is a simple card with just content.
+  <span slot="header">Simple Card</span>
+  This is a minimal card with just header and content. The image and footer slots are omitted.
 </luna-card>
 
-<h2>Standard Card</h2>
+<h2>Full Card with Image</h2>
 <luna-card>
-  <img slot="image" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Mechanical Keyboard" />
-  <span slot="header">Custom Mechanical Keyboards</span>
-  Discover the perfect balance between tactile feedback and aesthetic beauty for your next workstation upgrade.
+  <img slot="image" src="https://images.unsplash.com/photo-1618609378039-b572f64c5b42?q=80&w=600&auto=format&fit=crop" alt="Workspace" />
+  <span slot="header">Premium Workspace Setup</span>
+  Build your dream workstation with carefully selected components designed for productivity and aesthetics.
   <div slot="footer">
-    <luna-button variant="primary" size="sm">Add to Cart</luna-button>
-    <luna-button variant="neutral" size="sm">Details</luna-button>
+    <luna-button variant="primary" size="sm">View Details</luna-button>
+    <luna-button variant="neutral" size="sm">Add to Cart</luna-button>
   </div>
 </luna-card>
 
-<h2>Glass Card</h2>
+<h2>Glassmorphism Style</h2>
 <luna-card glass>
-  <img slot="image" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop" alt="Modern Tech" />
-  <span slot="header">Edge Computing 2.0</span>
-  Experience lightning-fast processing speeds with our latest edge architecture, now with glassmorphism support.
+  <img slot="image" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop" alt="Tech" />
+  <span slot="header">Edge Computing</span>
+  Next-generation distributed architecture with real-time processing capabilities.
   <div slot="footer">
-    <luna-badge variant="success" pill>v2.4.0</luna-badge>
-    <luna-button variant="neutral" size="sm" caret>Deploy</luna-button>
+    <luna-badge variant="success">New</luna-badge>
+    <luna-button variant="neutral" size="sm">Learn More</luna-button>
+  </div>
+</luna-card>
+
+<h2>No Image, With Footer</h2>
+<luna-card size="400px">
+  <span slot="header">Quick Actions</span>
+  Select an action below to get started with your project configuration.
+  <div slot="footer">
+    <luna-button variant="primary" size="sm">Deploy</luna-button>
+    <luna-button variant="neutral" size="sm">Configure</luna-button>
+    <luna-button variant="neutral" size="sm">Cancel</luna-button>
   </div>
 </luna-card>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Standard Card --&gt;
+<luna-code language="html">
+&lt;!-- Basic card --&gt;
 &lt;luna-card&gt;
-&lt;img slot="image" src="image.jpg" alt="Title" /&gt;
-&lt;span slot="header"&gt;Card Title&lt;/span&gt;
-Card content goes here.
-&lt;div slot="footer"&gt;
-  &lt;luna-button variant="primary" size="sm"&gt;Action&lt;/luna-button&gt;
-&lt;/div&gt;
+  &lt;span slot="header"&gt;Card Title&lt;/span&gt;
+  Card body content.
 &lt;/luna-card&gt;
 
-&lt;!-- Glass Card --&gt;
-&lt;luna-card glass&gt;
-&lt;span slot="header"&gt;Glass Effect&lt;/span&gt;
-Glassmorphism style card.
+&lt;!-- Full card with image and footer --&gt;
+&lt;luna-card&gt;
+  &lt;img slot="image" src="image.jpg" alt="Hero" /&gt;
+  &lt;span slot="header"&gt;Product Name&lt;/span&gt;
+  Product description goes here.
+  &lt;div slot="footer"&gt;
+    &lt;luna-button variant="primary" size="sm"&gt;Buy Now&lt;/luna-button&gt;
+    &lt;luna-button variant="neutral" size="sm"&gt;Details&lt;/luna-button&gt;
+  &lt;/div&gt;
 &lt;/luna-card&gt;
-  </luna-code>
+
+&lt;!-- Glassmorphism variant --&gt;
+&lt;luna-card glass&gt;
+  &lt;span slot="header"&gt;Glass Effect&lt;/span&gt;
+  Beautiful frosted glass appearance.
+&lt;/luna-card&gt;
+
+&lt;!-- Custom size --&gt;
+&lt;luna-card size="500px"&gt;
+  &lt;span slot="header"&gt;Wide Card&lt;/span&gt;
+  This card has a custom max-width.
+&lt;/luna-card&gt;
+</luna-code>
       </article>
     </main>
 
