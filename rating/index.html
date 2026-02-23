@@ -220,22 +220,57 @@
 <h2>Example Code</h2>
 <luna-code language="html">
 &lt;!-- Fractional Ratings --&gt;
-&lt;luna-rating label="Half Stars (Precision: 0.5)" value="3.5" precision="0.5" size="md"&gt;
+&lt;luna-rating
+  label="Half Stars (Precision: 0.5)"
+  value="3.5"
+  precision="0.5"
+  size="md"
+&gt;
 &lt;/luna-rating&gt;
 
-&lt;luna-rating label="Fine Grid (Precision: 0.1)" value="4.2" precision="0.1" size="lg" style="--star-active: #ef4444;"&gt;
+&lt;luna-rating
+  label="Fine Grid (Precision: 0.1)"
+  value="4.2"
+  precision="0.1"
+  size="lg"
+  style="--star-active: #ef4444;"
+&gt;
 &lt;/luna-rating&gt;
 
 &lt;!-- Static & Disabled --&gt;
-&lt;luna-rating label="Readonly (Static Display)" value="4.5" precision="0.5" readonly&gt;
+&lt;luna-rating
+  label="Readonly (Static Display)"
+  value="4.5"
+  precision="0.5"
+  readonly
+&gt;
 &lt;/luna-rating&gt;
 
-&lt;luna-rating label="Disabled State" value="2.5" disabled&gt;&lt;/luna-rating&gt;
+&lt;luna-rating
+  label="Disabled State"
+  value="2.5"
+  disabled
+&gt;
+&lt;/luna-rating&gt;
 
 &lt;!-- Interactive Sync with Range --&gt;
-&lt;luna-range id="rating-controller" label="Adjust Rating" min="0" max="5" step="0.1" value="3.5"&gt;&lt;/luna-range&gt;
+&lt;luna-range
+  id="rating-controller"
+  label="Adjust Rating"
+  min="0"
+  max="5"
+  step="0.1"
+  value="3.5"
+&gt;
+&lt;/luna-range&gt;
 
-&lt;luna-rating id="controlled-rating" value="3.5" precision="0.1" size="lg"&gt;&lt;/luna-rating&gt;
+&lt;luna-rating
+  id="controlled-rating"
+  value="3.5"
+  precision="0.1"
+  size="lg"
+&gt;
+&lt;/luna-rating&gt;
 
 &lt;script&gt;
   const range = document.getElementById('rating-controller');

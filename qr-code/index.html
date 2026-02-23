@@ -249,20 +249,45 @@ document.getElementById('qr-live-input').addEventListener('input', (e) => {
 <h2>Example Code</h2>
   <luna-code language="html">
 &lt;!-- Basic QR Code with Styling --&gt;
-&lt;luna-qr-code value="https://luna.dom" size="120" radius="0.5" fill="#22c55e" background="#111"&gt;
+&lt;luna-qr-code
+  value="https://luna.dom"
+  size="120"
+  radius="0.5"
+  fill="#22c55e"
+  background="#111"
+&gt;
 &lt;/luna-qr-code&gt;
 
 &lt;!-- Classic QR Code with Padding --&gt;
-&lt;luna-qr-code value="https://google.com" size="120" padding="2" radius="0"&gt;
+&lt;luna-qr-code
+  value="https://google.com"
+  size="120"
+  padding="2"
+  radius="0"
+&gt;
 &lt;/luna-qr-code&gt;
 
 &lt;!-- WiFi QR Code with High Error Correction --&gt;
-&lt;luna-qr-code value="WIFI:S:LunaNet;T:WPA;P:password;;" size="120" ec-level="H" style="--luna-qr-radius: 12px;"&gt;
+&lt;luna-qr-code
+  value="WIFI:S:LunaNet;T:WPA;P:password;;"
+  size="120"
+  ec-level="H"
+  style="--luna-qr-radius: 12px;"
+&gt;
 &lt;/luna-qr-code&gt;
 
 &lt;!-- Dynamic QR Code --&gt;
-&lt;luna-input id="qr-live-input" placeholder="Type something..."&gt;&lt;/luna-input&gt;
-&lt;luna-qr-code id="qr-live-preview" value="Luna" size="120" padding="1"&gt;
+&lt;luna-input
+  id="qr-live-input"
+  placeholder="Type something..."
+&gt;
+&lt;/luna-input&gt;
+&lt;luna-qr-code
+  id="qr-live-preview"
+  value="Luna"
+  size="120"
+  padding="1"
+&gt;
 &lt;/luna-qr-code&gt;
 
 &lt;script&gt;

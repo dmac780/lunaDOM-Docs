@@ -218,19 +218,44 @@
 <h2>Example Code</h2>
 <luna-code language="html">
 &lt;!-- Standard Range --&gt;
-&lt;luna-range label="Volume" min="0" max="100" value="50" help-text="Adjust the system volume"&gt;
+&lt;luna-range
+  label="Volume"
+  min="0"
+  max="100"
+  value="50"
+  help-text="Adjust the system volume"
+&gt;
 &lt;/luna-range&gt;
 
 &lt;!-- Step & Tooltip Placement --&gt;
-&lt;luna-range label="Rating" min="0" max="10" step="0.5" value="7.5" tooltip-placement="bottom"&gt;
+&lt;luna-range
+  label="Rating"
+  min="0"
+  max="10"
+  step="0.5"
+  value="7.5"
+  tooltip-placement="bottom"
+&gt;
 &lt;/luna-range&gt;
 
 &lt;!-- Custom Styles --&gt;
-&lt;luna-range label="Probability" value="30" style="--luna-range-track-active-color: #f59e0b; --luna-range-track-height: 4px;"&gt;
+&lt;luna-range
+  label="Probability"
+  value="30"
+  style="
+    --luna-range-track-active-color: #f59e0b;
+    --luna-range-track-height: 4px;
+  "
+&gt;
 &lt;/luna-range&gt;
 
 &lt;!-- Disabled State --&gt;
-&lt;luna-range label="Locked Setting" value="40" disabled&gt;&lt;/luna-range&gt;
+&lt;luna-range
+  label="Locked Setting"
+  value="40"
+  disabled
+&gt;
+&lt;/luna-range&gt;
 </luna-code>
       </article>
     </main>

@@ -253,7 +253,13 @@
 <h2>Example Code</h2>
 <luna-code language="html">
 &lt;!-- Basic Tree with Indent Guides --&gt;
-&lt;luna-tree selection="leaf" style="--indent-guide-width: 1px; --indent-guide-color: #333; --indent-guide-offset: 4px;" &gt;
+&lt;luna-tree
+  selection="leaf"
+  style="
+    --indent-guide-width: 1px;
+    --indent-guide-color: #333;
+    --indent-guide-offset: 4px;"
+&gt;
   &lt;luna-tree-item expanded&gt;
     📁 Project Root
     &lt;div slot="children"&gt;

@@ -225,20 +225,51 @@
 <h2>Example Code</h2>
   <luna-code language="html">
 &lt;!-- Popup Mode with Swatches --&gt;
-&lt;luna-color-picker label="Pick a Color" value="#e63946" format="hex" swatches="#e63946,#457b9d,#2a9d8f,#fff,#000"&gt;
+&lt;luna-color-picker
+  label="Pick a Color"
+  value="#e63946"
+  format="hex"
+  swatches="#e63946,#457b9d,#2a9d8f,#fff,#000"
+&gt;
 &lt;/luna-color-picker&gt;
 
 &lt;!-- Inline Mode --&gt;
-&lt;luna-color-picker value="#9b5de5" format="hex" swatches="#9b5de5,#f15bb5,#fee440" inline&gt;
+&lt;luna-color-picker
+  value="#9b5de5"
+  format="hex"
+  swatches="#9b5de5,#f15bb5,#fee440"
+  inline
+&gt;
 &lt;/luna-color-picker&gt;
 
 &lt;!-- Different Formats --&gt;
-&lt;luna-color-picker label="RGB" value="#457b9d" format="rgb"&gt;&lt;/luna-color-picker&gt;
-&lt;luna-color-picker label="HSL" value="#e76f51" format="hsl"&gt;&lt;/luna-color-picker&gt;
-&lt;luna-color-picker label="HSV" value="#2a9d8f" format="hsv"&gt;&lt;/luna-color-picker&gt;
+&lt;luna-color-picker
+  label="RGB"
+  value="#457b9d"
+  format="rgb"
+&gt;
+&lt;/luna-color-picker&gt;
+&lt;luna-color-picker
+  label="HSL"
+  value="#e76f51"
+  format="hsl"
+&gt;
+&lt;/luna-color-picker&gt;
+&lt;luna-color-picker
+  label="HSV"
+  value="#2a9d8f"
+  format="hsv"
+&gt;
+&lt;/luna-color-picker&gt;
 
 &lt;!-- Custom Themed --&gt;
-&lt;luna-color-picker value="#2a9d8f" style="--luna-picker-border-radius: 4px;--luna-picker-trigger-bg: #264653;--luna-picker-swatch-size: 28px;"&gt;
+&lt;luna-color-picker 
+  value="#2a9d8f"
+  style="
+    --luna-picker-border-radius: 4px;
+    --luna-picker-trigger-bg: #264653
+    --luna-picker-swatch-size: 28px;"
+&gt;
 &lt;/luna-color-picker&gt;
   </luna-code>
       </article>

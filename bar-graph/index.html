@@ -306,27 +306,59 @@
 <h2>Example Code</h2>
   <luna-code language="html">
 &lt;!-- Basic Vertical Bar Graph --&gt;
-&lt;luna-bar-graph data='[{"label":"Jan","value":42},{"label":"Feb","value":78}]' value-labels height="260"&gt;
+&lt;luna-bar-graph
+  data='[{"label":"Jan","value":42},{"label":"Feb","value":78}]'
+  value-labels
+  height="260"
+&gt;
 &lt;/luna-bar-graph&gt;
 
 &lt;!-- Horizontal with Sorting --&gt;
-&lt;luna-bar-graph data='[{"label":"React","value":68},{"label":"Vue","value":41}]' direction="horizontal" sorted value-labels&gt;
+&lt;luna-bar-graph
+  data='[{"label":"React","value":68},{"label":"Vue","value":41}]'
+  direction="horizontal"
+  sorted
+  value-labels
+&gt;
 &lt;/luna-bar-graph&gt;
 
 &lt;!-- Multi-Series Grouped --&gt;
-&lt;luna-bar-graph data='[{"label":"Q1","values":{"Revenue":120,"Expenses":80}},{"label":"Q2","values":{"Revenue":145,"Expenses":95}}]' legend value-labels&gt;
+&lt;luna-bar-graph
+  data='[
+    {"label":"Q1","values":{"Revenue":120,"Expenses":80}},
+    {"label":"Q2","values":{"Revenue":145,"Expenses":95}}
+  ]'
+  legend
+  value-labels
+&gt;
 &lt;/luna-bar-graph&gt;
 
 &lt;!-- Stacked Percentage --&gt;
-&lt;luna-bar-graph data='[{"label":"Mon","values":{"Mobile":55,"Desktop":30}}]' stacked stacked-percentage legend&gt;
+&lt;luna-bar-graph
+  data='[{"label":"Mon","values":{"Mobile":55,"Desktop":30}}]'
+  stacked
+  stacked-percentage
+  legend
+&gt;
 &lt;/luna-bar-graph&gt;
 
 &lt;!-- With Goal Line --&gt;
-&lt;luna-bar-graph data='[...]' goal="75" goal-label="Target" value-labels&gt;
+&lt;luna-bar-graph
+  data='[...]'
+  goal="75"
+  goal-label="Target"
+  value-labels
+&gt;
 &lt;/luna-bar-graph&gt;
 
 &lt;!-- Custom Styling --&gt;
-&lt;luna-bar-graph data='[...]' style="--luna-bar-graph-bar-color: #6366f1;--luna-bar-graph-bar-radius: 6px;"&gt;
+&lt;luna-bar-graph
+  data='[...]'
+  style="
+    --luna-bar-graph-bar-color: #6366f1;
+    --luna-bar-graph-bar-radius: 6px;
+  "
+&gt;
 &lt;/luna-bar-graph&gt;
   </luna-code>
       </article>

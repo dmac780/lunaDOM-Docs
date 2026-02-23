@@ -261,14 +261,25 @@
 &lt;/luna-select&gt;
 
 &lt;!-- Multiple Selection --&gt;
-&lt;luna-select label="Tech Stack" multiple clearable placeholder="Choose technologies..." value="javascript,css"&gt;
+&lt;luna-select
+  label="Tech Stack"
+  multiple
+  clearable
+  placeholder="Choose technologies..."
+  value="javascript,css"
+&gt;
   &lt;luna-option value="javascript"&gt;JavaScript&lt;/luna-option&gt;
   &lt;luna-option value="css"&gt;CSS3&lt;/luna-option&gt;
   &lt;luna-option value="html"&gt;HTML5&lt;/luna-option&gt;
 &lt;/luna-select&gt;
 
 &lt;!-- With Icons and Max Visible --&gt;
-&lt;luna-select label="Collaborators" multiple max-options-visible="2" value="user1,user2,user3"&gt;
+&lt;luna-select
+  label="Collaborators"
+  multiple
+  max-options-visible="2"
+  value="user1,user2,user3"
+&gt;
   &lt;luna-option value="user1"&gt;
     &lt;span slot="prefix"&gt;👤&lt;/span&gt;
     Alex Rivera
@@ -280,11 +291,19 @@
 &lt;/luna-select&gt;
 
 &lt;!-- Size and Disabled States --&gt;
-&lt;luna-select label="Small" size="sm" placeholder="Small"&gt;
+&lt;luna-select
+  label="Small"
+  size="sm"
+  placeholder="Small"
+&gt;
   &lt;luna-option value="1"&gt;Option 1&lt;/luna-option&gt;
 &lt;/luna-select&gt;
 
-&lt;luna-select label="Disabled" disabled placeholder="Production"&gt;
+&lt;luna-select
+  label="Disabled"
+  disabled
+  placeholder="Production"
+&gt;
   &lt;luna-option value="prod"&gt;Production&lt;/luna-option&gt;
 &lt;/luna-select&gt;
 </luna-code>

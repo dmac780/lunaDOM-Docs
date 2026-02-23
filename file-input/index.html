@@ -217,22 +217,30 @@
 <h2>Example Code</h2>
   <luna-code language="html">
 &lt;!-- Basic File Upload --&gt;
-&lt;luna-file-input label="Upload Document" hint="Select a file to upload"&gt;
+&lt;luna-file-input
+  label="Upload Document"
+  hint="Select a file to upload"
+&gt;
 &lt;/luna-file-input&gt;
 
 &lt;!-- Multiple Files --&gt;
-&lt;luna-file-input label="Upload Photos" multiple&gt;
+&lt;luna-file-input
+  label="Upload Photos"
+  multiple
+&gt;
 &lt;/luna-file-input&gt;
 
 &lt;!-- Specific Extensions --&gt;
-&lt;luna-file-input label="Documents" accept=".pdf,.doc,.docx" multiple&gt;
+&lt;luna-file-input
+  label="Documents"
+  accept=".pdf,.doc,.docx"
+  multiple
+&gt;
 &lt;/luna-file-input&gt;
 
 &lt;!-- Custom Dropzone --&gt;
 &lt;luna-file-input accept="image/*"&gt;
-  &lt;div slot="dropzone"&gt;
-    Custom drop area content
-  &lt;/div&gt;
+  &lt;div slot="dropzone"&gt;Custom drop area content&lt;/div&gt;
 &lt;/luna-file-input&gt;
   </luna-code>
       </article>

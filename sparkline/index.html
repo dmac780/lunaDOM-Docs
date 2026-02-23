@@ -232,35 +232,99 @@
 <h2>Example Code</h2>
 <luna-code language="html">
 &lt;!-- Basic Sparkline --&gt;
-&lt;luna-sparkline data="5 10 8 15 12 18 20" label="Sales trend" &gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 10 8 15 12 18 20"
+  label="Sales trend"
+&gt;
+&lt;/luna-sparkline&gt;
 
 &lt;!-- Appearances --&gt;
-&lt;luna-sparkline data="5 10 8 15 12 18 20" appearance="solid"&gt;&lt;/luna-sparkline&gt;
-&lt;luna-sparkline data="5 10 8 15 12 18 20" appearance="gradient"&gt;&lt;/luna-sparkline&gt;
-&lt;luna-sparkline data="5 10 8 15 12 18 20" appearance="line"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 10 8 15 12 18 20"
+  appearance="solid"
+&gt;
+&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 10 8 15 12 18 20"
+  appearance="gradient"
+&gt;
+&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 10 8 15 12 18 20"
+  appearance="line"
+&gt;
+&lt;/luna-sparkline&gt;
 
 &lt;!-- Trend Colors --&gt;
-&lt;luna-sparkline data="5 8 10 15 18 22 25" trend="positive"&gt;&lt;/luna-sparkline&gt;
-&lt;luna-sparkline data="10 12 11 13 12 14 13" trend="neutral"&gt;&lt;/luna-sparkline&gt;
-&lt;luna-sparkline data="25 22 18 15 10 8 5" trend="negative"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 8 10 15 18 22 25"
+  trend="positive"
+&gt;
+&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="10 12 11 13 12 14 13"
+  trend="neutral"
+&gt;
+&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="25 22 18 15 10 8 5"
+  trend="negative"
+&gt;
+&lt;/luna-sparkline&gt;
 
 &lt;!-- Curve Types --&gt;
-&lt;luna-sparkline data="5 15 8 20 12 18 25" curve="linear"&gt;&lt;/luna-sparkline&gt;
-&lt;luna-sparkline data="5 15 8 20 12 18 25" curve="natural"&gt;&lt;/luna-sparkline&gt;
-&lt;luna-sparkline data="5 15 8 20 12 18 25" curve="step"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 15 8 20 12 18 25"
+  curve="linear"
+&gt;
+&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 15 8 20 12 18 25"
+  curve="natural"
+&gt;
+&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 15 8 20 12 18 25"
+  curve="step"
+&gt;
+&lt;/luna-sparkline&gt;
 
 &lt;!-- Sizes &amp; Custom Colors --&gt;
-&lt;luna-sparkline data="5 10 8 15 12 18 20" size="sm"&gt;&lt;/luna-sparkline&gt;
-&lt;luna-sparkline data="5 10 8 15 12 18 20" color="#3b82f6"&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 10 8 15 12 18 20"
+  size="sm"
+&gt;
+&lt;/luna-sparkline&gt;
+
+&lt;luna-sparkline
+  data="5 10 8 15 12 18 20"
+  color="#3b82f6"
+&gt;
+&lt;/luna-sparkline&gt;
 
 &lt;!-- With Data Points --&gt;
-&lt;luna-sparkline data="5 10 8 15 12 18 20" show-dots&gt;&lt;/luna-sparkline&gt;
-&lt;luna-sparkline data="5 10 8 15 12 18 20" show-dots show-area&gt;&lt;/luna-sparkline&gt;
+&lt;luna-sparkline
+  data="5 10 8 15 12 18 20"
+  show-dots
+&gt;
+&lt;/luna-sparkline&gt;
+
+&lt;luna-sparkline
+  data="5 10 8 15 12 18 20"
+  show-dots
+  show-area
+&gt;
+&lt;/luna-sparkline&gt;
 
 &lt;!-- Inline Text Usage --&gt;
 &lt;p&gt;
   API response times 
-  &lt;luna-sparkline data="120 115 118 110 108 105 102" trend="positive" size="sm"&gt;&lt;/luna-sparkline&gt; 
+  &lt;luna-sparkline
+    data="120 115 118 110 108 105 102"
+    trend="positive"
+    size="sm"
+  &gt;
+  &lt;/luna-sparkline&gt; 
   have improved by 15%.
 &lt;/p&gt;
 </luna-code>

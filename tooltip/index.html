@@ -232,27 +232,46 @@
 <h2>Example Code</h2>
 <luna-code language="html">
 &lt;!-- Placements --&gt;
-&lt;luna-tooltip content="Tooltip on Top" placement="top"&gt;
+&lt;luna-tooltip
+  content="Tooltip on Top"
+  placement="top"
+&gt;
   &lt;luna-button&gt;Top&lt;/luna-button&gt;
 &lt;/luna-tooltip&gt;
 
-&lt;luna-tooltip content="Tooltip on Bottom" placement="bottom"&gt;
+&lt;luna-tooltip
+  content="Tooltip on Bottom"
+  placement="bottom"
+&gt;
   &lt;luna-button&gt;Bottom&lt;/luna-button&gt;
 &lt;/luna-tooltip&gt;
 
 &lt;!-- Click Trigger --&gt;
-&lt;luna-tooltip content="Click to toggle" trigger="click"&gt;
+&lt;luna-tooltip
+  content="Click to toggle"
+  trigger="click"
+&gt;
   &lt;luna-button&gt;Toggle&lt;/luna-button&gt;
 &lt;/luna-tooltip&gt;
 
 &lt;!-- With Delay --&gt;
-&lt;luna-tooltip content="Delayed tooltip" delay="500"&gt;
+&lt;luna-tooltip
+  content="Delayed tooltip"
+  delay="500"
+&gt;
   &lt;luna-button&gt;Hover Me&lt;/luna-button&gt;
 &lt;/luna-tooltip&gt;
 
 &lt;!-- External Target --&gt;
-&lt;luna-button id="target"&gt;Target&lt;/luna-button&gt;
-&lt;luna-tooltip for="target" content="Attached via 'for'"&gt;&lt;/luna-tooltip&gt;
+&lt;luna-button id="target"&gt;
+  Target
+&lt;/luna-button&gt;
+
+&lt;luna-tooltip
+  for="target"
+  content="Attached via 'for'"
+&gt;
+&lt;/luna-tooltip&gt;
 </luna-code>
       </article>
     </main>
