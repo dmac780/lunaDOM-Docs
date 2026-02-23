@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avatar — lunaDOM Docs</title>
-  <meta name="description" content="Display a user's profile picture." />
+  <title>Format Date — lunaDOM Docs</title>
+  <meta name="description" content="Format date and time values with locale support." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
@@ -14,7 +14,8 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/avatar/avatar.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/format-date/format-date.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/date-picker/date-picker.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -44,7 +45,7 @@
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
     <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/avatar" class="active">Avatar</a>
+    <a href="/lunaDOM-Docs/avatar">Avatar</a>
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
     <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
@@ -65,7 +66,7 @@
     <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
     <a href="/lunaDOM-Docs/file-input">File Input</a>
     <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
-    <a href="/lunaDOM-Docs/format-date">Format Date</a>
+    <a href="/lunaDOM-Docs/format-date" class="active">Format Date</a>
     <a href="/lunaDOM-Docs/format-number">Format Number</a>
     <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
     <a href="/lunaDOM-Docs/include">Include</a>
@@ -117,7 +118,7 @@
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
     <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/avatar" class="active">Avatar</a>
+    <a href="/lunaDOM-Docs/avatar">Avatar</a>
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
     <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
@@ -138,7 +139,7 @@
     <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
     <a href="/lunaDOM-Docs/file-input">File Input</a>
     <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
-    <a href="/lunaDOM-Docs/format-date">Format Date</a>
+    <a href="/lunaDOM-Docs/format-date" class="active">Format Date</a>
     <a href="/lunaDOM-Docs/format-number">Format Number</a>
     <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
     <a href="/lunaDOM-Docs/include">Include</a>
@@ -171,86 +172,160 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Avatar</h1>
-        <p class="lead">Display a user's profile picture.</p>
+        <h1>Format Date</h1>
+        <p class="lead">Format date and time values with locale support.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-avatar&gt;</code> component displays a user's profile picture with optional status indicators.</p>
+        <p>The <code>&lt;luna-format-date&gt;</code> component formats date and time values using the browser's native Intl.DateTimeFormat API with automatic locale detection.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/avatar/avatar.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
+<code>/lunadom/components/format-date/format-date.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Avatar content<br>
-<code>@slot status</code> - Custom status content (when status="slot")<br>
-<code>@attr src</code> - Image source URL<br>
-<code>@attr alt</code> - Image alt text (also used for generating initials)<br>
-<code>@attr size="3rem"</code> - Avatar size (default: 3rem)<br>
-<code>@attr variant="circle"</code> - Avatar variant (circle, rounded, square)<br>
-<code>@attr status</code> - Status indicator (online, busy, away, offline, slot)<br>
-<code>--luna-avatar-size</code> - Override width/height<br>
-<code>--luna-avatar-bg</code> - Avatar background color<br>
-<code>--luna-avatar-color</code> - Initials text color<br>
-<code>--luna-avatar-border</code> - Avatar border color<br>
-<code>--luna-accent</code> - Accent color on hover<br>
-<code>--luna-pill-font-size</code> - Custom status pill text size<br>
+<code>@attr value</code> - Date value (ISO 8601, timestamp, etc., required)<br>
+<code>@attr type</code> - Display parts (date, time, datetime, default: "date")<br>
+<code>@attr date-style</code> - Date preset (full, long, medium, short, default: "medium")<br>
+<code>@attr time-style</code> - Time preset (full, long, medium, short, default: "short")<br>
+<code>@attr day</code> - Day format (numeric, 2-digit)<br>
+<code>@attr month</code> - Month format (numeric, 2-digit, long, short, narrow)<br>
+<code>@attr year</code> - Year format (numeric, 2-digit)<br>
+<code>@attr hour</code> - Hour format (numeric, 2-digit)<br>
+<code>@attr minute</code> - Minute format (numeric, 2-digit)<br>
+<code>@attr second</code> - Second format (numeric, 2-digit)<br>
+<code>@attr hour12</code> - Use 12-hour clock (boolean)<br>
+<code>@attr timezone</code> - IANA timezone name (e.g., "America/New_York", "UTC")
 
-<h2>Basic Usage</h2>
-<luna-avatar 
-  src="https://github.com/dmac780.png" 
-  alt="John Doe"
-  size="4rem"
->
-</luna-avatar>
+<h2>Date Styles</h2>
+<p>Today's date in different styles:</p>
+<p>Full: <luna-format-date value="2026-02-23" date-style="full"></luna-format-date></p>
+<p>Long: <luna-format-date value="2026-02-23" date-style="long"></luna-format-date></p>
+<p>Medium: <luna-format-date value="2026-02-23" date-style="medium"></luna-format-date></p>
+<p>Short: <luna-format-date value="2026-02-23" date-style="short"></luna-format-date></p>
 
-<luna-avatar alt="Luna Design" size="4rem"></luna-avatar>
+<h2>Time Styles</h2>
+<p>Current time in different styles:</p>
+<p>Full: <luna-format-date value="2026-02-23T14:30:00" type="time" time-style="full"></luna-format-date></p>
+<p>Long: <luna-format-date value="2026-02-23T14:30:00" type="time" time-style="long"></luna-format-date></p>
+<p>Medium: <luna-format-date value="2026-02-23T14:30:00" type="time" time-style="medium"></luna-format-date></p>
+<p>Short: <luna-format-date value="2026-02-23T14:30:00" type="time" time-style="short"></luna-format-date></p>
 
-<h2>Standard Status Badges</h2>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" status="online"></luna-avatar>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" status="busy"></luna-avatar>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" status="away"></luna-avatar>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" status="offline"></luna-avatar>
+<h2>Date and Time Combined</h2>
+<luna-format-date value="2026-02-23T14:30:00" type="datetime"></luna-format-date>
+<br>
+<luna-format-date value="2026-02-23T14:30:00" type="datetime" date-style="long" time-style="short"></luna-format-date>
 
-<h2>Custom Status with Emoji</h2>
-<p>Hover to reveal full status text.</p>
+<h2>Custom Part Formatting</h2>
+<p>Custom day/month/year: <luna-format-date value="2026-02-23" day="2-digit" month="long" year="numeric"></luna-format-date></p>
+<p>Numeric only: <luna-format-date value="2026-02-23" day="2-digit" month="2-digit" year="numeric"></luna-format-date></p>
+<p>Short month: <luna-format-date value="2026-02-23" day="numeric" month="short" year="numeric"></luna-format-date></p>
 
-<luna-avatar src="https://github.com/dmac780.png" style="--luna-avatar-size: 5rem;" alt="User" status="slot">
-  <span slot="status">🌙 Sleeping</span>
-</luna-avatar>
+<h2>12 vs 24 Hour Clock</h2>
+<p>12-hour: <luna-format-date value="2026-02-23T14:30:00" type="time" hour12="true"></luna-format-date></p>
+<p>24-hour: <luna-format-date value="2026-02-23T14:30:00" type="time" hour12="false"></luna-format-date></p>
 
-<h2>Shape Variants</h2>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" variant="circle"></luna-avatar>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" variant="rounded"></luna-avatar>
+<h2>Timezone Support</h2>
+<p>UTC: <luna-format-date value="2026-02-23T14:30:00Z" type="datetime" timezone="UTC"></luna-format-date></p>
+<p>New York: <luna-format-date value="2026-02-23T14:30:00Z" type="datetime" timezone="America/New_York"></luna-format-date></p>
+<p>London: <luna-format-date value="2026-02-23T14:30:00Z" type="datetime" timezone="Europe/London"></luna-format-date></p>
+<p>Tokyo: <luna-format-date value="2026-02-23T14:30:00Z" type="datetime" timezone="Asia/Tokyo"></luna-format-date></p>
+
+<h2>Works with Date Picker</h2>
+<div style="background: #1a1a1a; padding: 2rem; border-radius: 0.5rem; border: 1px solid #333;">
+  <luna-date-picker 
+    id="demo-picker" 
+    label="Pick a Date"
+    placeholder="Select a date to format"
+    clearable
+    style="margin-bottom: 2rem;"
+  ></luna-date-picker>
+  
+  <div style="background: #0a0a0a; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #222;">
+    <p style="margin: 0 0 1rem 0; color: #888; font-weight: 600;">Selected date formatted multiple ways:</p>
+    <p style="margin: 0.5rem 0;">Full: <luna-format-date id="format-full" date-style="full"></luna-format-date></p>
+    <p style="margin: 0.5rem 0;">Long: <luna-format-date id="format-long" date-style="long"></luna-format-date></p>
+    <p style="margin: 0.5rem 0;">Medium: <luna-format-date id="format-medium" date-style="medium"></luna-format-date></p>
+    <p style="margin: 0.5rem 0;">Short: <luna-format-date id="format-short" date-style="short"></luna-format-date></p>
+    <p style="margin: 0.5rem 0;">Custom: <luna-format-date id="format-custom" day="2-digit" month="long" year="numeric"></luna-format-date></p>
+  </div>
+</div>
+
+<script>
+  const demoPicker = document.getElementById('demo-picker');
+  const formatFull = document.getElementById('format-full');
+  const formatLong = document.getElementById('format-long');
+  const formatMedium = document.getElementById('format-medium');
+  const formatShort = document.getElementById('format-short');
+  const formatCustom = document.getElementById('format-custom');
+  
+  demoPicker.addEventListener('luna-change', (e) => {
+    const date = e.detail.value;
+    formatFull.setAttribute('value', date);
+    formatLong.setAttribute('value', date);
+    formatMedium.setAttribute('value', date);
+    formatShort.setAttribute('value', date);
+    formatCustom.setAttribute('value', date);
+  });
+  
+  demoPicker.addEventListener('luna-clear', () => {
+    formatFull.removeAttribute('value');
+    formatLong.removeAttribute('value');
+    formatMedium.removeAttribute('value');
+    formatShort.removeAttribute('value');
+    formatCustom.removeAttribute('value');
+  });
+</script>
 
 <h2>Example Code</h2>
 <luna-code language="html">
-&lt;!-- Basic avatar with image --&gt;
-&lt;luna-avatar 
-  src="image.jpg" 
-  alt="User Name" 
-  size="4rem"&gt;
-&lt;/luna-avatar&gt;
+&lt;!-- Date styles --&gt;
+&lt;luna-format-date value="2026-02-23" date-style="full"&gt;&lt;/luna-format-date&gt;
+&lt;luna-format-date value="2026-02-23" date-style="medium"&gt;&lt;/luna-format-date&gt;
+&lt;luna-format-date value="2026-02-23" date-style="short"&gt;&lt;/luna-format-date&gt;
 
-&lt;!-- Initials fallback --&gt;
-&lt;luna-avatar alt="Alex Smith"&gt;&lt;/luna-avatar&gt;
+&lt;!-- Time only --&gt;
+&lt;luna-format-date value="2026-02-23T14:30:00" type="time"&gt;&lt;/luna-format-date&gt;
 
-&lt;!-- Standard status badges --&gt;
-&lt;luna-avatar src="image.jpg" alt="User" status="online"&gt;&lt;/luna-avatar&gt;
-&lt;luna-avatar src="image.jpg" alt="User" status="busy"&gt;&lt;/luna-avatar&gt;
+&lt;!-- Date and time --&gt;
+&lt;luna-format-date 
+  value="2026-02-23T14:30:00" 
+  type="datetime"
+&gt;&lt;/luna-format-date&gt;
 
-&lt;!-- Custom status with emoji (GitHub-style) --&gt;
-&lt;luna-avatar src="image.jpg" alt="User" status="slot"&gt;
-  &lt;span slot="status"&gt;🌙 Sleeping&lt;/span&gt;
-&lt;/luna-avatar&gt;
+&lt;!-- Custom parts --&gt;
+&lt;luna-format-date 
+  value="2026-02-23" 
+  day="2-digit" 
+  month="long" 
+  year="numeric"
+&gt;&lt;/luna-format-date&gt;
 
-&lt;luna-avatar src="image.jpg" alt="User" status="slot"&gt;
-  &lt;span slot="status"&gt;💻 Coding&lt;/span&gt;
-&lt;/luna-avatar&gt;
+&lt;!-- With timezone --&gt;
+&lt;luna-format-date 
+  value="2026-02-23T14:30:00Z" 
+  type="datetime" 
+  timezone="America/New_York"
+&gt;&lt;/luna-format-date&gt;
 
-&lt;!-- Shape variants --&gt;
-&lt;luna-avatar src="image.jpg" variant="rounded"&gt;&lt;/luna-avatar&gt;
-&lt;luna-avatar src="image.jpg" variant="square"&gt;&lt;/luna-avatar&gt;
+&lt;!-- 24-hour clock --&gt;
+&lt;luna-format-date 
+  value="2026-02-23T14:30:00" 
+  type="time" 
+  hour12="false"
+&gt;&lt;/luna-format-date&gt;
+
+&lt;!-- With date picker --&gt;
+&lt;luna-date-picker id="picker"&gt;&lt;/luna-date-picker&gt;
+&lt;luna-format-date id="formatted" date-style="full"&gt;&lt;/luna-format-date&gt;
+
+&lt;script&gt;
+  const picker = document.getElementById('picker');
+  const formatted = document.getElementById('formatted');
+  
+  picker.addEventListener('luna-change', (e) =&gt; {
+    formatted.setAttribute('value', e.detail.value);
+  });
+&lt;/script&gt;
 </luna-code>
       </article>
     </main>

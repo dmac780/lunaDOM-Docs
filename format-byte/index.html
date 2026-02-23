@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avatar — lunaDOM Docs</title>
-  <meta name="description" content="Display a user's profile picture." />
+  <title>Format Byte — lunaDOM Docs</title>
+  <meta name="description" content="Format byte values into human-readable strings." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
@@ -14,7 +14,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/avatar/avatar.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/format-byte/format-byte.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -44,7 +44,7 @@
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
     <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/avatar" class="active">Avatar</a>
+    <a href="/lunaDOM-Docs/avatar">Avatar</a>
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
     <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
@@ -64,7 +64,7 @@
     <a href="/lunaDOM-Docs/drawer">Drawer</a>
     <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
     <a href="/lunaDOM-Docs/file-input">File Input</a>
-    <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
+    <a href="/lunaDOM-Docs/format-byte" class="active">Format Byte</a>
     <a href="/lunaDOM-Docs/format-date">Format Date</a>
     <a href="/lunaDOM-Docs/format-number">Format Number</a>
     <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
@@ -117,7 +117,7 @@
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
     <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/avatar" class="active">Avatar</a>
+    <a href="/lunaDOM-Docs/avatar">Avatar</a>
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
     <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
@@ -137,7 +137,7 @@
     <a href="/lunaDOM-Docs/drawer">Drawer</a>
     <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
     <a href="/lunaDOM-Docs/file-input">File Input</a>
-    <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
+    <a href="/lunaDOM-Docs/format-byte" class="active">Format Byte</a>
     <a href="/lunaDOM-Docs/format-date">Format Date</a>
     <a href="/lunaDOM-Docs/format-number">Format Number</a>
     <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
@@ -171,86 +171,92 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Avatar</h1>
-        <p class="lead">Display a user's profile picture.</p>
+        <h1>Format Byte</h1>
+        <p class="lead">Format byte values into human-readable strings.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-avatar&gt;</code> component displays a user's profile picture with optional status indicators.</p>
+        <p>The <code>&lt;luna-format-byte&gt;</code> component formats raw byte values into human-readable strings using the browser's native Intl.NumberFormat API.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/avatar/avatar.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
+<code>/lunadom/components/format-byte/format-byte.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Avatar content<br>
-<code>@slot status</code> - Custom status content (when status="slot")<br>
-<code>@attr src</code> - Image source URL<br>
-<code>@attr alt</code> - Image alt text (also used for generating initials)<br>
-<code>@attr size="3rem"</code> - Avatar size (default: 3rem)<br>
-<code>@attr variant="circle"</code> - Avatar variant (circle, rounded, square)<br>
-<code>@attr status</code> - Status indicator (online, busy, away, offline, slot)<br>
-<code>--luna-avatar-size</code> - Override width/height<br>
-<code>--luna-avatar-bg</code> - Avatar background color<br>
-<code>--luna-avatar-color</code> - Initials text color<br>
-<code>--luna-avatar-border</code> - Avatar border color<br>
-<code>--luna-accent</code> - Accent color on hover<br>
-<code>--luna-pill-font-size</code> - Custom status pill text size<br>
+<code>@attr value</code> - Raw number of bytes to format (required)<br>
+<code>@attr unit</code> - Unit system (decimal, binary, default: "decimal")<br>
+<code>@attr display</code> - Unit label style (long, short, narrow, default: "short")<br>
+<code>@attr max-fraction-digits</code> - Maximum decimal places (default: 2)
 
 <h2>Basic Usage</h2>
-<luna-avatar 
-  src="https://github.com/dmac780.png" 
-  alt="John Doe"
-  size="4rem"
->
-</luna-avatar>
+<p>File size: <luna-format-byte value="1500000"></luna-format-byte></p>
+<p>Download: <luna-format-byte value="2560000000"></luna-format-byte></p>
+<p>Cache: <luna-format-byte value="524288"></luna-format-byte></p>
 
-<luna-avatar alt="Luna Design" size="4rem"></luna-avatar>
+<h2>Unit Systems</h2>
+<p style="font-size: 0.875rem; color: #888;">Decimal (SI) - 1 KB = 1,000 bytes</p>
+<luna-format-byte value="1000" unit="decimal"></luna-format-byte><br>
+<luna-format-byte value="1000000" unit="decimal"></luna-format-byte><br>
+<luna-format-byte value="1000000000" unit="decimal"></luna-format-byte>
 
-<h2>Standard Status Badges</h2>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" status="online"></luna-avatar>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" status="busy"></luna-avatar>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" status="away"></luna-avatar>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" status="offline"></luna-avatar>
+<p style="font-size: 0.875rem; color: #888; margin-top: 1.5rem;">Binary (IEC) - 1 KiB = 1,024 bytes</p>
+<luna-format-byte value="1024" unit="binary"></luna-format-byte><br>
+<luna-format-byte value="1048576" unit="binary"></luna-format-byte><br>
+<luna-format-byte value="1073741824" unit="binary"></luna-format-byte>
 
-<h2>Custom Status with Emoji</h2>
-<p>Hover to reveal full status text.</p>
+<h2>Display Formats</h2>
+<p style="font-size: 0.875rem; color: #888;">Short (default)</p>
+<luna-format-byte value="2500000" display="short"></luna-format-byte>
 
-<luna-avatar src="https://github.com/dmac780.png" style="--luna-avatar-size: 5rem;" alt="User" status="slot">
-  <span slot="status">🌙 Sleeping</span>
-</luna-avatar>
+<p style="font-size: 0.875rem; color: #888; margin-top: 1rem;">Long</p>
+<luna-format-byte value="2500000" display="long"></luna-format-byte>
 
-<h2>Shape Variants</h2>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" variant="circle"></luna-avatar>
-<luna-avatar src="https://github.com/dmac780.png" alt="User" variant="rounded"></luna-avatar>
+<p style="font-size: 0.875rem; color: #888; margin-top: 1rem;">Narrow</p>
+<luna-format-byte value="2500000" display="narrow"></luna-format-byte>
+
+<h2>Precision Control</h2>
+<p>Default (2 decimals): <luna-format-byte value="1536000"></luna-format-byte></p>
+<p>No decimals: <luna-format-byte value="1536000" max-fraction-digits="0"></luna-format-byte></p>
+<p>High precision: <luna-format-byte value="1536000" max-fraction-digits="4"></luna-format-byte></p>
+
+<h2>Real-World Examples</h2>
+<div style="background: #1a1a1a; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #333;">
+  <p style="margin: 0 0 0.5rem 0; color: #888;">File Sizes</p>
+  <p style="margin: 0.25rem 0;">Image.png: <luna-format-byte value="2457600"></luna-format-byte></p>
+  <p style="margin: 0.25rem 0;">Video.mp4: <luna-format-byte value="157286400"></luna-format-byte></p>
+  <p style="margin: 0.25rem 0;">Document.pdf: <luna-format-byte value="524288"></luna-format-byte></p>
+  
+  <p style="margin: 1.5rem 0 0.5rem 0; color: #888;">Memory Usage</p>
+  <p style="margin: 0.25rem 0;">Available RAM: <luna-format-byte value="8589934592" unit="binary"></luna-format-byte></p>
+  <p style="margin: 0.25rem 0;">Cache Size: <luna-format-byte value="268435456" unit="binary"></luna-format-byte></p>
+</div>
 
 <h2>Example Code</h2>
 <luna-code language="html">
-&lt;!-- Basic avatar with image --&gt;
-&lt;luna-avatar 
-  src="image.jpg" 
-  alt="User Name" 
-  size="4rem"&gt;
-&lt;/luna-avatar&gt;
+&lt;!-- Basic byte formatting --&gt;
+&lt;luna-format-byte value="1500000"&gt;&lt;/luna-format-byte&gt;
 
-&lt;!-- Initials fallback --&gt;
-&lt;luna-avatar alt="Alex Smith"&gt;&lt;/luna-avatar&gt;
+&lt;!-- Decimal system (SI) --&gt;
+&lt;luna-format-byte value="1000000" unit="decimal"&gt;&lt;/luna-format-byte&gt;
 
-&lt;!-- Standard status badges --&gt;
-&lt;luna-avatar src="image.jpg" alt="User" status="online"&gt;&lt;/luna-avatar&gt;
-&lt;luna-avatar src="image.jpg" alt="User" status="busy"&gt;&lt;/luna-avatar&gt;
+&lt;!-- Binary system (IEC) --&gt;
+&lt;luna-format-byte value="1048576" unit="binary"&gt;&lt;/luna-format-byte&gt;
 
-&lt;!-- Custom status with emoji (GitHub-style) --&gt;
-&lt;luna-avatar src="image.jpg" alt="User" status="slot"&gt;
-  &lt;span slot="status"&gt;🌙 Sleeping&lt;/span&gt;
-&lt;/luna-avatar&gt;
+&lt;!-- Display formats --&gt;
+&lt;luna-format-byte value="2500000" display="short"&gt;&lt;/luna-format-byte&gt;
+&lt;luna-format-byte value="2500000" display="long"&gt;&lt;/luna-format-byte&gt;
+&lt;luna-format-byte value="2500000" display="narrow"&gt;&lt;/luna-format-byte&gt;
 
-&lt;luna-avatar src="image.jpg" alt="User" status="slot"&gt;
-  &lt;span slot="status"&gt;💻 Coding&lt;/span&gt;
-&lt;/luna-avatar&gt;
+&lt;!-- Precision control --&gt;
+&lt;luna-format-byte value="1536000" max-fraction-digits="0"&gt;&lt;/luna-format-byte&gt;
+&lt;luna-format-byte value="1536000" max-fraction-digits="4"&gt;&lt;/luna-format-byte&gt;
 
-&lt;!-- Shape variants --&gt;
-&lt;luna-avatar src="image.jpg" variant="rounded"&gt;&lt;/luna-avatar&gt;
-&lt;luna-avatar src="image.jpg" variant="square"&gt;&lt;/luna-avatar&gt;
+&lt;!-- Dynamic value --&gt;
+&lt;luna-format-byte id="file-size" value="0"&gt;&lt;/luna-format-byte&gt;
+
+&lt;script&gt;
+  const formatter = document.getElementById('file-size');
+  formatter.setAttribute('value', '2457600');
+&lt;/script&gt;
 </luna-code>
       </article>
     </main>
