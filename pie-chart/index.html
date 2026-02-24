@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Checkbox — lunaDOM Docs</title>
-  <meta name="description" content="Accessible checkbox inputs with states and sizes." />
+  <title>Pie Chart — lunaDOM Docs</title>
+  <meta name="description" content="Lightweight pie and donut charts with legends." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
@@ -14,7 +14,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/checkbox/checkbox.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/pie-chart/pie-chart.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -54,7 +54,7 @@
     <a href="/lunaDOM-Docs/button-group">Button Group</a>
     <a href="/lunaDOM-Docs/card">Card</a>
     <a href="/lunaDOM-Docs/carousel">Carousel</a>
-    <a href="/lunaDOM-Docs/checkbox" class="active">Checkbox</a>
+    <a href="/lunaDOM-Docs/checkbox">Checkbox</a>
     <a href="/lunaDOM-Docs/code-block">Code Block</a>
     <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
     <a href="/lunaDOM-Docs/combobox">Combobox</a>
@@ -74,7 +74,7 @@
     <a href="/lunaDOM-Docs/input">Input</a>
     <a href="/lunaDOM-Docs/link">Link</a>
     <a href="/lunaDOM-Docs/menu">Menu</a>
-    <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
+    <a href="/lunaDOM-Docs/pie-chart" class="active">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
@@ -130,7 +130,7 @@
     <a href="/lunaDOM-Docs/button-group">Button Group</a>
     <a href="/lunaDOM-Docs/card">Card</a>
     <a href="/lunaDOM-Docs/carousel">Carousel</a>
-    <a href="/lunaDOM-Docs/checkbox" class="active">Checkbox</a>
+    <a href="/lunaDOM-Docs/checkbox">Checkbox</a>
     <a href="/lunaDOM-Docs/code-block">Code Block</a>
     <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
     <a href="/lunaDOM-Docs/combobox">Combobox</a>
@@ -150,7 +150,7 @@
     <a href="/lunaDOM-Docs/input">Input</a>
     <a href="/lunaDOM-Docs/link">Link</a>
     <a href="/lunaDOM-Docs/menu">Menu</a>
-    <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
+    <a href="/lunaDOM-Docs/pie-chart" class="active">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
@@ -177,51 +177,208 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Checkbox</h1>
-        <p class="lead">Accessible checkbox inputs with states and sizes.</p>
+        <h1>Pie Chart</h1>
+        <p class="lead">Lightweight pie and donut charts with legends.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-checkbox&gt;</code> component provides accessible checkbox inputs with support for checked, indeterminate, and disabled states.</p>
+        <p>The <code>&lt;luna-pie-chart&gt;</code> component provides lightweight, dependency-free pie and donut charts with automatic legends and hover interactions.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/checkbox/checkbox.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
+<code>/lunadom/components/pie-chart/pie-chart.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Label content for the checkbox<br>
-<code>@attr checked</code> - Whether the checkbox is checked<br>
-<code>@attr indeterminate</code> - Whether the checkbox is in indeterminate state<br>
-<code>@attr disabled</code> - Whether the checkbox is disabled<br>
-<code>@attr size="md"</code> - Size of the checkbox (sm, md, lg)<br>
-<code>--luna-checkbox-color</code> - Checkbox accent color
+<code>@attr data</code> - JSON array of data items (required)<br>
+<code>@attr title</code> - Heading displayed above chart<br>
+<code>@attr donut</code> - Renders as donut chart<br>
+<code>@attr donut-label</code> - Static label in donut center (default: "total")<br>
+<code>@attr no-bg</code> - Removes card background and padding<br>
+<code>@attr no-legend</code> - Hides the legend<br>
+<code>@attr no-title</code> - Hides the title<br>
+<code>@attr legend-layout</code> - Legend direction (horizontal, vertical, default: "vertical")<br>
+<code>--luna-pie-size</code> - Chart diameter (default: 180px)<br>
+<code>--luna-pie-bg</code> - Card background<br>
+<code>--luna-pie-border</code> - Card border color<br>
+<code>--luna-pie-fg</code> - Primary text color<br>
+<code>--luna-pie-muted</code> - Secondary text color<br>
+<code>--luna-pie-radius</code> - Card border radius<br>
+<code>--luna-pie-padding</code> - Card inner padding<br>
+<code>--luna-pie-gap</code> - Gap between chart and legend<br>
+<code>--luna-pie-palette</code> - Custom color palette (comma-separated)
 
-<h2>Example</h2>
-<luna-checkbox checked>Subscribe to newsletter</luna-checkbox>
+<h2>Basic Pie Chart</h2>
+<luna-pie-chart
+  title="Browser Usage"
+  data='[
+    {"label": "Chrome", "value": 45},
+    {"label": "Firefox", "value": 25},
+    {"label": "Safari", "value": 18},
+    {"label": "Edge", "value": 12}
+  ]'
+></luna-pie-chart>
 
-<h2>Standard States</h2>
-<luna-checkbox checked>Subscribe to newsletter</luna-checkbox>
-<luna-checkbox>Accept terms and conditions</luna-checkbox>
-<luna-checkbox indeterminate>Select all projects</luna-checkbox>
-<luna-checkbox disabled>Disabled setting</luna-checkbox>
+<h2>Layout Variants</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem;">Standard (Vertical Legend)</p>
+<luna-pie-chart
+  title="Revenue by Quarter"
+  data='[
+    {"label": "Q1", "value": 45000},
+    {"label": "Q2", "value": 62000},
+    {"label": "Q3", "value": 58000},
+    {"label": "Q4", "value": 71000}
+  ]'
+></luna-pie-chart>
 
-<h2>Sizes</h2>
-<luna-checkbox size="sm">Small Checkbox</luna-checkbox>
-<luna-checkbox size="md">Medium Checkbox</luna-checkbox>
-<luna-checkbox size="lg">Large Checkbox</luna-checkbox>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 2rem;">Donut Chart</p>
+<luna-pie-chart
+  title="Market Share"
+  donut
+  donut-label="companies"
+  data='[
+    {"label": "Company A", "value": 42},
+    {"label": "Company B", "value": 28},
+    {"label": "Company C", "value": 18},
+    {"label": "Company D", "value": 12}
+  ]'
+></luna-pie-chart>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 2rem;">No Background (Just Chart)</p>
+<luna-pie-chart
+  title="Devices"
+  no-bg
+  no-legend
+  data='[
+    {"label": "Mobile", "value": 55},
+    {"label": "Desktop", "value": 35},
+    {"label": "Tablet", "value": 10}
+  ]'
+></luna-pie-chart>
+
+<h2>Horizontal Legend</h2>
+<luna-pie-chart
+  title="Traffic Sources"
+  legend-layout="horizontal"
+  data='[
+    {"label": "Organic", "value": 42},
+    {"label": "Direct", "value": 28},
+    {"label": "Referral", "value": 18},
+    {"label": "Social", "value": 12}
+  ]'
+></luna-pie-chart>
+
+
+<h2>Custom Palette</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Define your own color palette with CSS custom properties.</p>
+<luna-pie-chart
+  title="Project Tasks"
+  donut
+  donut-label="tasks"
+  data='[
+    {"label": "Design", "value": 24},
+    {"label": "Development", "value": 48},
+    {"label": "Testing", "value": 18},
+    {"label": "Documentation", "value": 12},
+    {"label": "Deployment", "value": 8}
+  ]'
+  style="--luna-pie-palette: #ff6b6b, #4ecdc4, #45b7d1, #f7dc6f, #c0c0c0;     --luna-pie-bg: #0a1a0f;
+  --luna-pie-border: #1a3322;
+  --luna-pie-fg: #d1fae5;
+  --luna-pie-muted: #11b880;"
+></luna-pie-chart>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- States --&gt;
-&lt;luna-checkbox checked&gt;Subscribe to newsletter&lt;/luna-checkbox&gt;
-&lt;luna-checkbox&gt;Accept terms&lt;/luna-checkbox&gt;
-&lt;luna-checkbox indeterminate&gt;Select all&lt;/luna-checkbox&gt;
-&lt;luna-checkbox disabled&gt;Disabled&lt;/luna-checkbox&gt;
+<luna-code language="html">
+&lt;!-- Basic pie chart --&gt;
+&lt;luna-pie-chart
+  title="Browser Usage"
+  data='[
+    {"label": "Chrome", "value": 45},
+    {"label": "Firefox", "value": 25},
+    {"label": "Safari", "value": 18}
+  ]'
+&gt;&lt;/luna-pie-chart&gt;
 
-&lt;!-- Sizes --&gt;
-&lt;luna-checkbox size="sm"&gt;Small&lt;/luna-checkbox&gt;
-&lt;luna-checkbox size="md"&gt;Medium&lt;/luna-checkbox&gt;
-&lt;luna-checkbox size="lg"&gt;Large&lt;/luna-checkbox&gt;
-  </luna-code>
+&lt;!-- Donut chart --&gt;
+&lt;luna-pie-chart
+  title="Market Share"
+  donut
+  donut-label="companies"
+  data='[
+    {"label": "Company A", "value": 42},
+    {"label": "Company B", "value": 28}
+  ]'
+&gt;&lt;/luna-pie-chart&gt;
+
+&lt;!-- Horizontal legend --&gt;
+&lt;luna-pie-chart
+  title="Traffic Sources"
+  legend-layout="horizontal"
+  data='[...]'
+&gt;&lt;/luna-pie-chart&gt;
+
+&lt;!-- Per-item colors --&gt;
+&lt;luna-pie-chart
+  title="Status"
+  data='[
+    {"label": "Complete", "value": 45, "color": "#22c55e"},
+    {"label": "Pending", "value": 28, "color": "#f59e0b"}
+  ]'
+&gt;&lt;/luna-pie-chart&gt;
+
+&lt;!-- Custom theme --&gt;
+&lt;luna-pie-chart
+  title="Sales"
+  data='[...]'
+  style="
+    --luna-pie-bg: #0a1a0f;
+    --luna-pie-border: #1a3322;
+    --luna-pie-fg: #d1fae5;
+    --luna-pie-size: 200px;
+  "
+&gt;&lt;/luna-pie-chart&gt;
+
+&lt;!-- Custom palette --&gt;
+&lt;luna-pie-chart
+  data='[...]'
+  style="--luna-pie-palette: #ff6b6b, #4ecdc4, #45b7d1;"
+&gt;&lt;/luna-pie-chart&gt;
+
+&lt;!-- No background (embedded) --&gt;
+&lt;luna-pie-chart
+  title="Devices"
+  no-bg
+  data='[...]'
+&gt;&lt;/luna-pie-chart&gt;
+
+&lt;!-- Dynamic data with JavaScript --&gt;
+&lt;luna-pie-chart id="chart"&gt;&lt;/luna-pie-chart&gt;
+
+&lt;script&gt;
+  const chart = document.getElementById('chart');
+  
+  // Set data via property
+  chart.data = [
+    {label: 'Item 1', value: 30},
+    {label: 'Item 2', value: 50},
+    {label: 'Item 3', value: 20}
+  ];
+  
+  // Or via attribute
+  chart.setAttribute('data', JSON.stringify([
+    {label: 'A', value: 10},
+    {label: 'B', value: 20}
+  ]));
+  
+  // Listen to events
+  chart.addEventListener('luna-slice-enter', (e) =&gt; {
+    console.log('Hovered:', e.detail.label, e.detail.percent + '%');
+  });
+  
+  chart.addEventListener('luna-slice-leave', () =&gt; {
+    console.log('Hover ended');
+  });
+&lt;/script&gt;
+</luna-code>
       </article>
     </main>
 
