@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Details — lunaDOM Docs</title>
   <meta name="description" content="Collapsible accordion component with grouping support." />
-  <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
-  <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
-  <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
-  <link rel="preload" href="/lunaDOM-Docs/lunadom/components/drawer/drawer.js" as="script" />
-  <link rel="preload" href="/lunaDOM-Docs/lunadom/components/code/code.js" as="script" />
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/badge/badge.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
+  <link rel="preload" href="/css/style.css" as="style" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preload" href="/lunadom/components/badge/badge.js" as="script" />
+  <link rel="preload" href="/lunadom/components/drawer/drawer.js" as="script" />
+  <link rel="preload" href="/lunadom/components/code/code.js" as="script" />
+  <script type="module" src="/lunadom/components/badge/badge.js"></script>
+  <script type="module" src="/lunadom/components/drawer/drawer.js"></script>
+  <script type="module" src="/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
+  <script type="module" src="/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -22,7 +22,7 @@
     <button class="hamburger" id="navToggle" aria-label="Open navigation">
       <span></span><span></span><span></span>
     </button>
-    <a class="site-logo-mobile" href="/lunaDOM-Docs/">lunaDOM Docs</a>
+    <a class="site-logo-mobile" href="/">lunaDOM Docs</a>
   </div>
 
   <!-- Mobile nav drawer -->
@@ -31,7 +31,7 @@
     <p class="drawer-description">
       lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
     <p class="site-description">
-      <luna-badge variant="success">v0.0.11</luna-badge> 
+      <luna-badge variant="success">v0.0.12</luna-badge> 
       <a href="https://github.com/dmac780/lunaDOM" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -40,59 +40,59 @@
       </p>
     <div class="drawer-divider"></div>
     <nav class="sidebar-nav">
-    <a href="/lunaDOM-Docs/">Getting Started</a>
+    <a href="/">Getting Started</a>
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
-    <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/animation">Animation</a>
-    <a href="/lunaDOM-Docs/audio-player">Audio Player</a>
-    <a href="/lunaDOM-Docs/avatar">Avatar</a>
-    <a href="/lunaDOM-Docs/badge">Badge</a>
-    <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
-    <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
-    <a href="/lunaDOM-Docs/button">Button</a>
-    <a href="/lunaDOM-Docs/button-group">Button Group</a>
-    <a href="/lunaDOM-Docs/card">Card</a>
-    <a href="/lunaDOM-Docs/carousel">Carousel</a>
-    <a href="/lunaDOM-Docs/checkbox">Checkbox</a>
-    <a href="/lunaDOM-Docs/code-block">Code Block</a>
-    <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
-    <a href="/lunaDOM-Docs/combobox">Combobox</a>
-    <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
-    <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
-    <a href="/lunaDOM-Docs/details" class="active">Details</a>
-    <a href="/lunaDOM-Docs/dialog">Dialog</a>
-    <a href="/lunaDOM-Docs/divider">Divider</a>
-    <a href="/lunaDOM-Docs/drawer">Drawer</a>
-    <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
-    <a href="/lunaDOM-Docs/file-input">File Input</a>
-    <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
-    <a href="/lunaDOM-Docs/format-date">Format Date</a>
-    <a href="/lunaDOM-Docs/format-number">Format Number</a>
-    <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
-    <a href="/lunaDOM-Docs/include">Include</a>
-    <a href="/lunaDOM-Docs/input">Input</a>
-    <a href="/lunaDOM-Docs/link">Link</a>
-    <a href="/lunaDOM-Docs/menu">Menu</a>
-    <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
-    <a href="/lunaDOM-Docs/progress">Progress</a>
-    <a href="/lunaDOM-Docs/qr-code">QR Code</a>
-    <a href="/lunaDOM-Docs/radio">Radio</a>
-    <a href="/lunaDOM-Docs/range">Range</a>
-    <a href="/lunaDOM-Docs/rating">Rating</a>
-    <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
-    <a href="/lunaDOM-Docs/select">Select</a>
-    <a href="/lunaDOM-Docs/skeleton">Skeleton</a>
-    <a href="/lunaDOM-Docs/sparkline">Sparkline</a>
-    <a href="/lunaDOM-Docs/spinner">Spinner</a>
-    <a href="/lunaDOM-Docs/split-panel">Split Panel</a>
-    <a href="/lunaDOM-Docs/switch">Switch</a>
-    <a href="/lunaDOM-Docs/tabs">Tabs</a>
-    <a href="/lunaDOM-Docs/tag">Tag</a>
-    <a href="/lunaDOM-Docs/textarea">Textarea</a>
-    <a href="/lunaDOM-Docs/toast">Toast</a>
-    <a href="/lunaDOM-Docs/tooltip">Tooltip</a>
-    <a href="/lunaDOM-Docs/tree">Tree</a>
+    <a href="/alert">Alert</a>
+    <a href="/animation">Animation</a>
+    <a href="/audio-player">Audio Player</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/date-picker">Date Picker</a>
+    <a href="/details" class="active">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/format-byte">Format Byte</a>
+    <a href="/format-date">Format Date</a>
+    <a href="/format-number">Format Number</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/pie-chart">Pie Chart</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
   </div>
 
 </nav>
@@ -102,10 +102,10 @@
 
     <aside class="sidebar">
       <div class="sidebar-header">
-        <a class="site-logo" href="/lunaDOM-Docs/">lunaDOM Docs</a>
+        <a class="site-logo" href="/">lunaDOM Docs</a>
         <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
         <p class="site-description">
-          <luna-badge variant="success">v0.0.11</luna-badge>      
+          <luna-badge variant="success">v0.0.12</luna-badge>      
           <a href="https://github.com/dmac780/lunaDOM" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -116,59 +116,59 @@
       </div>
       <div class="sidebar-nav-wrapper">
         <nav class="sidebar-nav">
-    <a href="/lunaDOM-Docs/">Getting Started</a>
+    <a href="/">Getting Started</a>
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
-    <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/animation">Animation</a>
-    <a href="/lunaDOM-Docs/audio-player">Audio Player</a>
-    <a href="/lunaDOM-Docs/avatar">Avatar</a>
-    <a href="/lunaDOM-Docs/badge">Badge</a>
-    <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
-    <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
-    <a href="/lunaDOM-Docs/button">Button</a>
-    <a href="/lunaDOM-Docs/button-group">Button Group</a>
-    <a href="/lunaDOM-Docs/card">Card</a>
-    <a href="/lunaDOM-Docs/carousel">Carousel</a>
-    <a href="/lunaDOM-Docs/checkbox">Checkbox</a>
-    <a href="/lunaDOM-Docs/code-block">Code Block</a>
-    <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
-    <a href="/lunaDOM-Docs/combobox">Combobox</a>
-    <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
-    <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
-    <a href="/lunaDOM-Docs/details" class="active">Details</a>
-    <a href="/lunaDOM-Docs/dialog">Dialog</a>
-    <a href="/lunaDOM-Docs/divider">Divider</a>
-    <a href="/lunaDOM-Docs/drawer">Drawer</a>
-    <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
-    <a href="/lunaDOM-Docs/file-input">File Input</a>
-    <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
-    <a href="/lunaDOM-Docs/format-date">Format Date</a>
-    <a href="/lunaDOM-Docs/format-number">Format Number</a>
-    <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
-    <a href="/lunaDOM-Docs/include">Include</a>
-    <a href="/lunaDOM-Docs/input">Input</a>
-    <a href="/lunaDOM-Docs/link">Link</a>
-    <a href="/lunaDOM-Docs/menu">Menu</a>
-    <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
-    <a href="/lunaDOM-Docs/progress">Progress</a>
-    <a href="/lunaDOM-Docs/qr-code">QR Code</a>
-    <a href="/lunaDOM-Docs/radio">Radio</a>
-    <a href="/lunaDOM-Docs/range">Range</a>
-    <a href="/lunaDOM-Docs/rating">Rating</a>
-    <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
-    <a href="/lunaDOM-Docs/select">Select</a>
-    <a href="/lunaDOM-Docs/skeleton">Skeleton</a>
-    <a href="/lunaDOM-Docs/sparkline">Sparkline</a>
-    <a href="/lunaDOM-Docs/spinner">Spinner</a>
-    <a href="/lunaDOM-Docs/split-panel">Split Panel</a>
-    <a href="/lunaDOM-Docs/switch">Switch</a>
-    <a href="/lunaDOM-Docs/tabs">Tabs</a>
-    <a href="/lunaDOM-Docs/tag">Tag</a>
-    <a href="/lunaDOM-Docs/textarea">Textarea</a>
-    <a href="/lunaDOM-Docs/toast">Toast</a>
-    <a href="/lunaDOM-Docs/tooltip">Tooltip</a>
-    <a href="/lunaDOM-Docs/tree">Tree</a>
+    <a href="/alert">Alert</a>
+    <a href="/animation">Animation</a>
+    <a href="/audio-player">Audio Player</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button">Copy Button</a>
+    <a href="/date-picker">Date Picker</a>
+    <a href="/details" class="active">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-input">File Input</a>
+    <a href="/format-byte">Format Byte</a>
+    <a href="/format-date">Format Date</a>
+    <a href="/format-number">Format Number</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/pie-chart">Pie Chart</a>
+    <a href="/progress">Progress</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radio">Radio</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
   </div>
 
 </nav>
@@ -182,87 +182,253 @@
       </header>
 
       <article>
-        <p>The <code>&lt;luna-details&gt;</code> component provides collapsible sections with accordion grouping support.</p>
+        <p>The <code>&lt;luna-details&gt;</code> component provides collapsible sections with smooth animations, multiple visual styles, and accordion grouping support.</p>
 
 <h2>Paths</h2>
 <code>/lunadom/components/details/details.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
 <code>@slot summary</code> - Summary/header text<br>
-<code>@slot icon</code> - Icon before the summary<br>
-<code>@slot default</code> - Content to show when expanded<br>
+<code>@slot icon</code> - Optional icon before summary<br>
+<code>@slot default</code> - Content shown when expanded<br>
 <code>@attr open</code> - Whether initially open<br>
-<code>@attr group</code> - Group name for accordion behavior<br>
-<code>@attr disabled</code> - Whether interaction is disabled<br>
-<code>luna-toggle</code> - Emitted when expanded/collapsed
+<code>@attr disabled</code> - Prevents toggling<br>
+<code>@attr group</code> - Accordion key (opening one closes others)<br>
+<code>@attr variant</code> - Visual style (card, ghost, glass, default: "card")<br>
+<code>@method show()</code> - Open the panel<br>
+<code>@method hide()</code> - Close the panel<br>
+<code>--luna-details-bg</code> - Background color<br>
+<code>--luna-details-bg-open</code> - Background when expanded<br>
+<code>--luna-details-border</code> - Border color<br>
+<code>--luna-details-border-open</code> - Border when expanded<br>
+<code>--luna-details-radius</code> - Border radius<br>
+<code>--luna-details-summary-color</code> - Summary text color<br>
+<code>--luna-details-content-color</code> - Body text color<br>
+<code>--luna-details-chevron-color</code> - Chevron icon color<br>
+<code>--luna-details-icon-color</code> - Prefix icon color<br>
+<code>--luna-details-hover-bg</code> - Summary hover background<br>
+<code>--luna-details-shadow-open</code> - Box shadow when expanded
 
-<h2>Accordion Group</h2>
-<luna-details group="api-docs" open>
-  <span slot="icon">🟢</span>
-  <span slot="summary">Authentication API</span>
-  Learn how to authenticate your requests using OAuth2 or API Keys. This section covers headers, body parameters, and response codes.
-</luna-details>
-
-<luna-details group="api-docs">
-  <span slot="icon">🔵</span>
-  <span slot="summary">Endpoints Overview</span>
-  A comprehensive list of all available GET, POST, PUT, and DELETE endpoints for the Luna core engine.
-</luna-details>
-
-<luna-details group="api-docs">
-  <span slot="icon">🟡</span>
-  <span slot="summary">Rate Limiting</span>
-  Details on usage quotas and how to handle 429 errors efficiently using exponential backoff strategies.
-</luna-details>
-
-<h2>Independent Section</h2>
+<h2>Basic Usage</h2>
 <luna-details>
-  <span slot="summary">System Logs</span>
-  <p>Real-time stream of internal events.</p>
-  <div style="background:#000; padding:1rem; border-radius:8px; font-family:monospace; font-size:0.8rem; color:#0f0;">
-    [04:21:09] Initializing LunaDOM...<br>
-    [04:21:10] Core modules ready.
-  </div>
+  <span slot="summary">What is lunaDOM?</span>
+  lunaDOM is a collection of lightweight, shadowDOM-based web components built with vanilla JavaScript. No dependencies, no build tools required.
+</luna-details>
+
+<h2>Variant Styles</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem;">Card (default) - Solid background with border</p>
+<luna-details variant="card">
+  <span slot="summary">Card Style</span>
+  This is the default card variant with a solid background and border. Perfect for standalone sections.
+</luna-details>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 1.5rem;">Ghost - Transparent with bottom border</p>
+<luna-details variant="ghost">
+  <span slot="summary">Ghost Style</span>
+  Minimal ghost variant with no background, only a bottom border separator. Great for stacked lists.
+</luna-details>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 1.5rem;">Glass - Frosted glass effect</p>
+<luna-details variant="glass">
+  <span slot="summary">Glass Style</span>
+  Beautiful frosted-glass effect with backdrop blur. Works great on colorful or image backgrounds.
+</luna-details>
+
+<h2>With Emoji Icons</h2>
+<luna-details open>
+  <span slot="icon">📦</span>
+  <span slot="summary">Package Details</span>
+  All components are individually importable. Import only what you need to keep bundle sizes minimal.
+</luna-details>
+
+<luna-details style="margin-top: 0.75rem;">
+  <span slot="icon">⚡</span>
+  <span slot="summary">Performance Optimized</span>
+  Built with vanilla JavaScript and optimized for performance. Each component is lightweight and fast.
+</luna-details>
+
+<luna-details style="margin-top: 0.75rem;">
+  <span slot="icon">🎨</span>
+  <span slot="summary">Fully Customizable</span>
+  Every component can be styled using CSS custom properties. Match your brand with ease.
+</luna-details>
+
+<h2>With SVG Icons</h2>
+<luna-details>
+  <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+    <polyline points="22 4 12 14.01 9 11.01"/>
+  </svg>
+  <span slot="summary">Verified Account</span>
+  Your account has been verified and all features are now unlocked.
+</luna-details>
+
+<luna-details style="margin-top: 0.75rem;">
+  <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="12" y1="16" x2="12" y2="12"/>
+    <line x1="12" y1="8" x2="12.01" y2="8"/>
+  </svg>
+  <span slot="summary">Important Notice</span>
+  Please update your billing information before the end of the month to avoid service interruption.
+</luna-details>
+
+<luna-details style="margin-top: 0.75rem;">
+  <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+    <polyline points="13 2 13 9 20 9"/>
+  </svg>
+  <span slot="summary">Documentation</span>
+  Complete API reference and usage examples are available in the docs section.
+</luna-details>
+
+<h2>Group Accordion</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">All details components with the same group attribute form an accordion - opening one closes the others.</p>
+
+<luna-details group="faq" open>
+  <span slot="icon">❓</span>
+  <span slot="summary">How do I install lunaDOM?</span>
+  Install via npm: <code>npm install github:dmac780/lunaDOM</code>. Then import the components you need directly in your HTML.
+</luna-details>
+
+<luna-details group="faq" style="margin-top: 0.75rem;">
+  <span slot="icon">💡</span>
+  <span slot="summary">Do I need a build tool?</span>
+  No! All components are written in vanilla JavaScript and work directly in the browser. No bundler required.
+</luna-details>
+
+<luna-details group="faq" style="margin-top: 0.75rem;">
+  <span slot="icon">🔧</span>
+  <span slot="summary">Can I customize the styles?</span>
+  Yes! Every component exposes CSS custom properties for full customization. Override them to match your brand.
+</luna-details>
+
+<luna-details group="faq" style="margin-top: 0.75rem;">
+  <span slot="icon">🌐</span>
+  <span slot="summary">What browsers are supported?</span>
+  All modern browsers that support Web Components: Chrome, Firefox, Safari, and Edge (Chromium).
 </luna-details>
 
 <h2>Disabled State</h2>
 <luna-details disabled>
-  <span slot="summary">Enterprise Settings (Locked)</span>
-  Contact support to unlock advanced configuration options.
+  <span slot="icon">🔒</span>
+  <span slot="summary">Premium Features (Locked)</span>
+  Upgrade to Pro to unlock advanced analytics, custom themes, and priority support.
+</luna-details>
+
+<h2>Custom Styling</h2>
+<luna-details 
+  open
+  style="
+    --luna-details-bg: #0a0f1a;
+    --luna-details-border: #1a2332;
+    --luna-details-border-open: #3b82f6;
+    --luna-details-icon-color: #3b82f6;
+    --luna-details-summary-color: #60a5fa;
+  "
+>
+  <span slot="icon">🎨</span>
+  <span slot="summary">Custom Blue Theme</span>
+  This details component uses custom CSS properties to create a unique blue theme. All colors can be customized.
 </luna-details>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Accordion Group --&gt;
-&lt;luna-details group="api-docs" open&gt;
-  &lt;span slot="icon"&gt;🟢&lt;/span&gt;
-  &lt;span slot="summary"&gt;Authentication API&lt;/span&gt;
-  Content goes here.
-&lt;/luna-details&gt;
-
-&lt;luna-details group="api-docs"&gt;
-  &lt;span slot="icon"&gt;🔵&lt;/span&gt;
-  &lt;span slot="summary"&gt;Endpoints Overview&lt;/span&gt;
-  Content goes here.
-&lt;/luna-details&gt;
-
-&lt;!-- Independent Section --&gt;
+<luna-code language="html">
+&lt;!-- Basic usage --&gt;
 &lt;luna-details&gt;
-  &lt;span slot="summary"&gt;System Logs&lt;/span&gt;
-  Real-time stream content.
+  &lt;span slot="summary"&gt;What is lunaDOM?&lt;/span&gt;
+  lunaDOM is a collection of web components.
 &lt;/luna-details&gt;
 
-&lt;!-- Disabled State --&gt;
-&lt;luna-details disabled&gt;
-  &lt;span slot="summary"&gt;Enterprise Settings (Locked)&lt;/span&gt;
-  Locked content.
+&lt;!-- With variant --&gt;
+&lt;luna-details variant="ghost"&gt;
+  &lt;span slot="summary"&gt;Ghost Style&lt;/span&gt;
+  Minimal transparent style.
 &lt;/luna-details&gt;
-  </luna-code>
+
+&lt;luna-details variant="glass"&gt;
+  &lt;span slot="summary"&gt;Glass Style&lt;/span&gt;
+  Frosted glass effect.
+&lt;/luna-details&gt;
+
+&lt;!-- With emoji icon --&gt;
+&lt;luna-details&gt;
+  &lt;span slot="icon"&gt;📦&lt;/span&gt;
+  &lt;span slot="summary"&gt;Package Details&lt;/span&gt;
+  Content here.
+&lt;/luna-details&gt;
+
+&lt;!-- With SVG icon --&gt;
+&lt;luna-details&gt;
+  &lt;svg slot="icon" width="16" height="16" viewBox="0 0 24 24"&gt;
+    &lt;circle cx="12" cy="12" r="10"/&gt;
+  &lt;/svg&gt;
+  &lt;span slot="summary"&gt;SVG Icon&lt;/span&gt;
+  Content here.
+&lt;/luna-details&gt;
+
+&lt;!-- Group accordion --&gt;
+&lt;luna-details group="faq" open&gt;
+  &lt;span slot="summary"&gt;Question 1&lt;/span&gt;
+  Answer 1
+&lt;/luna-details&gt;
+
+&lt;luna-details group="faq"&gt;
+  &lt;span slot="summary"&gt;Question 2&lt;/span&gt;
+  Answer 2
+&lt;/luna-details&gt;
+
+&lt;luna-details group="faq"&gt;
+  &lt;span slot="summary"&gt;Question 3&lt;/span&gt;
+  Answer 3
+&lt;/luna-details&gt;
+
+&lt;!-- Disabled state --&gt;
+&lt;luna-details disabled&gt;
+  &lt;span slot="summary"&gt;Locked Content&lt;/span&gt;
+  Premium content.
+&lt;/luna-details&gt;
+
+&lt;!-- Custom styling --&gt;
+&lt;luna-details 
+  style="
+    --luna-details-bg: #0a0f1a;
+    --luna-details-border-open: #3b82f6;
+    --luna-details-icon-color: #3b82f6;
+  "
+&gt;
+  &lt;span slot="summary"&gt;Custom Theme&lt;/span&gt;
+  Styled content.
+&lt;/luna-details&gt;
+
+&lt;!-- Programmatic control --&gt;
+&lt;luna-details id="my-details"&gt;
+  &lt;span slot="summary"&gt;Controlled Panel&lt;/span&gt;
+  Content here.
+&lt;/luna-details&gt;
+
+&lt;script&gt;
+  const details = document.getElementById('my-details');
+  
+  // Open/close programmatically
+  details.show();
+  details.hide();
+  
+  // Listen to events
+  details.addEventListener('luna-show', () =&gt; {
+    console.log('Panel opened');
+  });
+  
+  details.addEventListener('luna-hide', () =&gt; {
+    console.log('Panel closed');
+  });
+&lt;/script&gt;
+</luna-code>
       </article>
     </main>
 
   </div>
-  <script src="/lunaDOM-Docs/js/main.js" defer></script>
+  <script src="/js/main.js" defer></script>
 
 <script>
 (function(){
