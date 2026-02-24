@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Details — lunaDOM Docs</title>
-  <meta name="description" content="Collapsible accordion component with grouping support." />
+  <title>Animation — lunaDOM Docs</title>
+  <meta name="description" content="Display lightweight animations using video or GIF." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
@@ -14,7 +14,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/animation/animation.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -44,7 +44,7 @@
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
     <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/animation">Animation</a>
+    <a href="/lunaDOM-Docs/animation" class="active">Animation</a>
     <a href="/lunaDOM-Docs/avatar">Avatar</a>
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
@@ -59,7 +59,7 @@
     <a href="/lunaDOM-Docs/combobox">Combobox</a>
     <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
     <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
-    <a href="/lunaDOM-Docs/details" class="active">Details</a>
+    <a href="/lunaDOM-Docs/details">Details</a>
     <a href="/lunaDOM-Docs/dialog">Dialog</a>
     <a href="/lunaDOM-Docs/divider">Divider</a>
     <a href="/lunaDOM-Docs/drawer">Drawer</a>
@@ -118,7 +118,7 @@
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
     <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/animation">Animation</a>
+    <a href="/lunaDOM-Docs/animation" class="active">Animation</a>
     <a href="/lunaDOM-Docs/avatar">Avatar</a>
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
@@ -133,7 +133,7 @@
     <a href="/lunaDOM-Docs/combobox">Combobox</a>
     <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
     <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
-    <a href="/lunaDOM-Docs/details" class="active">Details</a>
+    <a href="/lunaDOM-Docs/details">Details</a>
     <a href="/lunaDOM-Docs/dialog">Dialog</a>
     <a href="/lunaDOM-Docs/divider">Divider</a>
     <a href="/lunaDOM-Docs/drawer">Drawer</a>
@@ -173,87 +173,92 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Details</h1>
-        <p class="lead">Collapsible accordion component with grouping support.</p>
+        <h1>Animation</h1>
+        <p class="lead">Display lightweight animations using video or GIF.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-details&gt;</code> component provides collapsible sections with accordion grouping support.</p>
+        <p>The <code>&lt;luna-animation&gt;</code> component displays animations using lightweight video formats (WebM, MP4) or GIF images with automatic looping and playback.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/details/details.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
+<code>/lunadom/components/animation/animation.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot summary</code> - Summary/header text<br>
-<code>@slot icon</code> - Icon before the summary<br>
-<code>@slot default</code> - Content to show when expanded<br>
-<code>@attr open</code> - Whether initially open<br>
-<code>@attr group</code> - Group name for accordion behavior<br>
-<code>@attr disabled</code> - Whether interaction is disabled<br>
-<code>luna-toggle</code> - Emitted when expanded/collapsed
+<code>@slot default</code> - Animation content<br>
+<code>@attr src-webm</code> - WebM video source (recommended for best compression)<br>
+<code>@attr src-mp4</code> - MP4 video source (fallback)<br>
+<code>@attr src-gif</code> - GIF image source (fallback)<br>
+<code>@attr width</code> - Width of animation (default: "100%")<br>
+<code>@attr height</code> - Height of animation (default: "auto")<br>
+<code>--luna-radius</code> - Border radius
 
-<h2>Accordion Group</h2>
-<luna-details group="api-docs" open>
-  <span slot="icon">🟢</span>
-  <span slot="summary">Authentication API</span>
-  Learn how to authenticate your requests using OAuth2 or API Keys. This section covers headers, body parameters, and response codes.
-</luna-details>
+<h2>WebM Video (Recommended)</h2>
+<p style="color: #888; font-size: 0.875rem;">Best compression and quality. Supported by modern browsers.</p>
+<luna-animation 
+  src-webm="https://imaginationdriver.com/static/webm/canada.webm"
+  width="400"
+></luna-animation>
 
-<luna-details group="api-docs">
-  <span slot="icon">🔵</span>
-  <span slot="summary">Endpoints Overview</span>
-  A comprehensive list of all available GET, POST, PUT, and DELETE endpoints for the Luna core engine.
-</luna-details>
+<h2>Custom Sizing</h2>
+<p style="color: #888; font-size: 0.875rem;">Small (200px)</p>
+<luna-animation 
+  src-webm="https://imaginationdriver.com/static/webm/canada.webm"
+  width="200"
+></luna-animation>
 
-<luna-details group="api-docs">
-  <span slot="icon">🟡</span>
-  <span slot="summary">Rate Limiting</span>
-  Details on usage quotas and how to handle 429 errors efficiently using exponential backoff strategies.
-</luna-details>
+<p style="color: #888; font-size: 0.875rem; margin-top: 1.5rem;">Medium (400px)</p>
+<luna-animation 
+  src-webm="https://imaginationdriver.com/static/webm/canada.webm"
+  width="400"
+></luna-animation>
 
-<h2>Independent Section</h2>
-<luna-details>
-  <span slot="summary">System Logs</span>
-  <p>Real-time stream of internal events.</p>
-  <div style="background:#000; padding:1rem; border-radius:8px; font-family:monospace; font-size:0.8rem; color:#0f0;">
-    [04:21:09] Initializing LunaDOM...<br>
-    [04:21:10] Core modules ready.
-  </div>
-</luna-details>
+<p style="color: #888; font-size: 0.875rem; margin-top: 1.5rem;">Large (600px)</p>
+<luna-animation 
+  src-webm="https://imaginationdriver.com/static/webm/canada.webm"
+  width="600"
+></luna-animation>
 
-<h2>Disabled State</h2>
-<luna-details disabled>
-  <span slot="summary">Enterprise Settings (Locked)</span>
-  Contact support to unlock advanced configuration options.
-</luna-details>
+<h2>Custom Border Radius</h2>
+<luna-animation 
+  src-webm="https://imaginationdriver.com/static/webm/canada.webm"
+  width="400"
+  style="--luna-radius: 1.5rem;"
+></luna-animation>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Accordion Group --&gt;
-&lt;luna-details group="api-docs" open&gt;
-  &lt;span slot="icon"&gt;🟢&lt;/span&gt;
-  &lt;span slot="summary"&gt;Authentication API&lt;/span&gt;
-  Content goes here.
-&lt;/luna-details&gt;
+<luna-code language="html">
+&lt;!-- WebM only (recommended) --&gt;
+&lt;luna-animation 
+  src-webm="animation.webm"
+  width="400"
+&gt;&lt;/luna-animation&gt;
 
-&lt;luna-details group="api-docs"&gt;
-  &lt;span slot="icon"&gt;🔵&lt;/span&gt;
-  &lt;span slot="summary"&gt;Endpoints Overview&lt;/span&gt;
-  Content goes here.
-&lt;/luna-details&gt;
+&lt;!-- Multiple sources for compatibility --&gt;
+&lt;luna-animation 
+  src-webm="animation.webm"
+  src-mp4="animation.mp4"
+  width="400"
+&gt;&lt;/luna-animation&gt;
 
-&lt;!-- Independent Section --&gt;
-&lt;luna-details&gt;
-  &lt;span slot="summary"&gt;System Logs&lt;/span&gt;
-  Real-time stream content.
-&lt;/luna-details&gt;
+&lt;!-- GIF fallback --&gt;
+&lt;luna-animation 
+  src-gif="animation.gif"
+  width="400"
+&gt;&lt;/luna-animation&gt;
 
-&lt;!-- Disabled State --&gt;
-&lt;luna-details disabled&gt;
-  &lt;span slot="summary"&gt;Enterprise Settings (Locked)&lt;/span&gt;
-  Locked content.
-&lt;/luna-details&gt;
-  </luna-code>
+&lt;!-- Custom styling --&gt;
+&lt;luna-animation 
+  src-webm="animation.webm"
+  width="600"
+  style="--luna-radius: 1.5rem;"
+&gt;&lt;/luna-animation&gt;
+
+&lt;!-- Responsive width --&gt;
+&lt;luna-animation 
+  src-webm="animation.webm"
+  width="100%"
+&gt;&lt;/luna-animation&gt;
+</luna-code>
       </article>
     </main>
 
