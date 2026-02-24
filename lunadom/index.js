@@ -60,3 +60,4 @@ import './components/date-picker/date-picker.js';
 import './components/format-byte/format-byte.js';
 import './components/format-number/format-number.js';
 import './components/format-date/format-date.js';
+import './components/audio-player/audio-player.js';

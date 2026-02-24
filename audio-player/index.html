@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radio — lunaDOM Docs</title>
-  <meta name="description" content="Radio buttons and radio button groups for selections." />
+  <title>Audio Player — lunaDOM Docs</title>
+  <meta name="description" content="Modern audio player with waveform visualization." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
@@ -14,9 +14,8 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/radio/radio.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/radio-button/radio-button.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/radio-group/radio-group.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/audio-player/audio-player.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -47,7 +46,7 @@
     <span class="nav-section-title">Components</span>
     <a href="/lunaDOM-Docs/alert">Alert</a>
     <a href="/lunaDOM-Docs/animation">Animation</a>
-    <a href="/lunaDOM-Docs/audio-player">Audio Player</a>
+    <a href="/lunaDOM-Docs/audio-player" class="active">Audio Player</a>
     <a href="/lunaDOM-Docs/avatar">Avatar</a>
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
@@ -78,7 +77,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
-    <a href="/lunaDOM-Docs/radio" class="active">Radio</a>
+    <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/range">Range</a>
     <a href="/lunaDOM-Docs/rating">Rating</a>
     <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
@@ -122,7 +121,7 @@
     <span class="nav-section-title">Components</span>
     <a href="/lunaDOM-Docs/alert">Alert</a>
     <a href="/lunaDOM-Docs/animation">Animation</a>
-    <a href="/lunaDOM-Docs/audio-player">Audio Player</a>
+    <a href="/lunaDOM-Docs/audio-player" class="active">Audio Player</a>
     <a href="/lunaDOM-Docs/avatar">Avatar</a>
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
@@ -153,7 +152,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
-    <a href="/lunaDOM-Docs/radio" class="active">Radio</a>
+    <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/range">Range</a>
     <a href="/lunaDOM-Docs/rating">Rating</a>
     <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
@@ -177,70 +176,239 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Radio</h1>
-        <p class="lead">Radio buttons and radio button groups for selections.</p>
+        <h1>Audio Player</h1>
+        <p class="lead">Modern audio player with waveform visualization.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-radio&gt;</code>, <code>&lt;luna-radio-button&gt;</code>, and <code>&lt;luna-radio-group&gt;</code> components provide radio selection with standard and button-style variants.</p>
+        <p>The <code>&lt;luna-audio-player&gt;</code> component provides a modern audio player with waveform visualization, volume control, and automatic group management.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/radio/radio.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
-<code>/lunadom/components/radio-group/radio-group.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
-<code>/lunadom/components/radio-button/radio-button.js</code>
-
+<code>/lunadom/components/audio-player/audio-player.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Label content for radio<br>
-<code>@slot prefix</code> - Icon before button text (radio-button only)<br>
-<code>@attr name</code> - Name for radio group<br>
-<code>@attr value</code> - Value for the radio option<br>
-<code>@attr size</code> - Size (sm, md, lg)<br>
-<code>@attr pill</code> - Pill shape (radio-button only)<br>
-<code>@attr disabled</code> - Disable the radio<br>
-<code>@attr checked</code> - Checked state
+<code>@attr src</code> - Audio source URL (required)<br>
+<code>@attr track</code> - Track/song title displayed in the player<br>
+<code>@attr artist</code> - Artist name displayed below title<br>
+<code>@attr group</code> - Grouping key (players in same group auto-pause each other)<br>
+<code>@attr autoplay</code> - Begin playback when ready<br>
+<code>@prop volume</code> - Get/set volume (0–1)<br>
+<code>@prop muted</code> - Get/set muted state<br>
+<code>@prop paused</code> - Whether audio is paused (read-only)<br>
+<code>@method play()</code> - Begin playback<br>
+<code>@method pause()</code> - Pause playback<br>
+<code>--luna-audio-bg</code> - Player background<br>
+<code>--luna-audio-fg</code> - Primary text color<br>
+<code>--luna-audio-accent</code> - Accent/playhead color<br>
+<code>--luna-audio-muted</code> - Secondary text color<br>
+<code>--luna-audio-waveform</code> - Inactive waveform bar color<br>
+<code>--luna-audio-waveform-played</code> - Played waveform bar color<br>
+<code>--luna-audio-radius</code> - Border radius<br>
+<code>--luna-audio-width</code> - Max width<br>
+<code>--luna-audio-padding</code> - Inner padding
 
-<h2>Radio Group</h2>
-<luna-radio-group value="dark" style="display: flex; flex-direction: column; gap: 0.75rem;">
-  <luna-radio name="theme" value="dark" size="sm">Dark</luna-radio>
-  <luna-radio name="theme" value="light" size="md">Light</luna-radio>
-  <luna-radio name="theme" value="system" disabled size="lg">System</luna-radio>
-</luna-radio-group>
+<h2>Basic Usage</h2>
+<luna-audio-player 
+  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+  track="Sound Helix Song 1"
+  artist="SoundHelix"
+  group="demo"
+></luna-audio-player>
 
-<h2>Radio Button Group</h2>
-<luna-radio-group value="light" style="display: flex; gap: 0.5rem;">
-  <luna-radio-button name="theme-btn" value="light" pill>
-    <span slot="prefix">🌞</span> Light
-  </luna-radio-button>
-  <luna-radio-button name="theme-btn" value="dark">
-    <span slot="prefix">🌙</span> Dark
-  </luna-radio-button>
-  <luna-radio-button value="disabled" disabled>
-    Disabled
-  </luna-radio-button>
-</luna-radio-group>
+<h2>Grouped Players (Auto-Pause)</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Players in the same group automatically pause when another starts playing.</p>
+
+<luna-audio-player 
+  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+  track="Sound Helix Song 2"
+  artist="SoundHelix"
+  group="demo"
+></luna-audio-player>
+
+<luna-audio-player 
+  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+  track="Sound Helix Song 3"
+  artist="SoundHelix"
+  group="demo"
+  style="margin-top: 1rem;"
+></luna-audio-player>
+
+<h2>Custom Themes</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem;">Orange Theme</p>
+<luna-audio-player 
+  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+  track="Sound Helix Song 4"
+  artist="SoundHelix"
+  group="demo"
+  style="
+    --luna-audio-bg: #1a0f00;
+    --luna-audio-accent: #ff6b00;
+    --luna-audio-waveform: #332200;
+  "
+></luna-audio-player>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 1.5rem;">Blue Theme</p>
+<luna-audio-player 
+  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+  track="Sound Helix Song 5"
+  artist="SoundHelix"
+  group="demo"
+  style="
+    --luna-audio-bg: #0a0f1a;
+    --luna-audio-accent: #2563eb;
+    --luna-audio-waveform: #1a2332;
+  "
+></luna-audio-player>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 1.5rem;">Green Theme</p>
+<luna-audio-player 
+  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+  track="Sound Helix Song 6"
+  artist="SoundHelix"
+  group="demo"
+  style="
+    --luna-audio-bg: #0a1a0f;
+    --luna-audio-accent: #22c55e;
+    --luna-audio-waveform: #1a3322;
+  "
+></luna-audio-player>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 1.5rem;">Purple Theme</p>
+<luna-audio-player 
+  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+  track="Sound Helix Song 7"
+  artist="SoundHelix"
+  group="demo"
+  style="
+    --luna-audio-bg: #14001a;
+    --luna-audio-accent: #a855f7;
+    --luna-audio-waveform: #2a1a33;
+  "
+></luna-audio-player>
+
+<h2>External Control with Buttons</h2>
+<div style="background: #1a1a1a; padding: 2rem; border-radius: 0.5rem; border: 1px solid #333;">
+  <luna-audio-player 
+    id="controlled-player"
+    src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+    track="Sound Helix Song 8"
+    artist="SoundHelix"
+    group="demo"
+  ></luna-audio-player>
+  
+  <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+    <luna-button id="play-btn" variant="primary" size="sm">Play</luna-button>
+    <luna-button id="pause-btn" variant="neutral" size="sm">Pause</luna-button>
+    <luna-button id="volume-up" variant="neutral" size="sm">Volume Up</luna-button>
+    <luna-button id="volume-down" variant="neutral" size="sm">Volume Down</luna-button>
+    <luna-button id="mute-btn" variant="neutral" size="sm">Toggle Mute</luna-button>
+  </div>
+</div>
+
+<script>
+  const player = document.getElementById('controlled-player');
+  const playBtn = document.getElementById('play-btn');
+  const pauseBtn = document.getElementById('pause-btn');
+  const volumeUp = document.getElementById('volume-up');
+  const volumeDown = document.getElementById('volume-down');
+  const muteBtn = document.getElementById('mute-btn');
+  
+  playBtn.addEventListener('click', () => player.play());
+  pauseBtn.addEventListener('click', () => player.pause());
+  
+  volumeUp.addEventListener('click', () => {
+    player.volume = Math.min(1, player.volume + 0.1);
+  });
+  
+  volumeDown.addEventListener('click', () => {
+    player.volume = Math.max(0, player.volume - 0.1);
+  });
+  
+  muteBtn.addEventListener('click', () => {
+    player.muted = !player.muted;
+  });
+</script>
 
 <h2>Example Code</h2>
 <luna-code language="html">
-&lt;!-- Radio Group --&gt;
-&lt;luna-radio-group value="dark"&gt;
-  &lt;luna-radio name="theme" value="dark" size="sm"&gt;Dark&lt;/luna-radio&gt;
-  &lt;luna-radio name="theme" value="light" size="md"&gt;Light&lt;/luna-radio&gt;
-  &lt;luna-radio name="theme" value="system" disabled size="lg"&gt;System&lt;/luna-radio&gt;
-&lt;/luna-radio-group&gt;
+&lt;!-- Basic player --&gt;
+&lt;luna-audio-player 
+  src="audio.mp3"
+  track="Song Title"
+  artist="Artist Name"
+&gt;&lt;/luna-audio-player&gt;
 
-&lt;!-- Radio Button Group --&gt;
-&lt;luna-radio-group value="light"&gt;
-  &lt;luna-radio-button name="theme-btn" value="light" pill&gt;
-    &lt;span slot="prefix"&gt;🌞&lt;/span&gt; Light
-  &lt;/luna-radio-button&gt;
-  &lt;luna-radio-button name="theme-btn" value="dark"&gt;
-    &lt;span slot="prefix"&gt;🌙&lt;/span&gt; Dark
-  &lt;/luna-radio-button&gt;
-  &lt;luna-radio-button value="disabled" disabled&gt;
-    Disabled
-  &lt;/luna-radio-button&gt;
-&lt;/luna-radio-group&gt;
+&lt;!-- Grouped players (auto-pause) --&gt;
+&lt;luna-audio-player 
+  src="song1.mp3"
+  track="Song 1"
+  group="playlist"
+&gt;&lt;/luna-audio-player&gt;
+
+&lt;luna-audio-player 
+  src="song2.mp3"
+  track="Song 2"
+  group="playlist"
+&gt;&lt;/luna-audio-player&gt;
+
+&lt;!-- Custom theme --&gt;
+&lt;luna-audio-player 
+  src="audio.mp3"
+  track="Custom Theme"
+  style="
+    --luna-audio-bg: #0a0f1a;
+    --luna-audio-accent: #2563eb;
+    --luna-audio-waveform: #1a2332;
+  "
+&gt;&lt;/luna-audio-player&gt;
+
+&lt;!-- External control --&gt;
+&lt;luna-audio-player id="my-player" src="audio.mp3"&gt;&lt;/luna-audio-player&gt;
+
+&lt;div style="display: flex; gap: 0.75rem; margin-top: 1rem;"&gt;
+  &lt;luna-button id="play-btn" variant="primary" size="sm"&gt;Play&lt;/luna-button&gt;
+  &lt;luna-button id="pause-btn" variant="neutral" size="sm"&gt;Pause&lt;/luna-button&gt;
+  &lt;luna-button id="vol-up" variant="neutral" size="sm"&gt;Volume Up&lt;/luna-button&gt;
+  &lt;luna-button id="vol-down" variant="neutral" size="sm"&gt;Volume Down&lt;/luna-button&gt;
+  &lt;luna-button id="mute" variant="neutral" size="sm"&gt;Mute&lt;/luna-button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  const player = document.getElementById('my-player');
+  
+  document.getElementById('play-btn').addEventListener('click', () =&gt; {
+    player.play();
+  });
+  
+  document.getElementById('pause-btn').addEventListener('click', () =&gt; {
+    player.pause();
+  });
+  
+  document.getElementById('vol-up').addEventListener('click', () =&gt; {
+    player.volume = Math.min(1, player.volume + 0.1);
+  });
+  
+  document.getElementById('vol-down').addEventListener('click', () =&gt; {
+    player.volume = Math.max(0, player.volume - 0.1);
+  });
+  
+  document.getElementById('mute').addEventListener('click', () =&gt; {
+    player.muted = !player.muted;
+  });
+  
+  // Listen to events
+  player.addEventListener('luna-play', (e) =&gt; {
+    console.log('Playing:', e.detail.src);
+  });
+  
+  player.addEventListener('luna-pause', () =&gt; {
+    console.log('Paused');
+  });
+  
+  player.addEventListener('luna-timeupdate', (e) =&gt; {
+    console.log('Progress:', e.detail.progress);
+  });
+&lt;/script&gt;
 </luna-code>
       </article>
     </main>
