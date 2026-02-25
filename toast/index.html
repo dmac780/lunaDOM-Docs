@@ -17,6 +17,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/toast/toast.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/toast-stack/toast-stack.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -200,12 +201,54 @@
 <code>/lunadom/components/toast/toast.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/toast-stack/toast-stack.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>Luna.toast(message, options)</code> - Show toast notification<br>
-<code>@param message</code> - Text to display<br>
-<code>@param options.variant</code> - Toast variant (primary, success, warning, danger, neutral)<br>
-<code>@param options.duration</code> - Auto-dismiss time (ms), 0 for persistent<br>
-<code>@param options.closable</code> - Show close button
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+
+  <h3>luna-toast</h3>
+  <code>default</code> - Content of the toast message.<br>
+
+  <h3>luna-toast-stack</h3>
+  <code>default</code> - Container for toast messages.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+
+  <h3>luna-toast</h3>
+  <code>variant</code> - Toast variant (info, success, warning, danger). Defaults to 'info'.<br>
+  <code>duration</code> - Auto-dismiss duration in milliseconds. Set to 0 to never auto-dismiss.<br>
+
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+
+  <h3>luna-toast</h3>
+  <code>--luna-radius</code> - Border radius of toast. Defaults to 0.5rem.<br>
+  <code>--luna-bg</code> - Background color (set automatically by variant).<br>
+  <code>--luna-color</code> - Text color (set automatically by variant).<br>
+  <code>--luna-border</code> - Border color (set automatically by variant).<br>
+
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Methods</span>
+
+  <h3>luna-toast</h3>
+  <code>dismiss()</code> - Programmatically dismiss the toast.<br>
+
+  <h3>luna-toast-stack</h3>
+  <code>show(message, options)</code> - Show a toast with the given message and options.<br>
+  <code>Luna.toast(message, options)</code> - Global helper function to show toasts.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+
+  <h3>luna-toast</h3>
+  <code>luna-dismiss</code> - Fired when toast is dismissed (bubbles, composed).<br>
+</luna-details>
 
 <h2>Toast Variants</h2>
 <p style="color: #888; font-size: 0.875rem;">Different notification types with auto-dismiss.</p>

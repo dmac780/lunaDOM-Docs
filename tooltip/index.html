@@ -16,6 +16,7 @@
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/tooltip/tooltip.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -199,13 +200,31 @@
 <code>/lunadom/components/tooltip/tooltip.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/button/button.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - Element to attach tooltip to<br>
-<code>@attr content</code> - Tooltip text content<br>
-<code>@attr placement</code> - Position (top, bottom, left, right)<br>
-<code>@attr trigger</code> - Trigger mode (hover, click)<br>
-<code>@attr delay</code> - Show delay in milliseconds<br>
-<code>@attr for</code> - ID of external target element
+  <h2>Customization</h2>
+  <luna-details style="--luna-details-content-color: #ccc;">
+    <span slot="summary">Slots</span>
+    <br>
+    <code>default</code> - The content of the tooltip.<br>
+  </luna-details>
+  <br>
+  <luna-details style="--luna-details-content-color: #ccc;">
+    <span slot="summary">Attributes</span>  
+    <br>
+    <code>open</code> - If present, the tooltip is visible.<br>
+    <code>placement</code> - Position of the tooltip relative to the target ('top', 'bottom', 'left', 'right'). Defaults to 'top'.<br>
+    <code>trigger</code> - How the tooltip is triggered ('hover', 'click'). Defaults to 'hover'.<br>
+    <code>for</code> - The ID of the element the tooltip is for.<br>
+    <code>content</code> - Content for the tooltip (alternative to slot).<br>
+    <code>delay</code> - Delay in milliseconds before the tooltip appears.<br>
+    <code>offset</code> - Offset in pixels from the target.<br>
+  </luna-details> 
+  <br>
+  <luna-details style="--luna-details-content-color: #ccc;">
+    <span slot="summary">CSS Variables</span>
+    <br>
+    <code>--luna-tooltip-bg</code> - Background color of the tooltip.<br>
+    <code>--luna-tooltip-color</code> - Text color of the tooltip.<br>
+  </luna-details>
 
 <h2>Placements</h2>
 <p style="color: #666; font-size: 0.875rem; margin-bottom: 1.5rem;">Directional tooltips that adapt to content position.</p>
