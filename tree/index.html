@@ -200,58 +200,6 @@
 <code>/lunadom/components/tree/tree.js</code> <luna-badge variant="success">REQUIRED</luna-badge> <br>
 <code>/lunadom/components/tree-item/tree-item.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-
-  <h3>luna-tree</h3>
-  <code>default</code> - The content of the tree (luna-tree-item elements).<br>
-
-  <h3>luna-tree-item</h3>
-  <code>default</code> - The content of the tree item (label/text).<br>
-  <code>children</code> - Child tree items (nested luna-tree-item elements).<br>
-  <code>expand-icon</code> - Custom expand icon.<br>
-  <code>collapse-icon</code> - Custom collapse icon.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-
-  <h3>luna-tree</h3>
-  <code>selection</code> - Selection mode (single, multiple, leaf). Defaults to 'single'.<br>
-
-  <h3>luna-tree-item</h3>
-  <code>expanded</code> - Whether the tree item is expanded.<br>
-  <code>selected</code> - Whether the tree item is selected.<br>
-  <code>disabled</code> - Whether the tree item is disabled.<br>
-  <code>lazy</code> - Whether the tree item uses lazy loading.<br>
-  <code>loading</code> - Whether the tree item is currently loading.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-
-  <h3>luna-tree-item</h3>
-  <code>--indent-size</code> - The size of the indent.<br>
-  <code>--indent-guide-width</code> - The width of the indent guide.<br>
-  <code>--indent-guide-color</code> - The color of the indent guide.<br>
-  <code>--indent-guide-style</code> - The style of the indent guide.<br>
-  <code>--indent-guide-offset</code> - The offset of the indent guide.<br>
-  <code>--luna-tree-item-height</code> - The height of the tree item.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-
-  <h3>luna-tree</h3>
-  <code>luna-selection-change</code> - Emitted when the selection changes.<br>
-
-  <h3>luna-tree-item</h3>
-  <code>luna-expand</code> - Emitted when the tree item is expanded.<br>
-  <code>luna-collapse</code> - Emitted when the tree item is collapsed.<br>
-  <code>luna-select</code> - Emitted when the tree item is selected.<br>
-</luna-details>
-
 <h2>Indent Guides & Selection</h2>
 <p style="font-size: 0.8rem; color: #888; margin-bottom: 1rem;">Mode: Leaf selection</p>
 <luna-tree selection="leaf" style="--indent-guide-width: 1px; --indent-guide-color: #333; --indent-guide-offset: 4px;">
@@ -313,6 +261,58 @@
     </div>
   </luna-tree-item>
 </luna-tree>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+
+  <h3>luna-tree</h3>
+  <code>default</code> - The content of the tree (luna-tree-item elements).<br>
+
+  <h3>luna-tree-item</h3>
+  <code>default</code> - The content of the tree item (label/text).<br>
+  <code>children</code> - Child tree items (nested luna-tree-item elements).<br>
+  <code>expand-icon</code> - Custom expand icon.<br>
+  <code>collapse-icon</code> - Custom collapse icon.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+
+  <h3>luna-tree</h3>
+  <code>selection</code> - Selection mode (single, multiple, leaf). Defaults to 'single'.<br>
+
+  <h3>luna-tree-item</h3>
+  <code>expanded</code> - Whether the tree item is expanded.<br>
+  <code>selected</code> - Whether the tree item is selected.<br>
+  <code>disabled</code> - Whether the tree item is disabled.<br>
+  <code>lazy</code> - Whether the tree item uses lazy loading.<br>
+  <code>loading</code> - Whether the tree item is currently loading.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+
+  <h3>luna-tree-item</h3>
+  <code>--indent-size</code> - The size of the indent.<br>
+  <code>--indent-guide-width</code> - The width of the indent guide.<br>
+  <code>--indent-guide-color</code> - The color of the indent guide.<br>
+  <code>--indent-guide-style</code> - The style of the indent guide.<br>
+  <code>--indent-guide-offset</code> - The offset of the indent guide.<br>
+  <code>--luna-tree-item-height</code> - The height of the tree item.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+
+  <h3>luna-tree</h3>
+  <code>luna-selection-change</code> - Emitted when the selection changes.<br>
+
+  <h3>luna-tree-item</h3>
+  <code>luna-expand</code> - Emitted when the tree item is expanded.<br>
+  <code>luna-collapse</code> - Emitted when the tree item is collapsed.<br>
+  <code>luna-select</code> - Emitted when the tree item is selected.<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

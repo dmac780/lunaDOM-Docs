@@ -199,24 +199,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/format-date/format-date.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>value</code> - Date value (ISO 8601, timestamp, etc., required)<br>
-  <code>type</code> - Display parts (date, time, datetime, default: "date")<br>
-  <code>date-style</code> - Date preset (full, long, medium, short, default: "medium")<br>
-  <code>time-style</code> - Time preset (full, long, medium, short, default: "short")<br>
-  <code>day</code> - Day format (numeric, 2-digit)<br>
-  <code>month</code> - Month format (numeric, 2-digit, long, short, narrow)<br>
-  <code>year</code> - Year format (numeric, 2-digit)<br>
-  <code>hour</code> - Hour format (numeric, 2-digit)<br>
-  <code>minute</code> - Minute format (numeric, 2-digit)<br>
-  <code>second</code> - Second format (numeric, 2-digit)<br>
-  <code>hour12</code> - Use 12-hour clock (boolean)<br>
-  <code>timezone</code> - IANA timezone name (e.g., "America/New_York", "UTC")<br>
-</luna-details>
-
 <h2>Date Styles</h2>
 <p>Today's date in different styles:</p>
 <p>Full: <luna-format-date value="2026-02-23" date-style="full"></luna-format-date></p>
@@ -296,6 +278,24 @@
     formatCustom.removeAttribute('value');
   });
 </script>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>value</code> - Date value (ISO 8601, timestamp, etc., required)<br>
+  <code>type</code> - Display parts (date, time, datetime, default: "date")<br>
+  <code>date-style</code> - Date preset (full, long, medium, short, default: "medium")<br>
+  <code>time-style</code> - Time preset (full, long, medium, short, default: "short")<br>
+  <code>day</code> - Day format (numeric, 2-digit)<br>
+  <code>month</code> - Month format (numeric, 2-digit, long, short, narrow)<br>
+  <code>year</code> - Year format (numeric, 2-digit)<br>
+  <code>hour</code> - Hour format (numeric, 2-digit)<br>
+  <code>minute</code> - Minute format (numeric, 2-digit)<br>
+  <code>second</code> - Second format (numeric, 2-digit)<br>
+  <code>hour12</code> - Use 12-hour clock (boolean)<br>
+  <code>timezone</code> - IANA timezone name (e.g., "America/New_York", "UTC")<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

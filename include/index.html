@@ -199,20 +199,23 @@
 <h2>Paths</h2>
 <code>/lunadom/components/include/include.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<!-- * @slot - Default slot for content that will be displayed after loading.
- * @slot loading - Custom content to display while the remote resource is being fetched.
- * 
- * Attributes:
- * @attr {string} src - The URL of the HTML file to include.
- * 
- * CSS Custom Properties:
- * @cssprop --luna-accent - Color of the default loading spinner.
- * 
- * Events:
- * @event luna-load-start - Emitted when a load operation begins.
- * @event luna-load - Emitted when the content has successfully loaded.
- * @event luna-error - Emitted when the content fails to load.
- */-->
+<h2>Example</h2>
+<div style="background: #1a1a1a; padding: 2rem; border-radius: 1rem; border: 1px solid #333;">
+  <h3>Dynamic Partial Loading</h3>
+  <p style="color: #666; font-size: 0.875rem; margin-bottom: 2rem;">Fetch and inject external HTML fragments into the DOM seamlessly.</p>
+  
+  <luna-include src="https://raw.githubusercontent.com/dmac780/lunaDOM/refs/heads/main/README.md">
+    <div slot="loading" style="display:flex; align-items:center; gap:0.75rem; color:#666;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="animation: rotate 1s linear infinite;"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
+      <span>Fetching partial...</span>
+    </div>
+  </luna-include>
+
+  <luna-button variant="outline" style="margin-top: 2rem;" onclick="document.querySelector('luna-include').reload()">
+    Force Reload Fragment
+  </luna-button>
+</div>
+
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
@@ -246,23 +249,6 @@
   <br>
   <code>reload()</code> - Force reload the content<br>
 </luna-details>
-
-<h2>Example</h2>
-<div style="background: #1a1a1a; padding: 2rem; border-radius: 1rem; border: 1px solid #333;">
-  <h3>Dynamic Partial Loading</h3>
-  <p style="color: #666; font-size: 0.875rem; margin-bottom: 2rem;">Fetch and inject external HTML fragments into the DOM seamlessly.</p>
-  
-  <luna-include src="https://raw.githubusercontent.com/dmac780/lunaDOM/refs/heads/main/README.md">
-    <div slot="loading" style="display:flex; align-items:center; gap:0.75rem; color:#666;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="animation: rotate 1s linear infinite;"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
-      <span>Fetching partial...</span>
-    </div>
-  </luna-include>
-
-  <luna-button variant="outline" style="margin-top: 2rem;" onclick="document.querySelector('luna-include').reload()">
-    Force Reload Fragment
-  </luna-button>
-</div>
 
 <h2>Example Code</h2>
   <luna-code language="html">

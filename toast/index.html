@@ -201,6 +201,21 @@
 <code>/lunadom/components/toast/toast.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/toast-stack/toast-stack.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
+<h2>Toast Variants</h2>
+<p style="color: #888; font-size: 0.875rem;">Different notification types with auto-dismiss.</p>
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+  <luna-button variant="primary" onclick="Luna.toast('ℹ️ Primary notification', { variant: 'primary', duration: 3000 })">Primary</luna-button>
+  <luna-button variant="success" onclick="Luna.toast('✅ Saved successfully!', { variant: 'success', duration: 3000 })">Success</luna-button>
+  <luna-button variant="warning" onclick="Luna.toast('⚠️ Warning message', { variant: 'warning', duration: 3000 })">Warning</luna-button>
+  <luna-button variant="danger" onclick="Luna.toast('❌ Error occurred', { variant: 'danger', duration: 3000 })">Danger</luna-button>
+</div>
+
+<h2>Toast Options</h2>
+<p style="color: #888; font-size: 0.875rem;">Closable and persistent toasts.</p>
+<luna-button onclick="Luna.toast('This toast can be closed', { variant: 'primary', closable: true, duration: 5000 })">Closable Toast</luna-button>
+<luna-button onclick="Luna.toast('This stays until dismissed', { variant: 'neutral', closable: true, duration: 0 })">Persistent Toast</luna-button>
+<luna-button onclick="Luna.toast('Quick notification', { variant: 'success', duration: 1500 })">Fast Toast (1.5s)</luna-button>
+
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
@@ -249,21 +264,6 @@
   <h3>luna-toast</h3>
   <code>luna-dismiss</code> - Fired when toast is dismissed (bubbles, composed).<br>
 </luna-details>
-
-<h2>Toast Variants</h2>
-<p style="color: #888; font-size: 0.875rem;">Different notification types with auto-dismiss.</p>
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
-  <luna-button variant="primary" onclick="Luna.toast('ℹ️ Primary notification', { variant: 'primary', duration: 3000 })">Primary</luna-button>
-  <luna-button variant="success" onclick="Luna.toast('✅ Saved successfully!', { variant: 'success', duration: 3000 })">Success</luna-button>
-  <luna-button variant="warning" onclick="Luna.toast('⚠️ Warning message', { variant: 'warning', duration: 3000 })">Warning</luna-button>
-  <luna-button variant="danger" onclick="Luna.toast('❌ Error occurred', { variant: 'danger', duration: 3000 })">Danger</luna-button>
-</div>
-
-<h2>Toast Options</h2>
-<p style="color: #888; font-size: 0.875rem;">Closable and persistent toasts.</p>
-<luna-button onclick="Luna.toast('This toast can be closed', { variant: 'primary', closable: true, duration: 5000 })">Closable Toast</luna-button>
-<luna-button onclick="Luna.toast('This stays until dismissed', { variant: 'neutral', closable: true, duration: 0 })">Persistent Toast</luna-button>
-<luna-button onclick="Luna.toast('Quick notification', { variant: 'success', duration: 1500 })">Fast Toast (1.5s)</luna-button>
 
 <h2>Example Code</h2>
 <luna-code language="html">

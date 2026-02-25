@@ -202,6 +202,36 @@
 <code>/lunadom/components/tab-group/tab-group.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/tab-panel/tab-panel.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
+<h2>Standard Top (with Closable Tabs)</h2>
+<luna-tab-group>
+  <luna-tab slot="nav" panel="general" active>General</luna-tab>
+  <luna-tab slot="nav" panel="stats" closable>Statistics</luna-tab>
+  <luna-tab slot="nav" panel="settings" closable>Settings</luna-tab>
+  <luna-tab slot="nav" panel="danger" disabled>Restricted</luna-tab>
+
+  <luna-tab-panel name="general">Welcome to the general info panel.</luna-tab-panel>
+  <luna-tab-panel name="stats">Here are some shiny graphs and numbers.</luna-tab-panel>
+  <luna-tab-panel name="settings">Tweak your preferences here.</luna-tab-panel>
+</luna-tab-group>
+
+<h2>Bottom Placement</h2>
+<luna-tab-group placement="bottom">
+  <luna-tab slot="nav" panel="tab1">Tab 1</luna-tab>
+  <luna-tab slot="nav" panel="tab2">Tab 2</luna-tab>
+  <luna-tab-panel name="tab1">Content for Tab 1 (Indicator on top)</luna-tab-panel>
+  <luna-tab-panel name="tab2">Content for Tab 2 (Indicator on top)</luna-tab-panel>
+</luna-tab-group>
+
+<h2>Start Placement (Vertical)</h2>
+<div style="height: 150px;">
+  <luna-tab-group placement="start">
+    <luna-tab slot="nav" panel="v1">Profile</luna-tab>
+    <luna-tab slot="nav" panel="v2">Billing</luna-tab>
+    <luna-tab-panel name="v1" style="padding: 0 1.5rem;">User profile details...</luna-tab-panel>
+    <luna-tab-panel name="v2" style="padding: 0 1.5rem;">Manage your subscription.</luna-tab-panel>
+  </luna-tab-group>
+</div>
+
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
@@ -260,36 +290,6 @@
   <h3>luna-tab</h3>
   <code>luna-close</code> - Emitted when the close button is clicked.<br>
 </luna-details>
-
-<h2>Standard Top (with Closable Tabs)</h2>
-<luna-tab-group>
-  <luna-tab slot="nav" panel="general" active>General</luna-tab>
-  <luna-tab slot="nav" panel="stats" closable>Statistics</luna-tab>
-  <luna-tab slot="nav" panel="settings" closable>Settings</luna-tab>
-  <luna-tab slot="nav" panel="danger" disabled>Restricted</luna-tab>
-
-  <luna-tab-panel name="general">Welcome to the general info panel.</luna-tab-panel>
-  <luna-tab-panel name="stats">Here are some shiny graphs and numbers.</luna-tab-panel>
-  <luna-tab-panel name="settings">Tweak your preferences here.</luna-tab-panel>
-</luna-tab-group>
-
-<h2>Bottom Placement</h2>
-<luna-tab-group placement="bottom">
-  <luna-tab slot="nav" panel="tab1">Tab 1</luna-tab>
-  <luna-tab slot="nav" panel="tab2">Tab 2</luna-tab>
-  <luna-tab-panel name="tab1">Content for Tab 1 (Indicator on top)</luna-tab-panel>
-  <luna-tab-panel name="tab2">Content for Tab 2 (Indicator on top)</luna-tab-panel>
-</luna-tab-group>
-
-<h2>Start Placement (Vertical)</h2>
-<div style="height: 150px;">
-  <luna-tab-group placement="start">
-    <luna-tab slot="nav" panel="v1">Profile</luna-tab>
-    <luna-tab slot="nav" panel="v2">Billing</luna-tab>
-    <luna-tab-panel name="v1" style="padding: 0 1.5rem;">User profile details...</luna-tab-panel>
-    <luna-tab-panel name="v2" style="padding: 0 1.5rem;">Manage your subscription.</luna-tab-panel>
-  </luna-tab-group>
-</div>
 
 <h2>Example Code</h2>
 <luna-code language="html">

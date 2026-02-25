@@ -197,28 +197,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/code/code.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>default</code> - The code to display<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>language</code> - Language for syntax highlighting (html, js, css, etc.)<br>
-  <code>no-toolbar</code> - Hide the toolbar<br>
-  <code>no-lines</code> - Hide line numbers<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-code-bg</code> - Code block background color<br>
-  <code>--luna-code-color</code> - Code block text color
-</luna-details>
-
 <h2>HTML Example</h2>
 <luna-code language="html">
 &lt;!-- A simple card component --&gt;
@@ -264,6 +242,28 @@ loadUsers('https://api.example.com/users');
 const greeting = "Hello World";
 console.log(greeting);
 </luna-code>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - The code to display<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>language</code> - Language for syntax highlighting (html, js, css, etc.)<br>
+  <code>no-toolbar</code> - Hide the toolbar<br>
+  <code>no-lines</code> - Hide line numbers<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-code-bg</code> - Code block background color<br>
+  <code>--luna-code-color</code> - Code block text color
+</luna-details>
 
 <h2>Example Code</h2>
   <luna-code language="html">

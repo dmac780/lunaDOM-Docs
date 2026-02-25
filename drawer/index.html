@@ -196,45 +196,6 @@
       <article>
         <p>The <code>&lt;luna-drawer&gt;</code> component provides slide-out panels from any edge with overlay and contained modes.</p>
 
-<h2>Paths</h2>
-<code>/lunadom/components/drawer/drawer.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
-
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>title</code> - Title content for the drawer<br>
-  <code>default</code> - Main content for the drawer<br>
-  <code>footer</code> - Footer content for actions<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>placement</code> - Edge to slide from (start, end, top, bottom)<br>
-  <code>contained</code> - Whether drawer is contained to parent<br>
-  <code>initial-focus</code> - A selector for the element to receive focus when the drawer opens<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-drawer-size</code> - Width or height of the drawer<br>
-  <code>--luna-bg</code> - Drawer background color<br>
-  <code>--luna-color</code> - Text color within the drawer<br>
-  <code>--luna-border</code> - Border color for segments and edges<br>
-  <code>--luna-overlay-bg</code> - Background color of the backdrop overlay<br>
-  <code>--luna-transition-speed</code> - Animation duration for slide and fade<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-show</code> - Emitted when the drawer opens<br>
-  <code>luna-hide</code> - Emitted when the drawer closes<br>
-  <code>luna-request-close</code> - Emitted when the drawer attempts to close (via close button, ESC, or overlay). Can be cancelled.<br>
-</luna-details>
-
 <h2>Placement Options</h2>
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
   <luna-button onclick="drawerStart.show()">Left Drawer</luna-button>
@@ -285,6 +246,45 @@
     <luna-button variant="secondary" onclick="drawerContained.hide()" fullwidth>Close</luna-button>
   </luna-drawer>
 </div>
+
+<h2>Paths</h2>
+<code>/lunadom/components/drawer/drawer.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>title</code> - Title content for the drawer<br>
+  <code>default</code> - Main content for the drawer<br>
+  <code>footer</code> - Footer content for actions<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>placement</code> - Edge to slide from (start, end, top, bottom)<br>
+  <code>contained</code> - Whether drawer is contained to parent<br>
+  <code>initial-focus</code> - A selector for the element to receive focus when the drawer opens<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-drawer-size</code> - Width or height of the drawer<br>
+  <code>--luna-bg</code> - Drawer background color<br>
+  <code>--luna-color</code> - Text color within the drawer<br>
+  <code>--luna-border</code> - Border color for segments and edges<br>
+  <code>--luna-overlay-bg</code> - Background color of the backdrop overlay<br>
+  <code>--luna-transition-speed</code> - Animation duration for slide and fade<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-show</code> - Emitted when the drawer opens<br>
+  <code>luna-hide</code> - Emitted when the drawer closes<br>
+  <code>luna-request-close</code> - Emitted when the drawer attempts to close (via close button, ESC, or overlay). Can be cancelled.<br>
+</luna-details>
 
 <h2>Example Code</h2>
   <luna-code language="html">

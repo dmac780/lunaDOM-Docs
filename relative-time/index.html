@@ -198,16 +198,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/relative-time/relative-time.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>datetime</code> - ISO 8601 datetime string<br>
-  <code>sync</code> - Auto-update as time passes<br>
-  <code>format</code> - Display format (relative, absolute)<br>
-</luna-details>
-
-
 <h2>Basic Relative Time</h2>
 <p style="color: #888; font-size: 0.875rem;">Shows time relative to now (e.g., "2 hours ago").</p>
 <luna-relative-time datetime="2026-02-19T15:00:00Z"></luna-relative-time>
@@ -219,6 +209,15 @@
 <h2>Absolute Format</h2>
 <p style="color: #888; font-size: 0.875rem;">Shows full date and time.</p>
 <luna-relative-time datetime="2026-02-19T15:00:00Z" format="absolute"></luna-relative-time>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>datetime</code> - ISO 8601 datetime string<br>
+  <code>sync</code> - Auto-update as time passes<br>
+  <code>format</code> - Display format (relative, absolute)<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

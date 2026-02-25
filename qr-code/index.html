@@ -201,27 +201,6 @@
 <code>/lunadom/components/qr-code/qr-code.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/qr-code/qr-creator.min.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>value</code> - Content to encode in the QR code<br>
-  <code>size</code> - Size in pixels (default: 200)<br>
-  <code>radius</code> - Module corner radius (0-1) (default: 0)<br>
-  <code>padding</code> - Padding around the QR code (default: 0)<br>
-  <code>fill</code> - QR code module color (default: #000)<br>
-  <code>background</code> - Background color (default: #fff)<br>
-  <code>ec-level</code> - Error correction level (L, M, Q, H) (default: 'M')<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-qr-color</code> - The default color of the QR code modules<br>
-  <code>--luna-qr-bg</code> - The default background color of the QR code<br>
-  <code>--luna-qr-radius</code> - The border radius of the rendered canvas<br>
-</luna-details>
-
 <h2>QR Code Examples</h2>
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
   <div style="text-align: center;">
@@ -281,6 +260,27 @@ document.getElementById('qr-live-input').addEventListener('input', (e) => {
   qrCode.setAttribute('value', e.target.value || 'Luna');
 });
 </script>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>value</code> - Content to encode in the QR code<br>
+  <code>size</code> - Size in pixels (default: 200)<br>
+  <code>radius</code> - Module corner radius (0-1) (default: 0)<br>
+  <code>padding</code> - Padding around the QR code (default: 0)<br>
+  <code>fill</code> - QR code module color (default: #000)<br>
+  <code>background</code> - Background color (default: #fff)<br>
+  <code>ec-level</code> - Error correction level (L, M, Q, H) (default: 'M')<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-qr-color</code> - The default color of the QR code modules<br>
+  <code>--luna-qr-bg</code> - The default background color of the QR code<br>
+  <code>--luna-qr-radius</code> - The border radius of the rendered canvas<br>
+</luna-details>
 
 <h2>Example Code</h2>
   <luna-code language="html">

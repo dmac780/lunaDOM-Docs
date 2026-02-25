@@ -198,7 +198,39 @@
 <h2>Paths</h2>
 <code>/lunadom/components/switch/switch.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
+<h2>Basic States</h2>
+<luna-switch checked>Notifications On</luna-switch>
+<luna-switch>Notifications Off</luna-switch>
+<luna-switch disabled checked>Disabled Toggle</luna-switch>
+<luna-switch help="You can provide more context with help text.">With Help Text</luna-switch>
+
+<h2>Sizes</h2>
+<luna-switch size="sm">Small Switch</luna-switch>
+<luna-switch size="md">Medium Switch (Default)</luna-switch>
+<luna-switch size="lg">Large Switch</luna-switch>
+
+<h2>Custom Branding</h2>
+<luna-switch
+  checked
+  style="
+    --luna-switch-bg-checked: #22c55e;
+    --luna-switch-focus: rgba(34, 197, 94, 0.35);
+  "
+>
+  Online Status
+</luna-switch>
+
+<luna-switch
+  checked
+  style="
+    --luna-switch-bg-checked: #ef4444;
+    --luna-switch-focus: rgba(239, 68, 68, 0.35);
+  "
+>
+  Danger Mode
+</luna-switch>
+
+<h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
   <br>
@@ -234,38 +266,6 @@
   <br>
   <code>luna-change</code> - Emitted when the switch state changes.<br>
 </luna-details>
-
-<h2>Basic States</h2>
-<luna-switch checked>Notifications On</luna-switch>
-<luna-switch>Notifications Off</luna-switch>
-<luna-switch disabled checked>Disabled Toggle</luna-switch>
-<luna-switch help="You can provide more context with help text.">With Help Text</luna-switch>
-
-<h2>Sizes</h2>
-<luna-switch size="sm">Small Switch</luna-switch>
-<luna-switch size="md">Medium Switch (Default)</luna-switch>
-<luna-switch size="lg">Large Switch</luna-switch>
-
-<h2>Custom Branding</h2>
-<luna-switch
-  checked
-  style="
-    --luna-switch-bg-checked: #22c55e;
-    --luna-switch-focus: rgba(34, 197, 94, 0.35);
-  "
->
-  Online Status
-</luna-switch>
-
-<luna-switch
-  checked
-  style="
-    --luna-switch-bg-checked: #ef4444;
-    --luna-switch-focus: rgba(239, 68, 68, 0.35);
-  "
->
-  Danger Mode
-</luna-switch>
 
 <h2>Example Code</h2>
 <luna-code language="html">

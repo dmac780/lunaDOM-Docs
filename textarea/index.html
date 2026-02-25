@@ -198,44 +198,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/textarea/textarea.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>default</code> - The content of the textarea.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-
-  <code>label</code> - The label of the textarea.<br>
-  <code>help-text</code> - The help text of the textarea.<br>
-  <code>rows</code> - The number of rows of the textarea.<br>
-  <code>placeholder</code> - The placeholder of the textarea.<br>
-  <code>disabled</code> - Whether the textarea is disabled.<br>
-  <code>size</code> - The size of the textarea. sm, md, lg. Defaults to 'md'.<br>
-  <code>resize</code> - The resize mode of the textarea. none, vertical, horizontal, both, auto. Default: 'none'.<br>
-  <code>value</code> - The value of the textarea.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-textarea-bg</code> - Background color of the textarea.<br>
-  <code>--luna-textarea-color</code> - Text color of the textarea.<br>
-  <code>--luna-textarea-border</code> - Border color of the textarea.<br>
-  <code>--luna-textarea-border-focus</code> - Border color when focused.<br>
-  <code>--luna-textarea-label</code> - Label color of the textarea.<br>
-  <code>--luna-textarea-help</code> - Help text color of the textarea.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-input</code> - Emitted when the input value changes.<br>
-  <code>luna-change</code> - Emitted when the change event is triggered.<br>
-</luna-details>
-
 <h2>Basic States</h2>
 <luna-textarea 
   label="Message" 
@@ -284,6 +246,44 @@
   resize="none" 
   rows="2"
 ></luna-textarea>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - The content of the textarea.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>label</code> - The label of the textarea.<br>
+  <code>help-text</code> - The help text of the textarea.<br>
+  <code>rows</code> - The number of rows of the textarea.<br>
+  <code>placeholder</code> - The placeholder of the textarea.<br>
+  <code>disabled</code> - Whether the textarea is disabled.<br>
+  <code>size</code> - The size of the textarea. sm, md, lg. Defaults to 'md'.<br>
+  <code>resize</code> - The resize mode of the textarea. none, vertical, horizontal, both, auto. Default: 'none'.<br>
+  <code>value</code> - The value of the textarea.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-textarea-bg</code> - Background color of the textarea.<br>
+  <code>--luna-textarea-color</code> - Text color of the textarea.<br>
+  <code>--luna-textarea-border</code> - Border color of the textarea.<br>
+  <code>--luna-textarea-border-focus</code> - Border color when focused.<br>
+  <code>--luna-textarea-label</code> - Label color of the textarea.<br>
+  <code>--luna-textarea-help</code> - Help text color of the textarea.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-input</code> - Emitted when the input value changes.<br>
+  <code>luna-change</code> - Emitted when the change event is triggered.<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

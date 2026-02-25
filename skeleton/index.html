@@ -198,25 +198,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/skeleton/skeleton.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>variant</code> - Skeleton shape (text, avatar, rect)<br>
-  <code>effect</code> - Animation effect (sheen, pulse)<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-skeleton-bg</code> - The background color of the skeleton.<br>
-  <code>--luna-skeleton-accent</code> - The color of the animation effect (sheen).<br>
-  <code>--luna-skeleton-speed</code> - The duration of the animation cycle.<br>
-  <code>--luna-skeleton-radius</code> - The border radius of the skeleton.<br>
-  <code>--luna-skeleton-clip-path</code> - An optional clip-path to apply to the skeleton.<br>
-</luna-details>
-
-
 <h2>Sheen Effect (Card Example)</h2>
 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
   <luna-skeleton variant="avatar" effect="sheen"></luna-skeleton>
@@ -242,6 +223,24 @@
     <p style="font-size: 0.7rem; color: #888; margin-top: 0.5rem; text-align: center;">Pill</p>
   </div>
 </div>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>variant</code> - Skeleton shape (text, avatar, rect)<br>
+  <code>effect</code> - Animation effect (sheen, pulse)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-skeleton-bg</code> - The background color of the skeleton.<br>
+  <code>--luna-skeleton-accent</code> - The color of the animation effect (sheen).<br>
+  <code>--luna-skeleton-speed</code> - The duration of the animation cycle.<br>
+  <code>--luna-skeleton-radius</code> - The border radius of the skeleton.<br>
+  <code>--luna-skeleton-clip-path</code> - An optional clip-path to apply to the skeleton.<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

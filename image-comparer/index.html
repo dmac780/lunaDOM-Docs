@@ -198,6 +198,18 @@
 <h2>Paths</h2>
 <code>/lunadom/components/image-comparer/image-comparer.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
+<h2>Horizontal (Default)</h2>
+<luna-image-comparer style="width: 100%; --luna-radius: 1rem;">
+  <img slot="before" src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=800&q=80" alt="Old architecture" />
+  <img slot="after" src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=800&q=80&sat=-100" alt="Old architecture B&W" />
+</luna-image-comparer>
+
+<h2>Vertical</h2>
+<luna-image-comparer vertical style="width: 100%; --luna-radius: 1rem; --luna-compare-line-color: #22c55e;">
+  <img slot="before" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Landscape" />
+  <img slot="after" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80&sepia=100" alt="Landscape Sepia" />
+</luna-image-comparer>
+
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
@@ -222,18 +234,6 @@
   <code>--luna-compare-size</code> - Diameter of the slider knob<br>
   <code>--luna-radius</code> - Border radius applied to the entire component<br>
 </luna-details>
-
-<h2>Horizontal (Default)</h2>
-<luna-image-comparer style="width: 100%; --luna-radius: 1rem;">
-  <img slot="before" src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=800&q=80" alt="Old architecture" />
-  <img slot="after" src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=800&q=80&sat=-100" alt="Old architecture B&W" />
-</luna-image-comparer>
-
-<h2>Vertical</h2>
-<luna-image-comparer vertical style="width: 100%; --luna-radius: 1rem; --luna-compare-line-color: #22c55e;">
-  <img slot="before" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Landscape" />
-  <img slot="after" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80&sepia=100" alt="Landscape Sepia" />
-</luna-image-comparer>
 
 <h2>Example Code</h2>
   <luna-code language="html">

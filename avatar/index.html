@@ -198,35 +198,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/avatar/avatar.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-  <h2>Customization</h2>
-  <luna-details style="--luna-details-content-color: #ccc;">
-    <span slot="summary">Slots</span>
-    <br>
-    <code>default</code> - Avatar content<br>
-    <code>status</code> - Custom status content (when status="slot")<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>src</code> - Image source URL<br>
-  <code>alt</code> - Image alt text (also used for generating initials)<br>
-  <code>size="3rem"</code> - Avatar size (default: 3rem)<br>
-  <code>variant="circle"</code> - Avatar variant (circle, rounded, square)<br>
-  <code>status</code> - Status indicator (online, busy, away, offline, slot)<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-avatar-size</code> - Override width/height<br>
-  <code>--luna-avatar-bg</code> - Avatar background color<br>
-  <code>--luna-avatar-color</code> - Initials text color<br>
-  <code>--luna-avatar-border</code> - Avatar border color<br>
-  <code>--luna-accent</code> - Accent color on hover<br>
-  <code>--luna-pill-font-size</code> - Custom status pill text size<br>
-</luna-details>
-
 <h2>Basic Usage</h2>
 <luna-avatar 
   src="https://github.com/dmac780.png" 
@@ -253,6 +224,35 @@
 <h2>Shape Variants</h2>
 <luna-avatar src="https://github.com/dmac780.png" alt="User" variant="circle"></luna-avatar>
 <luna-avatar src="https://github.com/dmac780.png" alt="User" variant="rounded"></luna-avatar>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Avatar content<br>
+  <code>status</code> - Custom status content (when status="slot")<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>src</code> - Image source URL<br>
+  <code>alt</code> - Image alt text (also used for generating initials)<br>
+  <code>size="3rem"</code> - Avatar size (default: 3rem)<br>
+  <code>variant="circle"</code> - Avatar variant (circle, rounded, square)<br>
+  <code>status</code> - Status indicator (online, busy, away, offline, slot)<br>
+  </luna-details>
+  <br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-avatar-size</code> - Override width/height<br>
+  <code>--luna-avatar-bg</code> - Avatar background color<br>
+  <code>--luna-avatar-color</code> - Initials text color<br>
+  <code>--luna-avatar-border</code> - Avatar border color<br>
+  <code>--luna-accent</code> - Accent color on hover<br>
+  <code>--luna-pill-font-size</code> - Custom status pill text size<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

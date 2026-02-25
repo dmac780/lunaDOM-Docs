@@ -199,53 +199,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/data-grid/data-grid.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>page-size</code> - Rows per page (default: 10, set 0 to disable)<br>
-  <code>filter</code> - Initial filter query string<br>
-  <code>selectable</code> - Enable row checkboxes and selection<br>
-  <code>striped</code> - Alternating row backgrounds<br>
-  <code>no-border</code> - Remove outer border and radius<br>
-  <code>loading</code> - Shows skeleton loading state<br>
-  <code>empty-label</code> - Text when no results (default: "No results")<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Properties</span>
-  <br>
-  <code>columns</code> - Array of column definitions (JS only)<br>
-  <code>rows</code> - Array of data objects (JS only)<br>
-  <code>selected</code> - Set of selected row indices (read-only)<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-grid-bg</code> - Card background<br>
-  <code>--luna-grid-border</code> - Border color<br>
-  <code>--luna-grid-header-bg</code> - Header background<br>
-  <code>--luna-grid-row-hover</code> - Row hover background<br>
-  <code>--luna-grid-row-selected</code> - Selected row background<br>
-  <code>--luna-grid-accent</code> - Sort arrow/checkbox accent
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-sort</code> - sort column or direction changes.<br>
-  <code>{ key: string, direction: 'asc'|'desc' }</code><br><br>
-  <code>luna-filter</code> - filter query changes.<br>
-  <code>{ query: string, count: number }</code><br><br>
-  <code>luna-select</code> - row selection changes.<br>
-  <code>{ selected: number[], rows: object[] }</code><br><br>
-  <code>luna-page</code> - active page changes.<br>
-  <code>{ page: number, pageSize: number, total: number }</code><br><br>
-  <code>luna-row-click</code> - row is clicked (not on an interactive child).<br>
-  <code>{ index: number, row: object }</code>
-</luna-details>
-
 <h2>Basic Grid</h2>
 <luna-data-grid id="basic-grid"></luna-data-grid>
 
@@ -358,6 +311,53 @@
   });
 }
 </script>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>page-size</code> - Rows per page (default: 10, set 0 to disable)<br>
+  <code>filter</code> - Initial filter query string<br>
+  <code>selectable</code> - Enable row checkboxes and selection<br>
+  <code>striped</code> - Alternating row backgrounds<br>
+  <code>no-border</code> - Remove outer border and radius<br>
+  <code>loading</code> - Shows skeleton loading state<br>
+  <code>empty-label</code> - Text when no results (default: "No results")<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Properties</span>
+  <br>
+  <code>columns</code> - Array of column definitions (JS only)<br>
+  <code>rows</code> - Array of data objects (JS only)<br>
+  <code>selected</code> - Set of selected row indices (read-only)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-grid-bg</code> - Card background<br>
+  <code>--luna-grid-border</code> - Border color<br>
+  <code>--luna-grid-header-bg</code> - Header background<br>
+  <code>--luna-grid-row-hover</code> - Row hover background<br>
+  <code>--luna-grid-row-selected</code> - Selected row background<br>
+  <code>--luna-grid-accent</code> - Sort arrow/checkbox accent
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-sort</code> - sort column or direction changes.<br>
+  <code>{ key: string, direction: 'asc'|'desc' }</code><br><br>
+  <code>luna-filter</code> - filter query changes.<br>
+  <code>{ query: string, count: number }</code><br><br>
+  <code>luna-select</code> - row selection changes.<br>
+  <code>{ selected: number[], rows: object[] }</code><br><br>
+  <code>luna-page</code> - active page changes.<br>
+  <code>{ page: number, pageSize: number, total: number }</code><br><br>
+  <code>luna-row-click</code> - row is clicked (not on an interactive child).<br>
+  <code>{ index: number, row: object }</code>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

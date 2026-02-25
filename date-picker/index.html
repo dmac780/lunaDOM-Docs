@@ -198,62 +198,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/date-picker/date-picker.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>value</code> - Selected date in YYYY-MM-DD format (single mode)<br>
-  <code>value-start</code> - Range start date in YYYY-MM-DD format (range mode)<br>
-  <code>value-end</code> - Range end date in YYYY-MM-DD format (range mode)<br>
-  <code>placeholder</code> - Placeholder text for the trigger input<br>
-  <code>label</code> - Label displayed above the trigger input<br>
-  <code>help-text</code> - Help text displayed below the trigger input<br>
-  <code>min</code> - Minimum selectable date in YYYY-MM-DD format<br>
-  <code>max</code> - Maximum selectable date in YYYY-MM-DD format<br>
-  <code>format</code> - Display format token string. Supports: YYYY MM DD MMM. Defaults to 'MMM DD, YYYY'<br>
-  <code>range</code> - Enables date-range selection mode (start + end date)<br>
-  <code>disabled</code> - Disables the trigger input<br>
-  <code>readonly</code> - Makes the trigger input read-only (calendar still opens)<br>
-  <code>clearable</code> - Shows a clear button when a value is set<br>
-  <code>placement</code> - Panel placement relative to the trigger. Defaults to 'bottom'<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-dp-bg</code> - Calendar panel background (default: #141414)<br>
-  <code>--luna-dp-border</code> - Panel + trigger border colour (default: #2a2a2a)<br>
-  <code>--luna-dp-radius</code> - Panel border radius (default: 12px)<br>
-  <code>--luna-dp-input-radius</code> - Trigger input border radius (default: 8px)<br>
-  <code>--luna-dp-input-color</code> - Trigger input text colour (default: #eee)<br>
-  <code>--luna-dp-focus</code> - Focus ring / active border colour (default: var(--luna-accent, #2563eb))<br>
-  <code>--luna-dp-focus-alpha</code> - Focus ring shadow (default: rgba(37,99,235,.2))<br>
-  <code>--luna-dp-label-color</code> - Label text colour (default: #fff)<br>
-  <code>--luna-dp-helptext-color</code> - Help text colour (default: #666)<br>
-  <code>--luna-dp-day-color</code> - Default day number colour (default: #ccc)<br>
-  <code>--luna-dp-day-hover</code> - Day hover background (default: #2a2a2a)<br>
-  <code>--luna-dp-day-muted</code> - Outside-month day colour (default: #333)<br>
-  <code>--luna-dp-selected-bg</code> - Selected day background (default: var(--luna-accent, #2563eb))<br>
-  <code>--luna-dp-selected-color</code> - Selected day text colour (default: #fff)<br>
-  <code>--luna-dp-range-bg</code> - In-range day background (default: rgba(37,99,235,.15))<br>
-  <code>--luna-dp-today-color</code> - Today indicator colour (default: var(--luna-accent, #2563eb))<br>
-  <code>--luna-dp-nav-color</code> - Nav arrow colour (default: #666)<br>
-  <code>--luna-dp-nav-hover</code> - Nav arrow hover colour (default: #eee)<br>
-  <code>--luna-dp-header-color</code> - Month/year heading colour (default: #fff)<br>
-  <code>--luna-dp-weekday-color</code> - Weekday label colour (default: #444)<br>
-  <code>--luna-dp-z</code> - Panel z-index (default: 1000)<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-change</code> - Emitted when the selected value changes<br>
-  <code>{ value: string }</code>
-  <br><br>
-  <code>luna-clear</code> - Emitted when the value is cleared<br>
-  <code>{ value: string }</code>
-</luna-details>
-
 <h2>Single Date Selection</h2>
 <luna-date-picker 
   label="Select Date" 
@@ -331,6 +275,62 @@
     --luna-dp-today-color: #22c55e;
   "
 ></luna-date-picker>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>value</code> - Selected date in YYYY-MM-DD format (single mode)<br>
+  <code>value-start</code> - Range start date in YYYY-MM-DD format (range mode)<br>
+  <code>value-end</code> - Range end date in YYYY-MM-DD format (range mode)<br>
+  <code>placeholder</code> - Placeholder text for the trigger input<br>
+  <code>label</code> - Label displayed above the trigger input<br>
+  <code>help-text</code> - Help text displayed below the trigger input<br>
+  <code>min</code> - Minimum selectable date in YYYY-MM-DD format<br>
+  <code>max</code> - Maximum selectable date in YYYY-MM-DD format<br>
+  <code>format</code> - Display format token string. Supports: YYYY MM DD MMM. Defaults to 'MMM DD, YYYY'<br>
+  <code>range</code> - Enables date-range selection mode (start + end date)<br>
+  <code>disabled</code> - Disables the trigger input<br>
+  <code>readonly</code> - Makes the trigger input read-only (calendar still opens)<br>
+  <code>clearable</code> - Shows a clear button when a value is set<br>
+  <code>placement</code> - Panel placement relative to the trigger. Defaults to 'bottom'<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-dp-bg</code> - Calendar panel background (default: #141414)<br>
+  <code>--luna-dp-border</code> - Panel + trigger border colour (default: #2a2a2a)<br>
+  <code>--luna-dp-radius</code> - Panel border radius (default: 12px)<br>
+  <code>--luna-dp-input-radius</code> - Trigger input border radius (default: 8px)<br>
+  <code>--luna-dp-input-color</code> - Trigger input text colour (default: #eee)<br>
+  <code>--luna-dp-focus</code> - Focus ring / active border colour (default: var(--luna-accent, #2563eb))<br>
+  <code>--luna-dp-focus-alpha</code> - Focus ring shadow (default: rgba(37,99,235,.2))<br>
+  <code>--luna-dp-label-color</code> - Label text colour (default: #fff)<br>
+  <code>--luna-dp-helptext-color</code> - Help text colour (default: #666)<br>
+  <code>--luna-dp-day-color</code> - Default day number colour (default: #ccc)<br>
+  <code>--luna-dp-day-hover</code> - Day hover background (default: #2a2a2a)<br>
+  <code>--luna-dp-day-muted</code> - Outside-month day colour (default: #333)<br>
+  <code>--luna-dp-selected-bg</code> - Selected day background (default: var(--luna-accent, #2563eb))<br>
+  <code>--luna-dp-selected-color</code> - Selected day text colour (default: #fff)<br>
+  <code>--luna-dp-range-bg</code> - In-range day background (default: rgba(37,99,235,.15))<br>
+  <code>--luna-dp-today-color</code> - Today indicator colour (default: var(--luna-accent, #2563eb))<br>
+  <code>--luna-dp-nav-color</code> - Nav arrow colour (default: #666)<br>
+  <code>--luna-dp-nav-hover</code> - Nav arrow hover colour (default: #eee)<br>
+  <code>--luna-dp-header-color</code> - Month/year heading colour (default: #fff)<br>
+  <code>--luna-dp-weekday-color</code> - Weekday label colour (default: #444)<br>
+  <code>--luna-dp-z</code> - Panel z-index (default: 1000)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-change</code> - Emitted when the selected value changes<br>
+  <code>{ value: string }</code>
+  <br><br>
+  <code>luna-clear</code> - Emitted when the value is cleared<br>
+  <code>{ value: string }</code>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

@@ -201,43 +201,6 @@
 <code>/lunadom/components/radio-button/radio-button.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/radio/radio.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>default</code> - Primary label of the button<br>  
-  <code>prefix</code> - Content to display before the label (e.g., an icon)<br>
-  <code>suffix</code> - Content to display after the label (e.g., a badge)<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-    <span slot="summary">Attributes</span>
-  <br>
-  <code>checked</code> - Whether the radio button is selected.<br>
-  <code>disabled</code> - Whether the radio button is disabled.<br>
-  <code>size</code> - The size of the button. (sm, md, lg)<br>
-  <code>pill</code> - If present, the button will have a pill shape.<br>
-  <code>name</code> - The name of the radio group this button belongs to.<br>
-  <code>value</code> - The value associated with this radio button.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-surface</code> - Background color of the button in its normal state.<br>
-  <code>--luna-surface-hover</code> - Background color when the button is hovered.<br>
-  <code>--luna-accent</code> - Background color when the button is checked.<br>
-  <code>--luna-text</code> - Main text color of the button.<br>
-  <code>--luna-border</code> - Border color of the button.<br>
-  <code>--luna-focus</code> - Focus ring color.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-change</code> - Emitted when the radio button is selected.<br>
-</luna-details>
-
 <h2>Basic Button Group</h2>
 <luna-radio-group value="grid" style="display: flex; gap: 0.5rem;">
   <luna-radio-button name="view" value="list">List View</luna-radio-button>
@@ -307,6 +270,43 @@
     <span slot="prefix">🚀</span> Overnight
   </luna-radio-button>
 </luna-radio-group>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Primary label of the button<br>  
+  <code>prefix</code> - Content to display before the label (e.g., an icon)<br>
+  <code>suffix</code> - Content to display after the label (e.g., a badge)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+    <span slot="summary">Attributes</span>
+  <br>
+  <code>checked</code> - Whether the radio button is selected.<br>
+  <code>disabled</code> - Whether the radio button is disabled.<br>
+  <code>size</code> - The size of the button. (sm, md, lg)<br>
+  <code>pill</code> - If present, the button will have a pill shape.<br>
+  <code>name</code> - The name of the radio group this button belongs to.<br>
+  <code>value</code> - The value associated with this radio button.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-surface</code> - Background color of the button in its normal state.<br>
+  <code>--luna-surface-hover</code> - Background color when the button is hovered.<br>
+  <code>--luna-accent</code> - Background color when the button is checked.<br>
+  <code>--luna-text</code> - Main text color of the button.<br>
+  <code>--luna-border</code> - Border color of the button.<br>
+  <code>--luna-focus</code> - Focus ring color.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-change</code> - Emitted when the radio button is selected.<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

@@ -202,49 +202,6 @@
 <code>/lunadom/components/option/option.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/option-group/option-group.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>default</code> - <code>&lt;luna-option&gt;</code> or <code>&lt;luna-option-group&gt;</code> elements<br>
-  <code>prefix</code> - Icon before the select<br>
-  <code>suffix</code> - Content to display after the selected value(s) and before the chevron<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>label</code> - Label text<br>
-  <code>placeholder</code> - Placeholder text<br>
-  <code>value</code> - Selected value(s)<br>
-  <code>multiple</code> - Allow multiple selections<br>
-  <code>clearable</code> - Show clear button<br>
-  <code>size</code> - Size (sm, md, lg)<br>
-  <code>disabled</code> - Disable the select<br>
-  <code>help-text</code> - Help text below select<br>
-  <code>max-options-visible</code> - Max options to display in dropdown<br>
-  <code>placement</code> - Where to position the dropdown (top, bottom)<br>
-  <code>value</code> - Selected value(s)<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-select-bg</code> - Background color of the select control<br>
-  <code>--luna-select-border</code> - Border color of the select control<br>
-  <code>--luna-select-color</code> - Text color of the selected value<br>
-  <code>--luna-select-radius</code> - Border radius of the select control<br>
-  <code>--luna-select-accent</code> - Accent color for focus states and selected items<br>
-  <code>--luna-select-shadow</code> - Box shadow for the dropdown panel<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-change</code> - Emitted when the selected value(s) change<br>
-  <code>luna-clear</code> - Emitted when the selection is cleared via the clear button<br>
-</luna-details>
-
 <h2>Single Selection</h2>
 <luna-select label="Project Category" placeholder="Select a domain">
   <span slot="prefix">📁</span>
@@ -303,6 +260,49 @@
 <luna-select label="Disabled" help-text="This field is read-only" disabled placeholder="Production">
   <luna-option value="prod">Production</luna-option>
 </luna-select>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - <code>&lt;luna-option&gt;</code> or <code>&lt;luna-option-group&gt;</code> elements<br>
+  <code>prefix</code> - Icon before the select<br>
+  <code>suffix</code> - Content to display after the selected value(s) and before the chevron<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>label</code> - Label text<br>
+  <code>placeholder</code> - Placeholder text<br>
+  <code>value</code> - Selected value(s)<br>
+  <code>multiple</code> - Allow multiple selections<br>
+  <code>clearable</code> - Show clear button<br>
+  <code>size</code> - Size (sm, md, lg)<br>
+  <code>disabled</code> - Disable the select<br>
+  <code>help-text</code> - Help text below select<br>
+  <code>max-options-visible</code> - Max options to display in dropdown<br>
+  <code>placement</code> - Where to position the dropdown (top, bottom)<br>
+  <code>value</code> - Selected value(s)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-select-bg</code> - Background color of the select control<br>
+  <code>--luna-select-border</code> - Border color of the select control<br>
+  <code>--luna-select-color</code> - Text color of the selected value<br>
+  <code>--luna-select-radius</code> - Border radius of the select control<br>
+  <code>--luna-select-accent</code> - Accent color for focus states and selected items<br>
+  <code>--luna-select-shadow</code> - Box shadow for the dropdown panel<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-change</code> - Emitted when the selected value(s) change<br>
+  <code>luna-clear</code> - Emitted when the selection is cleared via the clear button<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

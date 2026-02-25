@@ -199,31 +199,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/animation/animation.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>default</code> - Animation content<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>src-webm</code> - WebM video source (recommended for best compression)<br>
-  <code>src-mp4</code> - MP4 video source (fallback)<br>
-  <code>src-gif</code> - GIF image source (fallback)<br>
-  <code>width</code> - Width of animation (default: "100%")<br>
-  <code>height</code> - Height of animation (default: "auto")<br>
-</luna-details>
-
-
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-radius</code> - Border radius
-</luna-details>
-
 <h2>WebM Video (Recommended)</h2>
 <p style="color: #888; font-size: 0.875rem;">Best compression and quality. Supported by modern browsers.</p>
 <luna-animation 
@@ -256,6 +231,29 @@
   width="400"
   style="--luna-radius: 1.5rem;"
 ></luna-animation>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Animation content<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>src-webm</code> - WebM video source (recommended for best compression)<br>
+  <code>src-mp4</code> - MP4 video source (fallback)<br>
+  <code>src-gif</code> - GIF image source (fallback)<br>
+  <code>width</code> - Width of animation (default: "100%")<br>
+  <code>height</code> - Height of animation (default: "auto")<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-radius</code> - Border radius
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

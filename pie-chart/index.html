@@ -197,89 +197,6 @@
 
 <h2>Paths</h2>
 <code>/lunadom/components/pie-chart/pie-chart.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
-<!-- * @attr {string}  data
- *   JSON array of data items. Each item shape:
- *   { label: string, value: number, color?: string }
- *   The optional `color` field accepts any CSS colour string and takes
- *   precedence over the palette for that slice.
- *
- * @attr {string}  title
- *   Heading displayed above the chart. Omit or leave empty to hide.
- *
- * @attr {boolean} donut
- *   Renders a donut chart. The centre shows total / hovered label by default.
- *
- * @attr {string}  donut-label
- *   Static label shown beneath the centre value in donut mode.
- *   Defaults to "total".
- *
- * @attr {boolean} no-bg
- *   Removes the card background, border-radius and padding entirely.
- *   Use this when embedding the chart inside a card or other surface.
- *
- * @attr {boolean} no-legend
- *   Hides the legend row below the chart.
- *
- * @attr {boolean} no-title
- *   Hides the title even if the `title` attribute is set.
- *
- * @attr {'horizontal'|'vertical'} legend-layout
- *   Controls the legend direction. Defaults to 'vertical'.
- *
- * CSS Custom Properties:
- * @cssprop --luna-pie-size          - Diameter of the chart (default: 180px)
- * @cssprop --luna-pie-bg            - Card background (default: #1a1a1a)
- * @cssprop --luna-pie-border        - Card border colour (default: #222)
- * @cssprop --luna-pie-fg            - Primary text colour (default: #eee)
- * @cssprop --luna-pie-muted         - Secondary / label colour (default: #555)
- * @cssprop --luna-pie-radius        - Card border radius (default: 1rem)
- * @cssprop --luna-pie-padding       - Card inner padding (default: 1.25rem)
- * @cssprop --luna-pie-gap           - Gap between chart and legend (default: 1rem)
- * @cssprop --luna-pie-tooltip-bg    - Tooltip background (default: #1e1e1e)
- * @cssprop --luna-pie-tooltip-fg    - Tooltip text colour (default: #eee)
- * @cssprop --luna-pie-palette       - Comma-separated fallback colour list used
- *                                     when a data item has no `color` field.
- *                                     Overrides the built-in default palette.
- *                                     e.g. --luna-pie-palette: #f00, #0f0, #00f;
- *
- * Events:
- * @event luna-slice-enter - Fired when a slice is hovered/focused.
- *   detail: { index, label, value, percent, color }
- * @event luna-slice-leave - Fired when hover/focus leaves a slice.-->
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>data</code> - JSON array of data items (required)<br>
-  <code>title</code> - Heading displayed above chart<br>
-  <code>donut</code> - Renders as donut chart<br>
-  <code>donut-label</code> - Static label in donut center (default: "total")<br>  
-  <code>no-bg</code> - Removes card background and padding<br>
-  <code>no-legend</code> - Hides the legend<br>
-  <code>no-title</code> - Hides the title<br>
-  <code>legend-layout</code> - Legend direction (horizontal, vertical, default: "vertical")<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-pie-size</code> - Chart diameter (default: 180px)<br>
-  <code>--luna-pie-bg</code> - Card background<br>
-  <code>--luna-pie-border</code> - Card border color<br>
-  <code>--luna-pie-fg</code> - Primary text color<br>
-  <code>--luna-pie-muted</code> - Secondary text color<br>
-  <code>--luna-pie-radius</code> - Card border radius<br>
-  <code>--luna-pie-padding</code> - Card inner padding<br>
-  <code>--luna-pie-gap</code> - Gap between chart and legend<br>
-  <code>--luna-pie-palette</code> - Custom color palette (comma-separated)
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-slice-enter</code> - Fired when a slice is hovered/focused<br>
-  <code>luna-slice-leave</code> - Fired when hover/focus leaves a slice<br>
-</luna-details>
 
 <h2>Basic Pie Chart</h2>
 <luna-pie-chart
@@ -360,6 +277,41 @@
   --luna-pie-fg: #d1fae5;
   --luna-pie-muted: #11b880;"
 ></luna-pie-chart>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>data</code> - JSON array of data items (required)<br>
+  <code>title</code> - Heading displayed above chart<br>
+  <code>donut</code> - Renders as donut chart<br>
+  <code>donut-label</code> - Static label in donut center (default: "total")<br>  
+  <code>no-bg</code> - Removes card background and padding<br>
+  <code>no-legend</code> - Hides the legend<br>
+  <code>no-title</code> - Hides the title<br>
+  <code>legend-layout</code> - Legend direction (horizontal, vertical, default: "vertical")<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-pie-size</code> - Chart diameter (default: 180px)<br>
+  <code>--luna-pie-bg</code> - Card background<br>
+  <code>--luna-pie-border</code> - Card border color<br>
+  <code>--luna-pie-fg</code> - Primary text color<br>
+  <code>--luna-pie-muted</code> - Secondary text color<br>
+  <code>--luna-pie-radius</code> - Card border radius<br>
+  <code>--luna-pie-padding</code> - Card inner padding<br>
+  <code>--luna-pie-gap</code> - Gap between chart and legend<br>
+  <code>--luna-pie-palette</code> - Custom color palette (comma-separated)
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-slice-enter</code> - Fired when a slice is hovered/focused<br>
+  <code>luna-slice-leave</code> - Fired when hover/focus leaves a slice<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

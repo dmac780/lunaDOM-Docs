@@ -201,97 +201,6 @@
 <code>/lunadom/components/combobox/combobox.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/option/option.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/option-group/option-group.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
-<!-- * @slot - The list of options (luna-option) or option groups (luna-option-group).
- * @slot prefix - Content to display before the input text (e.g., an icon).
- * @slot suffix - Content to display after the input text and before the chevron.
- * 
- * Attributes:
- * @attr {string} label - A label to display above the combobox.
- * @attr {string} help-text - Help text to display below the combobox.
- * @attr {string} placeholder - Placeholder text to display when no value is entered.
- * @attr {boolean} clearable - If present, shows a clear button when the input has a value.
- * @attr {boolean} multiple - If present, allows selecting multiple options. Values are comma-separated.
- * @attr {boolean} disabled - Whether the combobox is disabled.
- * @attr {boolean} pill - If present, the combobox will have a pill shape.
- * @attr {boolean} autocomplete - If present, filters options as the user types. Defaults to true.
- * @attr {boolean} allow-custom-value - If present, allows entering values not in the options list.
- * @attr {'outline' | 'filled' | 'filled-outline'} appearance - The visual style of the combobox. Defaults to 'outline'.
- * @attr {'sm' | 'md' | 'lg'} size - The size of the combobox. Defaults to 'md'.
- * @attr {number} max-options-visible - In multiple mode, the maximum number of tags to show before truncating.
- * @attr {'top' | 'bottom'} placement - Where to position the dropdown. Defaults to 'bottom'.
- * @attr {string} value - The current value or comma-separated values (for multiple) of the combobox.
- * @attr {string} filter-mode - How to filter options: 'contains' (default), 'startsWith', 'custom'.
- * 
- * CSS Custom Properties:
- * @cssprop --luna-combobox-bg - Background color of the combobox control.
- * @cssprop --luna-combobox-border - Border color of the combobox control.
- * @cssprop --luna-combobox-color - Text color of the input.
- * @cssprop --luna-combobox-radius - Border radius of the combobox control.
- * @cssprop --luna-combobox-accent - Accent color for focus states and selected items.
- * @cssprop --luna-combobox-shadow - Box shadow for the dropdown panel.
- * 
- * Events:
- * @event luna-change - Emitted when the selected value(s) change.
- * @event luna-clear - Emitted when the input is cleared via the clear button.
- * @event luna-input - Emitted when the input value changes.
- * @event luna-filter - Emitted when options are filtered, passes filtered options in detail.
- * 
- * Properties:
- * @property {Function} customFilter - Custom filter function(option: HTMLElement, query: string) => boolean.
--->
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>default</code> - <code>&lt;luna-option&gt;</code> or <code>&lt;luna-option-group&gt;</code> elements<br>
-  <code>prefix</code> - Content to display before the input text (e.g., an icon)<br>
-  <code>suffix</code> - Content to display after the input text and before the chevron<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>label</code> - Label text for the combobox<br>
-  <code>placeholder</code> - Placeholder text<br>
-  <code>autocomplete</code> - Enable autocomplete filtering<br>
-  <code>allow-custom-value</code> - Allow entering custom values<br>
-  <code>multiple</code> - Allow multiple selections<br>
-  <code>clearable</code> - Show clear button<br>
-  <code>help-text</code> - Help text below the combobox<br>
-  <code>max-options-visible</code> - Max options to show in dropdown<br>
-  <code>disabled</code> - Whether the combobox is disabled<br>
-  <code>pill</code> - Whether the combobox has a pill shape<br>
-  <code>size="md"</code> - Size of the combobox (sm, md, lg)<br>
-  <code>placement="bottom"</code> - Where to position the dropdown (top, bottom)<br>
-  <code>value</code> - The current value or comma-separated values (for multiple) of the combobox<br>
-  <code>filter-mode="contains"</code> - How to filter options: 'contains' (default), 'startsWith', 'custom'<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-combobox-bg</code> - Combobox background color<br>
-  <code>--luna-combobox-color</code> - Combobox text color<br>
-  <code>--luna-combobox-border</code> - Combobox border color<br>
-  <code>--luna-combobox-radius</code> - Combobox border radius<br>
-  <code>--luna-combobox-accent</code> - Combobox accent color<br>
-  <code>--luna-combobox-shadow</code> - Combobox box shadow<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-change</code> - Emitted when the selected value(s) change<br>
-  <code>luna-clear</code> - Emitted when the input is cleared via the clear button<br>
-  <code>luna-input</code> - Emitted when the input value changes<br>
-  <code>luna-filter</code> - Emitted when options are filtered, passes filtered options in detail<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Properties</span>
-  <br>
-  <code>customFilter</code> - Custom filter function<br>
-</luna-details>
 
 <h2>Basic Autocomplete</h2>
 <luna-combobox 
@@ -360,6 +269,60 @@
     <luna-option value="redis">Redis</luna-option>
   </luna-option-group>
 </luna-combobox>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - <code>&lt;luna-option&gt;</code> or <code>&lt;luna-option-group&gt;</code> elements<br>
+  <code>prefix</code> - Content to display before the input text (e.g., an icon)<br>
+  <code>suffix</code> - Content to display after the input text and before the chevron<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>label</code> - Label text for the combobox<br>
+  <code>placeholder</code> - Placeholder text<br>
+  <code>autocomplete</code> - Enable autocomplete filtering<br>
+  <code>allow-custom-value</code> - Allow entering custom values<br>
+  <code>multiple</code> - Allow multiple selections<br>
+  <code>clearable</code> - Show clear button<br>
+  <code>help-text</code> - Help text below the combobox<br>
+  <code>max-options-visible</code> - Max options to show in dropdown<br>
+  <code>disabled</code> - Whether the combobox is disabled<br>
+  <code>pill</code> - Whether the combobox has a pill shape<br>
+  <code>size="md"</code> - Size of the combobox (sm, md, lg)<br>
+  <code>placement="bottom"</code> - Where to position the dropdown (top, bottom)<br>
+  <code>value</code> - The current value or comma-separated values (for multiple) of the combobox<br>
+  <code>filter-mode="contains"</code> - How to filter options: 'contains' (default), 'startsWith', 'custom'<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-combobox-bg</code> - Combobox background color<br>
+  <code>--luna-combobox-color</code> - Combobox text color<br>
+  <code>--luna-combobox-border</code> - Combobox border color<br>
+  <code>--luna-combobox-radius</code> - Combobox border radius<br>
+  <code>--luna-combobox-accent</code> - Combobox accent color<br>
+  <code>--luna-combobox-shadow</code> - Combobox box shadow<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-change</code> - Emitted when the selected value(s) change<br>
+  <code>luna-clear</code> - Emitted when the input is cleared via the clear button<br>
+  <code>luna-input</code> - Emitted when the input value changes<br>
+  <code>luna-filter</code> - Emitted when options are filtered, passes filtered options in detail<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Properties</span>
+  <br>
+  <code>customFilter</code> - Custom filter function<br>
+</luna-details>
 
 <h2>Example Code</h2>
   <luna-code language="html">

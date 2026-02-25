@@ -198,6 +198,32 @@
 <h2>Paths</h2>
 <code>/lunadom/components/input/input.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
+<h2>Standard & Variants</h2>
+<luna-input label="Standard Outline" placeholder="Enter text..."></luna-input>
+<luna-input label="Filled Style" variant="filled" placeholder="Filled background"></luna-input>
+<luna-input label="Custom Brand" variant="filled" placeholder="Deep blue" style="--luna-input-bg: #1e3a8a; --luna-input-border: #1e40af;"></luna-input>
+<luna-input label="Disabled View" disabled value="Information locked"></luna-input>
+
+<h2>Interactive Features</h2>
+<luna-input label="Clearable Input" clearable value="Reset this field"></luna-input>
+<luna-input label="Secure Field" type="password" toggle value="luna-secret-2026"></luna-input>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+  <luna-input label="Small" size="sm" placeholder="Compact"></luna-input>
+  <luna-input label="Large" size="lg" placeholder="Prominent"></luna-input>
+</div>
+<luna-input label="Read Only" readonly value="Fixed system value"></luna-input>
+
+<h2>Decorators & Types</h2>
+<luna-input label="Global Search" placeholder="Search components...">
+  <span slot="prefix">🔍</span>
+  <span slot="suffix">⌘K</span>
+</luna-input>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+  <luna-input type="number" label="Quantity" value="42"></luna-input>
+  <luna-input type="email" label="Contact" placeholder="email@luna.io" clearable></luna-input>
+</div>
+<luna-input type="date" label="Project Milestone" help-text="Select the completion deadline."></luna-input>
+
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
@@ -246,32 +272,6 @@
   <br>
   <code>value</code> - The current value of the input<br>
 </luna-details>
-
-<h2>Standard & Variants</h2>
-<luna-input label="Standard Outline" placeholder="Enter text..."></luna-input>
-<luna-input label="Filled Style" variant="filled" placeholder="Filled background"></luna-input>
-<luna-input label="Custom Brand" variant="filled" placeholder="Deep blue" style="--luna-input-bg: #1e3a8a; --luna-input-border: #1e40af;"></luna-input>
-<luna-input label="Disabled View" disabled value="Information locked"></luna-input>
-
-<h2>Interactive Features</h2>
-<luna-input label="Clearable Input" clearable value="Reset this field"></luna-input>
-<luna-input label="Secure Field" type="password" toggle value="luna-secret-2026"></luna-input>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-  <luna-input label="Small" size="sm" placeholder="Compact"></luna-input>
-  <luna-input label="Large" size="lg" placeholder="Prominent"></luna-input>
-</div>
-<luna-input label="Read Only" readonly value="Fixed system value"></luna-input>
-
-<h2>Decorators & Types</h2>
-<luna-input label="Global Search" placeholder="Search components...">
-  <span slot="prefix">🔍</span>
-  <span slot="suffix">⌘K</span>
-</luna-input>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-  <luna-input type="number" label="Quantity" value="42"></luna-input>
-  <luna-input type="email" label="Contact" placeholder="email@luna.io" clearable></luna-input>
-</div>
-<luna-input type="date" label="Project Milestone" help-text="Select the completion deadline."></luna-input>
 
 <h2>Example Code</h2>
   <luna-code language="html">

@@ -197,37 +197,40 @@
 
 <h2>Paths</h2>
 <code>/lunadom/components/file-input/file-input.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
-<!-- * @slot - The default label text.
- * @slot label - Custom label content (alternative to using the label attribute).
- * @slot hint - Custom hint content with HTML support (alternative to using the hint attribute).
- * @slot dropzone - Custom content to display inside the dropzone area.
- * @slot file-icon - Custom icon to display for each file in the list.
- * 
- * Attributes:
- * @attr {string} label - Label text to display above the file input.
- * @attr {string} hint - Hint text to display below the file input.
- * @attr {string} accept - Comma-separated list of unique file type specifiers (e.g., '.jpg,.png,image/*').
- * @attr {boolean} multiple - If present, allows selecting multiple files.
- * @attr {boolean} disabled - Whether the file input is disabled.
- * @attr {boolean} required - Whether the file input is required for form validation.
- * @attr {'sm' | 'md' | 'lg'} size - The size of the file input. Defaults to 'md'.
- * @attr {string} name - The name attribute for form submission.
- * 
- * CSS Custom Properties:
- * @cssprop --luna-file-input-bg - Background color of the dropzone.
- * @cssprop --luna-file-input-border - Border color of the dropzone.
- * @cssprop --luna-file-input-color - Text color inside the dropzone.
- * @cssprop --luna-file-input-radius - Border radius of the dropzone.
- * @cssprop --luna-file-input-accent - Accent color for drag-over state.
- * @cssprop --luna-file-input-shadow - Box shadow when dragging over.
- * 
- * Events:
- * @event luna-change - Emitted when files are selected or removed. Detail contains { files: File[] }.
- * @event luna-remove - Emitted when a file is removed. Detail contains { file: File, index: number }.
- * 
- * Properties:
- * @property {File[]} files - Array of selected files. Must be reassigned (not mutated) to trigger updates.
- -->
+
+<h2>Basic File Upload</h2>
+<luna-file-input 
+  label="Upload Document" 
+  hint="Select a file to upload">
+</luna-file-input>
+
+<h2>Multiple Files</h2>
+<luna-file-input 
+  label="Upload Photos" 
+  hint="You can select multiple photos"
+  multiple>
+</luna-file-input>
+
+<h2>Specific Extensions</h2>
+<luna-file-input 
+  label="Documents" 
+  accept=".pdf,.doc,.docx,.txt"
+  hint="PDF, DOC, DOCX, or TXT files only"
+  multiple>
+</luna-file-input>
+
+<h2>Custom Dropzone</h2>
+<luna-file-input 
+  label="Avatar Upload" 
+  accept="image/jpeg,image/png,image/webp"
+  hint="Drop your avatar here">
+  <div slot="dropzone" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+    <div style="font-size: 3rem;">🖼️</div>
+    <div style="font-weight: 600; color: #fff;">Upload Avatar</div>
+    <div style="font-size: 0.8125rem; color: #666;">PNG, JPG or WEBP (max 5MB)</div>
+  </div>
+</luna-file-input>
+
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
@@ -275,40 +278,6 @@
   <br>
   <code>files</code> - Array of selected files<br>
 </luna-details>
-
-
-<h2>Basic File Upload</h2>
-<luna-file-input 
-  label="Upload Document" 
-  hint="Select a file to upload">
-</luna-file-input>
-
-<h2>Multiple Files</h2>
-<luna-file-input 
-  label="Upload Photos" 
-  hint="You can select multiple photos"
-  multiple>
-</luna-file-input>
-
-<h2>Specific Extensions</h2>
-<luna-file-input 
-  label="Documents" 
-  accept=".pdf,.doc,.docx,.txt"
-  hint="PDF, DOC, DOCX, or TXT files only"
-  multiple>
-</luna-file-input>
-
-<h2>Custom Dropzone</h2>
-<luna-file-input 
-  label="Avatar Upload" 
-  accept="image/jpeg,image/png,image/webp"
-  hint="Drop your avatar here">
-  <div slot="dropzone" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-    <div style="font-size: 3rem;">🖼️</div>
-    <div style="font-weight: 600; color: #fff;">Upload Avatar</div>
-    <div style="font-size: 0.8125rem; color: #666;">PNG, JPG or WEBP (max 5MB)</div>
-  </div>
-</luna-file-input>
 
 <h2>Example Code</h2>
   <luna-code language="html">

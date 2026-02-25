@@ -198,24 +198,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/format-number/format-number.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>value</code> - Number to format (required)<br>
-  <code>type</code> - Format type (decimal, currency, percent, unit, default: "decimal")<br>
-  <code>currency</code> - ISO 4217 currency code (e.g., "USD", "EUR", "GBP")<br>
-  <code>currency-display</code> - Currency label style (symbol, narrowSymbol, code, name, default: "symbol")<br>
-  <code>unit</code> - Physical unit identifier (e.g., "kilometer-per-hour", "celsius")<br>
-  <code>unit-display</code> - Unit label style (long, short, narrow, default: "short")<br>
-  <code>min-fraction-digits</code> - Minimum decimal places<br>
-  <code>max-fraction-digits</code> - Maximum decimal places<br>
-  <code>no-grouping</code> - Disable thousands separator<br>
-  <code>notation</code> - Number notation (standard, scientific, engineering, compact, default: "standard")<br>
-  <code>compact-display</code> - Compact suffix length (short, long, default: "short")<br>
-  <code>sign-display</code> - Sign visibility (always, exceptZero, never, auto, default: "auto")<br>
-</luna-details>
-
 <h2>Basic Decimal Formatting</h2>
 <p>Price: <luna-format-number value="1234.56"></luna-format-number></p>
 <p>Large number: <luna-format-number value="9876543.21"></luna-format-number></p>
@@ -290,6 +272,24 @@
   <p style="margin: 0.25rem 0;">Conversion rate: <luna-format-number value="0.0342" type="percent" max-fraction-digits="2"></luna-format-number></p>
   <p style="margin: 0.25rem 0;">Revenue: <luna-format-number value="987654.32" type="currency" currency="USD"></luna-format-number></p>
 </div>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>value</code> - Number to format (required)<br>
+  <code>type</code> - Format type (decimal, currency, percent, unit, default: "decimal")<br>
+  <code>currency</code> - ISO 4217 currency code (e.g., "USD", "EUR", "GBP")<br>
+  <code>currency-display</code> - Currency label style (symbol, narrowSymbol, code, name, default: "symbol")<br>
+  <code>unit</code> - Physical unit identifier (e.g., "kilometer-per-hour", "celsius")<br>
+  <code>unit-display</code> - Unit label style (long, short, narrow, default: "short")<br>
+  <code>min-fraction-digits</code> - Minimum decimal places<br>
+  <code>max-fraction-digits</code> - Maximum decimal places<br>
+  <code>no-grouping</code> - Disable thousands separator<br>
+  <code>notation</code> - Number notation (standard, scientific, engineering, compact, default: "standard")<br>
+  <code>compact-display</code> - Compact suffix length (short, long, default: "short")<br>
+  <code>sign-display</code> - Sign visibility (always, exceptZero, never, auto, default: "auto")<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">

@@ -198,38 +198,6 @@
 <h2>Paths</h2>
 <code>/lunadom/components/tag/tag.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Customization</h2>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>default</code> - The content of the tag.<br>
-  <code>prefix</code> - Content to display before the label.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
-  <br>
-  <code>size</code> - The size of the tag. Defaults to 'md'.<br>
-  <code>pill</code> - If present, the tag will have a pill shape.<br>
-  <code>removable</code> - If present, adds a close button to the tag.<br>
-  <code>disabled</code> - Whether the tag's remove button is disabled.<br>
-  <code>variant</code> - The visual style of the tag. Defaults to 'neutral'.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
-  <br>
-  <code>--luna-tag-bg</code> - Background color of the tag.<br>
-  <code>--luna-tag-color</code> - Text color of the tag.<br>
-  <code>--luna-tag-border</code> - Border color of the tag.<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Events</span>
-  <br>
-  <code>luna-remove</code> - Emitted when the remove button is clicked.<br>
-</luna-details>
-
 <h2>Basic States</h2>
 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
   <luna-tag>Standard</luna-tag>
@@ -264,6 +232,38 @@
   <luna-tag variant="primary" removable>Removable Blue</luna-tag>
   <luna-tag variant="danger" pill>Critical Pill</luna-tag>
 </div>
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - The content of the tag.<br>
+  <code>prefix</code> - Content to display before the label.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>size</code> - The size of the tag. Defaults to 'md'.<br>
+  <code>pill</code> - If present, the tag will have a pill shape.<br>
+  <code>removable</code> - If present, adds a close button to the tag.<br>
+  <code>disabled</code> - Whether the tag's remove button is disabled.<br>
+  <code>variant</code> - The visual style of the tag. Defaults to 'neutral'.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-tag-bg</code> - Background color of the tag.<br>
+  <code>--luna-tag-color</code> - Text color of the tag.<br>
+  <code>--luna-tag-border</code> - Border color of the tag.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-remove</code> - Emitted when the remove button is clicked.<br>
+</luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">
