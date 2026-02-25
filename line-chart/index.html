@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Badge — lunaDOM Docs</title>
-  <meta name="description" content="Small visual indicators for labels, statuses, and counts." />
+  <title>Line Chart — lunaDOM Docs</title>
+  <meta name="description" content="Full-featured line charts with multi-series, smooth curves, and area fills." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="modulepreload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" />
@@ -14,6 +14,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/line-chart/line-chart.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -46,7 +47,7 @@
     <a href="/lunaDOM-Docs/animation">Animation</a>
     <a href="/lunaDOM-Docs/audio-player">Audio Player</a>
     <a href="/lunaDOM-Docs/avatar">Avatar</a>
-    <a href="/lunaDOM-Docs/badge" class="active">Badge</a>
+    <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
     <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
     <a href="/lunaDOM-Docs/button">Button</a>
@@ -72,7 +73,7 @@
     <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
     <a href="/lunaDOM-Docs/include">Include</a>
     <a href="/lunaDOM-Docs/input">Input</a>
-    <a href="/lunaDOM-Docs/line-chart">Line Chart</a>
+    <a href="/lunaDOM-Docs/line-chart" class="active">Line Chart</a>
     <a href="/lunaDOM-Docs/link">Link</a>
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
@@ -125,7 +126,7 @@
     <a href="/lunaDOM-Docs/animation">Animation</a>
     <a href="/lunaDOM-Docs/audio-player">Audio Player</a>
     <a href="/lunaDOM-Docs/avatar">Avatar</a>
-    <a href="/lunaDOM-Docs/badge" class="active">Badge</a>
+    <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
     <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
     <a href="/lunaDOM-Docs/button">Button</a>
@@ -151,7 +152,7 @@
     <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
     <a href="/lunaDOM-Docs/include">Include</a>
     <a href="/lunaDOM-Docs/input">Input</a>
-    <a href="/lunaDOM-Docs/line-chart">Line Chart</a>
+    <a href="/lunaDOM-Docs/line-chart" class="active">Line Chart</a>
     <a href="/lunaDOM-Docs/link">Link</a>
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
@@ -182,56 +183,327 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Badge</h1>
-        <p class="lead">Small visual indicators for labels, statuses, and counts.</p>
+        <h1>Line Chart</h1>
+        <p class="lead">Full-featured line charts with multi-series, smooth curves, and area fills.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-badge&gt;</code> component displays small labels for categorization and status indication.</p>
+        <p>The <code>&lt;luna-line-chart&gt;</code> component provides full-featured, responsive line charts with single and multi-series support, smooth curves, area fills, and goal lines.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/badge/badge.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
+<code>/lunadom/components/line-chart/line-chart.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Content for the badge<br>
-<code>@attr variant="default"</code> - Variant of the badge (default, primary, success, warning, danger)<br>
-<code>@attr pill</code> - Whether the badge has pill shape<br>
-<code>@attr dot</code> - Whether the badge is a small dot indicator<br>
-<code>@attr pulse</code> - Whether the badge has pulse animation<br>
-<code>--luna-badge-bg</code> - Badge background color<br>
-<code>--luna-badge-color</code> - Badge text color
+<code>@attr data</code> - JSON array of data points (required)<br>
+<code>@attr height</code> - Chart SVG height in pixels (default: 240)<br>
+<code>@attr x-label</code> - Label below x-axis<br>
+<code>@attr y-label</code> - Label along y-axis<br>
+<code>@attr min</code> - Force y-axis minimum value<br>
+<code>@attr max</code> - Force y-axis maximum value<br>
+<code>@attr goal</code> - Draw horizontal reference/goal line<br>
+<code>@attr goal-label</code> - Label for goal line (default: "Goal")<br>
+<code>@attr area</code> - Fill area under lines<br>
+<code>@attr smooth</code> - Render as smooth curves<br>
+<code>@attr dots</code> - Show data-point dots<br>
+<code>@attr legend</code> - Show series legend (multi-series)<br>
+<code>@attr no-grid</code> - Hide horizontal grid lines<br>
+<code>@attr animate</code> - Animate on render (default: true)<br>
+<code>@attr precision</code> - Decimal places for labels<br>
+<code>--luna-line-bg</code> - Background color<br>
+<code>--luna-line-grid-color</code> - Grid line color<br>
+<code>--luna-line-axis-color</code> - Axis line color<br>
+<code>--luna-line-text-color</code> - Text/label color<br>
+<code>--luna-line-color</code> - Primary series stroke<br>
+<code>--luna-line-stroke-width</code> - Line width<br>
+<code>--luna-line-area-opacity</code> - Area fill opacity<br>
+<code>--luna-line-series-colors</code> - Custom palette (comma-separated)
 
-<h2>Example</h2>
-<luna-badge>Default</luna-badge>
+<h2>Single Series</h2>
+<luna-line-chart
+  data='[
+    {"label": "Jan", "value": 30},
+    {"label": "Feb", "value": 45},
+    {"label": "Mar", "value": 35},
+    {"label": "Apr", "value": 55},
+    {"label": "May", "value": 60},
+    {"label": "Jun", "value": 50},
+    {"label": "Jul", "value": 70},
+    {"label": "Aug", "value": 65},
+    {"label": "Sep", "value": 80},
+    {"label": "Oct", "value": 75},
+    {"label": "Nov", "value": 85},
+    {"label": "Dec", "value": 90}
+  ]'
+></luna-line-chart>
 
-<h2>Variants</h2>
-<luna-badge>Default</luna-badge>
-<luna-badge variant="primary">New</luna-badge>
-<luna-badge variant="success">Fixed</luna-badge>
-<luna-badge variant="warning">Breaking</luna-badge>
-<luna-badge variant="danger">Critical</luna-badge>
+<h2>Multi-Series Comparison</h2>
+<luna-line-chart
+  legend
+  data='[
+    {"label": "Q1", "values": {"Revenue": 45000, "Costs": 32000, "Profit": 13000}},
+    {"label": "Q2", "values": {"Revenue": 52000, "Costs": 35000, "Profit": 17000}},
+    {"label": "Q3", "values": {"Revenue": 61000, "Costs": 38000, "Profit": 23000}},
+    {"label": "Q4", "values": {"Revenue": 68000, "Costs": 40000, "Profit": 28000}}
+  ]'
+></luna-line-chart>
 
-<h2>Pill & Pulse</h2>
-<luna-badge pill variant="primary">99+</luna-badge>
-<luna-badge dot pulse variant="success"></luna-badge>
-<luna-badge dot variant="danger"></luna-badge>
-<luna-badge dot pulse variant="warning"></luna-badge>
+<h2>Smooth Curves with Area Fill</h2>
+<luna-line-chart
+  smooth
+  area
+  data='[
+    {"label": "Mon", "value": 20},
+    {"label": "Tue", "value": 35},
+    {"label": "Wed", "value": 30},
+    {"label": "Thu", "value": 50},
+    {"label": "Fri", "value": 45},
+    {"label": "Sat", "value": 65},
+    {"label": "Sun", "value": 55}
+  ]'
+></luna-line-chart>
+
+<h2>With Data Points</h2>
+<luna-line-chart
+  smooth
+  dots
+  data='[
+    {"label": "Week 1", "value": 15},
+    {"label": "Week 2", "value": 28},
+    {"label": "Week 3", "value": 22},
+    {"label": "Week 4", "value": 42},
+    {"label": "Week 5", "value": 38},
+    {"label": "Week 6", "value": 55}
+  ]'
+></luna-line-chart>
+
+<h2>Goal Line</h2>
+<luna-line-chart
+  smooth
+  area
+  goal="50"
+  goal-label="Target"
+  data='[
+    {"label": "Jan", "value": 30},
+    {"label": "Feb", "value": 35},
+    {"label": "Mar", "value": 42},
+    {"label": "Apr", "value": 48},
+    {"label": "May", "value": 52},
+    {"label": "Jun", "value": 58}
+  ]'
+></luna-line-chart>
+
+<h2>Axis Labels</h2>
+<luna-line-chart
+  x-label="Months"
+  y-label="Sales ($)"
+  smooth
+  data='[
+    {"label": "Jan", "value": 2500},
+    {"label": "Feb", "value": 3200},
+    {"label": "Mar", "value": 2800},
+    {"label": "Apr", "value": 4100},
+    {"label": "May", "value": 3900},
+    {"label": "Jun", "value": 5200}
+  ]'
+></luna-line-chart>
+
+<h2>Custom Height</h2>
+<luna-line-chart
+  height="320"
+  smooth
+  area
+  data='[
+    {"label": "A", "value": 25},
+    {"label": "B", "value": 40},
+    {"label": "C", "value": 35},
+    {"label": "D", "value": 60},
+    {"label": "E", "value": 55},
+    {"label": "F", "value": 75}
+  ]'
+></luna-line-chart>
+
+<h2>Custom Theme</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Purple Theme</p>
+<luna-line-chart
+  smooth
+  area
+  data='[
+    {"label": "Jan", "value": 30},
+    {"label": "Feb", "value": 45},
+    {"label": "Mar", "value": 40},
+    {"label": "Apr", "value": 60},
+    {"label": "May", "value": 55},
+    {"label": "Jun", "value": 70}
+  ]'
+  style="
+    --luna-line-bg: #14001a;
+    --luna-line-grid-color: rgba(168, 85, 247, 0.1);
+    --luna-line-axis-color: rgba(168, 85, 247, 0.2);
+    --luna-line-text-color: #a855f7;
+    --luna-line-color: #c084fc;
+    --luna-line-stroke-width: 3;
+  "
+></luna-line-chart>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem; margin-top: 2rem;">Green Theme</p>
+<luna-line-chart
+  smooth
+  area
+  dots
+  data='[
+    {"label": "Q1", "value": 40},
+    {"label": "Q2", "value": 55},
+    {"label": "Q3", "value": 50},
+    {"label": "Q4", "value": 70}
+  ]'
+  style="
+    --luna-line-bg: #0a1a0f;
+    --luna-line-grid-color: rgba(34, 197, 94, 0.1);
+    --luna-line-axis-color: rgba(34, 197, 94, 0.2);
+    --luna-line-text-color: #22c55e;
+    --luna-line-color: #4ade80;
+    --luna-line-stroke-width: 3;
+  "
+></luna-line-chart>
+
+<h2>Multi-Series with Custom Colors</h2>
+<luna-line-chart
+  legend
+  smooth
+  area
+  data='[
+    {"label": "Jan", "values": {"Product A": 30, "Product B": 25, "Product C": 35}},
+    {"label": "Feb", "values": {"Product A": 45, "Product B": 35, "Product C": 40}},
+    {"label": "Mar", "values": {"Product A": 40, "Product B": 50, "Product C": 38}},
+    {"label": "Apr", "values": {"Product A": 60, "Product B": 45, "Product C": 55}},
+    {"label": "May", "values": {"Product A": 55, "Product B": 60, "Product C": 50}},
+    {"label": "Jun", "values": {"Product A": 70, "Product B": 55, "Product C": 65}}
+  ]'
+  style="--luna-line-series-colors: #2563eb, #f59e0b, #22c55e;"
+></luna-line-chart>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Variants --&gt;
-&lt;luna-badge&gt;Default&lt;/luna-badge&gt;
-&lt;luna-badge variant="primary"&gt;New&lt;/luna-badge&gt;
-&lt;luna-badge variant="success"&gt;Fixed&lt;/luna-badge&gt;
-&lt;luna-badge variant="warning"&gt;Breaking&lt;/luna-badge&gt;
-&lt;luna-badge variant="danger"&gt;Critical&lt;/luna-badge&gt;
+<luna-code language="html">
+&lt;!-- Single series --&gt;
+&lt;luna-line-chart
+  data='[
+    {"label": "Jan", "value": 30},
+    {"label": "Feb", "value": 45},
+    {"label": "Mar", "value": 35}
+  ]'
+&gt;&lt;/luna-line-chart&gt;
 
-&lt;!-- Pill & Pulse --&gt;
-&lt;luna-badge pill variant="primary"&gt;99+&lt;/luna-badge&gt;
-&lt;luna-badge dot pulse variant="success"&gt;&lt;/luna-badge&gt;
-&lt;luna-badge dot variant="danger"&gt;&lt;/luna-badge&gt;
-&lt;luna-badge dot pulse variant="warning"&gt;&lt;/luna-badge&gt;
-  </luna-code>
+&lt;!-- Multi-series with legend --&gt;
+&lt;luna-line-chart
+  legend
+  data='[
+    {"label": "Q1", "values": {"Revenue": 45000, "Costs": 32000}},
+    {"label": "Q2", "values": {"Revenue": 52000, "Costs": 35000}},
+    {"label": "Q3", "values": {"Revenue": 61000, "Costs": 38000}}
+  ]'
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- Smooth curves with area fill --&gt;
+&lt;luna-line-chart
+  smooth
+  area
+  data='[...]'
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- With data points --&gt;
+&lt;luna-line-chart
+  smooth
+  dots
+  data='[...]'
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- Goal line --&gt;
+&lt;luna-line-chart
+  goal="50"
+  goal-label="Target"
+  smooth
+  area
+  data='[...]'
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- Axis labels --&gt;
+&lt;luna-line-chart
+  x-label="Months"
+  y-label="Sales ($)"
+  data='[...]'
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- Custom height --&gt;
+&lt;luna-line-chart
+  height="320"
+  data='[...]'
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- Custom theme --&gt;
+&lt;luna-line-chart
+  smooth
+  area
+  data='[...]'
+  style="
+    --luna-line-bg: #14001a;
+    --luna-line-color: #c084fc;
+    --luna-line-text-color: #a855f7;
+    --luna-line-stroke-width: 3;
+  "
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- Custom palette for multi-series --&gt;
+&lt;luna-line-chart
+  legend
+  data='[...]'
+  style="--luna-line-series-colors: #2563eb, #f59e0b, #22c55e;"
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- No grid lines --&gt;
+&lt;luna-line-chart
+  no-grid
+  data='[...]'
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- Disable animation --&gt;
+&lt;luna-line-chart
+  animate="false"
+  data='[...]'
+&gt;&lt;/luna-line-chart&gt;
+
+&lt;!-- Dynamic data with JavaScript --&gt;
+&lt;luna-line-chart id="chart"&gt;&lt;/luna-line-chart&gt;
+
+&lt;script&gt;
+  const chart = document.getElementById('chart');
+  
+  // Set single-series data
+  chart.data = [
+    {label: 'Jan', value: 30},
+    {label: 'Feb', value: 45},
+    {label: 'Mar', value: 35}
+  ];
+  
+  // Set multi-series data
+  chart.data = [
+    {label: 'Q1', values: {Revenue: 45000, Costs: 32000}},
+    {label: 'Q2', values: {Revenue: 52000, Costs: 35000}}
+  ];
+  
+  // Listen to events
+  chart.addEventListener('luna-line-hover', (e) =&gt; {
+    if (e.detail) {
+      console.log('Hover:', e.detail.label, e.detail.value);
+    } else {
+      console.log('Hover ended');
+    }
+  });
+  
+  chart.addEventListener('luna-line-click', (e) =&gt; {
+    console.log('Clicked:', e.detail.label, e.detail.value);
+  });
+&lt;/script&gt;
+</luna-code>
       </article>
     </main>
 

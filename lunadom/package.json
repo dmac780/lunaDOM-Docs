@@ -1,6 +1,6 @@
 {
   "name": "lunadom",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "type": "module",
   "main": "index.js",
   "files": ["components", "index.js", "tokens.css"]
