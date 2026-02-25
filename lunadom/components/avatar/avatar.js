@@ -17,6 +17,8 @@
  * @attr {'online'|'busy'|'away'|'offline'|'slot'} status
  *   - Standard badge dot values: online | busy | away | offline
  *   - Use "slot" to replace the badge with the slotted custom status pill
+ * @attr {boolean} no-zoom - Disables the scale(1.05) hover zoom. Border highlight
+ *   and status pill expansion still animate as normal.
  *
  * CSS Custom Properties:
  * @cssprop --luna-avatar-size    - Override width/height (takes precedence over the `size` attr)
@@ -30,7 +32,7 @@
 class LunaAvatar extends HTMLElement {
 
   static get observedAttributes() {
-    return ['src', 'alt', 'size', 'variant', 'status'];
+    return ['src', 'alt', 'size', 'variant', 'status', 'no-zoom'];
   }
 
   constructor() {
@@ -64,6 +66,7 @@ class LunaAvatar extends HTMLElement {
     const size    = this.getAttribute('size')    || '3rem';
     const variant = this.getAttribute('variant') || 'circle';
     const status  = this.getAttribute('status');
+    const noZoom  = this.hasAttribute('no-zoom');
 
     const useCustomStatus = status === 'slot';
     const useBadge        = status && !useCustomStatus;
@@ -78,7 +81,6 @@ class LunaAvatar extends HTMLElement {
           height: var(--luna-avatar-size, ${size});
         }
 
-        /* ── avatar shell ── */
         .avatar {
           width: 100%;
           height: 100%;
@@ -92,12 +94,12 @@ class LunaAvatar extends HTMLElement {
           font-size: calc(var(--luna-avatar-size, ${size}) * 0.4);
           user-select: none;
           border: 1px solid var(--luna-avatar-border, #333);
-          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+          transition: ${noZoom ? '' : 'transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),'}
                       border-color 0.2s ease;
         }
 
         :host(:hover) .avatar {
-          transform: scale(1.05);
+          ${noZoom ? '' : 'transform: scale(1.05);'}
           border-color: var(--luna-accent, #60a5fa);
         }
 
@@ -113,7 +115,6 @@ class LunaAvatar extends HTMLElement {
 
         .initials { letter-spacing: -0.05em; }
 
-        /* ── standard status badge ── */
         .badge {
           position: absolute;
           bottom: 4%;
@@ -130,7 +131,6 @@ class LunaAvatar extends HTMLElement {
         .badge-away    { background: #eab308; }
         .badge-offline { background: #444; }
 
-        /* ── custom status pill (GitHub-style) ── */
         .status-pill {
           position: absolute;
           bottom: -6px;
@@ -147,7 +147,6 @@ class LunaAvatar extends HTMLElement {
           border-radius: 999px;
           white-space: nowrap;
 
-          /* collapse: show only the emoji */
           max-width: 1.6em;
           padding: 2px 4px;
           transition:
@@ -167,7 +166,6 @@ class LunaAvatar extends HTMLElement {
           border-color: var(--luna-accent, #60a5fa);
         }
 
-        /* label text hidden until expanded */
         .status-pill ::slotted(*) {
           display: inline-flex;
           align-items: center;
