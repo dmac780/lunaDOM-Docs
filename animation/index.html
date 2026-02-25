@@ -15,6 +15,8 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/animation/animation.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/divider/divider.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -193,14 +195,30 @@
 <h2>Paths</h2>
 <code>/lunadom/components/animation/animation.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - Animation content<br>
-<code>@attr src-webm</code> - WebM video source (recommended for best compression)<br>
-<code>@attr src-mp4</code> - MP4 video source (fallback)<br>
-<code>@attr src-gif</code> - GIF image source (fallback)<br>
-<code>@attr width</code> - Width of animation (default: "100%")<br>
-<code>@attr height</code> - Height of animation (default: "auto")<br>
-<code>--luna-radius</code> - Border radius
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Animation content<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>src-webm</code> - WebM video source (recommended for best compression)<br>
+  <code>src-mp4</code> - MP4 video source (fallback)<br>
+  <code>src-gif</code> - GIF image source (fallback)<br>
+  <code>width</code> - Width of animation (default: "100%")<br>
+  <code>height</code> - Height of animation (default: "auto")<br>
+</luna-details>
+
+
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-radius</code> - Border radius
+</luna-details>
 
 <h2>WebM Video (Recommended)</h2>
 <p style="color: #888; font-size: 0.875rem;">Best compression and quality. Supported by modern browsers.</p>

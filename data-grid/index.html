@@ -195,21 +195,29 @@
 <h2>Paths</h2>
 <code>/lunadom/components/data-grid/data-grid.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
+<h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes, Props, CSS Variables</span>
+  <span slot="summary">Attributes</span>
   <br>
-  <code>@attr page-size</code> - Rows per page (default: 10, set 0 to disable)<br>
-  <code>@attr filter</code> - Initial filter query string<br>
-  <code>@attr selectable</code> - Enable row checkboxes and selection<br>
-  <code>@attr striped</code> - Alternating row backgrounds<br>
-  <code>@attr no-border</code> - Remove outer border and radius<br>
-  <code>@attr loading</code> - Shows skeleton loading state<br>
-  <code>@attr empty-label</code> - Text when no results (default: "No results")<br>
+  <code>page-size</code> - Rows per page (default: 10, set 0 to disable)<br>
+  <code>filter</code> - Initial filter query string<br>
+  <code>selectable</code> - Enable row checkboxes and selection<br>
+  <code>striped</code> - Alternating row backgrounds<br>
+  <code>no-border</code> - Remove outer border and radius<br>
+  <code>loading</code> - Shows skeleton loading state<br>
+  <code>empty-label</code> - Text when no results (default: "No results")<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Properties</span>
   <br>
   <code>@prop columns</code> - Array of column definitions (JS only)<br>
   <code>@prop rows</code> - Array of data objects (JS only)<br>
   <code>@prop selected</code> - Set of selected row indices (read-only)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
   <br>
   <code>--luna-grid-bg</code> - Card background<br>
   <code>--luna-grid-border</code> - Border color<br>
@@ -218,9 +226,7 @@
   <code>--luna-grid-row-selected</code> - Selected row background<br>
   <code>--luna-grid-accent</code> - Sort arrow/checkbox accent
 </luna-details>
-
-
-<h2>Events</h2>
+<br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Events</span>
   <br>
