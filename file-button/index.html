@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Comparer — lunaDOM Docs</title>
-  <meta name="description" content="Before/after image comparison slider with vertical mode." />
+  <title>File Button — lunaDOM Docs</title>
+  <meta name="description" content="File upload buttons with custom styling and filtering." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="modulepreload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" />
@@ -14,7 +14,8 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/image-comparer/image-comparer.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/file-button/file-button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/tooltip/tooltip.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
@@ -67,12 +68,12 @@
     <a href="/lunaDOM-Docs/divider">Divider</a>
     <a href="/lunaDOM-Docs/drawer">Drawer</a>
     <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
-    <a href="/lunaDOM-Docs/file-button">File Button</a>
+    <a href="/lunaDOM-Docs/file-button" class="active">File Button</a>
     <a href="/lunaDOM-Docs/file-input">File Input</a>
     <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
     <a href="/lunaDOM-Docs/format-date">Format Date</a>
     <a href="/lunaDOM-Docs/format-number">Format Number</a>
-    <a href="/lunaDOM-Docs/image-comparer" class="active">Image Comparer</a>
+    <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
     <a href="/lunaDOM-Docs/include">Include</a>
     <a href="/lunaDOM-Docs/input">Input</a>
     <a href="/lunaDOM-Docs/line-chart">Line Chart</a>
@@ -149,12 +150,12 @@
     <a href="/lunaDOM-Docs/divider">Divider</a>
     <a href="/lunaDOM-Docs/drawer">Drawer</a>
     <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
-    <a href="/lunaDOM-Docs/file-button">File Button</a>
+    <a href="/lunaDOM-Docs/file-button" class="active">File Button</a>
     <a href="/lunaDOM-Docs/file-input">File Input</a>
     <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
     <a href="/lunaDOM-Docs/format-date">Format Date</a>
     <a href="/lunaDOM-Docs/format-number">Format Number</a>
-    <a href="/lunaDOM-Docs/image-comparer" class="active">Image Comparer</a>
+    <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
     <a href="/lunaDOM-Docs/include">Include</a>
     <a href="/lunaDOM-Docs/input">Input</a>
     <a href="/lunaDOM-Docs/line-chart">Line Chart</a>
@@ -190,67 +191,235 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Image Comparer</h1>
-        <p class="lead">Before/after image comparison slider with vertical mode.</p>
+        <h1>File Button</h1>
+        <p class="lead">File upload buttons with custom styling and filtering.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-image-comparer&gt;</code> component displays a before/after image comparison slider with horizontal and vertical modes.</p>
+        <p>The <code>&lt;luna-file-button&gt;</code> component provides styled file upload buttons with file type filtering and multiple file support.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/image-comparer/image-comparer.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+<code>/lunadom/components/file-button/file-button.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Horizontal (Default)</h2>
-<luna-image-comparer style="width: 100%; --luna-radius: 1rem;">
-  <img slot="before" src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=800&q=80" alt="Old architecture" />
-  <img slot="after" src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=800&q=80&sat=-100" alt="Old architecture B&W" />
-</luna-image-comparer>
+<h2>Basic Usage</h2>
+<luna-file-button variant="primary">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+    <path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h4a1.5 1.5 0 0 1 1.5 1.5v1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4.5a1 1 0 0 0-1-1H9.5v-2z"/>
+    <path d="M8.354 8.146a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708L6 9.793l1.646-1.647a.5.5 0 0 1 .708 0z"/>
+  </svg>
+  Upload File
+</luna-file-button>
 
-<h2>Vertical</h2>
-<luna-image-comparer vertical style="width: 100%; --luna-radius: 1rem; --luna-compare-line-color: #22c55e;">
-  <img slot="before" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Landscape" />
-  <img slot="after" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80&sepia=100" alt="Landscape Sepia" />
-</luna-image-comparer>
+<h2>With Tooltip</h2>
+<luna-tooltip content="Click to select files from your device">
+  <luna-file-button variant="primary" multiple>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h4a1.5 1.5 0 0 1 1.5 1.5v1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4.5a1 1 0 0 0-1-1H9.5v-2z"/>
+    </svg>
+    Choose Files
+  </luna-file-button>
+</luna-tooltip>
+
+<h2>Image Upload</h2>
+<luna-file-button variant="success" accept="image/*">
+  📷 Upload Image
+</luna-file-button>
+
+<h2>Document Upload</h2>
+<luna-file-button variant="neutral" accept=".pdf,.doc,.docx" multiple outline>
+  📄 Attach Documents
+</luna-file-button>
+
+<h2>Different Sizes</h2>
+<luna-file-button size="sm" variant="primary">📎 Small</luna-file-button>
+<luna-file-button size="md" variant="primary">📎 Medium</luna-file-button>
+<luna-file-button size="lg" variant="primary">📎 Large</luna-file-button>
+
+<h2>Circle Icon Button</h2>
+<luna-file-button circle variant="primary" accept="image/*">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+    <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2z"/>
+  </svg>
+</luna-file-button>
+
+<luna-file-button circle variant="success" accept="image/*">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+    <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+  </svg>
+</luna-file-button>
+
+<h2>Pill Style</h2>
+<luna-file-button pill variant="warning" accept="video/*">
+  🎥 Upload Video
+</luna-file-button>
+
+<h2>Interactive Example</h2>
+<luna-file-button id="file-demo" variant="primary" multiple>
+  📁 Select Files
+</luna-file-button>
+<p id="file-output" style="color: #888; font-size: 0.875rem; margin-top: 1rem;">No files selected</p>
+
+<script>
+{
+  customElements.whenDefined('luna-file-button').then(() => {
+    const btn = document.getElementById('file-demo');
+    const output = document.getElementById('file-output');
+    
+    btn.addEventListener('luna-change', (e) => {
+      const files = Array.from(e.detail.files);
+      if (files.length === 0) {
+        output.textContent = 'No files selected';
+      } else if (files.length === 1) {
+        output.textContent = `Selected: ${files[0].name} (${(files[0].size / 1024).toFixed(2)} KB)`;
+      } else {
+        output.textContent = `Selected ${files.length} files: ${files.map(f => f.name).join(', ')}`;
+      }
+    });
+    
+    btn.addEventListener('luna-cancel', () => {
+      output.textContent = 'File picker canceled';
+    });
+  });
+}
+</script>
 
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
   <br>
-  <code>before</code> - Before image element<br>
-  <code>after</code> - After image element<br>
+  <code>default</code> - Icon, emoji, or label rendered inside the button.<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Attributes</span>
   <br>
-  <code>vertical</code> - Use vertical slider instead of horizontal<br>
-  <code>position</code> - Initial percentage position of the slider (0 to 100)<br>
+  <code>variant</code> - Visual variant (primary, neutral, success, warning, danger). Defaults to 'neutral'.<br>
+  <code>size</code> - Size preset (sm, md, lg). Defaults to 'md'.<br>
+  <code>pill</code> - Full pill border-radius.<br>
+  <code>outline</code> - Transparent background with colored border and text.<br>
+  <code>circle</code> - Equal width/height with 50% radius (icon-only).<br>
+  <code>disabled</code> - Disables the button.<br>
+  <code>accept</code> - File input filter (e.g., "image/*,.pdf").<br>
+  <code>multiple</code> - Allow selecting multiple files.<br>
+  <code>aria-label</code> - Accessible label. Defaults to "Attach file".<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">CSS Variables</span>
   <br>
-  <code>--luna-compare-handle-bg</code> - Background color of the slider knob<br>
-  <code>--luna-compare-handle-color</code> - Icon color inside the slider knob<br>
-  <code>--luna-compare-line-color</code> - Color of the divider line<br>
-  <code>--luna-compare-size</code> - Diameter of the slider knob<br>
-  <code>--luna-radius</code> - Border radius applied to the entire component<br>
+  <code>--luna-fb-bg</code> - Resting background color<br>
+  <code>--luna-fb-bg-hover</code> - Hover background color<br>
+  <code>--luna-fb-bg-active</code> - Active/pressed background color<br>
+  <code>--luna-fb-color</code> - Label/icon color<br>
+  <code>--luna-fb-border</code> - Border color<br>
+  <code>--luna-fb-radius</code> - Border radius override<br>
+  <code>--luna-fb-focus</code> - Focus ring color<br>
+  <code>--luna-fb-icon-size</code> - Explicit icon size (defaults to font-size)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Properties</span>
+  <br>
+  <code>files</code> - The last selected FileList (read-only, null before selection)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Methods</span>
+  <br>
+  <code>open()</code> - Programmatically open the file picker<br>
+  <code>clear()</code> - Clear the internal file input value and reset files<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-change</code> - Fired when files are selected. detail: { files: FileList }<br>
+  <code>luna-cancel</code> - Fired when picker is closed with no selection (where supported)<br>
 </luna-details>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Horizontal --&gt;
-&lt;luna-image-comparer&gt;
-  &lt;img slot="before" src="before.jpg" alt="Before" /&gt;
-  &lt;img slot="after" src="after.jpg" alt="After" /&gt;
-&lt;/luna-image-comparer&gt;
+<luna-code language="html">
+&lt;!-- Basic file upload --&gt;
+&lt;luna-file-button variant="primary"&gt;
+  Upload File
+&lt;/luna-file-button&gt;
 
-&lt;!-- Vertical --&gt;
-&lt;luna-image-comparer vertical&gt;
-  &lt;img slot="before" src="before.jpg" alt="Before" /&gt;
-  &lt;img slot="after" src="after.jpg" alt="After" /&gt;
-&lt;/luna-image-comparer&gt;
-  </luna-code>
+&lt;!-- With SVG icon --&gt;
+&lt;luna-file-button variant="primary"&gt;
+  &lt;svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"&gt;
+    &lt;path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h4a1.5 1.5 0 0 1 1.5 1.5v1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4.5a1 1 0 0 0-1-1H9.5v-2z"/&gt;
+  &lt;/svg&gt;
+  Upload File
+&lt;/luna-file-button&gt;
+
+&lt;!-- Image upload only --&gt;
+&lt;luna-file-button variant="success" accept="image/*"&gt;
+  📷 Upload Image
+&lt;/luna-file-button&gt;
+
+&lt;!-- Multiple files --&gt;
+&lt;luna-file-button variant="neutral" accept=".pdf,.doc,.docx" multiple&gt;
+  📄 Attach Documents
+&lt;/luna-file-button&gt;
+
+&lt;!-- Circle icon button --&gt;
+&lt;luna-file-button circle variant="primary" accept="image/*"&gt;
+  &lt;svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"&gt;
+    &lt;path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2z"/&gt;
+  &lt;/svg&gt;
+&lt;/luna-file-button&gt;
+
+&lt;!-- With tooltip --&gt;
+&lt;luna-tooltip content="Click to select files"&gt;
+  &lt;luna-file-button variant="primary" multiple&gt;
+    📁 Choose Files
+  &lt;/luna-file-button&gt;
+&lt;/luna-tooltip&gt;
+
+&lt;!-- Different sizes --&gt;
+&lt;luna-file-button size="sm" variant="primary"&gt;📎 Small&lt;/luna-file-button&gt;
+&lt;luna-file-button size="md" variant="primary"&gt;📎 Medium&lt;/luna-file-button&gt;
+&lt;luna-file-button size="lg" variant="primary"&gt;📎 Large&lt;/luna-file-button&gt;
+
+&lt;!-- Pill style --&gt;
+&lt;luna-file-button pill variant="warning" accept="video/*"&gt;
+  🎥 Upload Video
+&lt;/luna-file-button&gt;
+
+&lt;!-- Outline style --&gt;
+&lt;luna-file-button outline variant="primary" accept=".zip,.rar"&gt;
+  📦 Upload Archive
+&lt;/luna-file-button&gt;
+
+&lt;!-- JavaScript interaction --&gt;
+&lt;luna-file-button id="file-btn" multiple&gt;Select Files&lt;/luna-file-button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById('file-btn');
+  
+  btn.addEventListener('luna-change', (e) =&gt; {
+    const files = Array.from(e.detail.files);
+    console.log('Selected files:', files.map(f =&gt; f.name));
+    
+    // Access individual files
+    files.forEach(file =&gt; {
+      console.log(file.name, file.size, file.type);
+    });
+  });
+  
+  btn.addEventListener('luna-cancel', () =&gt; {
+    console.log('File picker canceled');
+  });
+  
+  // Programmatic control
+  btn.open();  // Open file picker
+  btn.clear(); // Clear selection
+  
+  // Check selected files
+  console.log(btn.files); // FileList or null
+&lt;/script&gt;
+</luna-code>
       </article>
     </main>
 
