@@ -34,7 +34,7 @@
     <p class="drawer-description">
       lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
     <p class="site-description">
-      <luna-badge variant="success">v0.0.16</luna-badge> 
+      <luna-badge variant="success">v0.0.17</luna-badge> 
       <a href="https://github.com/dmac780/lunaDOM" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -113,7 +113,7 @@
         <a class="site-logo" href="/lunaDOM-Docs/">lunaDOM Docs</a>
         <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
         <p class="site-description">
-          <luna-badge variant="success">v0.0.16</luna-badge>      
+          <luna-badge variant="success">v0.0.17</luna-badge>      
           <a href="https://github.com/dmac780/lunaDOM" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -203,34 +203,95 @@
 <code>/lunadom/components/tab-panel/tab-panel.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Standard Top (with Closable Tabs)</h2>
-<luna-tab-group>
+<luna-tab-group style="
+  --luna-tab-group-border: #2a2a2a;
+  --luna-tab-padding: 0.875rem 1.5rem;
+">
   <luna-tab slot="nav" panel="general" active>General</luna-tab>
   <luna-tab slot="nav" panel="stats" closable>Statistics</luna-tab>
   <luna-tab slot="nav" panel="settings" closable>Settings</luna-tab>
   <luna-tab slot="nav" panel="danger" disabled>Restricted</luna-tab>
 
-  <luna-tab-panel name="general">Welcome to the general info panel.</luna-tab-panel>
-  <luna-tab-panel name="stats">Here are some shiny graphs and numbers.</luna-tab-panel>
-  <luna-tab-panel name="settings">Tweak your preferences here.</luna-tab-panel>
+  <luna-tab-panel name="general">
+    <p style="color: #ccc; line-height: 1.6;">Welcome to the general info panel. This is where you can view overview information and get started with the basics.</p>
+  </luna-tab-panel>
+  <luna-tab-panel name="stats">
+    <p style="color: #ccc; line-height: 1.6;">Here are some shiny graphs and numbers. View analytics and performance metrics for your account.</p>
+  </luna-tab-panel>
+  <luna-tab-panel name="settings">
+    <p style="color: #ccc; line-height: 1.6;">Tweak your preferences here. Customize your experience and manage account settings.</p>
+  </luna-tab-panel>
 </luna-tab-group>
 
 <h2>Bottom Placement</h2>
-<luna-tab-group placement="bottom">
-  <luna-tab slot="nav" panel="tab1">Tab 1</luna-tab>
-  <luna-tab slot="nav" panel="tab2">Tab 2</luna-tab>
-  <luna-tab-panel name="tab1">Content for Tab 1 (Indicator on top)</luna-tab-panel>
-  <luna-tab-panel name="tab2">Content for Tab 2 (Indicator on top)</luna-tab-panel>
+<luna-tab-group placement="bottom" style="
+  --luna-tab-group-border: #2a2a2a;
+  --luna-tab-padding: 0.875rem 1.5rem;
+">
+  <luna-tab slot="nav" panel="tab1">Overview</luna-tab>
+  <luna-tab slot="nav" panel="tab2">Details</luna-tab>
+  <luna-tab slot="nav" panel="tab3">History</luna-tab>
+  
+  <luna-tab-panel name="tab1">
+    <p style="color: #ccc; line-height: 1.6;">Content for the overview tab with indicator on bottom.</p>
+  </luna-tab-panel>
+  <luna-tab-panel name="tab2">
+    <p style="color: #ccc; line-height: 1.6;">Detailed information and specifications go here.</p>
+  </luna-tab-panel>
+  <luna-tab-panel name="tab3">
+    <p style="color: #ccc; line-height: 1.6;">Historical data and previous activity records.</p>
+  </luna-tab-panel>
 </luna-tab-group>
 
 <h2>Start Placement (Vertical)</h2>
-<div style="height: 150px;">
-  <luna-tab-group placement="start">
+<div style="height: 220px;">
+  <luna-tab-group placement="start" style="
+    --luna-tab-group-border: #2a2a2a;
+    --luna-tab-padding: 0.875rem 1.5rem;
+  ">
     <luna-tab slot="nav" panel="v1">Profile</luna-tab>
     <luna-tab slot="nav" panel="v2">Billing</luna-tab>
-    <luna-tab-panel name="v1" style="padding: 0 1.5rem;">User profile details...</luna-tab-panel>
-    <luna-tab-panel name="v2" style="padding: 0 1.5rem;">Manage your subscription.</luna-tab-panel>
+    <luna-tab slot="nav" panel="v3">Security</luna-tab>
+    
+    <luna-tab-panel name="v1">
+      <p style="color: #ccc; line-height: 1.6; padding: 0 1.5rem;">Manage your user profile details, avatar, and personal information.</p>
+    </luna-tab-panel>
+    <luna-tab-panel name="v2">
+      <p style="color: #ccc; line-height: 1.6; padding: 0 1.5rem;">View and manage your subscription, payment methods, and billing history.</p>
+    </luna-tab-panel>
+    <luna-tab-panel name="v3">
+      <p style="color: #ccc; line-height: 1.6; padding: 0 1.5rem;">Configure two-factor authentication and security preferences.</p>
+    </luna-tab-panel>
   </luna-tab-group>
 </div>
+
+<h2>Custom Styling</h2>
+<luna-tab-group style="
+  --luna-tab-group-bg: #0f0f0f;
+  --luna-tab-group-border: #333;
+  --luna-tab-group-nav-bg: #1a1a1a;
+  --luna-tab-group-nav-padding: 0.5rem 1rem;
+  --luna-tab-padding: 1rem 1.5rem;
+  --luna-tab-color: #666;
+  --luna-tab-color-hover: #aaa;
+  --luna-tab-color-active: #fff;
+  --luna-tab-font-size: 0.875rem;
+  --luna-accent: #22c55e;
+">
+  <luna-tab slot="nav" panel="custom1" active>Dashboard</luna-tab>
+  <luna-tab slot="nav" panel="custom2">Analytics</luna-tab>
+  <luna-tab slot="nav" panel="custom3">Reports</luna-tab>
+
+  <luna-tab-panel name="custom1">
+    <p style="color: #ccc; line-height: 1.6;">Dashboard content with custom green accent color.</p>
+  </luna-tab-panel>
+  <luna-tab-panel name="custom2">
+    <p style="color: #ccc; line-height: 1.6;">Analytics and insights with enhanced spacing.</p>
+  </luna-tab-panel>
+  <luna-tab-panel name="custom3">
+    <p style="color: #ccc; line-height: 1.6;">Generate and view detailed reports.</p>
+  </luna-tab-panel>
+</luna-tab-group>
 
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
@@ -238,6 +299,7 @@
 
   <h3>luna-tab-group</h3>
   <code>nav</code> - The container for luna-tab components.<br>
+  <code>default</code> - The container for luna-tab-panel components.<br>
 
   <h3>luna-tab</h3>
   <code>default</code> - The label for the tab.<br>
@@ -250,14 +312,14 @@
   <span slot="summary">Attributes</span>
 
   <h3>luna-tab-group</h3>
-  <code>placement</code> - Where to position the tab navigation relative to the panels. Defaults to 'top'.<br>
-  <code>no-scroll</code> - If present, disables the scrolling behavior of the tab navigation.<br>
+  <code>placement</code> - Position of tab nav (top, bottom, start, end). Defaults to 'top'.<br>
+  <code>no-scroll</code> - Disables overflow scrolling on nav strip; tabs wrap instead.<br>
 
   <h3>luna-tab</h3>
   <code>active</code> - Whether the tab is currently active.<br>
   <code>disabled</code> - Whether the tab is disabled.<br>
-  <code>closable</code> - If present, shows a close button next to the tab label.<br>
-  <code>panel</code> - The ID of the luna-tab-panel associated with this tab.<br>
+  <code>closable</code> - Shows a close button next to the tab label.<br>
+  <code>panel</code> - The name of the luna-tab-panel this tab activates.<br>
 
   <h3>luna-tab-panel</h3>
   <code>name</code> - The unique identifier for this panel, matched by the 'panel' attribute of a luna-tab.<br>
@@ -268,27 +330,32 @@
   <span slot="summary">CSS Variables</span>
 
   <h3>luna-tab-group</h3>
-  <code>--luna-tab-group-border</code> - The color of the divider between tabs and panels.<br>
-  <code>--luna-tab-scroll-button-size</code> - The size of the navigation scroll buttons.<br>
-  <code>--luna-accent</code> - Primary accent color used for indicators.<br>
+  <code>--luna-tab-group-bg</code> - Background of the whole component. Defaults to transparent.<br>
+  <code>--luna-tab-group-border</code> - Color of the nav/panel divider line. Defaults to #222.<br>
+  <code>--luna-tab-group-nav-bg</code> - Background of the nav strip. Defaults to transparent.<br>
+  <code>--luna-tab-group-nav-padding</code> - Inline padding of the nav strip. Defaults to 0 0.25rem.<br>
+  <code>--luna-tab-scroll-button-size</code> - Width of overflow scroll buttons. Defaults to 2rem.<br>
+  <code>--luna-accent</code> - Accent color forwarded to tabs. Defaults to #2563eb.<br>
 
   <h3>luna-tab</h3>
-  <code>--luna-tab-color</code> - The default text color of the tab.<br>
-  <code>--luna-tab-color-hover</code> - The text color when the tab is hovered.<br>
-  <code>--luna-tab-color-active</code> - The text color when the tab is active.<br>
-  <code>--luna-accent</code> - Primary accent color used for active states.<br>
-  <code>--luna-tab-border-active</code> - The border color of the active tab indicator.<br>
-  <code>--luna-tab-focus-bg</code> - Background color when the tab is focused.<br>
+  <code>--luna-tab-color</code> - Default tab text color. Defaults to #555.<br>
+  <code>--luna-tab-color-hover</code> - Tab text color on hover. Defaults to #ccc.<br>
+  <code>--luna-tab-color-active</code> - Active tab text color. Defaults to #fff.<br>
+  <code>--luna-tab-font-size</code> - Tab label font size. Defaults to 0.8125rem.<br>
+  <code>--luna-tab-font-weight</code> - Tab label font weight. Defaults to 500.<br>
+  <code>--luna-tab-padding</code> - Tab padding. Defaults to 0.75rem 1.25rem.<br>
+  <code>--luna-tab-indicator</code> - Active indicator color. Defaults to var(--luna-accent, #2563eb).<br>
+  <code>--luna-tab-hover-bg</code> - Hover background tint. Defaults to rgba(255,255,255,.03).<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Events</span>
 
   <h3>luna-tab-group</h3>
-  <code>luna-tab-show</code> - Emitted when a new tab is selected.<br>
+  <code>luna-tab-show</code> - Fired when a tab is activated. detail: { tab, name }<br>
 
   <h3>luna-tab</h3>
-  <code>luna-close</code> - Emitted when the close button is clicked.<br>
+  <code>luna-close</code> - Fired when the close button is clicked. detail: { tab }<br>
 </luna-details>
 
 <h2>Example Code</h2>

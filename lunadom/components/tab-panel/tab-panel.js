@@ -2,12 +2,19 @@
 
 /**
  * @customElement luna-tab-panel
- * 
- * @slot - The content of the tab panel.
- * 
+ *
+ * Content panel associated with a luna-tab. Hidden unless `active` is set by
+ * the parent luna-tab-group.
+ *
+ * @slot - The panel body content.
+ *
  * Attributes:
- * @attr {string} name - The unique identifier for this panel, matched by the 'panel' attribute of a luna-tab.
- * @attr {boolean} active - Whether the panel is currently visible.
+ * @attr {string}  name   - Unique identifier matched by the `panel` attr on luna-tab.
+ * @attr {boolean} active - Whether this panel is currently visible.
+ *
+ * CSS Custom Properties:
+ * @cssprop --luna-panel-padding - Inner padding of the panel (default: 1.5rem 0)
+ * @cssprop --luna-panel-color   - Text colour of the panel (default: inherit)
  */
 class LunaTabPanel extends HTMLElement {
 
@@ -21,11 +28,13 @@ class LunaTabPanel extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render();
+    this._render();
   }
 
   attributeChangedCallback() {
-    this.render();
+    if (this.isConnected) {
+      this._render();
+    }
   }
 
   get name() {
@@ -36,12 +45,14 @@ class LunaTabPanel extends HTMLElement {
     return this.hasAttribute('active');
   }
 
-  render() {
+  _render() {
     this.shadowRoot.innerHTML = `
       <style>
         :host {
           display: block;
-          padding: 1.5rem 0;
+          padding: var(--luna-panel-padding, 1.5rem 0);
+          color: var(--luna-panel-color, inherit);
+          font-family: inherit;
         }
 
         :host(:not([active])) {

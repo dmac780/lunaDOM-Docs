@@ -2,21 +2,29 @@
 
 /**
  * @customElement luna-tab-group
- * 
- * @slot nav - The container for luna-tab components.
- * @slot - The container for luna-tab-panel components.
- * 
+ *
+ * Container that coordinates a set of luna-tab and luna-tab-panel elements.
+ * Handles keyboard navigation, scroll overflow, and panel switching.
+ *
+ * @slot nav - Place luna-tab elements here.
+ * @slot     - Place luna-tab-panel elements here.
+ *
  * Attributes:
- * @attr {'top' | 'bottom' | 'start' | 'end'} placement - Where to position the tab navigation relative to the panels. Defaults to 'top'.
- * @attr {boolean} no-scroll - If present, disables the scrolling behavior of the tab navigation.
- * 
+ * @attr {'top'|'bottom'|'start'|'end'} placement
+ *   Position of the tab nav relative to the panels. Default: 'top'.
+ * @attr {boolean} no-scroll
+ *   Disables overflow scrolling on the nav strip; tabs wrap instead.
+ *
  * CSS Custom Properties:
- * @cssprop --luna-tab-group-border - The color of the divider between tabs and panels.
- * @cssprop --luna-tab-scroll-button-size - The size of the navigation scroll buttons.
- * @cssprop --luna-accent - Primary accent color used for indicators.
- * 
+ * @cssprop --luna-tab-group-bg          - Background of the whole component (default: transparent)
+ * @cssprop --luna-tab-group-border      - Colour of the nav/panel divider line (default: #222)
+ * @cssprop --luna-tab-group-nav-bg      - Background of the nav strip (default: transparent)
+ * @cssprop --luna-tab-group-nav-padding - Inline padding of the nav strip (default: 0 0.25rem)
+ * @cssprop --luna-tab-scroll-button-size - Width of the overflow scroll buttons (default: 2rem)
+ * @cssprop --luna-accent                - Accent colour forwarded to tabs (default: #2563eb)
+ *
  * Events:
- * @event luna-tab-show - Emitted when a new tab is selected.
+ * @event luna-tab-show - Fired when a tab is activated. detail: { tab, name }
  */
 class LunaTabGroup extends HTMLElement {
 
@@ -35,6 +43,7 @@ class LunaTabGroup extends HTMLElement {
       this._setup();
       this._isRendered = true;
     }
+
     this._syncTabs();
     this._initResizeObserver();
   }
@@ -46,7 +55,11 @@ class LunaTabGroup extends HTMLElement {
   }
 
   attributeChangedCallback(name) {
-    if (this._isRendered && name === 'placement') {
+    if (!this._isRendered) {
+      return;
+    }
+
+    if (name === 'placement') {
       this._setup();
       this._updateScrollButtons();
     }
@@ -56,37 +69,51 @@ class LunaTabGroup extends HTMLElement {
     const placement  = this.getAttribute('placement') || 'top';
     const isVertical = placement === 'start' || placement === 'end';
 
+    const borderSide = {
+      top:    'border-bottom',
+      bottom: 'border-top',
+      start:  'border-right',
+      end:    'border-left',
+    }[placement] || 'border-bottom';
+
     this.shadowRoot.innerHTML = `
       <style>
         :host {
           display: flex;
           flex-direction: ${isVertical ? 'row' : 'column'};
           width: 100%;
-          --luna-tab-group-border: rgba(255, 255, 255, 0.08);
-          --luna-tab-scroll-button-size: 2.25rem;
+          font-family: inherit;
+
+          --luna-tab-group-bg:           transparent;
+          --luna-tab-group-border:       #222;
+          --luna-tab-group-nav-bg:       transparent;
+          --luna-tab-group-nav-padding:  0 0.25rem;
+          --luna-tab-scroll-button-size: 2rem;
         }
+
+        *, *::before, *::after { box-sizing: border-box; }
 
         .tabs-header {
           position: relative;
           display: flex;
           align-items: stretch;
           order: ${placement === 'bottom' || placement === 'end' ? 2 : 1};
-          border-${placement === 'top' ? 'bottom' : placement === 'bottom' ? 'top' : placement === 'start' ? 'right' : 'left'}: 1px solid var(--luna-tab-group-border);
+          ${borderSide}: 1px solid var(--luna-tab-group-border);
+          background: var(--luna-tab-group-nav-bg);
         }
 
         .nav-container {
           display: flex;
           flex: 1;
           flex-direction: ${isVertical ? 'column' : 'row'};
-          overflow-x: auto;
-          overflow-y: hidden;
+          padding: ${isVertical ? '0.25rem 0' : 'var(--luna-tab-group-nav-padding)'};
+          overflow-x: ${isVertical ? 'hidden' : 'auto'};
+          overflow-y: ${isVertical ? 'auto' : 'hidden'};
           scrollbar-width: none;
           scroll-behavior: smooth;
         }
 
-        .nav-container::-webkit-scrollbar {
-          display: none;
-        }
+        .nav-container::-webkit-scrollbar { display: none; }
 
         .scroll-button {
           display: none;
@@ -95,17 +122,17 @@ class LunaTabGroup extends HTMLElement {
           width: var(--luna-tab-scroll-button-size);
           background: transparent;
           border: none;
-          color: #666;
+          color: #444;
           cursor: pointer;
-          transition: all 0.2s;
+          transition: color 0.15s ease, background 0.15s ease;
           flex-shrink: 0;
-          font-size: 1.25rem;
+          font-size: 1rem;
           line-height: 1;
         }
 
         .scroll-button:hover:not([disabled]) {
-          color: var(--luna-accent, #3b82f6);
-          background: rgba(255, 255, 255, 0.05);
+          color: var(--luna-accent, #2563eb);
+          background: rgba(255, 255, 255, 0.04);
         }
 
         .scroll-button[disabled] {
@@ -113,23 +140,24 @@ class LunaTabGroup extends HTMLElement {
           cursor: not-allowed;
         }
 
-        :host(:not([no-scroll])) .scroll-button.visible {
-          display: flex;
-        }
+        :host(:not([no-scroll])) .scroll-button.visible { display: flex; }
 
-        /* Order adjustment for vertical */
-        .panels-container { order: ${placement === 'bottom' || placement === 'end' ? 1 : 2}; flex: 1; }
+        .panels-container {
+          order: ${placement === 'bottom' || placement === 'end' ? 1 : 2};
+          flex: 1;
+          background: var(--luna-tab-group-bg);
+        }
 
         ::slotted(luna-tab) {
           ${placement === 'bottom' ? 'border-bottom: none; border-top: 2px solid transparent; margin-top: -1px;' : ''}
-          ${placement === 'start' ? 'border-bottom: none; border-right: 2px solid transparent; margin-right: -1px;' : ''}
-          ${placement === 'end' ? 'border-bottom: none; border-left: 2px solid transparent; margin-left: -1px;' : ''}
+          ${placement === 'start'  ? 'border-bottom: none; border-right: 2px solid transparent; margin-right: -1px;' : ''}
+          ${placement === 'end'    ? 'border-bottom: none; border-left: 2px solid transparent; margin-left: -1px;' : ''}
         }
 
         ::slotted(luna-tab[active]) {
-          ${placement === 'bottom' ? 'border-top-color: var(--luna-accent, #3b82f6);' : ''}
-          ${placement === 'start' ? 'border-right-color: var(--luna-accent, #3b82f6);' : ''}
-          ${placement === 'end' ? 'border-left-color: var(--luna-accent, #3b82f6);' : ''}
+          ${placement === 'bottom' ? 'border-top-color:   var(--luna-accent, #2563eb);' : ''}
+          ${placement === 'start'  ? 'border-right-color: var(--luna-accent, #2563eb);' : ''}
+          ${placement === 'end'    ? 'border-left-color:  var(--luna-accent, #2563eb);' : ''}
         }
 
         :host([no-scroll]) .nav-container {
@@ -138,11 +166,11 @@ class LunaTabGroup extends HTMLElement {
         }
       </style>
 
-      <div class="tabs-header">
+      <div class="tabs-header" part="nav-header">
         <button class="scroll-button" id="prev" aria-label="Previous tab">
           ${isVertical ? '↑' : '←'}
         </button>
-        
+
         <div class="nav-container" id="nav" role="tablist">
           <slot name="nav"></slot>
         </div>
@@ -152,7 +180,7 @@ class LunaTabGroup extends HTMLElement {
         </button>
       </div>
 
-      <div class="panels-container">
+      <div class="panels-container" part="panels">
         <slot></slot>
       </div>
     `;
@@ -161,20 +189,18 @@ class LunaTabGroup extends HTMLElement {
     this._btnPrev = this.shadowRoot.getElementById('prev');
     this._btnNext = this.shadowRoot.getElementById('next');
 
-    this._nav.addEventListener('click', (e) => this._handleTabClick(e));
-    this._nav.addEventListener('keydown', (e) => this._handleKeyDown(e));
-    this._nav.addEventListener('scroll', () => this._updateScrollButtons());
-    
+    this._nav.addEventListener('click',   e => this._handleTabClick(e));
+    this._nav.addEventListener('keydown', e => this._handleKeyDown(e));
+    this._nav.addEventListener('scroll',  () => this._updateScrollButtons());
+
     this._btnPrev.addEventListener('click', () => this._scroll('prev'));
     this._btnNext.addEventListener('click', () => this._scroll('next'));
-    
-    this.addEventListener('luna-close', (e) => this._handleTabClose(e));
+
+    this.addEventListener('luna-close', e => this._handleTabClose(e));
   }
 
   _initResizeObserver() {
-    this._resizeObserver = new ResizeObserver(() => {
-      this._updateScrollButtons();
-    });
+    this._resizeObserver = new ResizeObserver(() => this._updateScrollButtons());
     this._resizeObserver.observe(this._nav);
   }
 
@@ -182,13 +208,11 @@ class LunaTabGroup extends HTMLElement {
     if (!this._nav || !this._btnPrev || !this._btnNext) {
       return;
     }
-    
+
     const placement  = this.getAttribute('placement') || 'top';
     const isVertical = placement === 'start' || placement === 'end';
-    
-    let hasOverflow;
-    let isAtStart;
-    let isAtEnd;
+
+    let hasOverflow, isAtStart, isAtEnd;
 
     if (isVertical) {
       hasOverflow = this._nav.scrollHeight > this._nav.clientHeight;
@@ -202,7 +226,6 @@ class LunaTabGroup extends HTMLElement {
 
     this._btnPrev.classList.toggle('visible', hasOverflow);
     this._btnNext.classList.toggle('visible', hasOverflow);
-    
     this._btnPrev.disabled = isAtStart;
     this._btnNext.disabled = isAtEnd;
   }
@@ -211,18 +234,18 @@ class LunaTabGroup extends HTMLElement {
     const placement  = this.getAttribute('placement') || 'top';
     const isVertical = placement === 'start' || placement === 'end';
     const amount     = isVertical ? this._nav.clientHeight * 0.8 : this._nav.clientWidth * 0.8;
-    
+
     if (isVertical) {
-      this._nav.scrollTop += (direction === 'next' ? amount : -amount);
+      this._nav.scrollTop += direction === 'next' ? amount : -amount;
     } else {
-      this._nav.scrollLeft += (direction === 'next' ? amount : -amount);
+      this._nav.scrollLeft += direction === 'next' ? amount : -amount;
     }
   }
 
   _syncTabs() {
-    const tabs = this._getTabs();
+    const tabs      = this._getTabs();
     const activeTab = tabs.find(t => t.active) || tabs.find(t => !t.disabled);
-    
+
     if (activeTab) {
       this._setActiveTab(activeTab, false);
     }
@@ -233,7 +256,7 @@ class LunaTabGroup extends HTMLElement {
     if (!slot) {
       return [];
     }
-    
+
     return slot.assignedElements().filter(el => el.tagName === 'LUNA-TAB');
   }
 
@@ -242,12 +265,13 @@ class LunaTabGroup extends HTMLElement {
     if (!slot) {
       return [];
     }
-    
+
     return slot.assignedElements().filter(el => el.tagName === 'LUNA-TAB-PANEL');
   }
 
   _handleTabClick(e) {
     const tab = e.target.closest('luna-tab');
+
     if (tab && !tab.disabled) {
       this._setActiveTab(tab, true);
     }
@@ -258,9 +282,9 @@ class LunaTabGroup extends HTMLElement {
     const panels = this._getPanels();
 
     tabs.forEach(t => {
-      t.active = (t === tab);
+      t.active = t === tab;
       t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
-      t.setAttribute('tabindex', t === tab ? '0' : '-1');
+      t.setAttribute('tabindex',      t === tab ? '0' : '-1');
     });
 
     panels.forEach(p => {
@@ -270,39 +294,32 @@ class LunaTabGroup extends HTMLElement {
     if (shouldFocus) {
       tab.focus({ preventScroll: true });
     }
-    
+
     this.dispatchEvent(new CustomEvent('luna-tab-show', {
-      detail: { tab: tab, name: tab.getAttribute('panel') }
+      bubbles:  true,
+      composed: true,
+      detail:   { tab, name: tab.getAttribute('panel') },
     }));
   }
 
   _handleKeyDown(e) {
-    const tabs = this._getTabs().filter(t => !t.disabled);
+    const tabs        = this._getTabs().filter(t => !t.disabled);
     const activeIndex = tabs.indexOf(document.activeElement);
+
     if (activeIndex === -1) {
       return;
     }
-    
-    let nextIndex;
+
     const placement  = this.getAttribute('placement') || 'top';
     const isVertical = placement === 'start' || placement === 'end';
+    let nextIndex;
 
     if (isVertical) {
-      if (e.key === 'ArrowDown') {
-        nextIndex = (activeIndex + 1) % tabs.length;
-      }
-
-      if (e.key === 'ArrowUp') {
-        nextIndex = (activeIndex - 1 + tabs.length) % tabs.length;
-      }
+      if (e.key === 'ArrowDown') { nextIndex = (activeIndex + 1) % tabs.length; }
+      if (e.key === 'ArrowUp')   { nextIndex = (activeIndex - 1 + tabs.length) % tabs.length; }
     } else {
-      if (e.key === 'ArrowRight') {
-        nextIndex = (activeIndex + 1) % tabs.length;
-      }
-
-      if (e.key === 'ArrowLeft') {
-        nextIndex = (activeIndex - 1 + tabs.length) % tabs.length;
-      }
+      if (e.key === 'ArrowRight') { nextIndex = (activeIndex + 1) % tabs.length; }
+      if (e.key === 'ArrowLeft')  { nextIndex = (activeIndex - 1 + tabs.length) % tabs.length; }
     }
 
     if (nextIndex !== undefined) {
@@ -318,8 +335,8 @@ class LunaTabGroup extends HTMLElement {
 
   _handleTabClose(e) {
     const tabToRemove = e.detail.tab;
-    const tabs = this._getTabs();
-    
+    const tabs        = this._getTabs();
+
     if (tabToRemove.active) {
       const remaining = tabs.filter(t => t !== tabToRemove && !t.disabled);
       if (remaining.length > 0) {
@@ -329,14 +346,13 @@ class LunaTabGroup extends HTMLElement {
 
     tabToRemove.remove();
 
-    const panelName = tabToRemove.getAttribute('panel');
-    const panels    = this._getPanels();
+    const panelName     = tabToRemove.getAttribute('panel');
+    const panelToRemove = this._getPanels().find(p => p.getAttribute('name') === panelName);
 
-    const panelToRemove = panels.find(p => p.getAttribute('name') === panelName);
     if (panelToRemove) {
       panelToRemove.remove();
     }
-    
+
     this._updateScrollButtons();
   }
 }
