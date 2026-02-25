@@ -87,7 +87,8 @@ class LunaDropdown extends HTMLElement {
       <style>
         :host {
           position: relative;
-          display: inline-block;
+          display: inline-flex;
+          align-items: stretch;
           font-family: inherit;
           --luna-dropdown-bg: rgba(22, 22, 22, 0.95);
           --luna-dropdown-border: rgba(255, 255, 255, 0.08);
@@ -99,7 +100,13 @@ class LunaDropdown extends HTMLElement {
 
         .trigger {
           display: inline-flex;
+          align-items: stretch;
           cursor: pointer;
+        }
+
+        ::slotted(luna-button) {
+          --luna-button-radius: var(--luna-button-radius, inherit);
+          height: 100%;
         }
 
         .panel {

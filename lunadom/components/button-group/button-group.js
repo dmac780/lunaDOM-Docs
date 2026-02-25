@@ -1,18 +1,22 @@
+// lunadom/components/button-group/button-group.js
+
 /**
  * @customElement luna-button-group
- * @slot - The default slot for luna-button components.
- * 
+ *
+ * @slot - luna-button and/or luna-dropdown children.
+ *
  * Attributes:
- * @attr spacing - Spacing between buttons (e.g., '0', '0.5rem'). Defaults to '0' for a connected group.
- * @attr vertical - Makes the button group vertical.
- * @attr fullwidth - Makes the button group take up the full width of its container.
- * @attr pill - Applies a pill-shaped radius to the outer corners of the group.
- * 
+ * @attr {string}  spacing   - Gap between items, e.g. '0.5rem'. Default '0' (connected).
+ * @attr {boolean} vertical  - Stack items vertically.
+ * @attr {boolean} fullwidth - Stretch to fill parent width.
+ * @attr {boolean} pill      - Pill-shaped outer corners.
+ *
  * CSS Custom Properties:
- * @cssprop --luna-button-group-gap - Gap between buttons (overrides spacing attribute).
- * @cssprop --luna-button-group-radius - Border radius for the outer corners.
+ * @cssprop --luna-button-group-gap    - Gap between items (overrides spacing attribute).
+ * @cssprop --luna-button-group-radius - Outer corner radius (overrides pill default).
  */
 class LunaButtonGroup extends HTMLElement {
+
   static get observedAttributes() {
     return ['spacing', 'vertical', 'fullwidth', 'pill'];
   }
@@ -20,40 +24,56 @@ class LunaButtonGroup extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this._isRendered = false;
   }
 
   connectedCallback() {
-    this.render();
+    if (!this._isRendered) {
+      this._render();
+      this._isRendered = true;
+    }
   }
 
-  attributeChangedCallback() {
-    this.render();
+  attributeChangedCallback(name, oldVal, newVal) {
+    if (this._isRendered && oldVal !== newVal) {
+      this._render();
+    }
   }
 
-  render() {
+  _render() {
     const spacing   = this.getAttribute('spacing') || '0';
-    const isConnected = spacing === '0';
+    const connected = spacing === '0';
     const vertical  = this.hasAttribute('vertical');
     const fullwidth = this.hasAttribute('fullwidth');
     const pill      = this.hasAttribute('pill');
+    const outerR    = pill ? '9999px' : '8px';
+    const flex      = fullwidth ? '1' : 'none';
+    const negMargin = vertical ? 'margin-top: -1px !important;' : 'margin-left: -1px !important;';
+    const firstR    = vertical
+      ? `${outerR} ${outerR} 0 0`
+      : `${outerR} 0 0 ${outerR}`;
+    const lastR     = vertical
+      ? `0 0 ${outerR} ${outerR}`
+      : `0 ${outerR} ${outerR} 0`;
 
     this.shadowRoot.innerHTML = `
       <style>
         :host {
           display: ${vertical ? 'flex' : 'inline-flex'};
           flex-direction: ${vertical ? 'column' : 'row'};
+          align-items: stretch;
           gap: var(--luna-button-group-gap, ${spacing});
           width: ${fullwidth ? '100%' : 'auto'};
-          --luna-button-group-radius: ${pill ? '9999px' : '10px'};
-          isolation: isolate;
+          --luna-button-group-radius: ${outerR};
+          position: relative;
         }
 
-        ::slotted(luna-button) {
+        ::slotted(luna-button),
+        ::slotted(luna-dropdown) {
           margin: 0 !important;
-          flex: ${fullwidth ? '1' : 'none'};
+          flex: ${flex};
           --luna-button-radius: 0;
           position: relative;
-          z-index: 1;
         }
 
         ::slotted(luna-button:hover) {
@@ -64,42 +84,32 @@ class LunaButtonGroup extends HTMLElement {
           z-index: 3;
         }
 
-        /* Border merging for connected groups */
-        ${isConnected ? `
-          ::slotted(luna-button:not(:first-of-type)) {
-            ${vertical ? 'margin-top: -1px !important;' : 'margin-left: -1px !important;'}
+        ${connected ? `
+          ::slotted(luna-button:not(:first-child)),
+          ::slotted(luna-dropdown:not(:first-child)) {
+            ${negMargin}
           }
         ` : ''}
 
-        /* Outer corner rounding */
-        ${vertical ? `
-          ::slotted(luna-button:first-of-type) {
-            --luna-button-radius: var(--luna-button-group-radius) var(--luna-button-group-radius) 0 0;
-          }
-          ::slotted(luna-button:last-of-type) {
-            --luna-button-radius: 0 0 var(--luna-button-group-radius) var(--luna-button-group-radius);
-          }
-          /* Handle single button case */
-          ::slotted(luna-button:first-of-type:last-of-type) {
-            --luna-button-radius: var(--luna-button-group-radius);
-          }
-        ` : `
-          ::slotted(luna-button:first-of-type) {
-            --luna-button-radius: var(--luna-button-group-radius) 0 0 var(--luna-button-group-radius);
-          }
-          ::slotted(luna-button:last-of-type) {
-            --luna-button-radius: 0 var(--luna-button-group-radius) var(--luna-button-group-radius) 0;
-          }
-          /* Handle single button case */
-          ::slotted(luna-button:first-of-type:last-of-type) {
-            --luna-button-radius: var(--luna-button-group-radius);
-          }
-        `}
+        ::slotted(luna-button:first-child),
+        ::slotted(luna-dropdown:first-child) {
+          --luna-button-radius: ${firstR};
+        }
 
-        /* Spaced mode reset */
-        ${!isConnected ? `
-          ::slotted(luna-button) {
-            --luna-button-radius: var(--luna-button-group-radius) !important;
+        ::slotted(luna-button:last-child),
+        ::slotted(luna-dropdown:last-child) {
+          --luna-button-radius: ${lastR};
+        }
+
+        ::slotted(luna-button:first-child:last-child),
+        ::slotted(luna-dropdown:first-child:last-child) {
+          --luna-button-radius: ${outerR};
+        }
+
+        ${!connected ? `
+          ::slotted(luna-button),
+          ::slotted(luna-dropdown) {
+            --luna-button-radius: ${outerR} !important;
           }
         ` : ''}
       </style>
