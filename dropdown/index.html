@@ -19,6 +19,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/menu/menu.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/menu-item/menu-item.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/divider/divider.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -199,11 +200,38 @@
 <code>/lunadom/components/menu/menu.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/menu-item/menu-item.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot trigger</code> - Element that triggers the dropdown<br>
-<code>@slot default</code> - Menu content (typically <code>&lt;luna-menu&gt;</code>)<br>
-<code>@attr placement</code> - Dropdown position (bottom-start, top-end, etc.)<br>
-<code>--luna-dropdown-offset</code> - Distance from trigger
+
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Menu content (typically <code>&lt;luna-menu&gt;</code>)<br>
+  <code>trigger</code> - Element that triggers the dropdown<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>placement</code> - Dropdown position (bottom-start, top-end, etc.)<br>
+  <code>open</code> - Whether the dropdown panel is currently visible<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-dropdown-bg</code> - Background color of the dropdown panel<br>
+  <code>--luna-dropdown-border</code> - Border color of the dropdown panel<br>
+  <code>--luna-dropdown-radius</code> - Border radius for the panel corners<br>
+  <code>--luna-dropdown-shadow</code> - Box shadow for the panel<br>
+  <code>--luna-dropdown-z</code> - Z-index for the panel<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-show</code> - Emitted when the dropdown panel opens<br>
+  <code>luna-hide</code> - Emitted when the dropdown panel closes<br>
+</luna-details>
 
 <h2>Placements</h2>
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">

@@ -193,27 +193,52 @@
 <h2>Paths</h2>
 <code>/lunadom/components/details/details.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@slot summary</code> - Summary/header text<br>
-<code>@slot icon</code> - Optional icon before summary<br>
-<code>@slot default</code> - Content shown when expanded<br>
-<code>@attr open</code> - Whether initially open<br>
-<code>@attr disabled</code> - Prevents toggling<br>
-<code>@attr group</code> - Accordion key (opening one closes others)<br>
-<code>@attr variant</code> - Visual style (card, ghost, glass, default: "card")<br>
-<code>@method show()</code> - Open the panel<br>
-<code>@method hide()</code> - Close the panel<br>
-<code>--luna-details-bg</code> - Background color<br>
-<code>--luna-details-bg-open</code> - Background when expanded<br>
-<code>--luna-details-border</code> - Border color<br>
-<code>--luna-details-border-open</code> - Border when expanded<br>
-<code>--luna-details-radius</code> - Border radius<br>
-<code>--luna-details-summary-color</code> - Summary text color<br>
-<code>--luna-details-content-color</code> - Body text color<br>
-<code>--luna-details-chevron-color</code> - Chevron icon color<br>
-<code>--luna-details-icon-color</code> - Prefix icon color<br>
-<code>--luna-details-hover-bg</code> - Summary hover background<br>
-<code>--luna-details-shadow-open</code> - Box shadow when expanded
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>summary</code> - Summary/header text<br>
+  <code>icon</code> - Optional icon before summary<br>
+  <code>default</code> - Content shown when expanded<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>open</code> - Whether initially open<br>
+  <code>disabled</code> - Prevents toggling<br>
+  <code>group</code> - Accordion key (opening one closes others)<br>
+  <code>variant</code> - Visual style (card, ghost, glass, default: "card")<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-details-bg</code> - Background colour (default: #1a1a1a)<br> 
+  <code>--luna-details-bg-open</code> - Background when expanded (default: #1a1a1a)<br>
+  <code>--luna-details-border</code> - Border colour (default: #2a2a2a)<br>
+  <code>--luna-details-border-open</code> - Border colour when expanded (default: var(--luna-accent))<br>
+  <code>--luna-details-radius</code> - Border radius (default: 1rem)<br>
+  <code>--luna-details-padding</code> - Header/summary padding (default: 1rem 1.25rem)<br>
+  <code>--luna-details-body-padding</code> - Body content padding (default: 0 1.25rem 1.25rem)<br>
+  <code>--luna-details-summary-color</code> - Summary text colour (default: #eee)<br>
+  <code>--luna-details-summary-size</code> - Summary font size (default: 0.9375rem)<br>
+  <code>--luna-details-content-color</code> - Body text colour (default: #888)<br>
+  <code>--luna-details-content-size</code> - Body font size (default: 0.875rem)<br>
+  <code>--luna-details-chevron-color</code> - Chevron icon colour (default: #555)<br>
+  <code>--luna-details-icon-color</code> - Prefix icon colour (default: var(--luna-accent))<br>
+  <code>--luna-details-divider-color</code> - Divider line colour (default: #2a2a2a)<br>
+  <code>--luna-details-hover-bg</code> - Summary row hover background (default: rgba(255,255,255,.03))<br>
+  <code>--luna-details-shadow-open</code> - Box shadow when expanded (default: 0 8px 32px rgba(0,0,0,.35))<br>
+  <code>--luna-accent</code> - Accent colour for chevron/focus/border (default: #2563eb)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-show</code> - Emitted when the panel opens<br>
+  <code>luna-hide</code> - Emitted when the panel closes<br>  
+</luna-details>
 
 <h2>Basic Usage</h2>
 <luna-details>

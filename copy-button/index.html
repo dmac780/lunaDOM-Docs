@@ -17,6 +17,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/copy-button/copy-button.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/tooltip/tooltip.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/input/input.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -196,14 +197,28 @@
 <code>/lunadom/components/copy-button/copy-button.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/tooltip/tooltip.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - Button label text<br>
-<code>@slot icon</code> - Custom icon for the button<br>
-<code>@attr target</code> - ID of element to copy from<br>
-<code>@attr value</code> - Direct value to copy<br>
-<code>@attr variant</code> - Button variant (primary, secondary, etc.)<br>
-<code>@attr tooltip</code> - Tooltip text to show<br>
-<code>luna-copy</code> - Emitted when text is copied
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Button label text<br>
+  <code>icon</code> - Custom icon for the button<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>target</code> - ID of element to copy from<br>
+  <code>value</code> - Direct value to copy<br>
+  <code>variant</code> - Button variant (primary, secondary, etc.)<br>
+  <code>tooltip</code> - Tooltip text to show<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-copy</code> - Emitted when text is copied<br>
+</luna-details>
 
 <h2>Target Interaction</h2>
 <div style="display: flex; align-items: flex-end; gap: 0.5rem;">

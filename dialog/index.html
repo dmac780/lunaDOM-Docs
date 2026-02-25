@@ -18,6 +18,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/input/input.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/textarea/textarea.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -201,16 +202,41 @@
 <h2>Paths</h2>
 <code>/lunadom/components/dialog/dialog.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot title</code> - Title content for the dialog<br>
-<code>@slot default</code> - Main content for the dialog<br>
-<code>@slot footer</code> - Footer content for actions<br>
-<code>@method show()</code> - Show the dialog<br>
-<code>@method hide()</code> - Hide the dialog<br>
-<code>--luna-dialog-overlay</code> - Overlay background color<br>
-<code>--luna-bg</code> - Dialog background color<br>
-<code>--luna-color</code> - Dialog text color<br>
-<code>--luna-border</code> - Dialog border color
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>title</code> - Title content for the dialog<br>
+  <code>footer</code> - Footer content for actions<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>open</code> - Whether the dialog is open<br>
+  <code>initial-focus</code> - A selector for the element to receive focus when the dialog opens<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-dialog-max-width</code> - Maximum width of the dialog panel<br>
+  <code>--luna-dialog-bg</code> - Background color of the dialog panel<br>
+  <code>--luna-dialog-color</code> - Text color for the dialog content<br>
+  <code>--luna-dialog-radius</code> - Border radius of the dialog panel<br>
+  <code>--luna-dialog-padding</code> - Internal padding for the dialog sections<br>
+  <code>--luna-dialog-overlay</code> - Background color/overlay for the backdrop<br>
+  <code>--luna-dialog-border</code> - Border color of the dialog panel<br>
+  <code>--luna-dialog-shadow</code> - Box shadow for the dialog panel<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-show</code> - Emitted when the dialog opens<br>
+  <code>luna-hide</code> - Emitted when the dialog closes<br>
+  <code>luna-request-close</code> - Emitted when the dialog is requested to close (via overlay, ESC, or close button). Can be cancelled.<br>
+</luna-details>
 
 <h2>Prevent Flash of Dialogs</h2>
 <luna-code language="html">

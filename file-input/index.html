@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/file-input/file-input.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -192,14 +193,85 @@
 
 <h2>Paths</h2>
 <code>/lunadom/components/file-input/file-input.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+<!-- * @slot - The default label text.
+ * @slot label - Custom label content (alternative to using the label attribute).
+ * @slot hint - Custom hint content with HTML support (alternative to using the hint attribute).
+ * @slot dropzone - Custom content to display inside the dropzone area.
+ * @slot file-icon - Custom icon to display for each file in the list.
+ * 
+ * Attributes:
+ * @attr {string} label - Label text to display above the file input.
+ * @attr {string} hint - Hint text to display below the file input.
+ * @attr {string} accept - Comma-separated list of unique file type specifiers (e.g., '.jpg,.png,image/*').
+ * @attr {boolean} multiple - If present, allows selecting multiple files.
+ * @attr {boolean} disabled - Whether the file input is disabled.
+ * @attr {boolean} required - Whether the file input is required for form validation.
+ * @attr {'sm' | 'md' | 'lg'} size - The size of the file input. Defaults to 'md'.
+ * @attr {string} name - The name attribute for form submission.
+ * 
+ * CSS Custom Properties:
+ * @cssprop --luna-file-input-bg - Background color of the dropzone.
+ * @cssprop --luna-file-input-border - Border color of the dropzone.
+ * @cssprop --luna-file-input-color - Text color inside the dropzone.
+ * @cssprop --luna-file-input-radius - Border radius of the dropzone.
+ * @cssprop --luna-file-input-accent - Accent color for drag-over state.
+ * @cssprop --luna-file-input-shadow - Box shadow when dragging over.
+ * 
+ * Events:
+ * @event luna-change - Emitted when files are selected or removed. Detail contains { files: File[] }.
+ * @event luna-remove - Emitted when a file is removed. Detail contains { file: File, index: number }.
+ * 
+ * Properties:
+ * @property {File[]} files - Array of selected files. Must be reassigned (not mutated) to trigger updates.
+ -->
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Default label text<br>
+  <code>label</code> - Custom label content<br>
+  <code>hint</code> - Custom hint content<br>
+  <code>dropzone</code> - Custom content for the drop zone<br>
+  <code>file-icon</code> - Custom icon for each file in the list<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>label</code> - Label text for the input<br>
+  <code>hint</code> - Help text below the input<br>
+  <code>multiple</code> - Allow multiple file selection<br>
+  <code>accept</code> - Accepted file types (e.g., ".pdf,.doc")<br>
+  <code>disabled</code> - Whether the file input is disabled<br>
+  <code>required</code> - Whether the file input is required for form validation<br>
+  <code>size</code> - The size of the file input (sm, md, lg)<br>
+  <code>name</code> - The name attribute for form submission<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-file-input-bg</code> - Background color of the dropzone<br>
+  <code>--luna-file-input-border</code> - Border color of the dropzone<br>
+  <code>--luna-file-input-color</code> - Text color inside the dropzone<br>
+  <code>--luna-file-input-radius</code> - Border radius of the dropzone<br>
+  <code>--luna-file-input-accent</code> - Accent color for drag-over state<br>
+  <code>--luna-file-input-shadow</code> - Box shadow when dragging over<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-change</code> - Emitted when files are selected or removed<br>
+  <code>luna-remove</code> - Emitted when a file is removed<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Properties</span>
+  <br>
+  <code>files</code> - Array of selected files<br>
+</luna-details>
 
-<h2>Overrides</h2>
-<code>@slot dropzone</code> - Custom content for the drop zone<br>
-<code>@attr label</code> - Label text for the input<br>
-<code>@attr hint</code> - Help text below the input<br>
-<code>@attr multiple</code> - Allow multiple file selection<br>
-<code>@attr accept</code> - Accepted file types (e.g., ".pdf,.doc")<br>
-<code>luna-file-change</code> - Emitted when files are selected
 
 <h2>Basic File Upload</h2>
 <luna-file-input 
