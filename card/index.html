@@ -16,6 +16,7 @@
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/card/card.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -194,21 +195,35 @@
 <h2>Paths</h2>
 <code>/lunadom/components/card/card.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@slot image</code> - Card hero image (auto-hidden if empty)<br>
-<code>@slot header</code> - Card title/heading content<br>
-<code>@slot default</code> - Main body content<br>
-<code>@slot footer</code> - Footer actions/meta (auto-hidden if empty)<br>
-<code>@attr size="350px"</code> - Max-width (default: 350px)<br>
-<code>@attr glass</code> - Enables glassmorphism variant<br>
-<code>--luna-card-bg</code> - Background color<br>
-<code>--luna-card-color</code> - Body text color<br>
-<code>--luna-card-border</code> - Border color<br>
-<code>--luna-card-radius</code> - Border radius<br>
-<code>--luna-card-padding</code> - Inner padding<br>
-<code>--luna-footer-justify</code> - Footer justify-content<br>
-<code>--luna-footer-align</code> - Footer align-items<br>
-<code>--luna-accent</code> - Accent color on hover
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>image</code> - Card hero image (auto-hidden if empty)<br>
+  <code>header</code> - Card title/heading content<br>
+  <code>default</code> - Main body content<br>
+  <code>footer</code> - Footer actions/meta (auto-hidden if empty)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>size="350px"</code> - Max-width (default: 350px)<br>
+  <code>glass</code> - Enables glassmorphism variant<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-card-bg</code> - Background color<br>
+  <code>--luna-card-color</code> - Body text color<br>
+  <code>--luna-card-border</code> - Border color<br>
+  <code>--luna-card-radius</code> - Border radius<br>
+  <code>--luna-card-padding</code> - Inner padding<br>
+  <code>--luna-footer-justify</code> - Footer justify-content<br>
+  <code>--luna-footer-align</code> - Footer align-items<br>
+  <code>--luna-accent</code> - Accent color on hover
+</luna-details>
 
 <h2>Basic Card</h2>
 <luna-card>

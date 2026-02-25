@@ -14,6 +14,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -192,13 +193,27 @@
 <h2>Paths</h2>
 <code>/lunadom/components/code/code.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - The code to display<br>
-<code>@attr language</code> - Language for syntax highlighting (html, js, css, etc.)<br>
-<code>@attr no-toolbar</code> - Hide the toolbar<br>
-<code>@attr no-lines</code> - Hide line numbers<br>
-<code>--luna-code-bg</code> - Code block background color<br>
-<code>--luna-code-color</code> - Code block text color
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - The code to display<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>language</code> - Language for syntax highlighting (html, js, css, etc.)<br>
+  <code>no-toolbar</code> - Hide the toolbar<br>
+  <code>no-lines</code> - Hide line numbers<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-code-bg</code> - Code block background color<br>
+  <code>--luna-code-color</code> - Code block text color
+</luna-details>
 
 <h2>HTML Example</h2>
 <luna-code language="html">

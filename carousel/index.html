@@ -17,6 +17,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/carousel/carousel.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/carousel-item/carousel-item.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -196,13 +197,27 @@
 <code>/lunadom/components/carousel/carousel.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/carousel-item/carousel-item.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - One or more <code>&lt;luna-carousel-item&gt;</code> elements<br>
-<code>@attr autoplay</code> - Automatically advance slides<br>
-<code>@attr loop</code> - Loop back to first slide after last<br>
-<code>@attr current</code> - Index of the initially visible slide<br>
-<code>--luna-carousel-aspect-ratio</code> - Aspect ratio of the carousel<br>
-<code>--luna-carousel-slide-bg</code> - Per-slide background color (on item)
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - One or more <code>&lt;luna-carousel-item&gt;</code> elements<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>autoplay</code> - Automatically advance slides<br>
+  <code>loop</code> - Loop back to first slide after last<br>
+  <code>current</code> - Index of the initially visible slide<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-carousel-aspect-ratio</code> - Aspect ratio of the carousel<br>
+  <code>--luna-carousel-slide-bg</code> - Per-slide background color (on item)
+</luna-details>
 
 <h2>Example</h2>
 <luna-carousel autoplay loop current="0" style="max-width: 100%; --luna-carousel-aspect-ratio: 16 / 9;">

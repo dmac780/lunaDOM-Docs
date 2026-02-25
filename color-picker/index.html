@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/colorpicker/colorpicker.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -193,15 +194,24 @@
 <h2>Paths</h2>
 <code>/lunadom/components/color-picker/color-picker.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@attr label</code> - Label text for the picker<br>
-<code>@attr value</code> - Initial color value<br>
-<code>@attr format</code> - Color format (hex, rgb, hsl, hsv)<br>
-<code>@attr swatches</code> - Comma-separated list of preset colors<br>
-<code>@attr inline</code> - Display inline instead of popup<br>
-<code>--luna-picker-border-radius</code> - Picker border radius<br>
-<code>--luna-picker-trigger-bg</code> - Trigger button background<br>
-<code>--luna-picker-panel-bg</code> - Panel background color
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>label</code> - Label text for the picker<br>
+  <code>value</code> - Initial color value<br>
+  <code>format</code> - Color format (hex, rgb, hsl, hsv)<br>
+  <code>swatches</code> - Comma-separated list of preset colors<br>
+  <code>inline</code> - Display inline instead of popup<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-picker-border-radius</code> - Picker border radius<br>
+  <code>--luna-picker-trigger-bg</code> - Trigger button background<br>
+  <code>--luna-picker-panel-bg</code> - Panel background color
+</luna-details>
 
 <h2>Example</h2>
 <luna-color-picker 
