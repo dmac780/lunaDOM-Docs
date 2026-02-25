@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progress — lunaDOM Docs</title>
-  <meta name="description" content="Linear progress bars with determinate and indeterminate states." />
+  <title>Radio Group — lunaDOM Docs</title>
+  <meta name="description" content="Radio groups for single-choice selections with standard radio buttons." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="modulepreload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" />
@@ -14,7 +14,8 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/progress/progress.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/radio/radio.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/radio-group/radio-group.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
@@ -78,12 +79,12 @@
     <a href="/lunaDOM-Docs/link">Link</a>
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
-    <a href="/lunaDOM-Docs/progress" class="active">Progress</a>
+    <a href="/lunaDOM-Docs/progress">Progress</a>
     <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
     <a href="/lunaDOM-Docs/radio-button">Radio Button Group</a>
-    <a href="/lunaDOM-Docs/radio-group">Radio Group</a>
+    <a href="/lunaDOM-Docs/radio-group" class="active">Radio Group</a>
     <a href="/lunaDOM-Docs/range">Range</a>
     <a href="/lunaDOM-Docs/rating">Rating</a>
     <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
@@ -159,12 +160,12 @@
     <a href="/lunaDOM-Docs/link">Link</a>
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
-    <a href="/lunaDOM-Docs/progress" class="active">Progress</a>
+    <a href="/lunaDOM-Docs/progress">Progress</a>
     <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
     <a href="/lunaDOM-Docs/radio-button">Radio Button Group</a>
-    <a href="/lunaDOM-Docs/radio-group">Radio Group</a>
+    <a href="/lunaDOM-Docs/radio-group" class="active">Radio Group</a>
     <a href="/lunaDOM-Docs/range">Range</a>
     <a href="/lunaDOM-Docs/rating">Rating</a>
     <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
@@ -188,72 +189,126 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Progress</h1>
-        <p class="lead">Linear progress bars with determinate and indeterminate states.</p>
+        <h1>Radio Group</h1>
+        <p class="lead">Radio groups for single-choice selections with standard radio buttons.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-progress&gt;</code> component displays linear progress bars.</p>
+        <p>The <code>&lt;luna-radio-group&gt;</code> and <code>&lt;luna-radio&gt;</code> components provide standard radio button selections.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/progress/progress.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
+<code>/lunadom/components/radio-group/radio-group.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+<code>/lunadom/components/radio/radio.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Customization</h2>
+<h2>Radio Group Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Attributes</span>
+  <span slot="summary">Slots</span>
   <br>
-  <code>label</code> - Label text for the progress<br>
-  <code>value</code> - Progress value (0-100)<br>
-  <code>max</code> - Maximum value of the progress bar (default: 100)<br>
-  <code>pending</code> - Show indeterminate/pending state<br>
-  <code>show-value</code> - Display the percentage value<br>
+  <code>default</code> - List of <code>&lt;luna-radio&gt;</code> components<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">CSS Variables</span>
+  <span slot="summary">Attributes</span>
   <br>
-  <code>--luna-progress-height</code> - Progress bar height<br>
-  <code>--luna-progress-bg</code> - Progress background color<br>
-  <code>--luna-progress-fill</code> - Progress fill color<br>
-  <code>--luna-progress-text</code> - Color of the value text inside the bar<br>
-  <code>--luna-progress-radius</code> - Border radius of the track and bar<br>
+  <code>value</code> - The value of the currently selected radio button.<br>
+  <code>disabled</code> - Whether the entire radio group is disabled.<br>
+  <code>size</code> - The size to propagate to child radio buttons. (sm, md, lg)<br>
+  <code>required</code> - Whether a selection is required for form validation.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>change</code> - Emitted when the selected value of the group changes.<br>
 </luna-details>
 
-<h2>Progress Bar</h2>
-<luna-progress
-  label="File Upload"
-  value="80"
-  show-value
-  style="
-    --luna-progress-height: 12px;
-    --luna-progress-bg: #222;
-    --luna-progress-fill: #22c55e;
-    --luna-progress-text: #fff;
-  "
-></luna-progress>
+<h2>Basic Radio Group</h2>
+<luna-radio-group value="option2" style="display: flex; flex-direction: column; gap: 0.75rem;">
+  <luna-radio name="basic" value="option1">Option 1</luna-radio>
+  <luna-radio name="basic" value="option2">Option 2</luna-radio>
+  <luna-radio name="basic" value="option3">Option 3</luna-radio>
+</luna-radio-group>
 
-<h2>Pending Progress</h2>
-<luna-progress label="Processing..." pending style="--luna-progress-fill: #3b82f6;"></luna-progress>
+<h2>Different Sizes</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem;">Small</p>
+<luna-radio-group value="dark" style="display: flex; flex-direction: column; gap: 0.5rem;">
+  <luna-radio name="theme-sm" value="dark" size="sm">Dark Mode</luna-radio>
+  <luna-radio name="theme-sm" value="light" size="sm">Light Mode</luna-radio>
+  <luna-radio name="theme-sm" value="system" size="sm">System</luna-radio>
+</luna-radio-group>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 2rem;">Medium (Default)</p>
+<luna-radio-group value="light" style="display: flex; flex-direction: column; gap: 0.75rem;">
+  <luna-radio name="theme-md" value="dark" size="md">Dark Mode</luna-radio>
+  <luna-radio name="theme-md" value="light" size="md">Light Mode</luna-radio>
+  <luna-radio name="theme-md" value="system" size="md">System</luna-radio>
+</luna-radio-group>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; margin-top: 2rem;">Large</p>
+<luna-radio-group value="system" style="display: flex; flex-direction: column; gap: 1rem;">
+  <luna-radio name="theme-lg" value="dark" size="lg">Dark Mode</luna-radio>
+  <luna-radio name="theme-lg" value="light" size="lg">Light Mode</luna-radio>
+  <luna-radio name="theme-lg" value="system" size="lg">System</luna-radio>
+</luna-radio-group>
+
+<h2>With Disabled Option</h2>
+<luna-radio-group value="email" style="display: flex; flex-direction: column; gap: 0.75rem;">
+  <luna-radio name="notify" value="email">Email Notifications</luna-radio>
+  <luna-radio name="notify" value="sms">SMS Notifications</luna-radio>
+  <luna-radio name="notify" value="push" disabled>Push Notifications (Coming Soon)</luna-radio>
+  <luna-radio name="notify" value="none">No Notifications</luna-radio>
+</luna-radio-group>
+
+<h2>Disabled Group</h2>
+<luna-radio-group value="pro" disabled style="display: flex; flex-direction: column; gap: 0.75rem;">
+  <luna-radio name="plan" value="free">Free Plan</luna-radio>
+  <luna-radio name="plan" value="pro">Pro Plan</luna-radio>
+  <luna-radio name="plan" value="enterprise">Enterprise Plan</luna-radio>
+</luna-radio-group>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Progress Bar with Value --&gt;
-&lt;luna-progress
-  label="File Upload"
-  value="80"
-  show-value
-  style="--luna-progress-height: 12px;"
-&gt;
-&lt;/luna-progress&gt;
+<luna-code language="html">
+&lt;!-- Basic radio group --&gt;
+&lt;luna-radio-group value="option2"&gt;
+  &lt;luna-radio name="basic" value="option1"&gt;Option 1&lt;/luna-radio&gt;
+  &lt;luna-radio name="basic" value="option2"&gt;Option 2&lt;/luna-radio&gt;
+  &lt;luna-radio name="basic" value="option3"&gt;Option 3&lt;/luna-radio&gt;
+&lt;/luna-radio-group&gt;
 
-&lt;!-- Pending/Indeterminate Progress --&gt;
-&lt;luna-progress
-  label="Processing..."
-  pending
-  style="--luna-progress-fill: #3b82f6;"
-&gt;
-&lt;/luna-progress&gt;
-  </luna-code>
+&lt;!-- Different sizes --&gt;
+&lt;luna-radio-group value="dark"&gt;
+  &lt;luna-radio name="theme" value="dark" size="sm"&gt;Small&lt;/luna-radio&gt;
+  &lt;luna-radio name="theme" value="light" size="md"&gt;Medium&lt;/luna-radio&gt;
+  &lt;luna-radio name="theme" value="system" size="lg"&gt;Large&lt;/luna-radio&gt;
+&lt;/luna-radio-group&gt;
+
+&lt;!-- With disabled option --&gt;
+&lt;luna-radio-group value="email"&gt;
+  &lt;luna-radio name="notify" value="email"&gt;Email&lt;/luna-radio&gt;
+  &lt;luna-radio name="notify" value="sms"&gt;SMS&lt;/luna-radio&gt;
+  &lt;luna-radio name="notify" value="push" disabled&gt;Push (Soon)&lt;/luna-radio&gt;
+&lt;/luna-radio-group&gt;
+
+&lt;!-- Disabled group --&gt;
+&lt;luna-radio-group value="pro" disabled&gt;
+  &lt;luna-radio name="plan" value="free"&gt;Free&lt;/luna-radio&gt;
+  &lt;luna-radio name="plan" value="pro"&gt;Pro&lt;/luna-radio&gt;
+&lt;/luna-radio-group&gt;
+
+&lt;!-- Listen to changes --&gt;
+&lt;luna-radio-group id="group" value="option1"&gt;
+  &lt;luna-radio name="opts" value="option1"&gt;Option 1&lt;/luna-radio&gt;
+  &lt;luna-radio name="opts" value="option2"&gt;Option 2&lt;/luna-radio&gt;
+&lt;/luna-radio-group&gt;
+
+&lt;script&gt;
+  const group = document.getElementById('group');
+  
+  group.addEventListener('change', () =&gt; {
+    console.log('Selected value:', group.value);
+  });
+&lt;/script&gt;
+</luna-code>
       </article>
     </main>
 
