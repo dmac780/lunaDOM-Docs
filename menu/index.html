@@ -17,6 +17,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/menu/menu.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/menu-item/menu-item.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/divider/divider.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -80,6 +81,7 @@
     <a href="/lunaDOM-Docs/menu" class="active">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
+    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -159,6 +161,7 @@
     <a href="/lunaDOM-Docs/menu" class="active">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
+    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -196,14 +199,27 @@
 <code>/lunadom/components/menu/menu.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/menu-item/menu-item.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - Content for menu items<br>
-<code>@slot prefix</code> - Icon or content before the text<br>
-<code>@slot suffix</code> - Icon or content after the text<br>
-<code>@attr variant</code> - Style variant (default, danger)<br>
-<code>@attr type</code> - Item type (default, checkbox)<br>
-<code>@attr checked</code> - Checked state for checkbox items<br>
-<code>@attr disabled</code> - Disable the menu item
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - List of luna-menu-item or luna-divider components<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>max-width</code> - The maximum width of the menu (default: 250px)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-menu-bg</code> - Background color of the menu. <br>  
+  <code>--luna-menu-border</code> - Border color of the menu. <br>
+  <code>--luna-menu-radius</code> - Border radius for the menu corners. <br>
+  <code>--luna-menu-shadow</code> - Box shadow for the menu. <br>
+</luna-details>
 
 <h2>Standard & Variants</h2>
 <luna-menu>

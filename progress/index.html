@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Progress — lunaDOM Docs</title>
-  <meta name="description" content="Progress bars and circular progress indicators." />
+  <meta name="description" content="Linear progress bars with determinate and indeterminate states." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="modulepreload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" />
@@ -15,7 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/progress/progress.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/progress-circle/progress-circle.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -79,6 +79,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress" class="active">Progress</a>
+    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -158,6 +159,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress" class="active">Progress</a>
+    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -185,26 +187,35 @@
     <main class="content">
       <header class="page-header">
         <h1>Progress</h1>
-        <p class="lead">Progress bars and circular progress indicators.</p>
+        <p class="lead">Linear progress bars with determinate and indeterminate states.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-progress&gt;</code> and <code>&lt;luna-progress-circle&gt;</code> components display progress bars and circular progress indicators.</p>
+        <p>The <code>&lt;luna-progress&gt;</code> component displays linear progress bars.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/progress/progress.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
-<code>/lunadom/components/progress-circle/progress-circle.js</code>
+<code>/lunadom/components/progress/progress.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@attr label</code> - Label text for the progress<br>
-<code>@attr value</code> - Progress value (0-100)<br>
-<code>@attr show-value</code> - Display the percentage value<br>
-<code>@attr pending</code> - Show indeterminate/pending state<br>
-<code>--luna-progress-height</code> - Progress bar height<br>
-<code>--luna-progress-bg</code> - Progress background color<br>
-<code>--luna-progress-fill</code> - Progress fill color<br>
-<code>--luna-progress-size</code> - Circle size (for progress-circle)<br>
-<code>--luna-progress-width</code> - Circle stroke width (for progress-circle)
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>label</code> - Label text for the progress<br>
+  <code>value</code> - Progress value (0-100)<br>
+  <code>max</code> - Maximum value of the progress bar (default: 100)<br>
+  <code>pending</code> - Show indeterminate/pending state<br>
+  <code>show-value</code> - Display the percentage value<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-progress-height</code> - Progress bar height<br>
+  <code>--luna-progress-bg</code> - Progress background color<br>
+  <code>--luna-progress-fill</code> - Progress fill color<br>
+  <code>--luna-progress-text</code> - Color of the value text inside the bar<br>
+  <code>--luna-progress-radius</code> - Border radius of the track and bar<br>
+</luna-details>
 
 <h2>Progress Bar</h2>
 <luna-progress
@@ -221,20 +232,6 @@
 
 <h2>Pending Progress</h2>
 <luna-progress label="Processing..." pending style="--luna-progress-fill: #3b82f6;"></luna-progress>
-
-<h2>Circular Progress</h2>
-<luna-progress-circle
-  label="Storage"
-  value="85"
-  show-value
-  style="
-    --luna-progress-size: 80px;
-    --luna-progress-track: #222;
-    --luna-progress-fill: #3b82f6;
-    --luna-progress-width: 8;
-    --luna-progress-text: #fff;
-  "
-></luna-progress-circle>
 
 <h2>Example Code</h2>
   <luna-code language="html">
@@ -254,15 +251,6 @@
   style="--luna-progress-fill: #3b82f6;"
 &gt;
 &lt;/luna-progress&gt;
-
-&lt;!-- Circular Progress --&gt;
-&lt;luna-progress-circle
-  label="Storage"
-  value="85"
-  show-value
-  style="--luna-progress-size: 80px;"
-&gt;
-&lt;/luna-progress-circle&gt;
   </luna-code>
       </article>
     </main>

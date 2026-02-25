@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Button — lunaDOM Docs</title>
-  <meta name="description" content="Interactive buttons with multiple variants, sizes, and states." />
+  <title>Progress Circle — lunaDOM Docs</title>
+  <meta name="description" content="Circular progress indicators with determinate and indeterminate states." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="modulepreload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" />
@@ -14,7 +14,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/progress-circle/progress-circle.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
@@ -51,7 +51,7 @@
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
     <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
-    <a href="/lunaDOM-Docs/button" class="active">Button</a>
+    <a href="/lunaDOM-Docs/button">Button</a>
     <a href="/lunaDOM-Docs/button-group">Button Group</a>
     <a href="/lunaDOM-Docs/card">Card</a>
     <a href="/lunaDOM-Docs/carousel">Carousel</a>
@@ -79,7 +79,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
-    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
+    <a href="/lunaDOM-Docs/progress-circle" class="active">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -131,7 +131,7 @@
     <a href="/lunaDOM-Docs/badge">Badge</a>
     <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
     <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
-    <a href="/lunaDOM-Docs/button" class="active">Button</a>
+    <a href="/lunaDOM-Docs/button">Button</a>
     <a href="/lunaDOM-Docs/button-group">Button Group</a>
     <a href="/lunaDOM-Docs/card">Card</a>
     <a href="/lunaDOM-Docs/carousel">Carousel</a>
@@ -159,7 +159,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
-    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
+    <a href="/lunaDOM-Docs/progress-circle" class="active">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -186,87 +186,190 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Button</h1>
-        <p class="lead">Interactive buttons with multiple variants, sizes, and states.</p>
+        <h1>Progress Circle</h1>
+        <p class="lead">Circular progress indicators with determinate and indeterminate states.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-button&gt;</code> component provides interactive buttons with customizable styles and behaviors.</p>
+        <p>The <code>&lt;luna-progress-circle&gt;</code> component displays circular progress indicators.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/button/button.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
+<code>/lunadom/components/progress-circle/progress-circle.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
-  <span slot="summary">Slots</span>
-  <br>
-  <code>default</code> - Content for the button<br>
-</luna-details>
-<br>
-<luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Attributes</span>
   <br>
-  <code>variant="default"</code> - Variant of the button (default, primary, success, warning, danger, neutral)<br>
-  <code>size="md"</code> - Size of the button (sm, md, lg)<br>
-  <code>pill</code> - Whether the button has pill shape<br>
-  <code>outline</code> - Whether the button has outline style<br>
-  <code>loading</code> - Whether the button shows loading state<br>
-  <code>disabled</code> - Whether the button is disabled<br>
-  <code>caret</code> - Whether the button shows a caret icon<br>
+  <code>value</code> - Current value of the progress indicator<br>
+  <code>max</code> - Maximum value (default: 100)<br>
+  <code>pending</code> - Show indeterminate spinning state<br>
+  <code>label</code> - Label displayed below the circle<br>
+  <code>show-value</code> - Display percentage text in center<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">CSS Variables</span>
   <br>
-  <code>--luna-button-bg</code> - Button background color<br>
-  <code>--luna-button-color</code> - Button text color<br>
+  <code>--luna-progress-size</code> - Diameter of the progress circle<br>
+  <code>--luna-progress-track</code> - Color of incomplete track<br>
+  <code>--luna-progress-fill</code> - Color of filled portion<br>
+  <code>--luna-progress-width</code> - Thickness of circle stroke<br>
+  <code>--luna-progress-text</code> - Color of value text in center<br>
 </luna-details>
 
-<h2>Example</h2>
-<luna-button>Default Button</luna-button>
+<h2>Basic Usage</h2>
+<luna-progress-circle
+  label="Storage Used"
+  value="65"
+  show-value
+></luna-progress-circle>
 
-<h2>Variants</h2>
-<luna-button>Default</luna-button>
-<luna-button variant="primary">Primary</luna-button>
-<luna-button variant="success">Success</luna-button>
-<luna-button variant="warning">Warning</luna-button>
-<luna-button variant="danger">Danger</luna-button>
-<luna-button variant="neutral">Neutral</luna-button>
+<h2>Custom Size and Color</h2>
+<luna-progress-circle
+  label="Upload Progress"
+  value="85"
+  show-value
+  style="
+    --luna-progress-size: 100px;
+    --luna-progress-track: #222;
+    --luna-progress-fill: #22c55e;
+    --luna-progress-width: 10;
+    --luna-progress-text: #fff;
+  "
+></luna-progress-circle>
 
-<h2>Sizes & Shapes</h2>
-<luna-button size="sm">Small</luna-button>
-<luna-button size="md">Medium</luna-button>
-<luna-button size="lg">Large</luna-button>
-<luna-button pill variant="primary">Pill Button</luna-button>
-<luna-button outline variant="primary">Outline</luna-button>
+<h2>Different Sizes</h2>
+<div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+  <luna-progress-circle
+    label="Small"
+    value="45"
+    show-value
+    style="--luna-progress-size: 60px; --luna-progress-fill: #a855f7;"
+  ></luna-progress-circle>
+  
+  <luna-progress-circle
+    label="Medium"
+    value="65"
+    show-value
+    style="--luna-progress-size: 80px; --luna-progress-fill: #3b82f6;"
+  ></luna-progress-circle>
+  
+  <luna-progress-circle
+    label="Large"
+    value="85"
+    show-value
+    style="--luna-progress-size: 120px; --luna-progress-fill: #f59e0b;"
+  ></luna-progress-circle>
+</div>
 
-<h2>Interactive States</h2>
-<luna-button loading>Loading</luna-button>
-<luna-button disabled>Disabled</luna-button>
-<luna-button caret variant="secondary">Caret</luna-button>
+<h2>Pending/Indeterminate</h2>
+<luna-progress-circle
+  label="Loading..."
+  pending
+  style="
+    --luna-progress-size: 80px;
+    --luna-progress-fill: #3b82f6;
+  "
+></luna-progress-circle>
+
+<h2>Without Label</h2>
+<div style="display: flex; gap: 2rem; align-items: center;">
+  <luna-progress-circle
+    value="30"
+    show-value
+    style="--luna-progress-fill: #ef4444;"
+  ></luna-progress-circle>
+  
+  <luna-progress-circle
+    value="60"
+    show-value
+    style="--luna-progress-fill: #f59e0b;"
+  ></luna-progress-circle>
+  
+  <luna-progress-circle
+    value="90"
+    show-value
+    style="--luna-progress-fill: #22c55e;"
+  ></luna-progress-circle>
+</div>
+
+<h2>Custom Stroke Width</h2>
+<div style="display: flex; gap: 2rem; align-items: center;">
+  <luna-progress-circle
+    label="Thin"
+    value="70"
+    show-value
+    style="--luna-progress-width: 4; --luna-progress-fill: #06b6d4;"
+  ></luna-progress-circle>
+  
+  <luna-progress-circle
+    label="Thick"
+    value="70"
+    show-value
+    style="--luna-progress-width: 12; --luna-progress-fill: #06b6d4;"
+  ></luna-progress-circle>
+</div>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Variants --&gt;
-&lt;luna-button&gt;Default&lt;/luna-button&gt;
-&lt;luna-button variant="primary"&gt;Primary&lt;/luna-button&gt;
-&lt;luna-button variant="success"&gt;Success&lt;/luna-button&gt;
-&lt;luna-button variant="warning"&gt;Warning&lt;/luna-button&gt;
-&lt;luna-button variant="danger"&gt;Danger&lt;/luna-button&gt;
-&lt;luna-button variant="neutral"&gt;Neutral&lt;/luna-button&gt;
+<luna-code language="html">
+&lt;!-- Basic circular progress --&gt;
+&lt;luna-progress-circle
+  label="Storage Used"
+  value="65"
+  show-value
+&gt;&lt;/luna-progress-circle&gt;
 
-&lt;!-- Sizes & Shapes --&gt;
-&lt;luna-button size="sm"&gt;Small&lt;/luna-button&gt;
-&lt;luna-button size="md"&gt;Medium&lt;/luna-button&gt;
-&lt;luna-button size="lg"&gt;Large&lt;/luna-button&gt;
-&lt;luna-button pill variant="primary"&gt;Pill Button&lt;/luna-button&gt;
-&lt;luna-button outline variant="primary"&gt;Outline&lt;/luna-button&gt;
+&lt;!-- Custom size and color --&gt;
+&lt;luna-progress-circle
+  label="Upload Progress"
+  value="85"
+  show-value
+  style="
+    --luna-progress-size: 100px;
+    --luna-progress-fill: #22c55e;
+    --luna-progress-width: 10;
+  "
+&gt;&lt;/luna-progress-circle&gt;
 
-&lt;!-- Interactive States --&gt;
-&lt;luna-button loading&gt;Loading&lt;/luna-button&gt;
-&lt;luna-button disabled&gt;Disabled&lt;/luna-button&gt;
-&lt;luna-button caret variant="secondary"&gt;Caret&lt;/luna-button&gt;
-  </luna-code>
+&lt;!-- Pending/Indeterminate state --&gt;
+&lt;luna-progress-circle
+  label="Loading..."
+  pending
+  style="--luna-progress-fill: #3b82f6;"
+&gt;&lt;/luna-progress-circle&gt;
+
+&lt;!-- Without label --&gt;
+&lt;luna-progress-circle
+  value="75"
+  show-value
+&gt;&lt;/luna-progress-circle&gt;
+
+&lt;!-- Different sizes --&gt;
+&lt;luna-progress-circle
+  value="50"
+  show-value
+  style="--luna-progress-size: 60px;"
+&gt;&lt;/luna-progress-circle&gt;
+
+&lt;luna-progress-circle
+  value="50"
+  show-value
+  style="--luna-progress-size: 120px;"
+&gt;&lt;/luna-progress-circle&gt;
+
+&lt;!-- Custom stroke width --&gt;
+&lt;luna-progress-circle
+  value="70"
+  show-value
+  style="--luna-progress-width: 4;"
+&gt;&lt;/luna-progress-circle&gt;
+
+&lt;luna-progress-circle
+  value="70"
+  show-value
+  style="--luna-progress-width: 12;"
+&gt;&lt;/luna-progress-circle&gt;
+</luna-code>
       </article>
     </main>
 

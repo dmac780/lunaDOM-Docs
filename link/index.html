@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/link/link.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -78,6 +79,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
+    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -157,6 +159,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
+    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -193,14 +196,31 @@
 <h2>Paths</h2>
 <code>/lunadom/components/link/link.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - Link text content<br>
-<code>@slot prefix</code> - Content before the link text<br>
-<code>@slot suffix</code> - Content after the link text<br>
-<code>@attr href</code> - URL destination<br>
-<code>@attr target</code> - Link target (e.g., "_blank")<br>
-<code>@attr variant</code> - Style variant (default, primary, secondary)<br>
-<code>@attr disabled</code> - Disable the link
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - The primary content of the link<br>
+  <code>prefix</code> - Content to display before the link text<br>
+  <code>suffix</code> - Content to display after the link text<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>variant</code> - The visual style of the link (link, primary, secondary)<br>
+  <code>href</code> - The URL the link points to<br>
+  <code>target</code> - Where to open the link (e.g., '_blank')<br>
+  <code>disabled</code> - Whether the link is disabled<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">  
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-link-color</code> - The text color of the link<br>
+  <code>--luna-accent</code> - The primary accent color for links and buttons<br>
+  <code>--luna-link-hover-color</code> - The text color when the link is hovered<br>
+</luna-details>
 
 <h2>Inline & Text Links</h2>
 <p>This is an example of an <luna-link href="#">inline link</luna-link> within a block of text. It supports <luna-link href="#" disabled>disabled states</luna-link> as well.</p>

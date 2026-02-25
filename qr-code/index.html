@@ -17,6 +17,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/qr-code/qr-creator.min.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/qr-code/qr-code.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/input/input.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -80,6 +81,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
+    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code" class="active">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -159,6 +161,7 @@
     <a href="/lunaDOM-Docs/menu">Menu</a>
     <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
     <a href="/lunaDOM-Docs/progress">Progress</a>
+    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
     <a href="/lunaDOM-Docs/qr-code" class="active">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
     <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
@@ -196,15 +199,26 @@
 <code>/lunadom/components/qr-code/qr-code.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/qr-code/qr-creator.min.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@attr value</code> - Content to encode in the QR code<br>
-<code>@attr size</code> - Size in pixels (default: 200)<br>
-<code>@attr radius</code> - Module corner radius (0-1)<br>
-<code>@attr padding</code> - Padding around the QR code<br>
-<code>@attr fill</code> - QR code module color<br>
-<code>@attr background</code> - Background color<br>
-<code>@attr ec-level</code> - Error correction level (L, M, Q, H)<br>
-<code>--luna-qr-radius</code> - Container border radius
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>value</code> - Content to encode in the QR code<br>
+  <code>size</code> - Size in pixels (default: 200)<br>
+  <code>radius</code> - Module corner radius (0-1) (default: 0)<br>
+  <code>padding</code> - Padding around the QR code (default: 0)<br>
+  <code>fill</code> - QR code module color (default: #000)<br>
+  <code>background</code> - Background color (default: #fff)<br>
+  <code>ec-level</code> - Error correction level (L, M, Q, H) (default: 'M')<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-qr-color</code> - The default color of the QR code modules<br>
+  <code>--luna-qr-bg</code> - The default background color of the QR code<br>
+  <code>--luna-qr-radius</code> - The border radius of the rendered canvas<br>
+</luna-details>
 
 <h2>QR Code Examples</h2>
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
