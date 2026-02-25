@@ -16,6 +16,7 @@
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/audio-player/audio-player.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -194,26 +195,46 @@
 <h2>Paths</h2>
 <code>/lunadom/components/audio-player/audio-player.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@attr src</code> - Audio source URL (required)<br>
-<code>@attr track</code> - Track/song title displayed in the player<br>
-<code>@attr artist</code> - Artist name displayed below title<br>
-<code>@attr group</code> - Grouping key (players in same group auto-pause each other)<br>
-<code>@attr autoplay</code> - Begin playback when ready<br>
-<code>@prop volume</code> - Get/set volume (0–1)<br>
-<code>@prop muted</code> - Get/set muted state<br>
-<code>@prop paused</code> - Whether audio is paused (read-only)<br>
-<code>@method play()</code> - Begin playback<br>
-<code>@method pause()</code> - Pause playback<br>
-<code>--luna-audio-bg</code> - Player background<br>
-<code>--luna-audio-fg</code> - Primary text color<br>
-<code>--luna-audio-accent</code> - Accent/playhead color<br>
-<code>--luna-audio-muted</code> - Secondary text color<br>
-<code>--luna-audio-waveform</code> - Inactive waveform bar color<br>
-<code>--luna-audio-waveform-played</code> - Played waveform bar color<br>
-<code>--luna-audio-radius</code> - Border radius<br>
-<code>--luna-audio-width</code> - Max width<br>
-<code>--luna-audio-padding</code> - Inner padding
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+<code>src</code> - Audio source URL (required)<br>
+<code>track</code> - Track/song title displayed in the player<br>
+<code>artist</code> - Artist name displayed below title<br>
+<code>group</code> - Grouping key (players in same group auto-pause each other)<br>
+<code>autoplay</code> - Begin playback when ready<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Properties</span>
+  <br>
+  <code>volume</code> - Get/set volume (0–1)<br>
+  <code>muted</code> - Get/set muted state<br>
+  <code>paused</code> - Whether audio is paused (read-only)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Methods</span>
+  <br>
+  <code>play()</code> - Begin playback<br>
+  <code>pause()</code> - Pause playback<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-audio-bg</code> - Player background<br>
+  <code>--luna-audio-fg</code> - Primary text color<br>
+  <code>--luna-audio-accent</code> - Accent/playhead color<br>
+  <code>--luna-audio-muted</code> - Secondary text color<br>
+  <code>--luna-audio-waveform</code> - Inactive waveform bar color<br>
+  <code>--luna-audio-waveform-played</code> - Played waveform bar color<br>
+  <code>--luna-audio-radius</code> - Border radius<br>
+  <code>--luna-audio-width</code> - Max width<br>
+  <code>--luna-audio-padding</code> - Inner padding
+</luna-details>
+
 
 <h2>Basic Usage</h2>
 <luna-audio-player 
