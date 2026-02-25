@@ -14,6 +14,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -192,14 +193,28 @@
 <h2>Paths</h2>
 <code>/lunadom/components/badge/badge.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - Content for the badge<br>
-<code>@attr variant="default"</code> - Variant of the badge (default, primary, success, warning, danger)<br>
-<code>@attr pill</code> - Whether the badge has pill shape<br>
-<code>@attr dot</code> - Whether the badge is a small dot indicator<br>
-<code>@attr pulse</code> - Whether the badge has pulse animation<br>
-<code>--luna-badge-bg</code> - Badge background color<br>
-<code>--luna-badge-color</code> - Badge text color
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Content for the badge<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>      
+  <br>
+  <code>variant="default"</code> - Variant of the badge (default, primary, success, warning, danger)<br>
+  <code>pill</code> - Whether the badge has pill shape<br>
+  <code>dot</code> - Whether the badge is a small dot indicator<br>
+  <code>pulse</code> - Whether the badge has pulse animation<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-badge-bg</code> - Badge background color<br>
+  <code>--luna-badge-color</code> - Badge text color<br>
+</luna-details>
 
 <h2>Example</h2>
 <luna-badge>Default</luna-badge>
