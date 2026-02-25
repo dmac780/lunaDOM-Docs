@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/bar-graph/bar-graph.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -193,24 +194,34 @@
 <h2>Paths</h2>
 <code>/lunadom/components/bar-graph/bar-graph.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@attr data</code> - JSON array of data points with label and value(s)<br>
-<code>@attr direction="vertical"</code> - Direction of bars (vertical, horizontal)<br>
-<code>@attr height="260"</code> - Height of the chart in pixels<br>
-<code>@attr goal</code> - Goal line value<br>
-<code>@attr goal-label</code> - Label for goal line<br>
-<code>@attr value-labels</code> - Show value labels on bars<br>
-<code>@attr sorted</code> - Sort bars by value<br>
-<code>@attr legend</code> - Show legend for multi-series<br>
-<code>@attr stacked</code> - Stack multi-series bars<br>
-<code>@attr stacked-percentage</code> - Show stacked bars as percentages<br>
-<code>@attr x-label</code> - Label for x-axis<br>
-<code>@attr y-label</code> - Label for y-axis<br>
-<code>--luna-bar-graph-bar-color</code> - Bar color<br>
-<code>--luna-bar-graph-bar-hover-color</code> - Bar hover color<br>
-<code>--luna-bar-graph-bar-radius</code> - Bar border radius<br>
-<code>--luna-bar-graph-goal-color</code> - Goal line color<br>
-<code>--luna-bar-graph-bar-negative-color</code> - Color for negative values
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>data</code> - JSON array of data points with label and value(s)<br>
+  <code>direction="vertical"</code> - Direction of bars (vertical, horizontal)<br>
+  <code>height="260"</code> - Height of the chart in pixels<br>
+  <code>goal</code> - Goal line value<br>
+  <code>goal-label</code> - Label for goal line<br>
+  <code>value-labels</code> - Show value labels on bars<br>
+  <code>sorted</code> - Sort bars by value<br>
+  <code>legend</code> - Show legend for multi-series<br>
+  <code>stacked</code> - Stack multi-series bars<br>
+  <code>stacked-percentage</code> - Show stacked bars as percentages<br>
+  <code>x-label</code> - Label for x-axis<br>
+  <code>y-label</code> - Label for y-axis<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-bar-graph-bar-color</code> - Bar color<br>
+  <code>--luna-bar-graph-bar-hover-color</code> - Bar hover color<br>
+  <code>--luna-bar-graph-bar-radius</code> - Bar border radius<br>
+  <code>--luna-bar-graph-goal-color</code> - Goal line color<br>
+  <code>--luna-bar-graph-bar-negative-color</code> - Color for negative values
+</luna-details>
+
 
 <h2>Example</h2>
 <luna-bar-graph

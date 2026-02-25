@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -193,17 +194,31 @@
 <h2>Paths</h2>
 <code>/lunadom/components/button/button.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@slot default</code> - Content for the button<br>
-<code>@attr variant="default"</code> - Variant of the button (default, primary, success, warning, danger, neutral)<br>
-<code>@attr size="md"</code> - Size of the button (sm, md, lg)<br>
-<code>@attr pill</code> - Whether the button has pill shape<br>
-<code>@attr outline</code> - Whether the button has outline style<br>
-<code>@attr loading</code> - Whether the button shows loading state<br>
-<code>@attr disabled</code> - Whether the button is disabled<br>
-<code>@attr caret</code> - Whether the button shows a caret icon<br>
-<code>--luna-button-bg</code> - Button background color<br>
-<code>--luna-button-color</code> - Button text color
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Content for the button<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>variant="default"</code> - Variant of the button (default, primary, success, warning, danger, neutral)<br>
+  <code>size="md"</code> - Size of the button (sm, md, lg)<br>
+  <code>pill</code> - Whether the button has pill shape<br>
+  <code>outline</code> - Whether the button has outline style<br>
+  <code>loading</code> - Whether the button shows loading state<br>
+  <code>disabled</code> - Whether the button is disabled<br>
+  <code>caret</code> - Whether the button shows a caret icon<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-button-bg</code> - Button background color<br>
+  <code>--luna-button-color</code> - Button text color<br>
+</luna-details>
 
 <h2>Example</h2>
 <luna-button>Default Button</luna-button>

@@ -20,6 +20,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/menu/menu.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/menu-item/menu-item.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/divider/divider.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -202,12 +203,26 @@
 <code>/lunadom/components/menu/menu.js</code><br>
 <code>/lunadom/components/menu-item/menu-item.js</code><br>
 
-<h2>Overrides</h2>
-<code>@slot separator</code> - Custom separator between items<br>
-<code>@slot prefix</code> - Icon or content before item<br>
-<code>@slot suffix</code> - Icon or content after item<br>
-<code>@attr href</code> - Link URL for breadcrumb item<br>
-<code>--luna-breadcrumb-separator-color</code> - Separator color
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>separator</code> - Custom separator between items<br>
+  <code>prefix</code> - Icon or content before item<br>
+  <code>suffix</code> - Icon or content after item<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>href</code> - Link URL for breadcrumb item<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-breadcrumb-separator-color</code> - Separator color<br>
+</luna-details>
 
 <h2>Example</h2>
 <luna-breadcrumb>
