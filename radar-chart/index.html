@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Copy Button — lunaDOM Docs</title>
-  <meta name="description" content="Button component for copying text to clipboard." />
+  <title>Radar Chart — lunaDOM Docs</title>
+  <meta name="description" content="Lightweight radar/spider charts with multi-series support." />
   <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
   <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
   <link rel="preload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" as="script" />
@@ -14,9 +14,9 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/copy-button/copy-button.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/tooltip/tooltip.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/input/input.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/radar-chart/radar-chart.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/badge/badge.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -60,7 +60,7 @@
     <a href="/lunaDOM-Docs/code-block">Code Block</a>
     <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
     <a href="/lunaDOM-Docs/combobox">Combobox</a>
-    <a href="/lunaDOM-Docs/copy-button" class="active">Copy Button</a>
+    <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
     <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
     <a href="/lunaDOM-Docs/details">Details</a>
     <a href="/lunaDOM-Docs/dialog">Dialog</a>
@@ -80,7 +80,7 @@
     <a href="/lunaDOM-Docs/progress">Progress</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
-    <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
+    <a href="/lunaDOM-Docs/radar-chart" class="active">Radar Chart</a>
     <a href="/lunaDOM-Docs/range">Range</a>
     <a href="/lunaDOM-Docs/rating">Rating</a>
     <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
@@ -137,7 +137,7 @@
     <a href="/lunaDOM-Docs/code-block">Code Block</a>
     <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
     <a href="/lunaDOM-Docs/combobox">Combobox</a>
-    <a href="/lunaDOM-Docs/copy-button" class="active">Copy Button</a>
+    <a href="/lunaDOM-Docs/copy-button">Copy Button</a>
     <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
     <a href="/lunaDOM-Docs/details">Details</a>
     <a href="/lunaDOM-Docs/dialog">Dialog</a>
@@ -157,7 +157,7 @@
     <a href="/lunaDOM-Docs/progress">Progress</a>
     <a href="/lunaDOM-Docs/qr-code">QR Code</a>
     <a href="/lunaDOM-Docs/radio">Radio</a>
-    <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
+    <a href="/lunaDOM-Docs/radar-chart" class="active">Radar Chart</a>
     <a href="/lunaDOM-Docs/range">Range</a>
     <a href="/lunaDOM-Docs/rating">Rating</a>
     <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
@@ -181,59 +181,282 @@
 
     <main class="content">
       <header class="page-header">
-        <h1>Copy Button</h1>
-        <p class="lead">Button component for copying text to clipboard.</p>
+        <h1>Radar Chart</h1>
+        <p class="lead">Lightweight radar/spider charts with multi-series support.</p>
       </header>
 
       <article>
-        <p>The <code>&lt;luna-copy-button&gt;</code> component copies text to the clipboard from a target element or direct value.</p>
+        <p>The <code>&lt;luna-radar-chart&gt;</code> component provides lightweight, dependency-free radar/spider charts with single and multi-series support.</p>
 
 <h2>Paths</h2>
-<code>/lunadom/components/copy-button/copy-button.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
-<code>/lunadom/components/tooltip/tooltip.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
+<code>/lunadom/components/radar-chart/radar-chart.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Button label text<br>
-<code>@slot icon</code> - Custom icon for the button<br>
-<code>@attr target</code> - ID of element to copy from<br>
-<code>@attr value</code> - Direct value to copy<br>
-<code>@attr variant</code> - Button variant (primary, secondary, etc.)<br>
-<code>@attr tooltip</code> - Tooltip text to show<br>
-<code>luna-copy</code> - Emitted when text is copied
+<code>@attr data</code> - JSON array of axis descriptors (required)<br>
+<code>@attr series</code> - JSON array for multi-series mode<br>
+<code>@attr title</code> - Heading displayed above chart<br>
+<code>@attr max</code> - Global maximum for normalization<br>
+<code>@attr rings</code> - Number of grid rings (default: 4)<br>
+<code>@attr no-bg</code> - Removes card background and padding<br>
+<code>@attr no-legend</code> - Hides the legend<br>
+<code>@attr no-labels</code> - Hides axis labels<br>
+<code>@attr no-title</code> - Hides the title<br>
+<code>@attr no-dots</code> - Hides data-point dots<br>
+<code>@attr filled</code> - Force fills single-series shape<br>
+<code>@attr legend-layout</code> - Legend direction (horizontal, vertical, default: "horizontal")<br>
+<code>--luna-radar-size</code> - Chart diameter (default: 220px)<br>
+<code>--luna-radar-bg</code> - Card background<br>
+<code>--luna-radar-border</code> - Card border color<br>
+<code>--luna-radar-radius</code> - Card border radius<br>
+<code>--luna-radar-fg</code> - Primary text color<br>
+<code>--luna-radar-muted</code> - Axis label color<br>
+<code>--luna-radar-grid</code> - Grid ring/spoke color<br>
+<code>--luna-radar-fill</code> - Single-series shape fill<br>
+<code>--luna-radar-stroke</code> - Single-series shape stroke<br>
+<code>--luna-radar-palette</code> - Custom color palette (comma-separated)
 
-<h2>Target Interaction</h2>
-<div style="display: flex; align-items: flex-end; gap: 0.5rem;">
-  <luna-input id="token-input" label="Access Token" value="luna_key_8x772v_production" readonly style="flex: 1;"></luna-input>
-  <luna-copy-button target="token-input" variant="primary">Copy</luna-copy-button>
-</div>
+<h2>Single Series</h2>
+<luna-radar-chart
+  title="Skills Assessment"
+  data='[
+    {"label": "JavaScript", "value": 90},
+    {"label": "CSS", "value": 85},
+    {"label": "HTML", "value": 95},
+    {"label": "React", "value": 80},
+    {"label": "Node.js", "value": 75},
+    {"label": "Design", "value": 70}
+  ]'
+></luna-radar-chart>
 
-<h2>Quick Utilities</h2>
-<luna-copy-button value="npm install @luna/core" tooltip="Copy Install Command">
-  <span slot="icon">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
-  </span>
-</luna-copy-button>
+<h2>Multi-Series Comparison</h2>
+<luna-radar-chart
+  title="Team Performance"
+  data='[
+    {"label": "Speed"},
+    {"label": "Quality"},
+    {"label": "Communication"},
+    {"label": "Innovation"},
+    {"label": "Reliability"}
+  ]'
+  series='[
+    {"label": "Team A", "color": "#2563eb", "data": [85, 90, 75, 80, 95]},
+    {"label": "Team B", "color": "#22c55e", "data": [90, 85, 95, 70, 80]},
+    {"label": "Team C", "color": "#f59e0b", "data": [75, 95, 85, 90, 85]}
+  ]'
+></luna-radar-chart>
 
-<luna-copy-button value="developer@luna.io">
-  Copy Email
-</luna-copy-button>
+<h2>Product Features</h2>
+<luna-radar-chart
+  title="Product Comparison"
+  data='[
+    {"label": "Performance"},
+    {"label": "Security"},
+    {"label": "UX"},
+    {"label": "Price"},
+    {"label": "Support"},
+    {"label": "Scalability"}
+  ]'
+  series='[
+    {"label": "Product A", "color": "#a855f7", "data": [95, 90, 85, 60, 80, 90]},
+    {"label": "Product B", "color": "#06b6d4", "data": [80, 95, 90, 75, 90, 85]}
+  ]'
+  legend-layout="vertical"
+></luna-radar-chart>
+
+<h2>Custom Grid Rings</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Fewer rings (2)</p>
+<luna-radar-chart
+  title="Simplified View"
+  rings="2"
+  data='[
+    {"label": "Feature 1", "value": 80},
+    {"label": "Feature 2", "value": 90},
+    {"label": "Feature 3", "value": 75},
+    {"label": "Feature 4", "value": 85}
+  ]'
+></luna-radar-chart>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem; margin-top: 2rem;">More rings (6)</p>
+<luna-radar-chart
+  title="Detailed Grid"
+  rings="6"
+  data='[
+    {"label": "Metric A", "value": 85},
+    {"label": "Metric B", "value": 70},
+    {"label": "Metric C", "value": 95},
+    {"label": "Metric D", "value": 60}
+  ]'
+></luna-radar-chart>
+
+<h2>Custom Theme</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Purple Theme</p>
+<luna-radar-chart
+  title="Custom Colors"
+  data='[
+    {"label": "Creativity", "value": 90},
+    {"label": "Technical", "value": 85},
+    {"label": "Strategy", "value": 80},
+    {"label": "Leadership", "value": 75},
+    {"label": "Execution", "value": 95}
+  ]'
+  style="
+    --luna-radar-bg: #14001a;
+    --luna-radar-border: #2a1a33;
+    --luna-radar-fg: #e9d5ff;
+    --luna-radar-muted: #7c3aed;
+    --luna-radar-grid: #3a1a47;
+    --luna-radar-stroke: #a855f7;
+    --luna-radar-fill: rgba(168, 85, 247, 0.2);
+    --luna-radar-size: 240px;
+  "
+></luna-radar-chart>
+
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem; margin-top: 2rem;">Green Theme</p>
+<luna-radar-chart
+  title="Performance Metrics"
+  data='[
+    {"label": "Uptime", "value": 99},
+    {"label": "Response Time", "value": 95},
+    {"label": "Throughput", "value": 90},
+    {"label": "Error Rate", "value": 98}
+  ]'
+  style="
+    --luna-radar-bg: #0a1a0f;
+    --luna-radar-border: #1a3322;
+    --luna-radar-fg: #d1fae5;
+    --luna-radar-muted: #10b981;
+    --luna-radar-grid: #1f4433;
+    --luna-radar-stroke: #22c55e;
+    --luna-radar-fill: rgba(34, 197, 94, 0.2);
+  "
+></luna-radar-chart>
+
+<h2>No Background</h2>
+<luna-radar-chart
+  title="Clean Chart"
+  no-bg
+  data='[
+    {"label": "Q1", "value": 85},
+    {"label": "Q2", "value": 92},
+    {"label": "Q3", "value": 88},
+    {"label": "Q4", "value": 95}
+  ]'
+></luna-radar-chart>
+
+<h2>Without Labels or Dots</h2>
+<luna-radar-chart
+  title="Minimal Style"
+  no-labels
+  no-dots
+  data='[
+    {"label": "A", "value": 70},
+    {"label": "B", "value": 85},
+    {"label": "C", "value": 90},
+    {"label": "D", "value": 75},
+    {"label": "E", "value": 80}
+  ]'
+></luna-radar-chart>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Target Input Field --&gt;
-&lt;luna-input id="token-input" value="secret-key" readonly&gt;&lt;/luna-input&gt;
-&lt;luna-copy-button target="token-input"&gt;Copy&lt;/luna-copy-button&gt;
+<luna-code language="html">
+&lt;!-- Single series --&gt;
+&lt;luna-radar-chart
+  title="Skills Assessment"
+  data='[
+    {"label": "JavaScript", "value": 90},
+    {"label": "CSS", "value": 85},
+    {"label": "HTML", "value": 95}
+  ]'
+&gt;&lt;/luna-radar-chart&gt;
 
-&lt;!-- With Value --&gt;
-&lt;luna-copy-button value="npm install @luna/core"&gt;
-  Copy Install Command
-&lt;/luna-copy-button&gt;
+&lt;!-- Multi-series comparison --&gt;
+&lt;luna-radar-chart
+  title="Team Performance"
+  data='[
+    {"label": "Speed"},
+    {"label": "Quality"},
+    {"label": "Communication"}
+  ]'
+  series='[
+    {"label": "Team A", "color": "#2563eb", "data": [85, 90, 75]},
+    {"label": "Team B", "color": "#22c55e", "data": [90, 85, 95]}
+  ]'
+&gt;&lt;/luna-radar-chart&gt;
 
-&lt;!-- Icon Only --&gt;
-&lt;luna-copy-button value="text" tooltip="Copy"&gt;
-  &lt;span slot="icon"&gt;📋&lt;/span&gt;
-&lt;/luna-copy-button&gt;
-  </luna-code>
+&lt;!-- Vertical legend --&gt;
+&lt;luna-radar-chart
+  title="Comparison"
+  legend-layout="vertical"
+  data='[...]'
+  series='[...]'
+&gt;&lt;/luna-radar-chart&gt;
+
+&lt;!-- Custom grid rings --&gt;
+&lt;luna-radar-chart
+  rings="6"
+  data='[...]'
+&gt;&lt;/luna-radar-chart&gt;
+
+&lt;!-- Custom theme --&gt;
+&lt;luna-radar-chart
+  title="Custom"
+  data='[...]'
+  style="
+    --luna-radar-bg: #0a1a0f;
+    --luna-radar-stroke: #22c55e;
+    --luna-radar-fill: rgba(34, 197, 94, 0.2);
+    --luna-radar-size: 240px;
+  "
+&gt;&lt;/luna-radar-chart&gt;
+
+&lt;!-- No background --&gt;
+&lt;luna-radar-chart
+  no-bg
+  data='[...]'
+&gt;&lt;/luna-radar-chart&gt;
+
+&lt;!-- Minimal (no labels or dots) --&gt;
+&lt;luna-radar-chart
+  no-labels
+  no-dots
+  data='[...]'
+&gt;&lt;/luna-radar-chart&gt;
+
+&lt;!-- Dynamic data with JavaScript --&gt;
+&lt;luna-radar-chart id="chart"&gt;&lt;/luna-radar-chart&gt;
+
+&lt;script&gt;
+  const chart = document.getElementById('chart');
+  
+  // Set single-series data
+  chart.data = [
+    {label: 'Skill 1', value: 80},
+    {label: 'Skill 2', value: 90},
+    {label: 'Skill 3', value: 75}
+  ];
+  
+  // Set multi-series data
+  chart.data = [
+    {label: 'Metric 1'},
+    {label: 'Metric 2'},
+    {label: 'Metric 3'}
+  ];
+  
+  chart.series = [
+    {label: 'Series A', color: '#2563eb', data: [80, 90, 75]},
+    {label: 'Series B', color: '#22c55e', data: [85, 85, 80]}
+  ];
+  
+  // Listen to events
+  chart.addEventListener('luna-point-enter', (e) =&gt; {
+    console.log('Point:', e.detail.axisLabel, e.detail.value);
+  });
+  
+  chart.addEventListener('luna-point-leave', () =&gt; {
+    console.log('Hover ended');
+  });
+&lt;/script&gt;
+</luna-code>
       </article>
     </main>
 
