@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/input/input.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -193,22 +194,54 @@
 <h2>Paths</h2>
 <code>/lunadom/components/input/input.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot prefix</code> - Content before the input<br>
-<code>@slot suffix</code> - Content after the input<br>
-<code>@attr label</code> - Label text<br>
-<code>@attr placeholder</code> - Placeholder text<br>
-<code>@attr value</code> - Input value<br>
-<code>@attr type</code> - Input type (text, password, email, number, date, etc.)<br>
-<code>@attr variant</code> - Style variant (default, filled)<br>
-<code>@attr size</code> - Size (sm, md, lg)<br>
-<code>@attr clearable</code> - Show clear button<br>
-<code>@attr toggle</code> - Show password toggle (for password type)<br>
-<code>@attr disabled</code> - Disable the input<br>
-<code>@attr readonly</code> - Make the input read-only<br>
-<code>@attr help-text</code> - Help text below the input<br>
-<code>--luna-input-bg</code> - Input background color<br>
-<code>--luna-input-border</code> - Input border color
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>prefix</code> - Content to display before the input text (e.g., an icon or prefix text)<br>
+  <code>suffix</code> - Content to display after the input text (and after action buttons)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>type</code> - The type of input (text, password, email, etc.)<br>
+  <code>placeholder</code> - The placeholder text<br>
+  <code>value</code> - The current value of the input<br>
+  <code>size</code> - The size of the input (sm, md, lg)<br>
+  <code>variant</code> - The visual variant of the input (outline, filled)<br>
+  <code>clearable</code> - If present, shows a clear button when the input has a value<br>
+  <code>toggle</code> - If present and type is 'password', shows a button to toggle password visibility<br>
+  <code>readonly</code> - Whether the input is read-only<br>
+  <code>disabled</code> - Whether the input is disabled<br>
+  <code>label</code> - Label text to display above the input<br>
+  <code>help-text</code> - Help text to display below the input<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-input-bg</code> - Background color of the input wrapper<br>
+  <code>--luna-input-border</code> - Border color of the input wrapper<br>
+  <code>--luna-input-color</code> - Text color of the input<br>
+  <code>--luna-input-focus</code> - Border color when focused<br>
+  <code>--luna-input-focus-alpha</code> - Shadow color when focused (alpha)<br>
+  <code>--luna-input-radius</code> - Border radius of the input wrapper<br>
+  <code>--luna-input-padding</code> - Internal padding of the input field<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>input</code> - Emitted when the input value changes<br>
+  <code>luna-clear</code> - Emitted when the input is cleared via the clear button<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Properties</span>
+  <br>
+  <code>value</code> - The current value of the input<br>
+</luna-details>
 
 <h2>Standard & Variants</h2>
 <luna-input label="Standard Outline" placeholder="Enter text..."></luna-input>

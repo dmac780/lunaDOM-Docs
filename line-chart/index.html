@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/line-chart/line-chart.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -193,30 +194,55 @@
 <h2>Paths</h2>
 <code>/lunadom/components/line-chart/line-chart.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@attr data</code> - JSON array of data points (required)<br>
-<code>@attr height</code> - Chart SVG height in pixels (default: 240)<br>
-<code>@attr x-label</code> - Label below x-axis<br>
-<code>@attr y-label</code> - Label along y-axis<br>
-<code>@attr min</code> - Force y-axis minimum value<br>
-<code>@attr max</code> - Force y-axis maximum value<br>
-<code>@attr goal</code> - Draw horizontal reference/goal line<br>
-<code>@attr goal-label</code> - Label for goal line (default: "Goal")<br>
-<code>@attr area</code> - Fill area under lines<br>
-<code>@attr smooth</code> - Render as smooth curves<br>
-<code>@attr dots</code> - Show data-point dots<br>
-<code>@attr legend</code> - Show series legend (multi-series)<br>
-<code>@attr no-grid</code> - Hide horizontal grid lines<br>
-<code>@attr animate</code> - Animate on render (default: true)<br>
-<code>@attr precision</code> - Decimal places for labels<br>
-<code>--luna-line-bg</code> - Background color<br>
-<code>--luna-line-grid-color</code> - Grid line color<br>
-<code>--luna-line-axis-color</code> - Axis line color<br>
-<code>--luna-line-text-color</code> - Text/label color<br>
-<code>--luna-line-color</code> - Primary series stroke<br>
-<code>--luna-line-stroke-width</code> - Line width<br>
-<code>--luna-line-area-opacity</code> - Area fill opacity<br>
-<code>--luna-line-series-colors</code> - Custom palette (comma-separated)
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>data</code> - JSON array of data points (required)<br>
+  <code>height</code> - Chart SVG height in pixels (default: 240)<br>
+  <code>x-label</code> - Label below x-axis<br>
+  <code>y-label</code> - Label along y-axis<br>
+  <code>min</code> - Force y-axis minimum value<br>
+  <code>max</code> - Force y-axis maximum value<br>
+  <code>goal</code> - Draw horizontal reference/goal line<br>
+  <code>goal-label</code> - Label for goal line (default: "Goal")<br>
+  <code>area</code> - Fill area under lines<br>
+  <code>smooth</code> - Render as smooth curves<br>
+  <code>dots</code> - Show data-point dots<br>
+  <code>legend</code> - Show series legend (multi-series)<br>
+  <code>no-grid</code> - Hide horizontal grid lines<br>
+  <code>animate</code> - Animate on render (default: true)<br>
+  <code>precision</code> - Decimal places for labels<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-line-bg</code> - Component background (default: transparent)<br>
+  <code>--luna-line-grid-color</code> - Horizontal grid line colour (default: rgba(255,255,255,.05))<br>
+  <code>--luna-line-axis-color</code> - Axis line colour (default: rgba(255,255,255,.1))<br>
+  <code>--luna-line-text-color</code> - Tick and axis label colour (default: #666)<br>
+  <code>--luna-line-color</code> - Primary series stroke colour (default: #2563eb)<br>
+  <code>--luna-line-area-opacity</code> - Area fill opacity (default: 0.12)<br>
+  <code>--luna-line-stroke-width</code> - Line stroke width in px (default: 2)<br>
+  <code>--luna-line-dot-r</code> - Dot radius in SVG units (default: 3)<br>
+  <code>--luna-line-dot-border</code> - Dot border/stroke colour (default: var(--luna-line-bg, #0a0a0a))<br>
+  <code>--luna-line-series-colors</code> - Comma-separated colour list for multi-series lines. Overrides the built-in palette.<br>
+  <code>--luna-line-goal-color</code> - Reference line colour (default: #f59e0b)<br>
+  <code>--luna-line-goal-dash</code> - SVG stroke-dasharray for the goal line (default: 5,4)<br>
+  <code>--luna-line-tooltip-bg</code> - Tooltip background (default: #1e1e1e)<br>
+  <code>--luna-line-tooltip-fg</code> - Tooltip text colour (default: #eee)<br>
+  <code>--luna-line-tooltip-border</code> - Tooltip border colour (default: #333)<br>
+  <code>--luna-line-legend-gap</code> - Gap between legend items (default: 1rem)<br>
+  <code>--luna-line-cursor-color</code> - Vertical crosshair line colour (default: rgba(255,255,255,.1))<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-line-hover</code> - Fired on data-point hover<br>
+  <code>luna-line-click</code> - Fired on data-point click<br>
+</luna-details>
 
 <h2>Single Series</h2>
 <luna-line-chart

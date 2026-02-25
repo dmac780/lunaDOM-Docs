@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/format-byte/format-byte.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -193,11 +194,16 @@
 <h2>Paths</h2>
 <code>/lunadom/components/format-byte/format-byte.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@attr value</code> - Raw number of bytes to format (required)<br>
-<code>@attr unit</code> - Unit system (decimal, binary, default: "decimal")<br>
-<code>@attr display</code> - Unit label style (long, short, narrow, default: "short")<br>
-<code>@attr max-fraction-digits</code> - Maximum decimal places (default: 2)
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>value</code> - Raw number of bytes to format (required)<br>
+  <code>unit</code> - Unit system (decimal, binary, default: "decimal")<br>
+  <code>display</code> - Unit label style (long, short, narrow, default: "short")<br>
+  <code>max-fraction-digits</code> - Maximum decimal places (default: 2)<br>
+</luna-details>
+
 
 <h2>Basic Usage</h2>
 <p>File size: <luna-format-byte value="1500000"></luna-format-byte></p>

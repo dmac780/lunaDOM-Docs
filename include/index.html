@@ -16,6 +16,7 @@
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/include/include.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -194,11 +195,53 @@
 <h2>Paths</h2>
 <code>/lunadom/components/include/include.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot loading</code> - Custom loading state content<br>
-<code>@attr src</code> - URL of the HTML fragment to load<br>
-<code>@method reload()</code> - Force reload the content<br>
-<code>luna-load</code> - Emitted when content is loaded
+<!-- * @slot - Default slot for content that will be displayed after loading.
+ * @slot loading - Custom content to display while the remote resource is being fetched.
+ * 
+ * Attributes:
+ * @attr {string} src - The URL of the HTML file to include.
+ * 
+ * CSS Custom Properties:
+ * @cssprop --luna-accent - Color of the default loading spinner.
+ * 
+ * Events:
+ * @event luna-load-start - Emitted when a load operation begins.
+ * @event luna-load - Emitted when the content has successfully loaded.
+ * @event luna-error - Emitted when the content fails to load.
+ */-->
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Default slot for content that will be displayed after loading<br>
+  <code>loading</code> - Custom content to display while the remote resource is being fetched<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>src</code> - The URL of the HTML file to include<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-accent</code> - Color of the default loading spinner<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-load-start</code> - Emitted when a load operation begins<br>
+  <code>luna-load</code> - Emitted when the content has successfully loaded<br>
+  <code>luna-error</code> - Emitted when the content fails to load<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Methods</span>
+  <br>
+  <code>reload()</code> - Force reload the content<br>
+</luna-details>
 
 <h2>Example</h2>
 <div style="background: #1a1a1a; padding: 2rem; border-radius: 1rem; border: 1px solid #333;">

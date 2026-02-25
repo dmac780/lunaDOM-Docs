@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/image-comparer/image-comparer.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -193,12 +194,30 @@
 <h2>Paths</h2>
 <code>/lunadom/components/image-comparer/image-comparer.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot before</code> - Before image element<br>
-<code>@slot after</code> - After image element<br>
-<code>@attr vertical</code> - Use vertical slider instead of horizontal<br>
-<code>--luna-compare-line-color</code> - Slider line color<br>
-<code>--luna-radius</code> - Border radius of the container
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>before</code> - Before image element<br>
+  <code>after</code> - After image element<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>vertical</code> - Use vertical slider instead of horizontal<br>
+  <code>position</code> - Initial percentage position of the slider (0 to 100)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-compare-handle-bg</code> - Background color of the slider knob<br>
+  <code>--luna-compare-handle-color</code> - Icon color inside the slider knob<br>
+  <code>--luna-compare-line-color</code> - Color of the divider line<br>
+  <code>--luna-compare-size</code> - Diameter of the slider knob<br>
+  <code>--luna-radius</code> - Border radius applied to the entire component<br>
+</luna-details>
 
 <h2>Horizontal (Default)</h2>
 <luna-image-comparer style="width: 100%; --luna-radius: 1rem;">
