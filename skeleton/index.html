@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/skeleton/skeleton.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -198,10 +199,23 @@
 <code>/lunadom/components/skeleton/skeleton.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
 <h2>Overrides</h2>
-<code>@attr variant</code> - Skeleton shape (text, avatar, rect)<br>
-<code>@attr effect</code> - Animation effect (sheen, pulse)<br>
-<code>--luna-skeleton-radius</code> - Border radius<br>
-<code>--luna-skeleton-clip-path</code> - Custom clip path for shapes
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>variant</code> - Skeleton shape (text, avatar, rect)<br>
+  <code>effect</code> - Animation effect (sheen, pulse)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-skeleton-bg</code> - The background color of the skeleton.<br>
+  <code>--luna-skeleton-accent</code> - The color of the animation effect (sheen).<br>
+  <code>--luna-skeleton-speed</code> - The duration of the animation cycle.<br>
+  <code>--luna-skeleton-radius</code> - The border radius of the skeleton.<br>
+  <code>--luna-skeleton-clip-path</code> - An optional clip-path to apply to the skeleton.<br>
+</luna-details>
+
 
 <h2>Sheen Effect (Card Example)</h2>
 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">

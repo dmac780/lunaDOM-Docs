@@ -16,6 +16,7 @@
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/range/range.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/tooltip/tooltip.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -200,26 +201,44 @@
 <code>/lunadom/components/tooltip/tooltip.js</code>
 
 <h2>Overrides</h2>
-<code>@attr min="0"</code> - Minimum value<br>
-<code>@attr max="100"</code> - Maximum value<br>
-<code>@attr step="1"</code> - Increment step<br>
-<code>@attr value="0"</code> - Current value<br>
-<code>@attr disabled</code> - Disables the input<br>
-<code>@attr label</code> - Label displayed above slider<br>
-<code>@attr help-text</code> - Help text displayed below slider<br>
-<code>@attr tooltip-placement</code> - Tooltip position (top, bottom)<br>
-<code>@attr no-tooltip</code> - Hides the value tooltip<br>
-<code>@attr no-glow</code> - Disables progress fill glow<br>
-<code>--luna-range-track</code> - Track background color<br>
-<code>--luna-range-track-border</code> - Track border color<br>
-<code>--luna-range-track-height</code> - Track height<br>
-<code>--luna-range-track-active</code> - Filled progress color<br>
-<code>--luna-range-glow-color</code> - Glow/shadow color<br>
-<code>--luna-range-thumb-bg</code> - Thumb background color<br>
-<code>--luna-range-thumb-size</code> - Thumb diameter<br>
-<code>--luna-range-thumb-ring</code> - Thumb focus ring color<br>
-<code>--luna-range-label-color</code> - Label text color<br>
-<code>--luna-range-helptext-color</code> - Help text color
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>min</code> - Minimum value (default: 0)<br>
+  <code>max</code> - Maximum value (default: 100)<br>
+  <code>step</code> - Increment step (default: 1)<br>
+  <code>value</code> - Current value (default: 0)<br>
+  <code>disabled</code> - Disables the input<br>
+  <code>label</code> - Label displayed above the slider<br>
+  <code>help-text</code> - Help text displayed below the slider<br>
+  <code>tooltip-placement</code> - Tooltip position (top, bottom)<br>
+  <code>no-tooltip</code> - Hides the value tooltip<br>
+  <code>no-glow</code> - Disables progress fill glow<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-range-track</code> - Track background colour (default: #1a1a1a)<br>
+  <code>--luna-range-track-border</code> - Track border colour (default: #333)<br>
+  <code>--luna-range-track-height</code> - Track height (default: 4px)<br>
+  <code>--luna-range-track-active</code> - Filled progress colour (default: var(--luna-accent, #2563eb))<br>
+  <code>--luna-range-glow-color</code> - Glow / shadow colour for the progress fill. (default: a 40%-alpha version of --luna-range-track-active)<br>
+  <code>--luna-range-thumb-bg</code> - Thumb background colour (default: #fff)<br>
+  <code>--luna-range-thumb-size</code> - Thumb diameter (default: 18px)<br>
+  <code>--luna-range-thumb-ring</code> - Colour of the thumb focus ring (default: rgba(0,0,0,.3))<br>
+  <code>--luna-range-label-color</code> - Label text colour (default: #ccc)<br>
+  <code>--luna-range-label-size</code> - Label font size (default: 0.875rem)<br>
+  <code>--luna-range-helptext-color</code> - Help text colour (default: #666)<br>
+  <code>--luna-range-helptext-size</code> - Help text font size (default: 0.75rem)<br>
+</luna-details> 
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-input</code> - Emitted continuously while dragging<br>
+  <code>luna-change</code> - Emitted when the value is committed<br>
+</luna-details>
 
 <h2>Basic Usage</h2>
 <luna-range 

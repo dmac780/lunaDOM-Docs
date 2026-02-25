@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/spinner/spinner.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -197,12 +198,26 @@
 <h2>Paths</h2>
 <code>/lunadom/components/spinner/spinner.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@attr size</code> - Size in pixels (default: 32)<br>
-<code>@attr color</code> - Spinner color<br>
-<code>@attr track-color</code> - Track background color<br>
-<code>@attr track-width</code> - Track stroke width<br>
-<code>@attr speed</code> - Rotation speed multiplier
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>size</code> - The diameter of the spinner in pixels. Defaults to 24.<br>
+  <code>track-width</code> - The thickness of the spinner stroke in pixels. Defaults to 2.<br>
+  <code>color</code> - The color of the spinning arc. Overrides --luna-spinner-color.<br>
+  <code>track-color</code> - The color of the stationary track. Overrides --luna-spinner-track-color.<br>
+  <code>speed</code> - The duration of one rotation in seconds. Defaults to 1.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-spinner-track-width</code> - The thickness of the spinner stroke.<br>
+  <code>--luna-spinner-color</code> - The color of the spinning arc.<br>
+  <code>--luna-spinner-track-color</code> - The color of the stationary track.<br>
+  <code>--luna-spinner-speed</code> - The rotation speed.<br>
+</luna-details>
+
 
 <h2>Sizes</h2>
 <div style="display: flex; align-items: center; gap: 1rem;">

@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/switch/switch.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -198,13 +199,41 @@
 <code>/lunadom/components/switch/switch.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@slot default</code> - Label content<br>
-<code>@attr checked</code> - Whether the switch is on<br>
-<code>@attr disabled</code> - Disable the switch<br>
-<code>@attr size</code> - Size (sm, md, lg)<br>
-<code>@attr help</code> - Help text below the switch<br>
-<code>--luna-switch-bg-checked</code> - Background when checked<br>
-<code>--luna-switch-focus</code> - Focus ring color
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>default</code> - Label content<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>checked</code> - Whether the switch is in the 'on' state.<br>
+  <code>disabled</code> - Whether the switch is disabled.<br>
+  <code>size</code> - The size of the switch. Defaults to 'md'.<br>
+  <code>help</code> - Supplemental help text to display below the label.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>  
+  <code>--luna-switch-width</code> - The width of the switch track.<br>
+  <code>--luna-switch-height</code> - The height of the switch track.<br>
+  <code>--luna-switch-thumb</code> - The diameter of the switch thumb.<br>
+  <code>--luna-switch-bg</code> - The background color of the track when unchecked.<br>
+  <code>--luna-switch-bg-checked</code> - The background color of the track when checked.<br>
+  <code>--luna-switch-thumb-bg</code> - The background color of the thumb.<br>
+  <code>--luna-switch-focus</code> - The color of the focus ring.<br>
+  <code>--luna-switch-muted</code> - The color of the help text.<br>
+  <code>--luna-switch-padding</code> - The distance between the thumb and track edge.<br>
+  <code>--luna-color</code> - The color of the primary label.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-change</code> - Emitted when the switch state changes.<br>
+</luna-details>
 
 <h2>Basic States</h2>
 <luna-switch checked>Notifications On</luna-switch>

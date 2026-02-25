@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/radar-chart/radar-chart.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -196,30 +197,110 @@
 
 <h2>Paths</h2>
 <code>/lunadom/components/radar-chart/radar-chart.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
-
+<!-- * @attr {string} data
+ *   JSON array of axis descriptors.
+ *   Single-series shape:  { label: string, value: number }
+ *   Multi-series shape:   { label: string }
+ *   An optional per-axis 'max' field is supported to normalise axes independently.
+ *
+ * @attr {string} series
+ *   JSON array of series objects for multi-series mode.
+ *   Shape: { label: string, color: string, data: number[] }
+ *   The 'data' array must match the length of the 'data' attribute array.
+ *
+ * @attr {string} title
+ *   Optional heading displayed above the chart.
+ *
+ * @attr {number} max
+ *   Global maximum used for normalisation. Defaults to the largest value found
+ *   across all data/series. Individual axis 'max' overrides this per-axis.
+ *
+ * @attr {number} rings
+ *   Number of concentric grid rings to draw. Defaults to 4.
+ *
+ * @attr {boolean} no-bg
+ *   Removes the card background, border and padding.
+ *
+ * @attr {boolean} no-legend
+ *   Hides the legend. Legend is only rendered in multi-series mode by default.
+ *
+ * @attr {boolean} no-labels
+ *   Hides the axis labels around the perimeter.
+ *
+ * @attr {boolean} no-title
+ *   Hides the title even when the `title` attribute is present.
+ *
+ * @attr {boolean} no-dots
+ *   Hides the data-point dots on each shape vertex.
+ *
+ * @attr {boolean} filled
+ *   Force-fills the single-series shape even if a stroke-only look is wanted.
+ *   Multi-series shapes are always filled at reduced opacity.
+ *
+ * @attr {'horizontal'|'vertical'} legend-layout
+ *   Legend flex direction. Defaults to 'horizontal'.
+ *
+ * CSS Custom Properties:
+ * @cssprop --luna-radar-size         - Width and height of the SVG canvas (default: 220px)
+ * @cssprop --luna-radar-bg           - Card background colour (default: #1a1a1a)
+ * @cssprop --luna-radar-border       - Card border colour (default: #222)
+ * @cssprop --luna-radar-radius       - Card border radius (default: 1rem)
+ * @cssprop --luna-radar-padding      - Card inner padding (default: 1.25rem)
+ * @cssprop --luna-radar-gap          - Gap between chart sections (default: 1rem)
+ * @cssprop --luna-radar-fg           - Primary text / title colour (default: #eee)
+ * @cssprop --luna-radar-muted        - Axis label and secondary text colour (default: #555)
+ * @cssprop --luna-radar-grid         - Grid ring and spoke colour (default: #2a2a2a)
+ * @cssprop --luna-radar-fill         - Single-series shape fill (default: rgba(37,99,235,0.15))
+ * @cssprop --luna-radar-stroke       - Single-series shape stroke and dot colour (default: #2563eb)
+ * @cssprop --luna-radar-stroke-width - Shape stroke width (default: 1.5)
+ * @cssprop --luna-radar-dot-r        - Resting dot radius in SVG units (default: 3)
+ * @cssprop --luna-radar-tooltip-bg   - Tooltip background (default: #1e1e1e)
+ * @cssprop --luna-radar-tooltip-fg   - Tooltip text colour (default: #eee)
+ * @cssprop --luna-radar-palette      - Comma-separated colour list for multi-series fallback.
+ *
+ * Events:
+ * @event luna-point-enter - Fired when a data-point is hovered.
+ *   detail: { seriesIndex, seriesLabel, axisIndex, axisLabel, value, percent }
+ * @event luna-point-leave - Fired when hover leaves a data-point.-->
 <h2>Overrides</h2>
-<code>@attr data</code> - JSON array of axis descriptors (required)<br>
-<code>@attr series</code> - JSON array for multi-series mode<br>
-<code>@attr title</code> - Heading displayed above chart<br>
-<code>@attr max</code> - Global maximum for normalization<br>
-<code>@attr rings</code> - Number of grid rings (default: 4)<br>
-<code>@attr no-bg</code> - Removes card background and padding<br>
-<code>@attr no-legend</code> - Hides the legend<br>
-<code>@attr no-labels</code> - Hides axis labels<br>
-<code>@attr no-title</code> - Hides the title<br>
-<code>@attr no-dots</code> - Hides data-point dots<br>
-<code>@attr filled</code> - Force fills single-series shape<br>
-<code>@attr legend-layout</code> - Legend direction (horizontal, vertical, default: "horizontal")<br>
-<code>--luna-radar-size</code> - Chart diameter (default: 220px)<br>
-<code>--luna-radar-bg</code> - Card background<br>
-<code>--luna-radar-border</code> - Card border color<br>
-<code>--luna-radar-radius</code> - Card border radius<br>
-<code>--luna-radar-fg</code> - Primary text color<br>
-<code>--luna-radar-muted</code> - Axis label color<br>
-<code>--luna-radar-grid</code> - Grid ring/spoke color<br>
-<code>--luna-radar-fill</code> - Single-series shape fill<br>
-<code>--luna-radar-stroke</code> - Single-series shape stroke<br>
-<code>--luna-radar-palette</code> - Custom color palette (comma-separated)
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>data</code> - JSON array of axis descriptors (required)<br>
+  <code>series</code> - JSON array for multi-series mode<br>
+  <code>title</code> - Heading displayed above chart<br>
+  <code>max</code> - Global maximum for normalization<br>
+  <code>rings</code> - Number of grid rings (default: 4)<br>
+  <code>no-bg</code> - Removes card background and padding<br>
+  <code>no-legend</code> - Hides the legend<br>
+  <code>no-labels</code> - Hides axis labels<br>
+  <code>no-title</code> - Hides the title<br>
+  <code>no-dots</code> - Hides data-point dots<br>
+  <code>filled</code> - Force fills single-series shape<br>
+  <code>legend-layout</code> - Legend direction (horizontal, vertical, default: "horizontal")<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-radar-size</code> - Width and height of the SVG canvas (default: 220px)<br>
+  <code>--luna-radar-bg</code> - Card background color<br>
+  <code>--luna-radar-border</code> - Card border color<br>
+  <code>--luna-radar-radius</code> - Card border radius<br>
+  <code>--luna-radar-fg</code> - Primary text color<br>
+  <code>--luna-radar-muted</code> - Axis label color<br>
+  <code>--luna-radar-grid</code> - Grid ring/spoke color<br>
+  <code>--luna-radar-fill</code> - Single-series shape fill<br>
+  <code>--luna-radar-stroke</code> - Single-series shape stroke<br>
+  <code>--luna-radar-palette</code> - Custom color palette (comma-separated)<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-point-enter</code> - Fired when a data-point is hovered<br>
+  <code>luna-point-leave</code> - Fired when hover leaves a data-point<br>
+</luna-details>
 
 <h2>Single Series</h2>
 <luna-radar-chart

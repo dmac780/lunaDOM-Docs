@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/sparkline/sparkline.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -198,17 +199,39 @@
 <code>/lunadom/components/sparkline/sparkline.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
 <h2>Overrides</h2>
-<code>@attr data</code> - Space-separated numeric values<br>
-<code>@attr label</code> - Accessible label for screen readers<br>
-<code>@attr appearance</code> - Visual style (solid, gradient, line)<br>
-<code>@attr trend</code> - Color trend (positive, neutral, negative)<br>
-<code>@attr curve</code> - Curve type (linear, natural, step)<br>
-<code>@attr size</code> - Size (sm, md, lg)<br>
-<code>@attr color</code> - Custom line color<br>
-<code>@attr show-dots</code> - Show data point markers<br>
-<code>@attr show-area</code> - Show filled area<br>
-<code>@attr min</code> - Minimum scale value<br>
-<code>@attr max</code> - Maximum scale value
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>data</code> - Space-separated numeric values to visualize. Minimum 2 values required.<br>
+  <code>label</code> - Descriptive label for accessibility (not visible, announced by screen readers).<br>
+  <code>appearance</code> - How the sparkline fills. Defaults to 'solid'.<br>
+  <code>trend</code> - Color theme based on data trend. Defaults to 'neutral'.<br>
+  <code>curve</code> - How data points connect. Defaults to 'linear'.<br>
+  <code>size</code> - The size of the sparkline. Defaults to 'md'.<br>
+  <code>color</code> - Custom color for the sparkline (overrides trend colors).<br>
+  <code>show-dots</code> - If present, shows dots at each data point.<br>
+  <code>show-area</code> - If present, fills the area under the line.<br>
+  <code>min</code> - Minimum value for the Y-axis scale. If not set, uses data minimum.<br>
+  <code>max</code> - Maximum value for the Y-axis scale. If not set, uses data maximum.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-sparkline-width</code> - The width of the sparkline. Defaults to 100px.<br>
+  <code>--luna-sparkline-height</code> - The height of the sparkline. Defaults to 32px.<br>
+  <code>--luna-sparkline-color</code> - The color of the sparkline stroke and fill.<br>
+  <code>--luna-sparkline-stroke-width</code> - The width of the sparkline stroke.<br>
+  <code>--luna-sparkline-opacity</code> - The opacity of the filled area.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-sparkline-render</code> - Emitted when the sparkline is rendered.<br>
+  <code>{ data: number[], min: number, max: number }</code>
+</luna-details>
+
 
 <h2>Basic Usage</h2>
 <luna-sparkline data="5 10 8 15 12 18 20" label="Sales trend"></luna-sparkline>

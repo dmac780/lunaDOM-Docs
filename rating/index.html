@@ -16,9 +16,8 @@
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/rating/rating.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/range/range.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/badge/badge.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/tooltip/tooltip.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -202,19 +201,35 @@
 <code>/lunadom/components/rating/rating.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
 <h2>Overrides</h2>
-<code>@attr value="0"</code> - Current rating value<br>
-<code>@attr max="5"</code> - Total number of stars<br>
-<code>@attr precision="1"</code> - Step precision (e.g., 0.5 for half stars)<br>
-<code>@attr whole</code> - Snap to whole integers only (1, 2, 3...)<br>
-<code>@attr readonly</code> - Disables interaction, displays value only<br>
-<code>@attr disabled</code> - Disables interaction with reduced opacity<br>
-<code>@attr size</code> - Star size preset (sm, md, lg)<br>
-<code>@attr label</code> - Label displayed above stars<br>
-<code>--luna-star-active</code> - Fill color of active stars<br>
-<code>--luna-star-empty</code> - Fill color of empty stars<br>
-<code>--luna-star-size</code> - Override star size directly<br>
-<code>--luna-rating-label-color</code> - Label text color<br>
-<code>--luna-rating-label-size</code> - Label font size
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>value</code> - Current rating value (default: 0)<br>
+  <code>max</code> - Total number of stars (default: 5)<br>
+  <code>precision</code> - Step precision for fractional ratings (e.g. 0.5) (default: 1)<br>
+  <code>whole</code> - Snap to whole integers only (1, 2, 3...)<br>
+  <code>readonly</code> - Disables interaction, displays value only<br>
+  <code>disabled</code> - Disables interaction with reduced opacity<br>
+  <code>size</code> - Star size preset (sm, md, lg) (default: md)<br>
+  <code>label</code> - Label displayed above stars<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-star-active</code> - Fill color of active stars<br>
+  <code>--luna-star-empty</code> - Fill color of empty stars<br>
+  <code>--luna-star-size</code> - Override star size directly<br>
+  <code>--luna-rating-label-color</code> - Label text color<br>
+  <code>--luna-rating-label-size</code> - Label font size<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-change</code> - Emitted when the rating value changes.<br>
+  <code>{ value: number }</code>
+</luna-details>
 
 <h2>Basic Usage</h2>
 <luna-rating label="Rate this product" value="3" size="md"></luna-rating>

@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/relative-time/relative-time.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -198,9 +199,14 @@
 <code>/lunadom/components/relative-time/relative-time.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
 <h2>Overrides</h2>
-<code>@attr datetime</code> - ISO 8601 datetime string<br>
-<code>@attr sync</code> - Auto-update as time passes<br>
-<code>@attr format</code> - Display format (relative, absolute)
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>datetime</code> - ISO 8601 datetime string<br>
+  <code>sync</code> - Auto-update as time passes<br>
+  <code>format</code> - Display format (relative, absolute)<br>
+</luna-details>
+
 
 <h2>Basic Relative Time</h2>
 <p style="color: #888; font-size: 0.875rem;">Shows time relative to now (e.g., "2 hours ago").</p>

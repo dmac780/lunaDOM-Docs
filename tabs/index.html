@@ -17,6 +17,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/tab/tab.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/tab-group/tab-group.js"></script>
   <script type="module" src="/lunaDOM-Docs/lunadom/components/tab-panel/tab-panel.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -201,14 +202,64 @@
 <code>/lunadom/components/tab-group/tab-group.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/tab-panel/tab-panel.js</code> <luna-badge variant="success">REQUIRED</luna-badge>
 
-<h2>Overrides</h2>
-<code>@slot nav</code> - Tab buttons (<code>&lt;luna-tab&gt;</code>)<br>
-<code>@slot default</code> - Tab panels (<code>&lt;luna-tab-panel&gt;</code>)<br>
-<code>@attr placement</code> - Tab position (top, bottom, start, end)<br>
-<code>@attr panel</code> - Panel name to activate (on tab)<br>
-<code>@attr active</code> - Initially active tab<br>
-<code>@attr closable</code> - Show close button on tab<br>
-<code>@attr disabled</code> - Disable the tab
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+
+  <h3>luna-tab-group</h3>
+  <code>nav</code> - The container for luna-tab components.<br>
+
+  <h3>luna-tab</h3>
+  <code>default</code> - The label for the tab.<br>
+
+  <h3>luna-tab-panel</h3>
+  <code>default</code> - The content of the tab panel.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+
+  <h3>luna-tab-group</h3>
+  <code>placement</code> - Where to position the tab navigation relative to the panels. Defaults to 'top'.<br>
+  <code>no-scroll</code> - If present, disables the scrolling behavior of the tab navigation.<br>
+
+  <h3>luna-tab</h3>
+  <code>active</code> - Whether the tab is currently active.<br>
+  <code>disabled</code> - Whether the tab is disabled.<br>
+  <code>closable</code> - If present, shows a close button next to the tab label.<br>
+  <code>panel</code> - The ID of the luna-tab-panel associated with this tab.<br>
+
+  <h3>luna-tab-panel</h3>
+  <code>name</code> - The unique identifier for this panel, matched by the 'panel' attribute of a luna-tab.<br>
+  <code>active</code> - Whether the panel is currently visible.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+
+  <h3>luna-tab-group</h3>
+  <code>--luna-tab-group-border</code> - The color of the divider between tabs and panels.<br>
+  <code>--luna-tab-scroll-button-size</code> - The size of the navigation scroll buttons.<br>
+  <code>--luna-accent</code> - Primary accent color used for indicators.<br>
+
+  <h3>luna-tab</h3>
+  <code>--luna-tab-color</code> - The default text color of the tab.<br>
+  <code>--luna-tab-color-hover</code> - The text color when the tab is hovered.<br>
+  <code>--luna-tab-color-active</code> - The text color when the tab is active.<br>
+  <code>--luna-accent</code> - Primary accent color used for active states.<br>
+  <code>--luna-tab-border-active</code> - The border color of the active tab indicator.<br>
+  <code>--luna-tab-focus-bg</code> - Background color when the tab is focused.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+
+  <h3>luna-tab-group</h3>
+  <code>luna-tab-show</code> - Emitted when a new tab is selected.<br>
+
+  <h3>luna-tab</h3>
+  <code>luna-close</code> - Emitted when the close button is clicked.<br>
+</luna-details>
 
 <h2>Standard Top (with Closable Tabs)</h2>
 <luna-tab-group>

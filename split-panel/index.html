@@ -15,6 +15,7 @@
   <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
   
   <script type="module" src="/lunaDOM-Docs/lunadom/components/split-panel/split-panel.js"></script>
+  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -197,17 +198,44 @@
 <h2>Paths</h2>
 <code>/lunadom/components/split-panel/split-panel.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Overrides</h2>
-<code>@slot start</code> - Content for start/left/top panel<br>
-<code>@slot end</code> - Content for end/right/bottom panel<br>
-<code>@attr position</code> - Initial split position (px or %)<br>
-<code>@attr vertical</code> - Use vertical split instead of horizontal<br>
-<code>@attr primary</code> - Which panel is fixed (start, end)<br>
-<code>@attr snap</code> - Snap positions (e.g., "repeat(5, 20%)")<br>
-<code>--divider-width</code> - Divider thickness<br>
-<code>--divider-color</code> - Divider background color<br>
-<code>--handle-color</code> - Drag handle color<br>
-<code>--handle-size</code> - Drag handle size
+<h2>Customization</h2>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Slots</span>
+  <br>
+  <code>start</code> - The content of the first (top or left) panel.<br>
+  <code>end</code> - The content of the second (bottom or right) panel.<br>
+  <code>bottom</code> - Alias for the 'end' slot.<br>
+  <code>divider</code> - Optional custom content to display within the divider.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Attributes</span>
+  <br>
+  <code>position</code> - The split position (e.g., '50%', '200px'). Defaults to '50%'.<br>
+  <code>vertical</code> - If present, splits the panel vertically instead of horizontally.<br>
+  <code>primary</code> - Which panel should have a fixed size while the other expands.<br>
+  <code>snap</code> - A space-separated list of values to snap to (e.g., '50% 200px').<br>
+  <code>snap-threshold</code> - The distance in pixels at which snapping occurs. Defaults to 12.<br>
+  <code>disabled</code> - Whether resizing is disabled.<br>
+  <code>overflow</code> - The overflow style for the panels. Defaults to 'hidden'.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--divider-width</code> - The width (or height if vertical) of the divider line.<br>
+  <code>--divider-hit-area</code> - The invisible area around the divider that triggers resizing.<br>
+  <code>--divider-color</code> - The color of the divider line.<br>
+  <code>--divider-color-active</code> - The color of the divider when hovered or dragging.<br>
+  <code>--handle-size</code> - The length of the handles in the divider center.<br>
+  <code>--handle-color</code> - The color of the dots in the divider handles.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">Events</span>
+  <br>
+  <code>luna-reposition</code> - Emitted when the split position is changed via dragging.<br>
+</luna-details>
 
 <h2>Snapping (repeat(5, 20%))</h2>
 <div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem; overflow: hidden;">
