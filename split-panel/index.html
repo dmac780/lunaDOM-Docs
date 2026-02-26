@@ -32,7 +32,7 @@
     <p class="drawer-description">
       lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
     <p class="site-description">
-      <luna-badge variant="success">v0.0.20</luna-badge> 
+      <luna-badge variant="success">v0.0.21</luna-badge> 
       <a href="https://github.com/dmac780/lunaDOM" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -112,7 +112,7 @@
         <a class="site-logo" href="/lunaDOM-Docs/">lunaDOM Docs</a>
         <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
         <p class="site-description">
-          <luna-badge variant="success">v0.0.20</luna-badge>      
+          <luna-badge variant="success">v0.0.21</luna-badge>      
           <a href="https://github.com/dmac780/lunaDOM" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -200,46 +200,146 @@
 <h2>Paths</h2>
 <code>/lunadom/components/split-panel/split-panel.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Snapping (repeat(5, 20%))</h2>
-<div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem; overflow: hidden;">
-  <luna-split-panel position="50%" snap="repeat(5, 20%)">
-    <div slot="start" style="background: #111; display: grid; place-items: center; color: #888;">20% Snapping</div>
-    <div slot="end" style="background: #1a1a1a; display: grid; place-items: center; color: #888;">Drag me to snap every 20%</div>
-  </luna-split-panel>
-</div>
-
-<h2>Vertical + Primary (Start)</h2>
-<div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem;">
-  <luna-split-panel vertical position="80px" primary="start">
-    <div slot="start" style="background: #222; padding: 1rem; color: #eee;">Fixed Header (80px)</div>
-    <div slot="end" style="background: #111; padding: 1rem; color: #888; overflow: hidden;">
-      <div style="height: 1000px; background: linear-gradient(#111, #333);">Scrollable Content (overflow hidden)</div>
+<h2>Horizontal Split</h2>
+<div style="height: 300px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
+  <luna-split-panel position="50%">
+    <div slot="start" style="background: #111; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Left Panel</h3>
+      <p style="margin: 0; line-height: 1.6;">Drag the divider to resize. The left panel maintains its size while the right fills remaining space.</p>
+    </div>
+    <div slot="end" style="background: #1a1a1a; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Right Panel</h3>
+      <p style="margin: 0; line-height: 1.6;">This panel flexes to fill the available space. Try resizing the browser window.</p>
     </div>
   </luna-split-panel>
 </div>
 
-<h2>Nested Panels (Horizontal & Vertical)</h2>
-<div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem;">
-  <luna-split-panel position="150px">
-    <div slot="start" style="background: #111; display: grid; place-items: center; border-right: 1px solid #222;">Sidebar</div>
-    <div slot="end">
-      <luna-split-panel vertical position="50%">
-        <div slot="start" style="background: #222; display: grid; place-items: center; border-bottom: 1px solid #333;">Top Panel</div>
-        <div slot="bottom" style="background: #1a1a1a; display: grid; place-items: center;">Bottom Panel</div>
-      </luna-split-panel>
+<h2>Vertical Split</h2>
+<div style="height: 300px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
+  <luna-split-panel vertical position="40%">
+    <div slot="start" style="background: #111; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Top Panel</h3>
+      <p style="margin: 0; line-height: 1.6;">Drag horizontally to resize vertically stacked panels.</p>
+    </div>
+    <div slot="end" style="background: #1a1a1a; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Bottom Panel</h3>
+      <p style="margin: 0; line-height: 1.6;">Bottom panel flexes to fill remaining height.</p>
     </div>
   </luna-split-panel>
 </div>
 
-<h2>Premium Divider (Primary: End, Thicker, Dot Handle)</h2>
-<div style="height: 300px; border: 1px solid #333; border-radius: 0.5rem; overflow: hidden;">
+<h2>With Snap Points</h2>
+<div style="height: 300px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
+  <luna-split-panel position="50%" snap="25% 50% 75%" snap-threshold="40">
+    <div slot="start" style="background: #111; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Snap at 25%, 50%, 75%</h3>
+      <p style="margin: 0; line-height: 1.6;">Drag the divider near these points to feel the snap effect. Higher threshold (40px) makes it easier to snap.</p>
+    </div>
+    <div slot="end" style="background: #1a1a1a; padding: 1.5rem; color: #ccc;">
+      <p style="margin: 0; line-height: 1.6;">The divider will magnetically snap to the defined positions when you get close.</p>
+    </div>
+  </luna-split-panel>
+</div>
+
+<h2>Snap with repeat() Notation</h2>
+<div style="height: 300px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
+  <luna-split-panel position="50%" snap="repeat(5, 20%)" snap-threshold="35">
+    <div slot="start" style="background: #111; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Grid Snapping</h3>
+      <p style="margin: 0; line-height: 1.6;">repeat(5, 20%) creates snap points at 20%, 40%, 60%, 80%, 100%</p>
+    </div>
+    <div slot="end" style="background: #1a1a1a; padding: 1.5rem; color: #ccc;">
+      <p style="margin: 0; line-height: 1.6;">Useful for creating evenly-spaced layouts like column grids.</p>
+    </div>
+  </luna-split-panel>
+</div>
+
+<h2>Fixed Header with Label</h2>
+<div style="height: 300px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
+  <luna-split-panel vertical position="60px" primary="start">
+    <div slot="start" style="background: #1a1a1a; padding: 1rem 1.5rem; color: #ccc; border-bottom: 1px solid #2a2a2a; display: flex; align-items: center;">
+      <h3 style="margin: 0; font-size: 1rem; color: #fff;">Fixed Header (60px)</h3>
+    </div>
+    <div slot="end" style="background: #111; padding: 1.5rem; color: #ccc;">
+      <p style="margin: 0 0 1rem 0; line-height: 1.6;">The header maintains a fixed 60px height while this content area fills the remaining space.</p>
+      <div style="height: 800px; background: linear-gradient(180deg, #111 0%, #1a1a1a 50%, #222 100%); border-radius: 0.5rem; padding: 1rem;">
+        <p style="margin: 0; color: #666;">Scrollable content below...</p>
+      </div>
+    </div>
+  </luna-split-panel>
+</div>
+
+<h2>Primary Panel (Fixed Sidebar)</h2>
+<div style="height: 300px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
+  <luna-split-panel position="200px" primary="end">
+    <div slot="start" style="background: #111; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Liquid Panel</h3>
+      <p style="margin: 0; line-height: 1.6;">This panel expands/contracts to fill available space.</p>
+    </div>
+    <div slot="end" style="background: #1a1a1a; padding: 1.5rem; color: #ccc; border-left: 1px solid #2a2a2a;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Fixed Sidebar (200px)</h3>
+      <p style="margin: 0; line-height: 1.6;">This panel maintains 200px width while the left panel flexes.</p>
+    </div>
+  </luna-split-panel>
+</div>
+
+<h2>Custom Divider Styling</h2>
+<div style="height: 300px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
   <luna-split-panel 
-    position="200px" 
-    primary="end"
-    style="--divider-width: 8px; --divider-color: #222; --handle-color: #3b82f6; --handle-size: 32px;"
+    position="60%" 
+    style="
+      --luna-sp-divider-width: 8px;
+      --luna-sp-divider-color: #2a2a2a;
+      --luna-sp-divider-color-hover: #22c55e;
+      --luna-sp-handle-size: 40px;
+      --luna-sp-handle-color: #555;
+      --luna-sp-handle-color-hover: #22c55e;
+    "
   >
-    <div slot="start" style="background: #111; display: grid; place-items: center; color: #666;">Main liquid panel</div>
-    <div slot="end" style="background: #1a1a1a; display: grid; place-items: center; color: #eee; border-left: 1px solid #333;">Pinned Right (200px)</div>
+    <div slot="start" style="background: #111; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Thick Green Divider</h3>
+      <p style="margin: 0; line-height: 1.6;">Custom 8px wide divider with green hover color and larger grip handle.</p>
+    </div>
+    <div slot="end" style="background: #1a1a1a; padding: 1.5rem; color: #ccc;">
+      <p style="margin: 0; line-height: 1.6;">Hover over the divider to see the custom green highlight.</p>
+    </div>
+  </luna-split-panel>
+</div>
+
+<h2>Scrollable Content</h2>
+<div style="height: 300px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
+  <luna-split-panel position="50%">
+    <div slot="start" style="background: #111; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Scrollable Left</h3>
+      <p style="margin: 0 0 1rem 0; line-height: 1.6;">Each panel has automatic scrolling when content overflows. The scrollbars are hidden but you can still scroll with mouse wheel or touch.</p>
+      <div style="height: 600px; background: linear-gradient(180deg, #111 0%, #1a1a1a 50%, #222 100%); border-radius: 0.5rem; padding: 1rem; margin-top: 1rem;">
+        <p style="margin: 0; color: #666;">Tall content area that triggers scrolling...</p>
+      </div>
+    </div>
+    <div slot="end" style="background: #1a1a1a; padding: 1.5rem; color: #ccc;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 0.875rem; color: #888;">Scrollable Right</h3>
+      <p style="margin: 0 0 1rem 0; line-height: 1.6;">This panel also scrolls independently. Try scrolling each side separately.</p>
+      <div style="height: 800px; background: linear-gradient(180deg, #1a1a1a 0%, #222 50%, #2a2a2a 100%); border-radius: 0.5rem; padding: 1rem; margin-top: 1rem;">
+        <p style="margin: 0; color: #666;">Even taller content to demonstrate independent scrolling...</p>
+      </div>
+    </div>
+  </luna-split-panel>
+</div>
+
+<h2>Nested Split Panels</h2>
+<div style="height: 350px; border: 1px solid #2a2a2a; border-radius: 0.75rem; overflow: hidden;">
+  <luna-split-panel position="200px" primary="start">
+    <div slot="start" style="background: #0f0f0f; padding: 1.5rem; display: flex; align-items: center; justify-content: center; border-right: 1px solid #2a2a2a;">
+      <p style="color: #888; margin: 0;">Sidebar</p>
+    </div>
+    <luna-split-panel slot="end" vertical position="50%">
+      <div slot="start" style="background: #111; padding: 1.5rem; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #2a2a2a;">
+        <p style="color: #ccc; margin: 0;">Top Content Area</p>
+      </div>
+      <div slot="end" style="background: #1a1a1a; padding: 1.5rem; display: flex; align-items: center; justify-content: center;">
+        <p style="color: #ccc; margin: 0;">Bottom Content Area</p>
+      </div>
+    </luna-split-panel>
   </luna-split-panel>
 </div>
 
@@ -247,79 +347,122 @@
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
   <br>
-  <code>start</code> - The content of the first (top or left) panel.<br>
-  <code>end</code> - The content of the second (bottom or right) panel.<br>
-  <code>bottom</code> - Alias for the 'end' slot.<br>
-  <code>divider</code> - Optional custom content to display within the divider.<br>
+  <code>start</code> - Content for the first (left or top) panel.<br>
+  <code>end</code> - Content for the second (right or bottom) panel.<br>
+  <code>divider</code> - Optional custom content rendered inside the divider bar.<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Attributes</span>
   <br>
-  <code>position</code> - The split position (e.g., '50%', '200px'). Defaults to '50%'.<br>
-  <code>vertical</code> - If present, splits the panel vertically instead of horizontally.<br>
-  <code>primary</code> - Which panel should have a fixed size while the other expands.<br>
-  <code>snap</code> - A space-separated list of values to snap to (e.g., '50% 200px').<br>
-  <code>snap-threshold</code> - The distance in pixels at which snapping occurs. Defaults to 12.<br>
-  <code>disabled</code> - Whether resizing is disabled.<br>
-  <code>overflow</code> - The overflow style for the panels. Defaults to 'hidden'.<br>
+  <code>position</code> - Initial split position (% or px). Defaults to '50%'.<br>
+  <code>vertical</code> - Stack panels top/bottom instead of left/right.<br>
+  <code>primary</code> - Which panel keeps explicit size (start, end).<br>
+  <code>snap</code> - Space-separated snap positions (e.g., '25% 50% 75%'). Supports repeat() notation.<br>
+  <code>snap-threshold</code> - Pixel distance for snap activation. Defaults to 30.<br>
+  <code>min-size</code> - Minimum size of either panel. Defaults to '50px'.<br>
+  <code>disabled</code> - Prevents resizing.<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">CSS Variables</span>
   <br>
-  <code>--divider-width</code> - The width (or height if vertical) of the divider line.<br>
-  <code>--divider-hit-area</code> - The invisible area around the divider that triggers resizing.<br>
-  <code>--divider-color</code> - The color of the divider line.<br>
-  <code>--divider-color-active</code> - The color of the divider when hovered or dragging.<br>
-  <code>--handle-size</code> - The length of the handles in the divider center.<br>
-  <code>--handle-color</code> - The color of the dots in the divider handles.<br>
+  <code>--luna-sp-divider-width</code> - Width (or height if vertical) of divider bar. Defaults to 4px.<br>
+  <code>--luna-sp-divider-hit-area</code> - Invisible pointer target around bar. Defaults to 16px.<br>
+  <code>--luna-sp-divider-color</code> - Resting bar color. Defaults to var(--luna-border, #222).<br>
+  <code>--luna-sp-divider-color-hover</code> - Bar color on hover/drag. Defaults to var(--luna-accent, #2563eb).<br>
+  <code>--luna-sp-handle-size</code> - Length of grip handle. Defaults to 28px.<br>
+  <code>--luna-sp-handle-color</code> - Grip dot color. Defaults to #555.<br>
+  <code>--luna-sp-handle-color-hover</code> - Grip dot color on hover/drag. Defaults to #aaa.<br>
+  <code>--luna-sp-panel-bg</code> - Background applied to both panels. Defaults to transparent.<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Events</span>
   <br>
-  <code>luna-reposition</code> - Emitted when the split position is changed via dragging.<br>
+  <code>luna-reposition</code> - Fired while dragging. detail: { position: string, value: number }<br>
 </luna-details>
 
 <h2>Example Code</h2>
 <luna-code language="html">
-&lt;!-- Horizontal with Snapping --&gt;
-&lt;luna-split-panel position="50%" snap="repeat(5, 20%)"&gt;
-  &lt;div slot="start"&gt;20% Snapping&lt;/div&gt;
-  &lt;div slot="end"&gt;Drag me to snap every 20%&lt;/div&gt;
+&lt;!-- Horizontal Split --&gt;
+&lt;luna-split-panel position="50%"&gt;
+  &lt;div slot="start"&gt;Left Panel&lt;/div&gt;
+  &lt;div slot="end"&gt;Right Panel&lt;/div&gt;
 &lt;/luna-split-panel&gt;
 
-&lt;!-- Vertical with Primary Start --&gt;
-&lt;luna-split-panel vertical position="80px" primary="start"&gt;
-  &lt;div slot="start"&gt;Fixed Header (80px)&lt;/div&gt;
-  &lt;div slot="end"&gt;Scrollable Content&lt;/div&gt;
+&lt;!-- Vertical Split --&gt;
+&lt;luna-split-panel vertical position="40%"&gt;
+  &lt;div slot="start"&gt;Top Panel&lt;/div&gt;
+  &lt;div slot="end"&gt;Bottom Panel&lt;/div&gt;
 &lt;/luna-split-panel&gt;
 
-&lt;!-- Nested Panels --&gt;
-&lt;luna-split-panel position="150px"&gt;
-  &lt;div slot="start"&gt;Sidebar&lt;/div&gt;
-  &lt;div slot="end"&gt;
-    &lt;luna-split-panel vertical position="50%"&gt;
-      &lt;div slot="start"&gt;Top Panel&lt;/div&gt;
-      &lt;div slot="bottom"&gt;Bottom Panel&lt;/div&gt;
-    &lt;/luna-split-panel&gt;
+&lt;!-- With Snap Points --&gt;
+&lt;luna-split-panel position="50%" snap="25% 50% 75%" snap-threshold="40"&gt;
+  &lt;div slot="start"&gt;Snaps at 25%, 50%, 75%&lt;/div&gt;
+  &lt;div slot="end"&gt;Right Panel&lt;/div&gt;
+&lt;/luna-split-panel&gt;
+
+&lt;!-- Scrollable Content (automatic) --&gt;
+&lt;luna-split-panel position="50%"&gt;
+  &lt;div slot="start"&gt;
+    &lt;div style="height: 1000px;"&gt;Tall content scrolls automatically&lt;/div&gt;
   &lt;/div&gt;
+  &lt;div slot="end"&gt;
+    &lt;div style="height: 1500px;"&gt;Independent scrolling&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/luna-split-panel&gt;
+
+&lt;!-- Fixed Header with Label --&gt;
+&lt;luna-split-panel vertical position="60px" primary="start"&gt;
+  &lt;div slot="start"&gt;Fixed Header (60px)&lt;/div&gt;
+  &lt;div slot="end"&gt;Scrollable content area&lt;/div&gt;
+&lt;/luna-split-panel&gt;
+
+&lt;!-- Snap with repeat() Notation --&gt;
+&lt;luna-split-panel position="50%" snap="repeat(5, 20%)" snap-threshold="35"&gt;
+  &lt;div slot="start"&gt;Snaps every 20%: 20%, 40%, 60%, 80%, 100%&lt;/div&gt;
+  &lt;div slot="end"&gt;Right Panel&lt;/div&gt;
+&lt;/luna-split-panel&gt;
+
+&lt;!-- Primary Panel (Fixed Size) --&gt;
+&lt;luna-split-panel position="200px" primary="end"&gt;
+  &lt;div slot="start"&gt;Liquid Panel (expands/contracts)&lt;/div&gt;
+  &lt;div slot="end"&gt;Fixed Sidebar (200px)&lt;/div&gt;
 &lt;/luna-split-panel&gt;
 
 &lt;!-- Custom Divider Styling --&gt;
 &lt;luna-split-panel
-  position="200px"
-  primary="end"
+  position="60%"
   style="
-    --divider-width: 8px;
-    --divider-color: #222;
-    --handle-color: #3b82f6;
-    --handle-size: 32px;"
-&gt;
-  &lt;div slot="start"&gt;Main liquid panel&lt;/div&gt;
-  &lt;div slot="end"&gt;Pinned Right (200px)&lt;/div&gt;
+    --luna-sp-divider-width: 8px;
+    --luna-sp-divider-color: #2a2a2a;
+    --luna-sp-divider-color-hover: #22c55e;
+    --luna-sp-handle-size: 40px;
+    --luna-sp-handle-color: #555;
+    --luna-sp-handle-color-hover: #22c55e;
+  "&gt;
+  &lt;div slot="start"&gt;Thick Green Divider&lt;/div&gt;
+  &lt;div slot="end"&gt;Right Panel&lt;/div&gt;
 &lt;/luna-split-panel&gt;
+
+&lt;!-- Nested Split Panels --&gt;
+&lt;luna-split-panel position="200px" primary="start"&gt;
+  &lt;div slot="start"&gt;Sidebar&lt;/div&gt;
+  &lt;luna-split-panel slot="end" vertical position="50%"&gt;
+    &lt;div slot="start"&gt;Top Content Area&lt;/div&gt;
+    &lt;div slot="end"&gt;Bottom Content Area&lt;/div&gt;
+  &lt;/luna-split-panel&gt;
+&lt;/luna-split-panel&gt;
+
+&lt;!-- Listening to reposition events --&gt;
+&lt;script&gt;
+  const splitPanel = document.querySelector('luna-split-panel');
+  splitPanel.addEventListener('luna-reposition', (e) => {
+    console.log('New position:', e.detail.position);
+    console.log('Value:', e.detail.value);
+  });
+&lt;/script&gt;
 </luna-code>
       </article>
     </main>
