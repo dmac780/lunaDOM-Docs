@@ -56,6 +56,12 @@
  * @attr {'horizontal'|'vertical'} legend-layout
  *   Legend flex direction. Defaults to 'horizontal'.
  *
+ * @attr {boolean} lockable
+ *   When present, clicking a data point or legend row locks that series as the
+ *   active highlight. All other series are dimmed and only the locked series
+ *   responds to hover tooltips. Click the same series again (or any empty area)
+ *   to unlock and return to normal hover behaviour.
+ *
  * CSS Custom Properties:
  * @cssprop --luna-radar-size         - Width and height of the SVG canvas (default: 220px)
  * @cssprop --luna-radar-bg           - Card background colour (default: #1a1a1a)
@@ -85,7 +91,7 @@ class LunaRadarChart extends HTMLElement {
     return [
       'data', 'series', 'title', 'max', 'rings',
       'no-bg', 'no-legend', 'no-labels', 'no-title', 'no-dots', 'filled',
-      'legend-layout',
+      'legend-layout', 'lockable',
     ];
   }
 
@@ -99,6 +105,7 @@ class LunaRadarChart extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this._lockedSeries = null;
   }
 
   connectedCallback() {
@@ -212,12 +219,7 @@ class LunaRadarChart extends HTMLElement {
         }).join('')
       : '';
 
-    const hitTargets = values.map((v, i) => {
-      const [dx, dy] = this._pointForValue(v, perAxisMaxes[i], globalMax, i, n, cx, cy, R);
-      return `<circle cx="${dx}" cy="${dy}" r="10" class="hit" data-series="${seriesIdx}" data-idx="${i}" style="fill:transparent;cursor:pointer" />`;
-    }).join('');
-
-    return `
+    const shapeHTML = `
       <polygon
         points="${pts.join(' ')}"
         class="shape"
@@ -225,8 +227,14 @@ class LunaRadarChart extends HTMLElement {
         style="fill:${fillColor};stroke:${color}"
       />
       ${dots}
-      ${hitTargets}
     `;
+
+    const hitHTML = values.map((v, i) => {
+      const [dx, dy] = this._pointForValue(v, perAxisMaxes[i], globalMax, i, n, cx, cy, R);
+      return `<circle cx="${dx}" cy="${dy}" r="14" class="hit" data-series="${seriesIdx}" data-idx="${i}" style="fill:transparent;cursor:pointer" />`;
+    }).join('');
+
+    return { shapeHTML, hitHTML };
   }
 
   _render() {
@@ -273,21 +281,21 @@ class LunaRadarChart extends HTMLElement {
     const spokes = this._buildSpokes(n, cx, cy, R);
     const labels = noLabels ? '' : this._buildLabels(axes, n, cx, cy, labelR);
 
-    let shapes;
+    let shapesHTML = '';
+    let hitsHTML   = '';
 
     if (isMulti) {
-      shapes = seriesList.map((s, si) => {
+      seriesList.forEach((s, si) => {
         const color     = s.color || palette[si % palette.length];
         const fillColor = color + '28';
-        return this._buildShape(s.data, perAxisMaxes, globalMax, n, cx, cy, R, color, fillColor, si, showDots);
-      }).join('');
+        const built     = this._buildShape(s.data, perAxisMaxes, globalMax, n, cx, cy, R, color, fillColor, si, showDots);
+        shapesHTML += built.shapeHTML;
+        hitsHTML   += built.hitHTML;
+      });
     } else {
       const singleColor = 'var(--luna-radar-stroke, #2563eb)';
-      const singleFill  = forcesFilled
-        ? 'var(--luna-radar-fill, rgba(37,99,235,0.15))'
-        : 'var(--luna-radar-fill, rgba(37,99,235,0.15))';
-
-      shapes = this._buildShape(
+      const singleFill  = 'var(--luna-radar-fill, rgba(37,99,235,0.15))';
+      const built       = this._buildShape(
         axes.map(a => a.value || 0),
         perAxisMaxes,
         globalMax,
@@ -297,15 +305,18 @@ class LunaRadarChart extends HTMLElement {
         0,
         showDots
       );
+      shapesHTML = built.shapeHTML;
+      hitsHTML   = built.hitHTML;
     }
 
     const showLegend = !noLegend && isMulti;
+    const lockable   = this.hasAttribute('lockable');
 
     const legendRows = showLegend
       ? seriesList.map((s, si) => {
           const color = s.color || palette[si % palette.length];
           return `
-            <div class="legend-row" data-series="${si}">
+            <div class="legend-row" data-series="${si}" ${lockable ? 'style="cursor:pointer"' : ''}>
               <span class="swatch" style="background:${color}"></span>
               <span class="lbl">${s.label}</span>
             </div>`;
@@ -403,13 +414,23 @@ class LunaRadarChart extends HTMLElement {
 
         .hit { cursor: pointer; }
 
-        svg:has(.hit:hover) .shape { opacity: 0.3; }
-        svg:has(.hit:hover) .dot   { opacity: 0.3; }
+        svg:has(.hit:hover) .shape { opacity: 0.25; }
+        svg:has(.hit:hover) .dot   { opacity: 0.25; }
 
         .shape.hovered,
         .dot.hovered {
           opacity: 1 !important;
         }
+
+        :host([lockable]) svg.locked .shape         { opacity: 0.15; }
+        :host([lockable]) svg.locked .dot            { opacity: 0.15; }
+        :host([lockable]) svg.locked .shape.hovered  { opacity: 1 !important; }
+        :host([lockable]) svg.locked .dot.hovered    { opacity: 1 !important; }
+
+        :host([lockable]) .legend-row { cursor: pointer; }
+        :host([lockable]) .legend-row.legend-locked  { opacity: 1; }
+        :host([lockable]) svg.locked ~ * .legend-row { opacity: 0.35; }
+        :host([lockable]) .legend-row.legend-locked  { opacity: 1 !important; }
 
         .tooltip {
           position: fixed;
@@ -486,8 +507,9 @@ class LunaRadarChart extends HTMLElement {
           <svg viewBox="0 0 200 200" aria-label="${title || 'Radar chart'}" role="img">
             <g class="grid-rings">${rings}</g>
             <g class="grid-spokes">${spokes}</g>
-            <g class="shapes">${shapes}</g>
+            <g class="shapes">${shapesHTML}</g>
             <g class="labels">${labels}</g>
+            <g class="hits">${hitsHTML}</g>
           </svg>
         </div>
 
@@ -506,34 +528,92 @@ class LunaRadarChart extends HTMLElement {
   }
 
   _bindEvents(axes, seriesList, isMulti, globalMax, perAxisMaxes, palette) {
-    const sr      = this.shadowRoot;
-    const tooltip = sr.getElementById('tooltip');
-    const ttDot   = sr.getElementById('tt-dot');
-    const ttLabel = sr.getElementById('tt-label');
-    const ttValue = sr.getElementById('tt-value');
-    const ttPct   = sr.getElementById('tt-pct');
-
-    const posTooltip = (e) => {
-      let x = e.clientX + 14;
-      let y = e.clientY + 14;
-
-      if (x + 200 > window.innerWidth)  { x = e.clientX - 14 - 200; }
-      if (y + 44  > window.innerHeight) { y = e.clientY - 14 - 44; }
-
-      tooltip.style.left = `${x}px`;
-      tooltip.style.top  = `${y}px`;
-    };
+    const sr       = this.shadowRoot;
+    const svg      = sr.querySelector('svg');
+    const tooltip  = sr.getElementById('tooltip');
+    const ttDot    = sr.getElementById('tt-dot');
+    const ttLabel  = sr.getElementById('tt-label');
+    const ttValue  = sr.getElementById('tt-value');
+    const ttPct    = sr.getElementById('tt-pct');
+    const lockable = this.hasAttribute('lockable');
 
     const defaultStroke = getComputedStyle(this)
       .getPropertyValue('--luna-radar-stroke').trim() || '#2563eb';
 
+    const posTooltip = (e) => {
+      let x = e.clientX + 14;
+      let y = e.clientY + 14;
+      if (x + 200 > window.innerWidth)  { x = e.clientX - 14 - 200; }
+      if (y + 44  > window.innerHeight) { y = e.clientY - 14 - 44; }
+      tooltip.style.left = `${x}px`;
+      tooltip.style.top  = `${y}px`;
+    };
+
+    const highlightSeries = (si) => {
+      sr.querySelectorAll('.shape').forEach(n => n.classList.remove('hovered'));
+      sr.querySelectorAll('.dot').forEach(n => n.classList.remove('hovered'));
+      sr.querySelectorAll(`.shape[data-series="${si}"]`).forEach(n => n.classList.add('hovered'));
+      sr.querySelectorAll(`.dot[data-series="${si}"]`).forEach(n => n.classList.add('hovered'));
+      sr.querySelectorAll('.legend-row').forEach(n => n.classList.remove('legend-locked'));
+      const legendRow = sr.querySelector(`.legend-row[data-series="${si}"]`);
+      if (legendRow) {
+        legendRow.classList.add('legend-locked');
+      }
+    };
+
+    const clearHighlight = () => {
+      sr.querySelectorAll('.shape').forEach(n => n.classList.remove('hovered'));
+      sr.querySelectorAll('.dot').forEach(n => {
+        n.classList.remove('hovered');
+        n.setAttribute('r', '3');
+      });
+      sr.querySelectorAll('.legend-row').forEach(n => n.classList.remove('legend-locked'));
+    };
+
+    const applyHitPointerEvents = (lockedSi) => {
+      sr.querySelectorAll('.hit').forEach(h => {
+        const hsi = parseInt(h.dataset.series, 10);
+        if (lockedSi === null) {
+          h.style.pointerEvents = '';
+        } else {
+          h.style.pointerEvents = hsi === lockedSi ? 'auto' : 'none';
+        }
+      });
+    };
+
+    const setLocked = (si) => {
+      this._lockedSeries = si;
+      svg.classList.add('locked');
+      highlightSeries(si);
+      applyHitPointerEvents(si);
+    };
+
+    const unlock = () => {
+      this._lockedSeries = null;
+      svg.classList.remove('locked');
+      clearHighlight();
+      tooltip.classList.remove('on');
+      applyHitPointerEvents(null);
+    };
+
+    if (lockable) {
+      svg.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('hit')) {
+          unlock();
+        }
+      });
+    }
+
     sr.querySelectorAll('.hit').forEach(el => {
-
       el.addEventListener('mouseenter', e => {
-        const si   = parseInt(el.dataset.series, 10);
-        const idx  = parseInt(el.dataset.idx, 10);
-        const axis = axes[idx];
+        const si  = parseInt(el.dataset.series, 10);
+        const idx = parseInt(el.dataset.idx, 10);
 
+        if (lockable && this._lockedSeries !== null && this._lockedSeries !== si) {
+          return;
+        }
+
+        const axis = axes[idx];
         let value, color, seriesLabel;
 
         if (isMulti) {
@@ -554,11 +634,15 @@ class LunaRadarChart extends HTMLElement {
         ttLabel.textContent    = seriesLabel;
         ttValue.textContent    = value.toLocaleString();
         ttPct.textContent      = `${pct}%`;
-
         tooltip.classList.add('on');
         posTooltip(e);
 
-        sr.querySelectorAll(`.shape[data-series="${si}"]`).forEach(n => n.classList.add('hovered'));
+        if (!lockable || this._lockedSeries === null) {
+          sr.querySelectorAll('.shape').forEach(n => n.classList.remove('hovered'));
+          sr.querySelectorAll('.dot').forEach(n => n.classList.remove('hovered'));
+          sr.querySelectorAll(`.shape[data-series="${si}"]`).forEach(n => n.classList.add('hovered'));
+        }
+
         sr.querySelectorAll(`.dot[data-series="${si}"][data-idx="${idx}"]`).forEach(n => {
           n.classList.add('hovered');
           n.setAttribute('r', '5');
@@ -586,6 +670,10 @@ class LunaRadarChart extends HTMLElement {
 
         tooltip.classList.remove('on');
 
+        if (lockable && this._lockedSeries !== null) {
+          return;
+        }
+
         sr.querySelectorAll(`.shape[data-series="${si}"]`).forEach(n => n.classList.remove('hovered'));
         sr.querySelectorAll(`.dot[data-series="${si}"][data-idx="${idx}"]`).forEach(n => {
           n.classList.remove('hovered');
@@ -595,6 +683,33 @@ class LunaRadarChart extends HTMLElement {
         this.dispatchEvent(new CustomEvent('luna-point-leave', {
           bubbles: true, composed: true
         }));
+      });
+
+      if (lockable) {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const si = parseInt(el.dataset.series, 10);
+          if (this._lockedSeries === si) {
+            unlock();
+          } else {
+            setLocked(si);
+          }
+        });
+      }
+    });
+
+    sr.querySelectorAll('.legend-row').forEach(row => {
+      if (!lockable) {
+        return;
+      }
+      row.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const si = parseInt(row.dataset.series, 10);
+        if (this._lockedSeries === si) {
+          unlock();
+        } else {
+          setLocked(si);
+        }
       });
     });
   }
