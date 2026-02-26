@@ -31,22 +31,26 @@ class LunaTooltip extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this._timer = null;
-    this.show   = this.show.bind(this);
-    this.hide   = this.hide.bind(this);
-    this.toggle = this.toggle.bind(this);
+    this._timer        = null;
+    this._onScrollBound = this._onScroll.bind(this);
+    this.show          = this.show.bind(this);
+    this.hide          = this.hide.bind(this);
+    this.toggle        = this.toggle.bind(this);
   }
 
   connectedCallback() {
     this._render();
     this._bindTrigger();
     if (this.hasAttribute('open')) {
-      this._position();
+      this._positionFixed();
     }
   }
 
   disconnectedCallback() {
     this._removeTrigger();
+    clearTimeout(this._timer);
+    window.removeEventListener('scroll', this._onScrollBound, true);
+    window.removeEventListener('resize', this._onScrollBound);
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
@@ -55,14 +59,19 @@ class LunaTooltip extends HTMLElement {
     }
     if (name === 'open') {
       this._updateVisibility();
-      if (newVal !== null) {
-        this._position();
-      }
       return;
     }
     if (name === 'for' || name === 'trigger') {
       this._removeTrigger();
       this._bindTrigger();
+      return;
+    }
+    if (name === 'content') {
+      const tip = this.shadowRoot.querySelector('.tooltip');
+      if (tip) {
+        tip.textContent = newVal || '';
+      }
+      return;
     }
     this._render();
   }
@@ -72,9 +81,6 @@ class LunaTooltip extends HTMLElement {
     clearTimeout(this._timer);
     this._timer = setTimeout(() => {
       this.setAttribute('open', '');
-      requestAnimationFrame(() => {
-        this._positionSideTooltip();
-      });
     }, delay);
   }
 
@@ -134,50 +140,38 @@ class LunaTooltip extends HTMLElement {
     }
   }
 
+  _onScroll() {
+    if (this.hasAttribute('open')) {
+      this._positionFixed();
+    }
+  }
+
   _updateVisibility() {
     const tip = this.shadowRoot.querySelector('.tooltip');
     if (!tip) {
       return;
     }
     if (this.hasAttribute('open')) {
+      this._positionFixed();
       tip.classList.add('visible');
-      this._positionSideTooltip();
+      window.addEventListener('scroll', this._onScrollBound, true);
+      window.addEventListener('resize', this._onScrollBound);
     } else {
       tip.classList.remove('visible');
+      window.removeEventListener('scroll', this._onScrollBound, true);
+      window.removeEventListener('resize', this._onScrollBound);
     }
   }
 
-  _positionSideTooltip() {
-    const placement = this.getAttribute('placement') || 'top';
-    if (placement !== 'left' && placement !== 'right') {
-      return;
-    }
-
-    const target = this._getTarget();
+  _positionFixed() {
     const tip    = this.shadowRoot.querySelector('.tooltip');
-    if (!target || !tip) {
+    const arrow  = this.shadowRoot.querySelector('.arrow');
+    if (!tip) {
       return;
     }
 
-    const targetRect = target.getBoundingClientRect();
-    const hostRect   = this.getBoundingClientRect();
-    const tipH       = tip.offsetHeight;
-    const targetMidY = targetRect.top + targetRect.height / 2;
-    const hostTop    = hostRect.top;
-    const offset     = targetMidY - hostTop - tipH / 2;
-
-    tip.style.top = `${offset}px`;
-  }
-
-  _position() {
-    if (!this.hasAttribute('for') || !this.hasAttribute('open')) {
-      return;
-    }
-
-    const target = this._getTarget();
-    const tip    = this.shadowRoot.querySelector('.tooltip');
-
-    if (!target || !tip) {
+    const target    = this._getTarget();
+    if (!target) {
       return;
     }
 
@@ -185,33 +179,50 @@ class LunaTooltip extends HTMLElement {
     const placement = this.getAttribute('placement') || 'top';
     const offset    = parseInt(this.getAttribute('offset') || '10', 10);
 
-    this.style.position      = 'fixed';
-    this.style.zIndex        = '99999';
-    this.style.pointerEvents = 'none';
+    tip.style.top  = '';
+    tip.style.left = '';
 
-    let top, left;
+    const tw = tip.offsetWidth;
+    const th = tip.offsetHeight;
+
+    let tipTop, tipLeft, arrowTop, arrowLeft;
 
     if (placement === 'bottom') {
-      top  = rect.bottom + offset;
-      left = rect.left + rect.width / 2;
+      tipTop    = rect.bottom + offset;
+      tipLeft   = rect.left + rect.width / 2 - tw / 2;
+      arrowTop  = rect.bottom + offset - 5;
+      arrowLeft = rect.left + rect.width / 2 - 4;
     } else if (placement === 'left') {
-      top  = rect.top + rect.height / 2;
-      left = rect.left - offset;
+      tipTop    = rect.top + rect.height / 2 - th / 2;
+      tipLeft   = rect.left - tw - offset;
+      arrowTop  = rect.top + rect.height / 2 - 4;
+      arrowLeft = rect.left - offset - 3;
     } else if (placement === 'right') {
-      top  = rect.top + rect.height / 2;
-      left = rect.right + offset;
+      tipTop    = rect.top + rect.height / 2 - th / 2;
+      tipLeft   = rect.right + offset;
+      arrowTop  = rect.top + rect.height / 2 - 4;
+      arrowLeft = rect.right + offset - 5;
     } else {
-      top  = rect.top - offset;
-      left = rect.left + rect.width / 2;
+      tipTop    = rect.top - th - offset;
+      tipLeft   = rect.left + rect.width / 2 - tw / 2;
+      arrowTop  = rect.top - offset - 3;
+      arrowLeft = rect.left + rect.width / 2 - 4;
     }
 
-    this.style.top  = `${top}px`;
-    this.style.left = `${left}px`;
+    tipLeft = Math.max(8, Math.min(tipLeft, window.innerWidth  - tw - 8));
+    tipTop  = Math.max(8, Math.min(tipTop,  window.innerHeight - th - 8));
+
+    tip.style.top  = tipTop  + 'px';
+    tip.style.left = tipLeft + 'px';
+
+    if (arrow) {
+      arrow.style.top  = arrowTop  + 'px';
+      arrow.style.left = arrowLeft + 'px';
+    }
   }
 
   _render() {
     const content   = this.getAttribute('content') || '';
-    const placement = this.getAttribute('placement') || 'top';
     const isForMode = this.hasAttribute('for');
     const isOpen    = this.hasAttribute('open');
 
@@ -220,7 +231,6 @@ class LunaTooltip extends HTMLElement {
         :host {
           display: ${isForMode ? 'none' : 'inline-block'};
           vertical-align: middle;
-          position: relative;
           font-family: inherit;
         }
 
@@ -228,10 +238,11 @@ class LunaTooltip extends HTMLElement {
           display: block;
         }
 
+        *, *::before, *::after { box-sizing: border-box; }
+
         .tooltip {
-          position: absolute;
-          z-index: 9999;
-          display: inline-block;
+          position: fixed;
+          z-index: 99999;
           background: var(--luna-tooltip-bg, rgba(20, 20, 20, 0.95));
           color: var(--luna-tooltip-color, #eee);
           padding: var(--luna-tooltip-padding, 0.4rem 0.8rem);
@@ -240,6 +251,8 @@ class LunaTooltip extends HTMLElement {
           font-weight: 500;
           line-height: 1.4;
           white-space: nowrap;
+          width: max-content;
+          max-width: 280px;
           pointer-events: none;
           border: 1px solid rgba(255, 255, 255, 0.08);
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -248,133 +261,64 @@ class LunaTooltip extends HTMLElement {
           opacity: 0;
           visibility: hidden;
           transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
-        }
-
-        .tooltip::before {
-          content: '';
-          position: absolute;
-          width: 8px;
-          height: 8px;
-          background: var(--luna-tooltip-bg, rgba(20, 20, 20, 0.95));
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          transform: rotate(45deg);
-          z-index: -1;
-        }
-
-        :host(:not([placement])) .tooltip::before,
-        :host([placement="top"]) .tooltip::before {
-          bottom: -5px;
-          left: 50%;
-          margin-left: -4px;
-          border-top: none;
-          border-left: none;
-        }
-
-        :host([placement="bottom"]) .tooltip::before {
-          top: -5px;
-          left: 50%;
-          margin-left: -4px;
-          border-bottom: none;
-          border-right: none;
-        }
-
-        :host([placement="left"]) .tooltip::before {
-          right: -5px;
-          top: 50%;
-          margin-top: -4px;
-          border-left: none;
-          border-bottom: none;
-        }
-
-        :host([placement="right"]) .tooltip::before {
-          left: -5px;
-          top: 50%;
-          margin-top: -4px;
-          border-right: none;
-          border-top: none;
+          transform: scale(0.95);
+          top: 0;
+          left: 0;
         }
 
         .tooltip.visible {
           opacity: 1;
           visibility: visible;
+          transform: scale(1);
         }
 
-        :host(:not([for]):not([placement])) .tooltip,
-        :host(:not([for])[placement="top"]) .tooltip {
-          bottom: calc(100% + 10px);
-          left: 50%;
-          transform: translateX(-50%) translateY(4px);
-        }
-        :host(:not([for]):not([placement])) .tooltip.visible,
-        :host(:not([for])[placement="top"]) .tooltip.visible {
-          transform: translateX(-50%) translateY(0);
-        }
-
-        :host(:not([for])[placement="bottom"]) .tooltip {
-          top: calc(100% + 10px);
-          left: 50%;
-          transform: translateX(-50%) translateY(-4px);
-        }
-        :host(:not([for])[placement="bottom"]) .tooltip.visible {
-          transform: translateX(-50%) translateY(0);
-        }
-
-        :host(:not([for])[placement="left"]) .tooltip {
-          right: calc(100% + 10px);
-          top: 0;
-          transform: translateX(4px);
-        }
-        :host(:not([for])[placement="left"]) .tooltip.visible {
-          transform: translateX(0);
-        }
-
-        :host(:not([for])[placement="right"]) .tooltip {
-          left: calc(100% + 10px);
-          top: 0;
-          transform: translateX(-4px);
-        }
-        :host(:not([for])[placement="right"]) .tooltip.visible {
-          transform: translateX(0);
-        }
-
-        :host([for]) .tooltip {
-          position: absolute;
+        .arrow {
+          position: fixed;
+          z-index: 99998;
+          width: 8px;
+          height: 8px;
+          background: var(--luna-tooltip-bg, rgba(20, 20, 20, 0.95));
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          transform: rotate(45deg);
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.15s ease;
           top: 0;
           left: 0;
         }
-        :host([for][placement="top"]) .tooltip,
-        :host([for]:not([placement])) .tooltip {
-          transform: translate(-50%, calc(-100% - 2px)) scale(0.95);
+
+        .arrow.visible { opacity: 1; }
+
+        :host([placement="top"]) .arrow,
+        :host(:not([placement])) .arrow {
+          border-top: none;
+          border-left: none;
         }
-        :host([for][placement="top"]) .tooltip.visible,
-        :host([for]:not([placement])) .tooltip.visible {
-          transform: translate(-50%, -100%) scale(1);
+
+        :host([placement="bottom"]) .arrow {
+          border-bottom: none;
+          border-right: none;
         }
-        :host([for][placement="bottom"]) .tooltip {
-          transform: translate(-50%, 2px) scale(0.95);
+
+        :host([placement="left"]) .arrow {
+          border-left: none;
+          border-bottom: none;
         }
-        :host([for][placement="bottom"]) .tooltip.visible {
-          transform: translate(-50%, 0) scale(1);
-        }
-        :host([for][placement="left"]) .tooltip {
-          transform: translate(calc(-100% + 4px), -50%) scale(0.95);
-        }
-        :host([for][placement="left"]) .tooltip.visible {
-          transform: translate(-100%, -50%) scale(1);
-        }
-        :host([for][placement="right"]) .tooltip {
-          transform: translate(-4px, -50%) scale(0.95);
-        }
-        :host([for][placement="right"]) .tooltip.visible {
-          transform: translate(0, -50%) scale(1);
+
+        :host([placement="right"]) .arrow {
+          border-right: none;
+          border-top: none;
         }
       </style>
 
       <slot></slot>
-      <div class="tooltip ${isOpen ? 'visible' : ''}" part="tooltip">
-        ${content || '<slot name="content"></slot>'}
-      </div>
+      <div class="tooltip ${isOpen ? 'visible' : ''}" part="tooltip">${content || '<slot name="content"></slot>'}</div>
+      <div class="arrow  ${isOpen ? 'visible' : ''}" part="arrow"></div>
     `;
+
+    if (isOpen) {
+      this._positionFixed();
+    }
   }
 }
 

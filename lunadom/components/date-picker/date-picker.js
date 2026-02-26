@@ -3,9 +3,6 @@
 /**
  * @customElement luna-date-picker
  *
- * A lightweight, dependency-free date picker with single and range selection modes.
- * Renders a trigger input that opens a floating calendar panel.
- *
  * Attributes:
  * @attr {string}  value        - Selected date in YYYY-MM-DD format (single mode).
  * @attr {string}  value-start  - Range start date in YYYY-MM-DD format (range mode).
@@ -539,6 +536,7 @@ class LunaDatePicker extends HTMLElement {
     const helpText   = this.getAttribute('help-text');
     const placeholder = this.getAttribute('placeholder') || (this._isRange() ? 'Pick a range' : 'Pick a date');
     const disabled   = this.hasAttribute('disabled');
+    const readonly   = this.hasAttribute('readonly');
     const placement  = this.getAttribute('placement') || 'bottom';
     const displayVal = this._displayValue();
 
@@ -618,6 +616,14 @@ class LunaDatePicker extends HTMLElement {
           opacity: 0.45;
           cursor: not-allowed;
           pointer-events: none;
+        }
+
+        .trigger-wrap.readonly {
+          cursor: default;
+        }
+
+        .trigger-wrap.readonly input {
+          cursor: default;
         }
 
         .cal-icon {
@@ -831,7 +837,7 @@ class LunaDatePicker extends HTMLElement {
       <div class="dp-group">
         ${label ? `<span class="dp-label">${label}</span>` : ''}
 
-        <div class="trigger-wrap ${disabled ? 'disabled' : ''}" id="trigger-wrap">
+        <div class="trigger-wrap ${disabled ? 'disabled' : ''} ${readonly ? 'readonly' : ''}" id="trigger-wrap">
           <span class="cal-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
@@ -875,7 +881,7 @@ class LunaDatePicker extends HTMLElement {
       wrap.addEventListener('click', (e) => {
         e.stopPropagation();
 
-        if (this.hasAttribute('disabled')) {
+        if (this.hasAttribute('disabled') || this.hasAttribute('readonly')) {
           return;
         }
 
@@ -891,6 +897,10 @@ class LunaDatePicker extends HTMLElement {
       input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
+
+          if (this.hasAttribute('disabled') || this.hasAttribute('readonly')) {
+            return;
+          }
 
           if (this._open) {
             this._closePanel();

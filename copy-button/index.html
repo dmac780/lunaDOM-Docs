@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Copy Button — lunaDOM Docs</title>
   <meta name="description" content="Button component for copying text to clipboard." />
-  <link rel="preload" href="/lunaDOM-Docs/css/style.css" as="style" />
-  <link rel="stylesheet" href="/lunaDOM-Docs/css/style.css" />
-  <link rel="modulepreload" href="/lunaDOM-Docs/lunadom/components/badge/badge.js" />
-  <link rel="modulepreload" href="/lunaDOM-Docs/lunadom/components/drawer/drawer.js" />
-  <link rel="modulepreload" href="/lunaDOM-Docs/lunadom/components/code/code.js" />
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/badge/badge.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/drawer/drawer.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/code/code.js"></script>
+  <link rel="preload" href="/css/style.css" as="style" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="modulepreload" href="/lunadom/components/badge/badge.js" />
+  <link rel="modulepreload" href="/lunadom/components/drawer/drawer.js" />
+  <link rel="modulepreload" href="/lunadom/components/code/code.js" />
+  <script type="module" src="/lunadom/components/badge/badge.js"></script>
+  <script type="module" src="/lunadom/components/drawer/drawer.js"></script>
+  <script type="module" src="/lunadom/components/code/code.js"></script>
   
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/copy-button/copy-button.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/tooltip/tooltip.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/input/input.js"></script>
-  <script type="module" src="/lunaDOM-Docs/lunadom/components/details/details.js"></script>
+  <script type="module" src="/lunadom/components/copy-button/copy-button.js"></script>
+  <script type="module" src="/lunadom/components/tooltip/tooltip.js"></script>
+  <script type="module" src="/lunadom/components/button/button.js"></script>
+  <script type="module" src="/lunadom/components/input/input.js"></script>
+  <script type="module" src="/lunadom/components/details/details.js"></script>
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -25,7 +26,7 @@
     <button class="hamburger" id="navToggle" aria-label="Open navigation">
       <span></span><span></span><span></span>
     </button>
-    <a class="site-logo-mobile" href="/lunaDOM-Docs/">lunaDOM Docs</a>
+    <a class="site-logo-mobile" href="/">lunaDOM Docs</a>
   </div>
 
   <!-- Mobile nav drawer -->
@@ -34,7 +35,7 @@
     <p class="drawer-description">
       lunaDOM is a collection of lightweight, accessible shadowdom based web components built with JavaScript.</p>
     <p class="site-description">
-      <luna-badge variant="success">v0.0.23</luna-badge> 
+      <luna-badge variant="success">v0.0.25</luna-badge> 
       <a href="https://github.com/dmac780/lunaDOM" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -43,65 +44,65 @@
       </p>
     <div class="drawer-divider"></div>
     <nav class="sidebar-nav">
-    <a href="/lunaDOM-Docs/">Getting Started</a>
+    <a href="/">Getting Started</a>
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
-    <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/animation">Animation</a>
-    <a href="/lunaDOM-Docs/audio-player">Audio Player</a>
-    <a href="/lunaDOM-Docs/avatar">Avatar</a>
-    <a href="/lunaDOM-Docs/badge">Badge</a>
-    <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
-    <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
-    <a href="/lunaDOM-Docs/button">Button</a>
-    <a href="/lunaDOM-Docs/button-group">Button Group</a>
-    <a href="/lunaDOM-Docs/card">Card</a>
-    <a href="/lunaDOM-Docs/carousel">Carousel</a>
-    <a href="/lunaDOM-Docs/checkbox">Checkbox</a>
-    <a href="/lunaDOM-Docs/code-block">Code Block</a>
-    <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
-    <a href="/lunaDOM-Docs/combobox">Combobox</a>
-    <a href="/lunaDOM-Docs/copy-button" class="active">Copy Button</a>
-    <a href="/lunaDOM-Docs/data-grid">Data Grid</a>
-    <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
-    <a href="/lunaDOM-Docs/details">Details</a>
-    <a href="/lunaDOM-Docs/dialog">Dialog</a>
-    <a href="/lunaDOM-Docs/divider">Divider</a>
-    <a href="/lunaDOM-Docs/drawer">Drawer</a>
-    <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
-    <a href="/lunaDOM-Docs/file-button">File Button</a>
-    <a href="/lunaDOM-Docs/file-input">File Input</a>
-    <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
-    <a href="/lunaDOM-Docs/format-date">Format Date</a>
-    <a href="/lunaDOM-Docs/format-number">Format Number</a>
-    <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
-    <a href="/lunaDOM-Docs/include">Include</a>
-    <a href="/lunaDOM-Docs/input">Input</a>
-    <a href="/lunaDOM-Docs/line-chart">Line Chart</a>
-    <a href="/lunaDOM-Docs/link">Link</a>
-    <a href="/lunaDOM-Docs/menu">Menu</a>
-    <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
-    <a href="/lunaDOM-Docs/progress">Progress</a>
-    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
-    <a href="/lunaDOM-Docs/qr-code">QR Code</a>
-    <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
-    <a href="/lunaDOM-Docs/radio-button">Radio Button Group</a>
-    <a href="/lunaDOM-Docs/radio-group">Radio Group</a>
-    <a href="/lunaDOM-Docs/range">Range</a>
-    <a href="/lunaDOM-Docs/rating">Rating</a>
-    <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
-    <a href="/lunaDOM-Docs/select">Select</a>
-    <a href="/lunaDOM-Docs/skeleton">Skeleton</a>
-    <a href="/lunaDOM-Docs/sparkline">Sparkline</a>
-    <a href="/lunaDOM-Docs/spinner">Spinner</a>
-    <a href="/lunaDOM-Docs/split-panel">Split Panel</a>
-    <a href="/lunaDOM-Docs/switch">Switch</a>
-    <a href="/lunaDOM-Docs/tabs">Tabs</a>
-    <a href="/lunaDOM-Docs/tag">Tag</a>
-    <a href="/lunaDOM-Docs/textarea">Textarea</a>
-    <a href="/lunaDOM-Docs/toast">Toast</a>
-    <a href="/lunaDOM-Docs/tooltip">Tooltip</a>
-    <a href="/lunaDOM-Docs/tree">Tree</a>
+    <a href="/alert">Alert</a>
+    <a href="/animation">Animation</a>
+    <a href="/audio-player">Audio Player</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button" class="active">Copy Button</a>
+    <a href="/data-grid">Data Grid</a>
+    <a href="/date-picker">Date Picker</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-button">File Button</a>
+    <a href="/file-input">File Input</a>
+    <a href="/format-byte">Format Byte</a>
+    <a href="/format-date">Format Date</a>
+    <a href="/format-number">Format Number</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/line-chart">Line Chart</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/pie-chart">Pie Chart</a>
+    <a href="/progress">Progress</a>
+    <a href="/progress-circle">Progress Circle</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radar-chart">Radar Chart</a>
+    <a href="/radio-button">Radio Button Group</a>
+    <a href="/radio-group">Radio Group</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
   </div>
 
 </nav>
@@ -111,10 +112,10 @@
 
     <aside class="sidebar">
       <div class="sidebar-header">
-        <a class="site-logo" href="/lunaDOM-Docs/">lunaDOM Docs</a>
+        <a class="site-logo" href="/">lunaDOM Docs</a>
         <p class="site-description">lunaDOM is a collection of lightweight shadowdom based web components built with JavaScript.</p>
         <p class="site-description">
-          <luna-badge variant="success">v0.0.23</luna-badge>      
+          <luna-badge variant="success">v0.0.25</luna-badge>      
           <a href="https://github.com/dmac780/lunaDOM" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
@@ -125,65 +126,65 @@
       </div>
       <div class="sidebar-nav-wrapper">
         <nav class="sidebar-nav">
-    <a href="/lunaDOM-Docs/">Getting Started</a>
+    <a href="/">Getting Started</a>
   <div class="nav-section">
     <span class="nav-section-title">Components</span>
-    <a href="/lunaDOM-Docs/alert">Alert</a>
-    <a href="/lunaDOM-Docs/animation">Animation</a>
-    <a href="/lunaDOM-Docs/audio-player">Audio Player</a>
-    <a href="/lunaDOM-Docs/avatar">Avatar</a>
-    <a href="/lunaDOM-Docs/badge">Badge</a>
-    <a href="/lunaDOM-Docs/bar-graph">Bar Graph</a>
-    <a href="/lunaDOM-Docs/breadcrumb">Breadcrumb</a>
-    <a href="/lunaDOM-Docs/button">Button</a>
-    <a href="/lunaDOM-Docs/button-group">Button Group</a>
-    <a href="/lunaDOM-Docs/card">Card</a>
-    <a href="/lunaDOM-Docs/carousel">Carousel</a>
-    <a href="/lunaDOM-Docs/checkbox">Checkbox</a>
-    <a href="/lunaDOM-Docs/code-block">Code Block</a>
-    <a href="/lunaDOM-Docs/color-picker">Color Picker</a>
-    <a href="/lunaDOM-Docs/combobox">Combobox</a>
-    <a href="/lunaDOM-Docs/copy-button" class="active">Copy Button</a>
-    <a href="/lunaDOM-Docs/data-grid">Data Grid</a>
-    <a href="/lunaDOM-Docs/date-picker">Date Picker</a>
-    <a href="/lunaDOM-Docs/details">Details</a>
-    <a href="/lunaDOM-Docs/dialog">Dialog</a>
-    <a href="/lunaDOM-Docs/divider">Divider</a>
-    <a href="/lunaDOM-Docs/drawer">Drawer</a>
-    <a href="/lunaDOM-Docs/dropdown">Dropdown</a>
-    <a href="/lunaDOM-Docs/file-button">File Button</a>
-    <a href="/lunaDOM-Docs/file-input">File Input</a>
-    <a href="/lunaDOM-Docs/format-byte">Format Byte</a>
-    <a href="/lunaDOM-Docs/format-date">Format Date</a>
-    <a href="/lunaDOM-Docs/format-number">Format Number</a>
-    <a href="/lunaDOM-Docs/image-comparer">Image Comparer</a>
-    <a href="/lunaDOM-Docs/include">Include</a>
-    <a href="/lunaDOM-Docs/input">Input</a>
-    <a href="/lunaDOM-Docs/line-chart">Line Chart</a>
-    <a href="/lunaDOM-Docs/link">Link</a>
-    <a href="/lunaDOM-Docs/menu">Menu</a>
-    <a href="/lunaDOM-Docs/pie-chart">Pie Chart</a>
-    <a href="/lunaDOM-Docs/progress">Progress</a>
-    <a href="/lunaDOM-Docs/progress-circle">Progress Circle</a>
-    <a href="/lunaDOM-Docs/qr-code">QR Code</a>
-    <a href="/lunaDOM-Docs/radar-chart">Radar Chart</a>
-    <a href="/lunaDOM-Docs/radio-button">Radio Button Group</a>
-    <a href="/lunaDOM-Docs/radio-group">Radio Group</a>
-    <a href="/lunaDOM-Docs/range">Range</a>
-    <a href="/lunaDOM-Docs/rating">Rating</a>
-    <a href="/lunaDOM-Docs/relative-time">Relative Time</a>
-    <a href="/lunaDOM-Docs/select">Select</a>
-    <a href="/lunaDOM-Docs/skeleton">Skeleton</a>
-    <a href="/lunaDOM-Docs/sparkline">Sparkline</a>
-    <a href="/lunaDOM-Docs/spinner">Spinner</a>
-    <a href="/lunaDOM-Docs/split-panel">Split Panel</a>
-    <a href="/lunaDOM-Docs/switch">Switch</a>
-    <a href="/lunaDOM-Docs/tabs">Tabs</a>
-    <a href="/lunaDOM-Docs/tag">Tag</a>
-    <a href="/lunaDOM-Docs/textarea">Textarea</a>
-    <a href="/lunaDOM-Docs/toast">Toast</a>
-    <a href="/lunaDOM-Docs/tooltip">Tooltip</a>
-    <a href="/lunaDOM-Docs/tree">Tree</a>
+    <a href="/alert">Alert</a>
+    <a href="/animation">Animation</a>
+    <a href="/audio-player">Audio Player</a>
+    <a href="/avatar">Avatar</a>
+    <a href="/badge">Badge</a>
+    <a href="/bar-graph">Bar Graph</a>
+    <a href="/breadcrumb">Breadcrumb</a>
+    <a href="/button">Button</a>
+    <a href="/button-group">Button Group</a>
+    <a href="/card">Card</a>
+    <a href="/carousel">Carousel</a>
+    <a href="/checkbox">Checkbox</a>
+    <a href="/code-block">Code Block</a>
+    <a href="/color-picker">Color Picker</a>
+    <a href="/combobox">Combobox</a>
+    <a href="/copy-button" class="active">Copy Button</a>
+    <a href="/data-grid">Data Grid</a>
+    <a href="/date-picker">Date Picker</a>
+    <a href="/details">Details</a>
+    <a href="/dialog">Dialog</a>
+    <a href="/divider">Divider</a>
+    <a href="/drawer">Drawer</a>
+    <a href="/dropdown">Dropdown</a>
+    <a href="/file-button">File Button</a>
+    <a href="/file-input">File Input</a>
+    <a href="/format-byte">Format Byte</a>
+    <a href="/format-date">Format Date</a>
+    <a href="/format-number">Format Number</a>
+    <a href="/image-comparer">Image Comparer</a>
+    <a href="/include">Include</a>
+    <a href="/input">Input</a>
+    <a href="/line-chart">Line Chart</a>
+    <a href="/link">Link</a>
+    <a href="/menu">Menu</a>
+    <a href="/pie-chart">Pie Chart</a>
+    <a href="/progress">Progress</a>
+    <a href="/progress-circle">Progress Circle</a>
+    <a href="/qr-code">QR Code</a>
+    <a href="/radar-chart">Radar Chart</a>
+    <a href="/radio-button">Radio Button Group</a>
+    <a href="/radio-group">Radio Group</a>
+    <a href="/range">Range</a>
+    <a href="/rating">Rating</a>
+    <a href="/relative-time">Relative Time</a>
+    <a href="/select">Select</a>
+    <a href="/skeleton">Skeleton</a>
+    <a href="/sparkline">Sparkline</a>
+    <a href="/spinner">Spinner</a>
+    <a href="/split-panel">Split Panel</a>
+    <a href="/switch">Switch</a>
+    <a href="/tabs">Tabs</a>
+    <a href="/tag">Tag</a>
+    <a href="/textarea">Textarea</a>
+    <a href="/toast">Toast</a>
+    <a href="/tooltip">Tooltip</a>
+    <a href="/tree">Tree</a>
   </div>
 
 </nav>
@@ -197,73 +198,202 @@
       </header>
 
       <article>
-        <p>The <code>&lt;luna-copy-button&gt;</code> component copies text to the clipboard from a target element or direct value.</p>
+        <p>The <code>&lt;luna-copy-button&gt;</code> component copies text to the clipboard from a target element or direct value with visual feedback.</p>
 
 <h2>Paths</h2>
 <code>/lunadom/components/copy-button/copy-button.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 <code>/lunadom/components/tooltip/tooltip.js</code> <luna-badge variant="success">REQUIRED</luna-badge><br>
 
-<h2>Target Interaction</h2>
+<h2>Basic Usage</h2>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+  <luna-copy-button value="Hello, Luna!">Copy Text</luna-copy-button>
+  <luna-copy-button value="developer@luna.io" variant="primary">Copy Email</luna-copy-button>
+  <luna-copy-button value="npm install lunadom" variant="success">Copy Command</luna-copy-button>
+</div>
+
+<h2>Target Element</h2>
+<p style="color: #888; font-size: 0.875rem; margin-bottom: 1rem;">Copy from another element's value or textContent</p>
 <div style="display: flex; align-items: flex-end; gap: 0.5rem;">
   <luna-input id="token-input" label="Access Token" value="luna_key_8x772v_production" readonly style="flex: 1;"></luna-input>
   <luna-copy-button target="token-input" variant="primary">Copy</luna-copy-button>
 </div>
 
-<h2>Quick Utilities</h2>
-<luna-copy-button value="npm install @luna/core" tooltip="Copy Install Command">
-  <span slot="icon">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
-  </span>
-</luna-copy-button>
+<h2>Variants</h2>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+  <luna-copy-button value="primary" variant="primary">Primary</luna-copy-button>
+  <luna-copy-button value="success" variant="success">Success</luna-copy-button>
+  <luna-copy-button value="warning" variant="warning">Warning</luna-copy-button>
+  <luna-copy-button value="danger" variant="danger">Danger</luna-copy-button>
+  <luna-copy-button value="neutral" variant="neutral">Neutral</luna-copy-button>
+</div>
 
-<luna-copy-button value="developer@luna.io">
-  Copy Email
-</luna-copy-button>
+<h2>Outline Style</h2>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+  <luna-copy-button value="outline primary" variant="primary" outline>Primary</luna-copy-button>
+  <luna-copy-button value="outline success" variant="success" outline>Success</luna-copy-button>
+  <luna-copy-button value="outline warning" variant="warning" outline>Warning</luna-copy-button>
+  <luna-copy-button value="outline danger" variant="danger" outline>Danger</luna-copy-button>
+</div>
+
+<h2>Sizes</h2>
+<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+  <luna-copy-button value="small" size="sm" variant="primary">Small</luna-copy-button>
+  <luna-copy-button value="medium" size="md" variant="primary">Medium</luna-copy-button>
+  <luna-copy-button value="large" size="lg" variant="primary">Large</luna-copy-button>
+</div>
+
+<h2>Pill Style</h2>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+  <luna-copy-button value="pill" variant="primary" pill>Copy Pill</luna-copy-button>
+  <luna-copy-button value="pill outline" variant="success" outline pill>Copy Pill</luna-copy-button>
+</div>
+
+<h2>Icon Only (Circle)</h2>
+<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+  <luna-copy-button value="circle sm" size="sm" variant="primary" circle tooltip="Copy"></luna-copy-button>
+  <luna-copy-button value="circle md" size="md" variant="primary" circle tooltip="Copy"></luna-copy-button>
+  <luna-copy-button value="circle lg" size="lg" variant="primary" circle tooltip="Copy"></luna-copy-button>
+</div>
+
+<h2>Custom Icon & Slots</h2>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+  <luna-copy-button value="npm install lunadom" variant="primary" tooltip="Copy Install Command">
+    <span slot="icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
+    </span>
+  </luna-copy-button>
+  
+  <luna-copy-button value="test@example.com" variant="success">
+    <span slot="prefix">📧</span>
+    Copy Email
+  </luna-copy-button>
+  
+  <luna-copy-button value="API_KEY_123" variant="warning">
+    Copy Key
+    <span slot="suffix">🔑</span>
+  </luna-copy-button>
+</div>
+
+<h2>States</h2>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+  <luna-copy-button value="disabled" variant="primary" disabled>Disabled</luna-copy-button>
+  <luna-copy-button value="loading" variant="primary" loading>Loading</luna-copy-button>
+</div>
 
 <h2>Customization</h2>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Slots</span>
   <br>
-  <code>default</code> - Button label text<br>
-  <code>icon</code> - Custom icon for the button<br>
+  <code>default</code> - Button label text.<br>
+  <code>prefix</code> - Content placed before the copy icon.<br>
+  <code>icon</code> - Replaces the default copy SVG icon.<br>
+  <code>suffix</code> - Content placed after the label.<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Attributes</span>
   <br>
-  <code>target</code> - ID of element to copy from<br>
-  <code>value</code> - Direct value to copy<br>
-  <code>variant</code> - Button variant (primary, secondary, etc.)<br>
-  <code>tooltip</code> - Tooltip text to show<br>
+  <code>value</code> - Literal text to copy when no 'target' is set.<br>
+  <code>target</code> - ID of an element whose .value or textContent is copied.<br>
+  <code>tooltip</code> - Hover tooltip text. Defaults to 'Copy to clipboard'.<br>
+  <code>success-text</code> - Tooltip text shown after successful copy. Defaults to 'Copied!'.<br>
+  <code>variant</code> - Visual color variant (primary, success, warning, danger, neutral). Defaults to neutral.<br>
+  <code>size</code> - Size preset (sm, md, lg). Defaults to 'md'.<br>
+  <code>pill</code> - Full pill border-radius.<br>
+  <code>circle</code> - Equal width/height, ideal for icon-only use.<br>
+  <code>outline</code> - Transparent fill, colored border and text.<br>
+  <code>disabled</code> - Disables the button.<br>
+  <code>loading</code> - Shows a spinner and disables interaction.<br>
+</luna-details>
+<br>
+<luna-details style="--luna-details-content-color: #ccc;">
+  <span slot="summary">CSS Variables</span>
+  <br>
+  <code>--luna-copy-bg</code> - Resting background color.<br>
+  <code>--luna-copy-color</code> - Label and icon color.<br>
+  <code>--luna-copy-border</code> - Border color.<br>
+  <code>--luna-copy-hover-bg</code> - Hover background color.<br>
+  <code>--luna-copy-active-bg</code> - Active/pressed background color.<br>
+  <code>--luna-copy-focus</code> - Focus ring color.<br>
+  <code>--luna-copy-radius</code> - Border radius override.<br>
 </luna-details>
 <br>
 <luna-details style="--luna-details-content-color: #ccc;">
   <span slot="summary">Events</span>
   <br>
-  <code>luna-copy</code> - Emitted when text is copied<br>
+  <code>luna-copy</code> - Fired when text is successfully copied. detail: { text }<br>
 </luna-details>
 
 <h2>Example Code</h2>
-  <luna-code language="html">
-&lt;!-- Target Input Field --&gt;
-&lt;luna-input id="token-input" value="secret-key" readonly&gt;&lt;/luna-input&gt;
-&lt;luna-copy-button target="token-input"&gt;Copy&lt;/luna-copy-button&gt;
+<luna-code language="html">
+&lt;!-- Basic Usage --&gt;
+&lt;luna-copy-button value="Hello, Luna!"&gt;Copy Text&lt;/luna-copy-button&gt;
 
-&lt;!-- With Value --&gt;
-&lt;luna-copy-button value="npm install @luna/core"&gt;
-  Copy Install Command
+&lt;!-- Target Element --&gt;
+&lt;luna-input id="token" value="secret-key" readonly&gt;&lt;/luna-input&gt;
+&lt;luna-copy-button target="token" variant="primary"&gt;Copy&lt;/luna-copy-button&gt;
+
+&lt;!-- Variants --&gt;
+&lt;luna-copy-button value="text" variant="primary"&gt;Primary&lt;/luna-copy-button&gt;
+&lt;luna-copy-button value="text" variant="success"&gt;Success&lt;/luna-copy-button&gt;
+&lt;luna-copy-button value="text" variant="warning"&gt;Warning&lt;/luna-copy-button&gt;
+
+&lt;!-- Outline Style --&gt;
+&lt;luna-copy-button value="text" variant="primary" outline&gt;Outline&lt;/luna-copy-button&gt;
+
+&lt;!-- Sizes --&gt;
+&lt;luna-copy-button value="text" size="sm"&gt;Small&lt;/luna-copy-button&gt;
+&lt;luna-copy-button value="text" size="md"&gt;Medium&lt;/luna-copy-button&gt;
+&lt;luna-copy-button value="text" size="lg"&gt;Large&lt;/luna-copy-button&gt;
+
+&lt;!-- Pill & Circle --&gt;
+&lt;luna-copy-button value="text" pill&gt;Pill Button&lt;/luna-copy-button&gt;
+&lt;luna-copy-button value="text" circle tooltip="Copy"&gt;&lt;/luna-copy-button&gt;
+
+&lt;!-- Custom Icon --&gt;
+&lt;luna-copy-button value="npm install lunadom"&gt;
+  &lt;span slot="icon"&gt;
+    &lt;svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"&gt;
+      &lt;path d="M4 17l6-6-6-6M12 19h8"/&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
 &lt;/luna-copy-button&gt;
 
-&lt;!-- Icon Only --&gt;
-&lt;luna-copy-button value="text" tooltip="Copy"&gt;
-  &lt;span slot="icon"&gt;📋&lt;/span&gt;
+&lt;!-- Prefix & Suffix Slots --&gt;
+&lt;luna-copy-button value="email@example.com"&gt;
+  &lt;span slot="prefix"&gt;📧&lt;/span&gt;
+  Copy Email
 &lt;/luna-copy-button&gt;
-  </luna-code>
+
+&lt;luna-copy-button value="API_KEY_123"&gt;
+  Copy Key
+  &lt;span slot="suffix"&gt;🔑&lt;/span&gt;
+&lt;/luna-copy-button&gt;
+
+&lt;!-- Custom Tooltips --&gt;
+&lt;luna-copy-button 
+  value="code"
+  tooltip="Copy to clipboard"
+  success-text="Copied successfully!"
+&gt;Copy&lt;/luna-copy-button&gt;
+
+&lt;!-- States --&gt;
+&lt;luna-copy-button value="text" disabled&gt;Disabled&lt;/luna-copy-button&gt;
+&lt;luna-copy-button value="text" loading&gt;Loading&lt;/luna-copy-button&gt;
+
+&lt;!-- Listen to copy event --&gt;
+&lt;script&gt;
+  const copyBtn = document.querySelector('luna-copy-button');
+  copyBtn.addEventListener('luna-copy', (e) =&gt; {
+    console.log('Copied:', e.detail.text);
+  });
+&lt;/script&gt;
+</luna-code>
       </article>
     </main>
 
   </div>
-  <script src="/lunaDOM-Docs/js/main.js" defer></script>
+  <script src="/js/main.js" defer></script>
 
 <script>
 (function(){
